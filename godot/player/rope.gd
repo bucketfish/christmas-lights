@@ -1,6 +1,7 @@
 extends Node2D
 
 var link = preload("res://player/link.tscn")
+var light = preload("res://player/light.tscn")
 
 export (int) var pieces = 24
 signal teleport
@@ -8,8 +9,10 @@ signal teleport
 var lastpiece
 var lastpiecepin
 var ready = false
+var count = 0
 
 func _ready():
+	count = 0
 	var parent = $PinJoint2D/link
 	for i in range (pieces):
 		parent = addPiece(parent)
@@ -26,6 +29,15 @@ func addPiece(parent):
 	joint.add_child(piece)
 	joint.node_a = parent.get_path()
 	joint.node_b = piece.get_path()
+	
+	if count%2==0:
+		var add = light.instance()
+		add.get_node("Sprite").frame = (count%12)/2
+		add.get_node("PinJoint2D").node_b = piece.get_path()
+		piece.add_child(add)
+
+	count += 1
+	
 	return piece
 	
 func lastPiece(parent):

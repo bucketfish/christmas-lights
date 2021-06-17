@@ -13,8 +13,7 @@ export (float, 0, 1.0) var jgravity = 600
 
 var velocity = Vector2.ZERO
 var curforce = jumpheight
-var facing_right = true
-var sliding = false
+var canstand = true
 
 onready var animationState = $AnimationTree.get("parameters/playback")
 
@@ -46,14 +45,12 @@ func get_input(delta):
 	if is_on_floor():
 		curforce = jumpheight
 		
-
 		
 	if Input.is_action_just_pressed("right"):
 		$Sprite.set_flip_h(false)
 
 	elif Input.is_action_just_pressed("left"):
 		$Sprite.set_flip_h(true)
-			
 		
 		
 	if animationState.get_current_node() == "fall" && is_on_floor():
@@ -62,20 +59,26 @@ func get_input(delta):
 		animationState.travel("jump")
 	elif velocity.y > 0 && !is_on_floor():
 		animationState.travel("fall")
-	elif Input.is_action_pressed("slide"): # && (Input.is_action_pressed("left")  || Input.is_action_pressed("right")):
+	elif (canstand == false && animationState.get_current_node() == "slide") || (Input.is_action_pressed("slide") && (Input.is_action_pressed("left")  || Input.is_action_pressed("right"))):
 		animationState.travel("slide")
 	elif (Input.is_action_pressed("left") || Input.is_action_pressed("right")) && is_on_floor() && !Input.is_action_pressed("jump"):
 		animationState.travel("walk") 
-	elif !Input.is_action_pressed("left") && !Input.is_action_pressed("right") && !Input.is_action_pressed("jump") && is_on_floor():
+	else:
 		animationState.travel("idle")
-		
-	print(is_on_floor())
 
+		
 
 func _physics_process(delta):
 	get_input(delta)
 	velocity.y += gravity * delta
 	velocity = move_and_slide(velocity, Vector2.UP)
+	
+	if $canstand.get_overlapping_bodies().size() <= 0:
+		canstand = true
+	else:
+		canstand = false
+	#print($canstand.get_overlapping_bodies())
+
 	
 	
 
