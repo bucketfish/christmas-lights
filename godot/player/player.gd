@@ -53,17 +53,20 @@ func get_input(delta):
 		$Sprite.set_flip_h(true)
 		
 		
-	if animationState.get_current_node() == "fall" && is_on_floor():
-		animationState.travel("land")
-	elif Input.is_action_pressed("jump") && is_on_floor():
+	
+	
+	if Input.is_action_pressed("jump") && is_on_floor():
 		animationState.travel("jump")
+	elif animationState.get_current_node() == "fall" && is_on_floor():
+		animationState.travel("land")
 	elif velocity.y > 0 && !is_on_floor():
 		animationState.travel("fall")
-	elif (canstand == false && animationState.get_current_node() == "slide") || (Input.is_action_pressed("slide") && (Input.is_action_pressed("left")  || Input.is_action_pressed("right"))):
+		
+	elif (canstand == false && animationState.get_current_node() == "slide") || (is_on_floor() && Input.is_action_pressed("slide") && (Input.is_action_pressed("left")  || Input.is_action_pressed("right"))):
 		animationState.travel("slide")
 	elif (Input.is_action_pressed("left") || Input.is_action_pressed("right")) && is_on_floor() && !Input.is_action_pressed("jump"):
 		animationState.travel("walk") 
-	else:
+	elif !Input.is_action_pressed("left") && !Input.is_action_pressed("right") && !Input.is_action_pressed("jump") && is_on_floor():
 		animationState.travel("idle")
 
 		
@@ -73,10 +76,13 @@ func _physics_process(delta):
 	velocity.y += gravity * delta
 	velocity = move_and_slide(velocity, Vector2.UP)
 	
-	if $canstand.get_overlapping_bodies().size() <= 0:
-		canstand = true
-	else:
-		canstand = false
+
+	for i in $canstand.get_overlapping_bodies():
+		if !i.is_in_group("player"):
+			canstand = false
+			return
+		
+	canstand = true
 	#print($canstand.get_overlapping_bodies())
 
 	

@@ -401,9 +401,9 @@ states/fall/position = Vector2( 620.5, 57.5 )
 states/idle/node = SubResource( 9 )
 states/idle/position = Vector2( 156.5, 174 )
 states/jump/node = SubResource( 10 )
-states/jump/position = Vector2( 416, 37 )
+states/jump/position = Vector2( 418.5, 32.5 )
 states/land/node = SubResource( 11 )
-states/land/position = Vector2( 683.5, 175.25 )
+states/land/position = Vector2( 713.5, 171.938 )
 states/slide/node = SubResource( 12 )
 states/slide/position = Vector2( 193.5, 23.5 )
 states/walk/node = SubResource( 13 )
@@ -413,23 +413,29 @@ start_node = "idle"
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=32]
 
-[node name="player" type="KinematicBody2D"]
+[node name="player" type="KinematicBody2D" groups=[
+"player",
+]]
 collision_mask = 0
 script = ExtResource( 2 )
 
 [node name="canstand" type="Area2D" parent="."]
-collision_mask = 5
+collision_layer = 0
+collision_mask = 4
 
 [node name="standsize" type="CollisionShape2D" parent="canstand"]
 position = Vector2( 2.61469, 1.64151 )
 shape = SubResource( 1 )
 
-[node name="collision box" type="CollisionShape2D" parent="."]
+[node name="collision box" type="CollisionShape2D" parent="." groups=[
+"player",
+]]
 position = Vector2( 2.49814, 7.77548 )
 shape = SubResource( 34 )
-disabled = true
 
-[node name="slide" type="CollisionShape2D" parent="."]
+[node name="slide" type="CollisionShape2D" parent="." groups=[
+"player",
+]]
 position = Vector2( 3.27003, 44.1753 )
 shape = SubResource( 33 )
 
@@ -438,7 +444,7 @@ scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 1 )
 vframes = 4
 hframes = 4
-frame = 1
+frame = 8
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/fall = SubResource( 2 )
