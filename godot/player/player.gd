@@ -7,7 +7,7 @@ export (int) var gravity = 3000
 export (float, 0, 1.0) var friction = 0.4
 export (float, 0, 1.0) var acceleration = 0.20
 
-export (float, 0, 1.0) var jumpheight = 270
+export (float, 0, 1.0) var jumpheight = 250
 export (float, 0, 1.0) var jumpinc = 0.79
 export (float, 0, 1.0) var jgravity = 600
 
