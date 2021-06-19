@@ -12,12 +12,12 @@ var ready = false
 var count = 0
 
 var colors = [
-	"#B265F1",
-	"#FF7F00",
-	"#FFEF00",
-	"#00F11D",
-	"#0079FF",
-	"#A800FF"
+	"f1656c",
+	"FF7F00",
+	"FFEF00",
+	"00F11D",
+	"0079FF",
+	"A800FF"
 ]
 
 func _ready():
@@ -25,7 +25,7 @@ func _ready():
 	var parent = $PinJoint2D/link
 	for i in range (pieces):
 		parent = addPiece(parent)
-	lastpiece = lastPiece(parent)
+	lastPiece(parent)
 	emit_signal("teleport", Vector2(-200, 0))
 	ready = true
 		
@@ -41,8 +41,9 @@ func addPiece(parent):
 	
 	if count%2==0:
 		var add = light.instance()
-		add.get_node("Light2D/Sprite").frame = (count%12)/2
-		add.get_node("Light2D").color = colors[(count%12)/2]
+		add.get_node("Sprite").frame = (count%12)/2
+		add.get_node("Light2D").color = '#' + colors[(count%12)/2]
+		add.get_node("Sprite2").modulate = '#40' + colors[(count%12)/2]
 		add.get_node("PinJoint2D").node_b = piece.get_path()
 		piece.add_child(add)
 
@@ -58,4 +59,3 @@ func lastPiece(parent):
 	joint.node_a = parent.get_path()
 	joint.node_b = piece.get_path()
 	#piece.set_position(Vector2(-400, 0))
-	return parent
