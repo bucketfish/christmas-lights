@@ -76,13 +76,10 @@ func _physics_process(delta):
 	velocity.y += gravity * delta
 	velocity = move_and_slide(velocity, Vector2.UP)
 	
-
+	canstand = true
 	for i in $canstand.get_overlapping_bodies():
 		if !i.is_in_group("player"):
 			canstand = false
-			return
-		
-	canstand = true
 	#print($canstand.get_overlapping_bodies())
 
 	

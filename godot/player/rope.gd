@@ -11,6 +11,15 @@ var lastpiecepin
 var ready = false
 var count = 0
 
+var colors = [
+	"#B265F1",
+	"#FF7F00",
+	"#FFEF00",
+	"#00F11D",
+	"#0079FF",
+	"#A800FF"
+]
+
 func _ready():
 	count = 0
 	var parent = $PinJoint2D/link
@@ -32,7 +41,8 @@ func addPiece(parent):
 	
 	if count%2==0:
 		var add = light.instance()
-		add.get_node("Sprite").frame = (count%12)/2
+		add.get_node("Light2D/Sprite").frame = (count%12)/2
+		add.get_node("Light2D").color = colors[(count%12)/2]
 		add.get_node("PinJoint2D").node_b = piece.get_path()
 		piece.add_child(add)
 
@@ -49,20 +59,3 @@ func lastPiece(parent):
 	joint.node_b = piece.get_path()
 	#piece.set_position(Vector2(-400, 0))
 	return parent
-#
-#func _physics_process(delta):
-#	if is_instance_valid(lastpiece.get_node("PinJoint2D")) && ready:
-#		var diffx = get_node(lastpiece.get_node("PinJoint2D").node_a).global_position - get_parent().get_node("player/StaticBody2D").global_position
-#		var diff = diffx.x
-#		print(diff)
-#		if diff > 40:
-#			lastpiece.get_node("PinJoint2D").softness = 0
-#			lastpiece = addPiece(lastpiece)
-#			lastpiece=lastPiece(lastpiece)
-#		elif diff < 0:
-#			var new = lastpiece.get_parent().get_parent()
-#			print(new)
-#			lastpiece.queue_free()
-#			lastpiece = lastPiece(new)
-#
-
