@@ -3,7 +3,7 @@ extends Node2D
 var link = preload("res://player/link.tscn")
 var light = preload("res://player/light.tscn")
 
-export (int) var pieces = 24
+export (int) var pieces = 35
 signal teleport
 
 var lastpiece
