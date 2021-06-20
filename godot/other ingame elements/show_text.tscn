@@ -40,13 +40,12 @@ size = 48
 font_data = ExtResource( 2 )
 
 [node name="text" type="Area2D"]
-position = Vector2( 1799.79, -459.406 )
 collision_layer = 5
 collision_mask = 5
 script = ExtResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 75.676, 105.727 )
+position = Vector2( 76.3825, 135.399 )
 rotation = 1.5708
 shape = SubResource( 1 )
 
@@ -55,10 +54,10 @@ anims/appear = SubResource( 2 )
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
 modulate = Color( 1, 1, 1, 0 )
-margin_left = 13.1477
-margin_top = 30.0
-margin_right = 166.148
-margin_bottom = 95.7486
+margin_left = -116.0
+margin_top = 1.0
+margin_right = 269.0
+margin_bottom = 133.0
 custom_fonts/normal_font = SubResource( 3 )
 custom_colors/default_color = Color( 1, 1, 1, 1 )
 bbcode_enabled = true

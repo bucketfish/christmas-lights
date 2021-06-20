@@ -18,6 +18,7 @@ _global_script_class_icons={
 config/name="christmas lights"
 run/main_scene="res://rooms/room_template.tscn"
 config/icon="res://icon.png"
+config/name_en_CA="linja suno"
 
 [display]
 
@@ -56,6 +57,12 @@ slide={
 "events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":88,"unicode":0,"echo":false,"script":null)
  ]
 }
+
+[locale]
+
+test="en"
+locale_filter=[ 0, [  ] ]
+translations=PoolStringArray( "res://localization/translations - translation.en.translation", "res://localization/translations - translation.en_CA.translation" )
 
 [rendering]
 

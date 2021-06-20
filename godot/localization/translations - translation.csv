@@ -1,0 +1,24 @@
+keys,en,en_CA
+TITLE,christmas lights,linja suno
+LANGUAGE_NAME,english,toki pona
+MENU_PLAY,play,o musi
+MENU_OPTIONS,options,o ante e ijo
+MENU_QUIT,quit,o pini
+MENU_PAUSED,paused,pake
+MENU_CONTINUE,continue,o awen musi
+MENU_QUITANDSAVE,quit and save,o pini musi
+,,
+,,
+,,
+,,
+,,
+INTRO_1,"welcome, [color=#add8ff]rain[/color].","o kama pona, [color=#add8ff]jan wen[/color] o."
+INTRO_2,you have one goal.,wile sina li wan:
+INTRO_3,reach the top and string the lights.,"o tawa sewi, o pana e linja suno."
+INTRO_4,good luck.,o pali pona.
+,,
+INTERACT_ENTER,enter,o tawa
+INTERACT_LISTEN,listen,o kute
+INTERACT_PICKUP,pick up,o luka
+INTERACT_WATCH,watch,o lukin
+INTERACT_REST,rest,o lape

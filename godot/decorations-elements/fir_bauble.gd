@@ -4,10 +4,13 @@ extends Area2D
 onready var text = $RichTextLabel
 onready var animate = $AnimationPlayer
 
+export var key = ""
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	text.modulate = 0
+	text.bbcode_text = "[center]" + tr(key) + "[/center]"
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
