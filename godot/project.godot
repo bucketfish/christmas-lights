@@ -16,7 +16,7 @@ _global_script_class_icons={
 [application]
 
 config/name="christmas lights"
-run/main_scene="res://world.tscn"
+run/main_scene="res://rooms/fir_room.tscn"
 config/icon="res://icon.png"
 
 [display]
