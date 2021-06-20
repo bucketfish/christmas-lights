@@ -3,12 +3,9 @@ extends Node2D
 var link = preload("res://player/link.tscn")
 var light = preload("res://player/light.tscn")
 
-export (int) var pieces = 35
-signal teleport
 
-var lastpiece
-var lastpiecepin
-var ready = false
+export (int) var pieces = 35
+
 var count = 0
 
 var colors = [
@@ -26,8 +23,6 @@ func _ready():
 	for i in range (pieces):
 		parent = addPiece(parent)
 	lastPiece(parent)
-	emit_signal("teleport", Vector2(-200, 0))
-	ready = true
 		
 func addPiece(parent):
 	var joint = parent.get_node("PinJoint2D")
