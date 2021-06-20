@@ -9,8 +9,10 @@
 
 [node name="spawn" parent="." index="0" instance=ExtResource( 4 )]
 position = Vector2( -3588.85, 1295.58 )
+on = true
 towards = "intro_whitefir"
 id = "whitefir_intro"
+path = "res://rooms/intro.tscn"
 
 [node name="fir_bauble_sprite" type="Sprite" parent="." index="1"]
 position = Vector2( -261.617, 564.352 )

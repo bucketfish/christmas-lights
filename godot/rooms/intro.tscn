@@ -36,6 +36,7 @@ id = "intro_start"
 position = Vector2( 1316.73, -877.574 )
 towards = "whitefir_intro"
 id = "intro_whitefir"
+path = "res://rooms/white_fir.tscn"
 
 [node name="text" parent="." index="6" instance=ExtResource( 2 )]
 position = Vector2( -1333.99, 355.949 )
