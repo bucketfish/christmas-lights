@@ -43,6 +43,7 @@ font_data = ExtResource( 2 )
 collision_layer = 5
 collision_mask = 5
 script = ExtResource( 1 )
+key = "INTRO_1"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 76.3825, 135.399 )
@@ -53,14 +54,20 @@ shape = SubResource( 1 )
 anims/appear = SubResource( 2 )
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
-modulate = Color( 1, 1, 1, 0 )
-margin_left = -116.0
-margin_top = 1.0
-margin_right = 269.0
-margin_bottom = 133.0
+margin_left = 66.5618
+margin_top = 31.1256
+margin_right = 96.5618
+margin_bottom = 61.1256
+grow_horizontal = 2
+grow_vertical = 2
+rect_min_size = Vector2( 500, 50 )
+rect_clip_content = false
 custom_fonts/normal_font = SubResource( 3 )
 custom_colors/default_color = Color( 1, 1, 1, 1 )
 bbcode_enabled = true
+bbcode_text = "[center]enter[/center]"
+text = "enter"
+scroll_active = false
 __meta__ = {
 "_edit_use_anchors_": false
 }

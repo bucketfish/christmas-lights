@@ -1,8 +1,8 @@
 extends Area2D
 
-
-onready var text = $RichTextLabel
 onready var animate = $AnimationPlayer
+onready var text = $RichTextLabel
+
 
 export var key = ""
 
@@ -11,6 +11,8 @@ export var key = ""
 func _ready():
 	text.modulate = 0
 	text.bbcode_text = "[center]" + tr(key) + "[/center]"
+#	workaround.text = tr(key)
+#	text.rect_min_size = workaround.rect_size
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
