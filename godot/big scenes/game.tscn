@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://big scenes/game.gd" type="Script" id=1]
 [ext_resource path="res://rooms/intro.tscn" type="PackedScene" id=2]
+[ext_resource path="res://small things/hollyberry.tscn" type="PackedScene" id=3]
 
 [sub_resource type="Animation" id=1]
 resource_name = "fade"
@@ -44,5 +45,8 @@ __meta__ = {
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="scenechanger"]
 anims/fade = SubResource( 1 )
+
+[node name="hollyberry" parent="." instance=ExtResource( 3 )]
+position = Vector2( -374.044, 772.199 )
 
 [editable path="intro"]

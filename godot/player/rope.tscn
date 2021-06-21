@@ -12,7 +12,7 @@ script = ExtResource( 1 )
 position = Vector2( 10.9544, 0.283789 )
 node_a = NodePath("../..")
 node_b = NodePath("link")
-softness = 1.0
+softness = 0.1
 
 [node name="link" parent="PinJoint2D" instance=ExtResource( 2 )]
 position = Vector2( -13.2223, -0.0526657 )

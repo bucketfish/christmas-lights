@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://rooms/room_template.tscn" type="PackedScene" id=1]
 [ext_resource path="res://other ingame elements/show_text.tscn" type="PackedScene" id=2]
 [ext_resource path="res://other ingame elements/movement button.tscn" type="PackedScene" id=3]
 [ext_resource path="res://other ingame elements/spawn.tscn" type="PackedScene" id=4]
+[ext_resource path="res://small things/hollyberry.tscn" type="PackedScene" id=5]
 
 [node name="intro" instance=ExtResource( 1 )]
 position = Vector2( 505.904, 263.051 )
@@ -32,7 +33,6 @@ position = Vector2( 137.904, 0 )
 
 [node name="text" parent="." index="3" instance=ExtResource( 2 )]
 position = Vector2( -1333.99, 355.949 )
-key = "INTRO_1"
 
 [node name="CollisionShape2D" parent="text" index="0"]
 position = Vector2( 75.676, 159.196 )
@@ -93,7 +93,10 @@ button_input = "right"
 position = Vector2( 713.965, 496.713 )
 button_input = "jump"
 
-[node name="Camera2D" parent="." index="10"]
+[node name="hollyberry" parent="." index="10" instance=ExtResource( 5 )]
+position = Vector2( 1031.34, -184.878 )
+
+[node name="Camera2D" parent="." index="11"]
 position = Vector2( -1273.9, -698.028 )
 
 [node name="topleft" parent="Camera2D/Node" index="0"]
@@ -102,10 +105,10 @@ position = Vector2( -1368.62, -940.378 )
 [node name="bottomright" parent="Camera2D/Node" index="1"]
 position = Vector2( 1915.1, 962.201 )
 
-[node name="rope" parent="." index="11"]
+[node name="rope" parent="." index="12"]
 position = Vector2( -1273.9, -698.028 )
 
-[node name="player" parent="." index="12"]
+[node name="player" parent="." index="13"]
 position = Vector2( -1273.9, -698.028 )
 
 [editable path="spawn1"]
