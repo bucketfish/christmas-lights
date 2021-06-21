@@ -8,15 +8,15 @@ export var path: String
 var enabled = true
 
 func _ready():
-	if on:
-		enabled = false
+	get_owner().get_parent().connect("scene_changed", self, "_on_scene_change")
 
 
 func _on_Area2D_area_entered(area):
 	if enabled:
-		Scenechanger.change_scene(path, towards)
+		get_owner().get_parent().change_scene(path, towards)
 
-
-func _on_Area2D_area_exited(area):
-	enabled = true
-
+func _on_scene_change(spawn):
+	if id == spawn:
+		on = true
+	else:
+		on = false

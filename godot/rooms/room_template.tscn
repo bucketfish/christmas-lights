@@ -9,7 +9,9 @@
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 23.8837, 616.598 )
 
-[node name="room" type="Node2D"]
+[node name="room" type="Node2D" groups=[
+"room",
+]]
 position = Vector2( 506.91, 263.051 )
 script = ExtResource( 1 )
 
