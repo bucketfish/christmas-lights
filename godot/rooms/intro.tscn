@@ -38,10 +38,10 @@ position = Vector2( -1333.99, 355.949 )
 position = Vector2( 75.676, 159.196 )
 
 [node name="RichTextLabel" parent="text" index="2"]
-margin_left = -156.811
-margin_top = 17.2403
-margin_right = 310.189
-margin_bottom = 166.544
+margin_left = -228.435
+margin_top = 15.5412
+margin_right = 395.565
+margin_bottom = 164.541
 
 [node name="text2" parent="." index="4" instance=ExtResource( 2 )]
 position = Vector2( -767.984, 364.078 )
@@ -94,12 +94,16 @@ position = Vector2( 713.965, 496.713 )
 button_input = "jump"
 
 [node name="hollyberry" parent="." index="10" instance=ExtResource( 5 )]
-position = Vector2( 1031.34, -184.878 )
+position = Vector2( 926.648, -178.36 )
 
 [node name="hollyberry2" parent="." index="11" instance=ExtResource( 5 )]
 position = Vector2( -670.94, -562.167 )
 
-[node name="Camera2D" parent="." index="12"]
+[node name="button_interact" parent="." index="12" instance=ExtResource( 3 )]
+position = Vector2( 1017.4, -221.932 )
+button_input = "interact"
+
+[node name="Camera2D" parent="." index="13"]
 position = Vector2( -1273.9, -698.028 )
 
 [node name="topleft" parent="Camera2D/Node" index="0"]
@@ -108,10 +112,10 @@ position = Vector2( -1368.62, -940.378 )
 [node name="bottomright" parent="Camera2D/Node" index="1"]
 position = Vector2( 1915.1, 962.201 )
 
-[node name="rope" parent="." index="13"]
+[node name="rope" parent="." index="14"]
 position = Vector2( -1273.9, -698.028 )
 
-[node name="player" parent="." index="14"]
+[node name="player" parent="." index="15"]
 position = Vector2( -1273.9, -698.028 )
 
 [editable path="spawn1"]

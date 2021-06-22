@@ -7,7 +7,7 @@ var keys = {
 	"jump": "z",
 	"left": "←",
 	"right":"→",
-	"up":"↑",
+	"interact":"↑",
 	"down":"↓",
 }
 
