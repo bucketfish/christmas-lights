@@ -27,3 +27,4 @@ func change_scene(path, towards):
 func berry_set(value):
 	berrylabel.text = str(value)
 	berries = value
+	print("picked up berry")

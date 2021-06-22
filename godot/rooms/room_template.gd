@@ -18,7 +18,7 @@ func _ready():
 func on_scene_change(id):
 	for i in range(spawns):
 		var spawn = get_node("spawn" + str(i+1))
-		print(id + ' | ' + spawn.id)
+		print(id + ' -> ' + spawn.id)
 		if spawn.id == id:
 			player.global_position = spawn.global_position
 			rope.global_position = player.global_position + Vector2(-19, 15)	

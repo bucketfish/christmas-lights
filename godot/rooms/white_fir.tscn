@@ -50,7 +50,7 @@ position = Vector2( -3521.82, 539.961 )
 position = Vector2( -2167.29, 1372.26 )
 
 [node name="hollyberry4" parent="." index="7" instance=ExtResource( 5 )]
-position = Vector2( -2131.63, 892.349 )
+position = Vector2( -1676.7, 731.771 )
 
 [node name="hollyberry5" parent="." index="8" instance=ExtResource( 5 )]
 position = Vector2( 1175.13, 1371.9 )
