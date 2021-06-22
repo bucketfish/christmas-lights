@@ -14,6 +14,7 @@ export (float, 0, 1.0) var jgravity = 600
 var velocity = Vector2.ZERO
 var curforce = jumpheight
 var canstand = true
+var pickup = false
 
 onready var animationState = $AnimationTree.get("parameters/playback")
 
@@ -54,7 +55,7 @@ func get_input(delta):
 		
 		
 	
-	
+
 	if Input.is_action_pressed("jump") && is_on_floor():
 		animationState.travel("jump")
 	elif animationState.get_current_node() == "fall" && is_on_floor():
@@ -64,6 +65,8 @@ func get_input(delta):
 		
 	elif (canstand == false && animationState.get_current_node() == "slide") || (is_on_floor() && Input.is_action_pressed("slide") && (Input.is_action_pressed("left")  || Input.is_action_pressed("right"))):
 		animationState.travel("slide")
+	elif (Input.is_action_pressed("interact") && pickup):
+		animationState.travel("pickup")
 	elif (Input.is_action_pressed("left") || Input.is_action_pressed("right")) && is_on_floor() && !Input.is_action_pressed("jump"):
 		animationState.travel("walk") 
 	elif !Input.is_action_pressed("left") && !Input.is_action_pressed("right") && !Input.is_action_pressed("jump") && is_on_floor():
@@ -80,12 +83,14 @@ func _physics_process(delta):
 	for i in $canstand.get_overlapping_bodies():
 		if !i.is_in_group("player"):
 			canstand = false
-	#print($canstand.get_overlapping_bodies())
 
-	
-	
 
-		
 
-		
+func _on_canstand_area_entered(area):
+	if area.is_in_group("pickup"):
+		pickup = true
 
+
+func _on_canstand_area_exited(area):
+	if area.is_in_group("pickup"):
+		pickup = false

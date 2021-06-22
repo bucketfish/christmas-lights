@@ -47,6 +47,6 @@ __meta__ = {
 anims/fade = SubResource( 1 )
 
 [node name="hollyberry" parent="." instance=ExtResource( 3 )]
-position = Vector2( -374.044, 772.199 )
+position = Vector2( -374.973, 820.047 )
 
 [editable path="intro"]
