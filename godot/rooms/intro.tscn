@@ -96,7 +96,10 @@ button_input = "jump"
 [node name="hollyberry" parent="." index="10" instance=ExtResource( 5 )]
 position = Vector2( 1031.34, -184.878 )
 
-[node name="Camera2D" parent="." index="11"]
+[node name="hollyberry2" parent="." index="11" instance=ExtResource( 5 )]
+position = Vector2( -670.94, -562.167 )
+
+[node name="Camera2D" parent="." index="12"]
 position = Vector2( -1273.9, -698.028 )
 
 [node name="topleft" parent="Camera2D/Node" index="0"]
@@ -105,10 +108,10 @@ position = Vector2( -1368.62, -940.378 )
 [node name="bottomright" parent="Camera2D/Node" index="1"]
 position = Vector2( 1915.1, 962.201 )
 
-[node name="rope" parent="." index="12"]
+[node name="rope" parent="." index="13"]
 position = Vector2( -1273.9, -698.028 )
 
-[node name="player" parent="." index="13"]
+[node name="player" parent="." index="14"]
 position = Vector2( -1273.9, -698.028 )
 
 [editable path="spawn1"]
