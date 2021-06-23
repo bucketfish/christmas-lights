@@ -1,6 +1,8 @@
 extends Control
 
 onready var label = $NinePatchRect/MarginContainer/RichTextLabel
+onready var base = get_node("/root/game")
+
 var showing = false
 var current = ""
 var count = 0
@@ -32,3 +34,6 @@ func _input(event):
 		else:
 			showing = false
 			visible = false
+			yield(get_tree().create_timer(0.1), "timeout")
+			base.speaking = false
+			

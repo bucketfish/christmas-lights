@@ -65,6 +65,8 @@ path = "res://rooms/white_fir.tscn"
 [node name="Area2D" parent="spawn1" index="0"]
 position = Vector2( -114.282, 23.057 )
 
+[editable path="fir"]
+
 [editable path="text"]
 
 [editable path="Camera2D"]

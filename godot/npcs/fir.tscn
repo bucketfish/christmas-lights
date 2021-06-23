@@ -21,8 +21,8 @@ tracks/0/keys = {
 }
 
 [sub_resource type="CapsuleShape2D" id=2]
-radius = 65.9525
-height = 57.7848
+radius = 57.9371
+height = 15.475
 
 [node name="fir" type="Node2D"]
 position = Vector2( 239.294, 204.14 )

@@ -9,7 +9,8 @@ onready var dialogue = $gui/dialogue
 export var testscene: String
 export var testspawn: String
 
-export var berries = 0 setget berry_set
+var berries = 0 setget berry_set
+var speaking = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -32,3 +33,8 @@ func berry_set(value):
 	berrylabel.text = str(value)
 	berries = value
 	print("picked up berry")
+	
+func dialogue_set(value):
+	dialogue.show_dialogue(value)
+	speaking = true
+

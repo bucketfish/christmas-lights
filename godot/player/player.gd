@@ -17,9 +17,12 @@ var canstand = true
 var pickup = false
 
 onready var animationState = $AnimationTree.get("parameters/playback")
-
+onready var base = get_node("/root/game")
 
 func get_input(delta):
+	if base.speaking:
+		return
+	
 	var dir = 0
 	if Input.is_action_pressed("right"):
 		dir += 1

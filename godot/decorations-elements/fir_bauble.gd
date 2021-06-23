@@ -18,11 +18,14 @@ func _ready():
 #func _process(delta):
 	#print(get_overlapping_bodies())
 
-func _on_text_area_entered(area):
-	animate.play("appear")
-	inside = true
+func _on_text_body_entered(body):
+	if body.is_in_group("player"):
+		animate.play("appear")
+		inside = true
 
 
-func _on_text_area_exited(area):
-	animate.play_backwards("appear")
-	inside = false
+func _on_text_body_exited(body):
+	if body.is_in_group("player"):
+		animate.play_backwards("appear")
+		inside = false
+

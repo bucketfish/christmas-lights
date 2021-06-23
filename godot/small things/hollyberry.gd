@@ -8,11 +8,10 @@ onready var text = $text
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	$Sprite.visible = true
 	$Sprite.position.y = 0
 
 func _input(event):
-	if event.is_action_pressed("interact") && text.inside:
+	if event.is_action_pressed("interact") && text.inside == true:
 		$AnimationPlayer.play("pickup")
 		yield($AnimationPlayer, "animation_finished")
 		get_node("/root/game").berries += 1
