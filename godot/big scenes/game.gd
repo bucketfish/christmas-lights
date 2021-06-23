@@ -3,13 +3,13 @@ extends Node2D
 #signal scene_changed(spawn)
 
 onready var changeanim = $scenechanger/AnimationPlayer
-
 onready var berrylabel = $gui/berry/berrylabel
+onready var dialogue = $gui/dialogue
 
 export var testscene: String
 export var testspawn: String
 
-var berries = 0 setget berry_set
+export var berries = 0 setget berry_set
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

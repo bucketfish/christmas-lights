@@ -18,8 +18,6 @@ func _ready():
 #func _process(delta):
 	#print(get_overlapping_bodies())
 
-
-
 func _on_text_area_entered(area):
 	animate.play("appear")
 	inside = true

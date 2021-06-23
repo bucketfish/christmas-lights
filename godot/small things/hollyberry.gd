@@ -9,6 +9,7 @@ onready var text = $text
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$Sprite.visible = true
+	$Sprite.position.y = 0
 
 func _input(event):
 	if event.is_action_pressed("interact") && text.inside:

@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://big scenes/game.gd" type="Script" id=1]
 [ext_resource path="res://rooms/intro.tscn" type="PackedScene" id=2]
 [ext_resource path="res://gui/berry.tscn" type="PackedScene" id=3]
 [ext_resource path="res://gui/gui.gd" type="Script" id=4]
+[ext_resource path="res://gui/dialogue.tscn" type="PackedScene" id=5]
 
 [sub_resource type="Animation" id=1]
 resource_name = "fade"
@@ -29,9 +30,12 @@ testspawn = "whitefir_firbauble"
 [node name="intro" parent="." instance=ExtResource( 2 )]
 
 [node name="gui" type="CanvasLayer" parent="."]
+pause_mode = 2
 script = ExtResource( 4 )
 
 [node name="berry" parent="gui" instance=ExtResource( 3 )]
+
+[node name="dialogue" parent="gui" instance=ExtResource( 5 )]
 
 [node name="scenechanger" type="CanvasLayer" parent="."]
 

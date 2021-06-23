@@ -1,0 +1,65 @@
+keys,en,en_CA
+TITLE,christmas lights,linja suno
+LANGUAGE_NAME,english,toki pona
+MENU_PLAY,play,o musi
+MENU_OPTIONS,options,o ante e ijo
+MENU_QUIT,quit,o pini
+MENU_VERSION,version,nanpa musi
+MENU_PAUSED,paused,pake
+MENU_CONTINUE,continue,o awen musi
+MENU_QUITANDSAVE,quit and save,o pini musi
+,,
+OPTIONS_VIDEO,video,sitelen
+OPTIONS_VIDEO_LIGHTS,lights,suno lili
+OPTIONS_VIDEO_PARTICLES,particles,ijo lili
+OPTIONS_VIDEO_SATURATION,saturation,kule wawa
+OPTIONS_VIDEO_ALL,all,ale
+OPTIONS_VIDEO_DECREASED,decreased,lili
+OPTIONS_VIDEO_FANCY,fancy,namako
+OPTIONS_VIDEO_FAST,fast,tenpo lili
+OPTIONS_VIDEO_NONE,none,ala
+,,
+OPTIONS_AUDIO,audio,kalama
+OPTIONS_AUDIO_MASTER,master,ale
+OPTIONS_AUDIO_MUSIC,music,kalama musi
+OPTIONS_AUDIO_PLAYER,player,jan
+OPTIONS_AUDIO_SOUNDEFFECTS,sound effects,ante
+,,
+OPTIONS_CONTROLS,controls,nasin
+OPTIONS_CONTROLS_MOVELEFT,move left,tawa soto
+OPTIONS_CONTROLS_MOVERIGHT,move right,tawa teje
+OPTIONS_CONTROLS_JUMP,jump,tawa sewi
+OPTIONS_CONTROLS_INTERACT,interact,pali
+OPTIONS_CONTROLS_SLIDE,slide,tawa telo
+OPTIONS_CONTROLS_LATCH,latch,tawa wawa
+,,
+OPTIONS_LANGUAGE,language,toki
+,,
+OPTIONS_BACK,back,pini
+,,
+INTERACT_ENTER,enter,o tawa
+INTERACT_LISTEN,listen,o kute
+INTERACT_PICKUP,pick up,o luka
+INTERACT_WATCH,watch,o lukin
+INTERACT_REST,rest,o lape
+,,
+INTRO_1,"welcome, [color=#add8ff]rain[/color].","o kama pona, jan [color=#add8ff]wen[/color] o."
+INTRO_2,you have one goal.,alasa sina li wan:
+INTRO_3,reach the top and string the lights.,"o tawa sewi, o pana e linja suno."
+INTRO_4,good luck.,o pali pona.
+,,
+NPC_GIFT_ONE,gift a berry to {person},o pana e kili tawa {person
+NPC_GIFT_MANY,gift {number} berries to {person},o pana e kili {number} tawa {person}
+NPC_GIFT,gift,o pana
+NPC_NOTENOUGH,not enough,jo sina li lili
+NPC_CANCEL,cancel,o weka
+,,
+FIR_INTRO_1,"ohoho! oolala! i'm [color=#add8ff]fir[/color] the shopkeeper, and it's the summer sale!","o o o! a a a! mi jan esun [color=#add8ff]pe[/color]. tenpo seli, tenpo seli! wile mani li lili!"
+FIR_INTRO_2,hm? what's you? christmas came around already?,a? seme li sina? tenpo pi suno lili li kama?
+FIR_INTRO_3,oh well! [color=#add8ff]rain[/color]! ohoho! it's the christmas sale!,"a, a. jan [color=#add8ff]wen[/color]! o o o! tenpo lete, tenpo lete! wile mani li lili!"
+FIR_BEFORESLED_1,it's the christmas sale!,tenpo lete! wile mani li lili!
+FIR_AFTERSLED_1,holly berries? for me? uhuhu! you're too kind.,kili suwi? tawa mi? a a a! sina pona mute a.
+FIR_AFTERSLED_2,"here, have a sled. it's nice and slidey. go skedaddle!",o jo e supa ni. ona li pona li ken tawa wawa. o tawa musi a!
+FIR_AFTERSLED_3,"it's the smallest one i can find. you're quite a tiny thing, [color=#add8ff]rain[/color]. ohoho!","supa ni li lili mute mute. sina lili, jan [color=#add8ff]wen[/color] o, a a a!"
+FIR_NOTHING_1,ohoho! it's the christmas sale! all items 50% off!,o o o! tenpo lete! wile mani li lili mute a!
+FIR_NOTHING_2,"visit me sometime when you're bored, small thing.","o lukin e mi lon tenpo sina, lili o."

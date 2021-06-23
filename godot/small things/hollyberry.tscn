@@ -40,7 +40,6 @@ script = ExtResource( 3 )
 anims/pickup = SubResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
-position = Vector2( 0, 3 )
 scale = Vector2( 0.3, 0.3 )
 texture = ExtResource( 1 )
 
@@ -49,5 +48,9 @@ texture = ExtResource( 1 )
 ] instance=ExtResource( 2 )]
 position = Vector2( -78.4924, -136.014 )
 key = "INTERACT_PICKUP"
+
+[node name="RichTextLabel" parent="text" index="2"]
+modulate = Color( 1, 1, 1, 0.5 )
+margin_top = 15.404
 
 [editable path="text"]

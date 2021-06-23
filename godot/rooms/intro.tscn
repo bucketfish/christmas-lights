@@ -16,7 +16,6 @@ tile_data = PoolIntArray( -2490392, 0, 196615, -2555897, 0, 3, -2555896, 0, 3276
 
 [node name="spawn1" parent="." index="1" instance=ExtResource( 4 )]
 position = Vector2( -1269.2, -698.357 )
-on = true
 id = "intro_start"
 
 [node name="CollisionShape2D" parent="spawn1/Area2D" index="0"]
@@ -64,9 +63,10 @@ key = "INTRO_3"
 position = Vector2( 76.1196, 129.242 )
 
 [node name="RichTextLabel" parent="text3" index="2"]
-margin_left = -132.0
-margin_top = 7.0
-margin_bottom = 152.0
+margin_left = -177.92
+margin_top = 1.20648
+margin_right = 322.08
+margin_bottom = 146.206
 
 [node name="text4" parent="." index="6" instance=ExtResource( 2 )]
 position = Vector2( 207.38, 389.635 )

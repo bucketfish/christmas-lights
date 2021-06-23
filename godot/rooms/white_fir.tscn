@@ -77,9 +77,6 @@ position = Vector2( 2114.64, 1879.12 )
 [node name="ParallaxLayer" parent="Camera2D/ParallaxBackground" index="0"]
 modulate = Color( 0.658824, 0.658824, 0.658824, 1 )
 
-[node name="Sprite2" parent="Camera2D/ParallaxBackground/ParallaxLayer3" index="0"]
-modulate = Color( 0.419608, 0.419608, 0.419608, 0.462745 )
-
 [node name="rope" parent="." index="12"]
 position = Vector2( -2659.14, 1221.55 )
 
