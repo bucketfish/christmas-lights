@@ -3,7 +3,7 @@
 [ext_resource path="res://other ingame elements/spawn.gd" type="Script" id=1]
 
 [sub_resource type="CircleShape2D" id=1]
-radius = 86.6743
+radius = 73.1686
 
 [node name="spawn" type="Position2D"]
 position = Vector2( -3836, -617.167 )
@@ -16,3 +16,4 @@ collision_mask = 5
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource( 1 )
 [connection signal="area_entered" from="Area2D" to="." method="_on_Area2D_area_entered"]
+[connection signal="area_exited" from="Area2D" to="." method="_on_Area2D_area_exited"]
