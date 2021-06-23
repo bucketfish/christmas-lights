@@ -2,6 +2,7 @@ extends Area2D
 
 onready var animate = $AnimationPlayer
 onready var text = $RichTextLabel
+onready var base = get_node("/root/game")
 
 export var key = ""
 
@@ -11,12 +12,10 @@ var inside = false
 func _ready():
 	text.modulate = 0
 	text.bbcode_text = "[center]" + tr(key) + "[/center]"
-#	workaround.text = tr(key)
-#	text.rect_min_size = workaround.rect_size
+	base.connect("dialogue_start", self, "_on_dialogue_start")
+	base.connect("dialogue_end", self, "_on_dialogue_end")
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-	#print(get_overlapping_bodies())
+	
 
 func _on_text_body_entered(body):
 	if body.is_in_group("player"):
@@ -29,3 +28,8 @@ func _on_text_body_exited(body):
 		animate.play_backwards("appear")
 		inside = false
 
+func _on_dialogue_start():
+	animate.play_backwards("appear")
+
+func _on_dialogue_end():
+	animate.play("appear")

@@ -10,8 +10,11 @@ export var testscene: String
 export var testspawn: String
 
 var berries = 0 setget berry_set
-var speaking = false
+var speaking = false setget speaking_set
 
+
+signal dialogue_start
+signal dialogue_end
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	if testscene && testspawn:
@@ -36,5 +39,11 @@ func berry_set(value):
 	
 func dialogue_set(value):
 	dialogue.show_dialogue(value)
-	speaking = true
+	speaking_set(true)
 
+func speaking_set(value):
+	speaking = value
+	if speaking == true:
+		emit_signal("dialogue_start")
+	else:
+		emit_signal("dialogue_end")
