@@ -6,7 +6,7 @@
 [ext_resource path="res://other ingame elements/spawn.tscn" type="PackedScene" id=4]
 [ext_resource path="res://small things/hollyberry.tscn" type="PackedScene" id=5]
 
-[node name="white_fir" instance=ExtResource( 1 )]
+[node name="scene" instance=ExtResource( 1 )]
 spawns = 2
 
 [node name="fir_bauble_sprite" type="Sprite" parent="." index="0"]

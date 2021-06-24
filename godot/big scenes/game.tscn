@@ -27,7 +27,7 @@ script = ExtResource( 1 )
 testscene = "res://rooms/white_fir.tscn"
 testspawn = "whitefir_firbauble"
 
-[node name="intro" parent="." instance=ExtResource( 2 )]
+[node name="scene" parent="." instance=ExtResource( 2 )]
 
 [node name="gui" type="CanvasLayer" parent="."]
 pause_mode = 2
@@ -58,5 +58,3 @@ __meta__ = {
 [node name="AnimationPlayer" type="AnimationPlayer" parent="scenechanger"]
 anims/fade = SubResource( 1 )
 [connection signal="giveberry" from="gui/dialogue" to="." method="_on_dialogue_giveberry"]
-
-[editable path="intro"]

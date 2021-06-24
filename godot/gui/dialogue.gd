@@ -9,6 +9,7 @@ onready var accept = $NinePatchRect/MarginContainer/VBoxContainer/HBoxContainer/
 onready var base = get_node("/root/game")
 
 signal giveberry(count)
+signal purchased(nextline)
 
 var showing = false
 var current = ""
@@ -26,13 +27,11 @@ func _ready():
 	visible = false
 	choice.visible = false
 
-
 func show_dialogue(name):
 	visible = true
 	showing = true
 	current = name
 	count = 0
-
 	
 func _input(event):
 	if event.is_action_pressed("dialogue_next") && showing:
@@ -40,7 +39,7 @@ func _input(event):
 			display(current, count)
 			count += 1
 		elif state == 2:
-			give_berry(dialogues[current][count-1])
+			give_berry(dialogues[current][count-1], dialogues[current][count])
 			current = dialogues[current][count]
 			count = 0
 			display(current, count)
@@ -50,15 +49,16 @@ func _input(event):
 			end()
 			state = 0
 			
-	
 func end():
 		showing = false
 		visible = false
 		yield(get_tree().create_timer(0.1), "timeout")
 		base.speaking = false
 			
-func give_berry(count):
+func give_berry(count, next):
 	emit_signal("giveberry", count)
+	emit_signal("purchased", next)
+	
 
 func display(name, count):
 	if typeof(dialogues[name][count]) == TYPE_INT:
@@ -77,14 +77,13 @@ func display(name, count):
 	else:
 		choice.visible = false
 		label.bbcode_text = tr(dialogues[name][count])
-
-
-
+	
 func _on_accept_focus_entered():
 	print('accept')
 	state = 2
 
-
 func _on_cancel_focus_entered():
 	print('cancel')
 	state = 1
+
+

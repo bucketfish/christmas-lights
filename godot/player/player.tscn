@@ -541,7 +541,7 @@ scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 1 )
 vframes = 4
 hframes = 5
-frame = 2
+frame = 3
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/fall = SubResource( 4 )

@@ -7,7 +7,7 @@
 [ext_resource path="res://other ingame elements/show_text.tscn" type="PackedScene" id=5]
 [ext_resource path="res://rooms/fir_table.png" type="Texture" id=6]
 
-[node name="room" instance=ExtResource( 2 )]
+[node name="scene" instance=ExtResource( 2 )]
 spawns = 1
 
 [node name="background" type="Sprite" parent="." index="0"]

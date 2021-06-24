@@ -16,6 +16,11 @@ var curforce = jumpheight
 var canstand = true
 var pickup = false
 
+var abilities = {
+	"slide": false,
+	"dash": false
+}
+
 onready var animationState = $AnimationTree.get("parameters/playback")
 onready var base = get_node("/root/game")
 
@@ -66,7 +71,7 @@ func get_input(delta):
 	elif velocity.y > 0 && !is_on_floor():
 		animationState.travel("fall")
 		
-	elif (canstand == false && animationState.get_current_node() == "slide") || (is_on_floor() && Input.is_action_pressed("slide") && (Input.is_action_pressed("left")  || Input.is_action_pressed("right"))):
+	elif abilities["slide"] == true && ( (canstand == false && animationState.get_current_node() == "slide") || (is_on_floor() && Input.is_action_pressed("slide") && (Input.is_action_pressed("left")  || Input.is_action_pressed("right")))):
 		animationState.travel("slide")
 	elif (Input.is_action_pressed("interact") && pickup):
 		animationState.travel("pickup")
@@ -87,6 +92,8 @@ func _physics_process(delta):
 		if !i.is_in_group("player"):
 			canstand = false
 
+func gain_ability(ability):
+	abilities[ability] = true
 
 
 func _on_canstand_area_entered(area):
