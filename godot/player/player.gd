@@ -18,7 +18,7 @@ var canstand = true
 var pickup = false
 
 var abilities = {
-	"slide": true,
+	"slide": false,
 	"dash": false
 }
 
@@ -84,7 +84,6 @@ func get_input(delta):
 		
 
 func _physics_process(delta):
-	get_input(delta)
 	velocity.y += gravity * delta
 	velocity = move_and_slide(velocity, Vector2.UP)
 	
