@@ -90,12 +90,6 @@ softness = 0.2
 [node name="link" parent="rope/PinJoint2D" index="0"]
 position = Vector2( -32.1686, -0.846794 )
 
-[node name="player" parent="." index="14"]
-position = Vector2( -2639.46, 1205.78 )
-
-[node name="RemoteTransform2D" parent="player" index="6"]
-visible = true
-
 [editable path="spawn1"]
 
 [editable path="fir_bauble"]

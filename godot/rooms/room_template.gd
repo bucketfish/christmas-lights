@@ -1,8 +1,8 @@
 extends Node2D
 
 export var spawns: int
-onready var player = $player
-onready var rope = $rope
+onready var player = get_node("/root/game/player")
+onready var rope = get_node("/root/game/rope")
 
 signal change_done
 # Declare member variables here. Examples:
@@ -22,6 +22,8 @@ func on_scene_change(id):
 			print(id + ' -> ' + spawn.id)
 			player.global_position = spawn.global_position
 			rope.global_position = player.global_position + Vector2(-19, 15)	
+	
+	yield(get_tree().create_timer(0.2), "timeout")
 	emit_signal("change_done")
 			
 

@@ -5,7 +5,7 @@ extends Node2D
 onready var changeanim = $scenechanger/AnimationPlayer
 onready var berrylabel = $gui/berry/berrylabel
 onready var dialogue = $gui/dialogue
-onready var player = $scene/player
+onready var player = $player
 
 export var testscene: String
 export var testspawn: String
@@ -25,6 +25,7 @@ func _ready():
 
 func change_scene(path, towards):
 	changeanim.play("fade")
+	yield(changeanim, "animation_finished")
 	for i in get_children():
 		if i.is_in_group("room"):
 			i.queue_free()
@@ -34,7 +35,7 @@ func change_scene(path, towards):
 	newroom.call_deferred("on_scene_change", towards)
 	yield(newroom, "change_done")
 	changeanim.play_backwards("fade")	
-	player = get_node("scene/player")
+	player = $player
 
 func berry_set(value):
 	berrylabel.text = str(value)

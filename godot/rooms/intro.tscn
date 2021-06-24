@@ -115,9 +115,6 @@ position = Vector2( 1915.1, 962.201 )
 [node name="rope" parent="." index="14"]
 position = Vector2( -1273.9, -698.028 )
 
-[node name="player" parent="." index="15"]
-position = Vector2( -1273.9, -698.028 )
-
 [editable path="spawn1"]
 
 [editable path="spawn2"]

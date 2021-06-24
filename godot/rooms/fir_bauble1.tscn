@@ -39,24 +39,7 @@ margin_top = 19.6517
 margin_right = 320.173
 margin_bottom = 69.6517
 
-[node name="topleft" parent="Camera2D/Node" index="0"]
-position = Vector2( 0, 0 )
-
-[node name="bottomright" parent="Camera2D/Node" index="1"]
-position = Vector2( 1536, 900 )
-
-[node name="ParallaxLayer" parent="Camera2D/ParallaxBackground" index="0"]
-modulate = Color( 1, 1, 1, 1 )
-
-[node name="Sprite2" parent="Camera2D/ParallaxBackground/ParallaxLayer" index="0"]
-modulate = Color( 0.658824, 0.658824, 0.658824, 1 )
-position = Vector2( -971.637, -518.24 )
-centered = false
-
-[node name="Sprite" parent="Camera2D/ParallaxBackground/ParallaxLayer2" index="0"]
-modulate = Color( 0.360784, 0.360784, 0.360784, 1 )
-
-[node name="spawn1" parent="." index="8" instance=ExtResource( 3 )]
+[node name="spawn1" parent="." index="5" instance=ExtResource( 3 )]
 position = Vector2( 82.4596, 314.821 )
 towards = "whitefir_firbauble"
 id = "firbauble1"
@@ -68,9 +51,5 @@ position = Vector2( -114.282, 23.057 )
 [editable path="fir"]
 
 [editable path="text"]
-
-[editable path="Camera2D"]
-
-[editable path="rope"]
 
 [editable path="spawn1"]
