@@ -55,19 +55,19 @@ func end():
 		yield(get_tree().create_timer(0.1), "timeout")
 		base.speaking = false
 			
-func give_berry(count, next):
-	emit_signal("giveberry", count)
+func give_berry(berrynum, next):
+	emit_signal("giveberry", berrynum)
 	emit_signal("purchased", next)
 	
 
-func display(name, count):
-	if typeof(dialogues[name][count]) == TYPE_INT:
-		if dialogues[name][count] == 1:
+func display(name, num):
+	if typeof(dialogues[name][num]) == TYPE_INT:
+		if dialogues[name][num] == 1:
 			label.bbcode_text = "[center]" + tr("NPC_GIFT_ONE").format({person = "fir"}) + "[/center]"
 		else:
-			label.bbcode_text = "[center]" + tr("NPC_GIFT_MANY").format({number=dialogues[name][count], person="fir"}) + "[/center]"
+			label.bbcode_text = "[center]" + tr("NPC_GIFT_MANY").format({number=dialogues[name][num], person="fir"}) + "[/center]"
 		choice.visible = true
-		if base.berries < dialogues[name][count]:
+		if base.berries < dialogues[name][num]:
 			accept.set_disabled(true)
 			cancel.grab_focus()
 		else:

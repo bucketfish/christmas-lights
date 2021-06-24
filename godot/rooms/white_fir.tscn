@@ -68,27 +68,11 @@ position = Vector2( -3531.01, 542.472 )
 [node name="hollyberry7" parent="." index="11" instance=ExtResource( 5 )]
 position = Vector2( 1077.17, 605.742 )
 
-[node name="Camera2D" parent="." index="12"]
-position = Vector2( -2639.46, 1205.78 )
+[node name="topleft" parent="camera constraints" index="0"]
+position = Vector2( -3257.05, -82.9406 )
 
-[node name="topleft" parent="Camera2D/Node" index="0"]
-position = Vector2( -3176.25, -185.366 )
-
-[node name="bottomright" parent="Camera2D/Node" index="1"]
-position = Vector2( 2114.64, 1879.12 )
-
-[node name="ParallaxLayer" parent="Camera2D/ParallaxBackground" index="0"]
-modulate = Color( 0.658824, 0.658824, 0.658824, 1 )
-
-[node name="rope" parent="." index="13"]
-position = Vector2( -2659.14, 1221.55 )
-
-[node name="PinJoint2D" parent="rope" index="0"]
-position = Vector2( 29.6739, 0.0568603 )
-softness = 0.2
-
-[node name="link" parent="rope/PinJoint2D" index="0"]
-position = Vector2( -32.1686, -0.846794 )
+[node name="bottomright" parent="camera constraints" index="1"]
+position = Vector2( 2201.58, 1827.05 )
 
 [editable path="spawn1"]
 
@@ -96,8 +80,4 @@ position = Vector2( -32.1686, -0.846794 )
 
 [editable path="hollyberry"]
 
-[editable path="Camera2D"]
-
-[editable path="rope"]
-
-[editable path="rope/PinJoint2D/link"]
+[editable path="camera constraints"]

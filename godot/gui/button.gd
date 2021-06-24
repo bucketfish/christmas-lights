@@ -9,11 +9,11 @@ func _ready():
 	setup_text()
 	set_focus_mode(true)
 	
-func _process(delta):
+func _process(_delta):
 	#if Engine.editor_hint:
 	#	select_text()
 	if disabled:
-		disabled_text()
+		disable_text()
 	
 func setup_text():
 	label.bbcode_text = "[center] %s [/center]" % [tr(text)]
@@ -21,7 +21,7 @@ func setup_text():
 func select_text():
 	label.bbcode_text = "[center][color=#add8ff] • %s • [/color][/center]" % [tr(text)]
 	
-func disabled_text():
+func disable_text():
 	label.bbcode_text = "[center][color=#6d6d6d] %s [/color][/center]" % [tr(disabled_text)]
 
 func _on_button_focus_entered():

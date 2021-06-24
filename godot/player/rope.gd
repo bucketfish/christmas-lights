@@ -20,7 +20,7 @@ var colors = [
 func _ready():
 	count = 0
 	var parent = $PinJoint2D/link
-	for i in range (pieces):
+	for _i in range (pieces):
 		parent = addPiece(parent)
 	lastPiece(parent)
 		

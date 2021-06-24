@@ -103,17 +103,11 @@ position = Vector2( -670.94, -562.167 )
 position = Vector2( 1017.4, -221.932 )
 button_input = "interact"
 
-[node name="Camera2D" parent="." index="13"]
-position = Vector2( -1273.9, -698.028 )
+[node name="topleft" parent="camera constraints" index="0"]
+position = Vector2( -1403.36, -962.975 )
 
-[node name="topleft" parent="Camera2D/Node" index="0"]
-position = Vector2( -1368.62, -940.378 )
-
-[node name="bottomright" parent="Camera2D/Node" index="1"]
-position = Vector2( 1915.1, 962.201 )
-
-[node name="rope" parent="." index="14"]
-position = Vector2( -1273.9, -698.028 )
+[node name="bottomright" parent="camera constraints" index="1"]
+position = Vector2( 1973.45, 967.526 )
 
 [editable path="spawn1"]
 
@@ -127,6 +121,4 @@ position = Vector2( -1273.9, -698.028 )
 
 [editable path="text4"]
 
-[editable path="Camera2D"]
-
-[editable path="rope"]
+[editable path="camera constraints"]

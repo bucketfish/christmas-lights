@@ -53,3 +53,5 @@ position = Vector2( -114.282, 23.057 )
 [editable path="text"]
 
 [editable path="spawn1"]
+
+[editable path="camera constraints"]
