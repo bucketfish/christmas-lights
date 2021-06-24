@@ -63,9 +63,9 @@ func give_berry(berrynum, next):
 func display(name, num):
 	if typeof(dialogues[name][num]) == TYPE_INT:
 		if dialogues[name][num] == 1:
-			label.bbcode_text = "[center]" + tr("NPC_GIFT_ONE").format({person = "fir"}) + "[/center]"
+			label.bbcode_text = "[center]" + tr("NPC_GIFT_ONE").format({person = tr("NAME_FIR")}) + "[/center]"
 		else:
-			label.bbcode_text = "[center]" + tr("NPC_GIFT_MANY").format({number=dialogues[name][num], person="fir"}) + "[/center]"
+			label.bbcode_text = "[center]" + tr("NPC_GIFT_MANY").format({number=dialogues[name][num], person=tr("NAME_FIR")}) + "[/center]"
 		choice.visible = true
 		if base.berries < dialogues[name][num]:
 			accept.set_disabled(true)
