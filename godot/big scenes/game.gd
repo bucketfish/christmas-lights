@@ -34,8 +34,8 @@ func change_scene(path, towards):
 
 func berry_set(value):
 	berrylabel.text = str(value)
+	print("berry value changed from " + str(berries) + " to " + str(value))
 	berries = value
-	print("picked up berry")
 	
 func dialogue_set(value):
 	dialogue.show_dialogue(value)
@@ -45,5 +45,11 @@ func speaking_set(value):
 	speaking = value
 	if speaking == true:
 		emit_signal("dialogue_start")
+		print("dialogue start")
 	else:
 		emit_signal("dialogue_end")
+		print('dialogue end')
+
+
+func _on_dialogue_giveberry(count):
+	berry_set(berries - count)

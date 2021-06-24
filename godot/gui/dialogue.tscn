@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://gui/dialogue_box.png" type="Texture" id=1]
 [ext_resource path="res://gui/dialogue.gd" type="Script" id=2]
 [ext_resource path="res://christmas lights.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://gui/button.tscn" type="PackedScene" id=4]
 
 [sub_resource type="DynamicFont" id=1]
 size = 24
@@ -45,9 +46,42 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="RichTextLabel" type="RichTextLabel" parent="NinePatchRect/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="NinePatchRect/MarginContainer"]
 margin_right = 669.0
 margin_bottom = 89.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="NinePatchRect/MarginContainer/VBoxContainer"]
+margin_right = 669.0
+margin_bottom = 42.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
 custom_fonts/normal_font = SubResource( 1 )
 bbcode_enabled = true
+bbcode_text = "aaaaaaaaaaaa"
+text = "aaaaaaaaaaaa"
 scroll_active = false
+
+[node name="HBoxContainer" type="HBoxContainer" parent="NinePatchRect/MarginContainer/VBoxContainer"]
+margin_top = 46.0
+margin_right = 669.0
+margin_bottom = 89.0
+size_flags_horizontal = 5
+size_flags_vertical = 3
+custom_constants/separation = -200
+
+[node name="cancel" parent="NinePatchRect/MarginContainer/VBoxContainer/HBoxContainer" instance=ExtResource( 4 )]
+margin_left = 0.0
+margin_right = 434.0
+margin_bottom = 43.0
+focus_neighbour_right = NodePath("../accept")
+focus_next = NodePath("../accept")
+text = "NPC_CANCEL"
+
+[node name="accept" parent="NinePatchRect/MarginContainer/VBoxContainer/HBoxContainer" instance=ExtResource( 4 )]
+margin_bottom = 43.0
+focus_neighbour_left = NodePath("../cancel")
+focus_previous = NodePath("../cancel")
+text = "NPC_GIFT"
+disabled_text = "NPC_NOTENOUGH"
+[connection signal="focus_entered" from="NinePatchRect/MarginContainer/VBoxContainer/HBoxContainer/cancel" to="." method="_on_cancel_focus_entered"]
+[connection signal="focus_entered" from="NinePatchRect/MarginContainer/VBoxContainer/HBoxContainer/accept" to="." method="_on_accept_focus_entered"]

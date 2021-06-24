@@ -18,5 +18,5 @@ func _on_Area2D_body_exited(body):
 		inrange = false
 		
 func _input(event):
-	if inrange && event.is_action_pressed("interact"):
+	if inrange && event.is_action_pressed("interact") && base.speaking == false:
 		base.dialogue_set("fir_intro")
