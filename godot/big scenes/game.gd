@@ -39,7 +39,7 @@ func change_scene(path, towards):
 
 func berry_set(value):
 	berrylabel.text = str(value)
-	print("berry value changed from " + str(berries) + " to " + str(value))
+	print("berry count changed from " + str(berries) + " to " + str(value))
 	berries = value
 	
 func dialogue_set(value):

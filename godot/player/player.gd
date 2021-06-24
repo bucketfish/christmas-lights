@@ -1,11 +1,12 @@
 extends KinematicBody2D
 
 export (int) var speed = 800
-export (int) var slidespeed = 1200
+export (int) var slidespeed = 2000
 export (int) var gravity = 3000
 
 export (float, 0, 1.0) var friction = 0.4
 export (float, 0, 1.0) var acceleration = 0.20
+export (float, 0, 1.0) var slideacceleration = 0.05
 
 export (float, 0, 1.0) var jumpheight = 250
 export (float, 0, 1.0) var jumpinc = 0.79
@@ -17,7 +18,7 @@ var canstand = true
 var pickup = false
 
 var abilities = {
-	"slide": false,
+	"slide": true,
 	"dash": false
 }
 
@@ -36,7 +37,7 @@ func get_input(delta):
 	
 		
 	if dir != 0 && animationState.get_current_node() == "slide":
-		velocity.x = lerp(velocity.x, dir * slidespeed, acceleration * delta * 70)
+		velocity.x = lerp(velocity.x, dir * slidespeed, slideacceleration * delta * 70)
 	elif dir != 0:
 		velocity.x = lerp(velocity.x, dir * speed, acceleration * delta * 70)
 	else:

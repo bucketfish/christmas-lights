@@ -12,14 +12,6 @@ drag_margin_top = 0.1
 drag_margin_bottom = 0.1
 script = ExtResource( 3 )
 
-[node name="Node" type="Node" parent="."]
-
-[node name="topleft" type="Position2D" parent="Node"]
-position = Vector2( -768, -448 )
-
-[node name="bottomright" type="Position2D" parent="Node"]
-position = Vector2( 768, 448 )
-
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
