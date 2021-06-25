@@ -1,5 +1,6 @@
 extends KinematicBody2D
 
+export var scene_id = "player"
 export (int) var speed = 800
 export (int) var slidespeed = 2000
 export (int) var gravity = 3000
@@ -84,6 +85,7 @@ func get_input(delta):
 		
 
 func _physics_process(delta):
+	get_input(delta)
 	velocity.y += gravity * delta
 	velocity = move_and_slide(velocity, Vector2.UP)
 	
@@ -104,3 +106,9 @@ func _on_canstand_area_entered(area):
 func _on_canstand_area_exited(area):
 	if area.is_in_group("pickup"):
 		pickup = false
+
+func save():
+	var save_dict = {
+		"abilities": abilities
+	}
+	return save_dict

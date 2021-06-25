@@ -79,11 +79,14 @@ func display(name, num):
 		label.bbcode_text = tr(dialogues[name][count])
 	
 func _on_accept_focus_entered():
-	print('accept')
-	state = 2
+	if accept.disabled:
+		cancel.grab_focus()
+	else:
+		print('dialogue accept')
+		state = 2
 
 func _on_cancel_focus_entered():
-	print('cancel')
+	print('dialogue cancel')
 	state = 1
 
 

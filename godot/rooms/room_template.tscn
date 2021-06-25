@@ -6,6 +6,7 @@
 
 [node name="room" type="Node2D" groups=[
 "room",
+"save",
 ]]
 position = Vector2( 506.91, 263.051 )
 script = ExtResource( 1 )

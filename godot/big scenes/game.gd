@@ -11,32 +11,139 @@ onready var player = $player
 export var testscene: String
 export var testspawn: String
 
+export var scene_id = "base"
+
+var scenes = {}
+
+var npc_dialogue = {}
+
 var berries = 0 setget berry_set
 var speaking = false setget speaking_set
-
+var curscene = ""
+var lastspawn = ""
 
 signal dialogue_start
 signal dialogue_end
+signal finish_save
+signal finish_load
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	if testscene && testspawn:
 		change_scene(testscene, testspawn)
 	else:
-		change_scene("res://rooms/intro.tscn", "intro_start")
+		load_game()
+		#yield(self, "finish_load")
+		print("a")
+		print("loading berries: " + str(berries))
+		berry_set(berries)
+		print(curscene + " " + lastspawn)
+		if curscene != "" && lastspawn != "":
+			change_scene(curscene, lastspawn)
+		
+		#change_scene("res://rooms/intro.tscn", "intro_start")
 
 func change_scene(path, towards):
 	changeanim.play("fade")
 	yield(changeanim, "animation_finished")
+	curscene = path
+	lastspawn = towards
+	save_game()
 	for i in get_children():
 		if i.is_in_group("room"):
 			i.queue_free()
 	var newroom = load(path).instance()
 	call_deferred("add_child", newroom)
-	#yield(newroom, "ready")
 	newroom.call_deferred("on_scene_change", towards)
 	yield(newroom, "change_done")
+	load_game()
+	#if !(newroom.scene_id in scenes):
+	#	scenes.append(newroom.scene_id)
 	yield(get_tree().create_timer(0.3), "timeout")
 	changeanim.play_backwards("fade")	
+	
+
+func save_game():
+	#prepares the file
+	var saves = File.new()
+	saves.open("user://saves.save", File.WRITE)
+	
+	#save game node stuff
+	scenes["base"] = {
+		"berries": berries,
+		"curscene": curscene,
+		"lastspawn": lastspawn,
+		"npc_dialogue": npc_dialogue,
+		
+	}
+	
+	var save_nodes = get_tree().get_nodes_in_group("save")	
+	#var save_nodes = []
+	for node in save_nodes:
+
+		 # Check the node has a save function.
+		if !node.has_method("save"):
+			print("persistent node '%s' is missing a save() function, skipped" % node.name)
+			continue
+	
+		# Call the node's save function.
+		scenes[node.scene_id] = node.call("save")
+
+		 # Store the save dictionary as a new line in the save file.
+	saves.store_line(to_json(scenes))
+	print("game saved! " + str(scenes))
+	
+	saves.close()
+	emit_signal("finish_save")
+	
+
+
+func load_game():
+	var save_game = File.new()
+	if not save_game.file_exists("user://saves.save"):
+		return # Error! We don't have a save to load.
+
+	var save_nodes = get_tree().get_nodes_in_group("save")
+
+	# Load the file line by line and process that dictionary to restore
+	# the object it represents.
+	save_game.open("user://saves.save", File.READ)
+
+	# Get the saved dictionary from the next line in the save file
+	var node_data = parse_json(save_game.get_line())
+	
+	for i in node_data.keys():
+		# Firstly, we need to create the object and add it to the tree and set its position.
+		if i == "base":
+			for j in node_data[i].keys():
+				set(j, node_data[i][j])
+				if j == "npc_dialogue":
+					update_npc_dialogue()
+				#if j == "berries":
+					#berry_set(node_data[i][j])
+			continue
+			
+		for j in save_nodes:
+			if j.scene_id == i:
+				for k in node_data[i].keys():
+					if typeof(node_data[i][k]) == TYPE_ARRAY:
+						j.berries = [] + node_data[i][k]
+					else:
+						j.set(k, node_data[i][k])
+				break
+
+	save_game.close()
+	print("loaded!")
+
+
+
+
+func update_npc_dialogue():
+	print("update npc dialogue")
+	for i in get_tree().get_nodes_in_group("npc"):
+		if i.npcname in npc_dialogue.keys():
+			i.dialoguenum = npc_dialogue[i.npcname]
+	
+	
 
 func berry_set(value):
 	berrylabel.text = str(value)
@@ -62,3 +169,6 @@ func _on_dialogue_giveberry(count):
 
 func gain_ability(ability):
 	player.gain_ability(ability)
+	
+	
+

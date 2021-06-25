@@ -1,6 +1,9 @@
 extends Node2D
 
 onready var text = $text
+export var number:int
+
+signal remove_berry(id)
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
@@ -15,4 +18,5 @@ func _input(event):
 		$AnimationPlayer.play("pickup")
 		yield($AnimationPlayer, "animation_finished")
 		get_node("/root/game").berries += 1
+		emit_signal("remove_berry", number)
 		queue_free()

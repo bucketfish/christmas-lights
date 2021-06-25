@@ -9,6 +9,8 @@
 [node name="intro" instance=ExtResource( 1 )]
 position = Vector2( 505.904, 263.051 )
 spawns = 2
+scene_id = "intro"
+totalberries = 2
 
 [node name="tilemap" parent="." index="0"]
 position = Vector2( -1002.94, 158.628 )
@@ -93,11 +95,13 @@ button_input = "right"
 position = Vector2( 713.965, 496.713 )
 button_input = "jump"
 
-[node name="hollyberry" parent="." index="10" instance=ExtResource( 5 )]
+[node name="hollyberry1" parent="." index="10" instance=ExtResource( 5 )]
 position = Vector2( 926.648, -178.36 )
+number = 1
 
 [node name="hollyberry2" parent="." index="11" instance=ExtResource( 5 )]
 position = Vector2( -670.94, -562.167 )
+number = 2
 
 [node name="button_interact" parent="." index="12" instance=ExtResource( 3 )]
 position = Vector2( 1017.4, -221.932 )
