@@ -52,7 +52,7 @@ INTRO_3,reach the top and string the lights.,"o tawa sewi, o pana e linja suno."
 INTRO_4,good luck.,o pali pona.
 ,,
 NPC_GIFT_ONE,gift a berry to [color=#add8ff]{person}[/color]?,o pana e kili tawa jan [color=#add8ff]{person}[/color]?
-NPC_GIFT_MANY,gift {number} berries to [color=#add8ff]{person}[/color]?,o pana e kili {number} tawa [color=#add8ff]{person}[/color]?
+NPC_GIFT_MANY,gift {number} berries to [color=#add8ff]{person}[/color]?,o pana e kili {number} tawa jan [color=#add8ff]{person}[/color]?
 NPC_GIFT,gift,o pana
 NPC_NOTENOUGH,not enough,jo sina li lili
 NPC_CANCEL,cancel,o weka

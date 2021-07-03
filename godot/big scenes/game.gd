@@ -13,21 +13,30 @@ export var testspawn: String
 
 export var scene_id = "base"
 
-var scenes = {}
+var scenes = {"base":{}}
 
 var npc_dialogue = {}
 
 var berries = 0 setget berry_set
 var speaking = false setget speaking_set
 var curscene = ""
-var lastspawn = ""
+var lastspawn = "" 
 
 signal dialogue_start
 signal dialogue_end
 signal finish_save
 signal finish_load
 # Called when the node enters the scene tree for the first time.
+
+
 func _ready():
+	scenes["base"] = {
+		"berries": berries,
+		"curscene": curscene,
+		"lastspawn": lastspawn,
+		"npc_dialogue": npc_dialogue,
+	}
+	
 	if testscene && testspawn:
 		change_scene(testscene, testspawn)
 	else:
@@ -47,6 +56,8 @@ func change_scene(path, towards):
 	yield(changeanim, "animation_finished")
 	curscene = path
 	lastspawn = towards
+	scenes['base']['curscene'] = curscene
+	scenes['base']['lastspawn'] = lastspawn
 	save_game()
 	for i in get_children():
 		if i.is_in_group("room"):
@@ -68,13 +79,7 @@ func save_game():
 	saves.open("user://saves.save", File.WRITE)
 	
 	#save game node stuff
-	scenes["base"] = {
-		"berries": berries,
-		"curscene": curscene,
-		"lastspawn": lastspawn,
-		"npc_dialogue": npc_dialogue,
-		
-	}
+
 	
 	var save_nodes = get_tree().get_nodes_in_group("save")	
 	#var save_nodes = []
@@ -113,9 +118,15 @@ func load_game():
 	
 	for i in node_data.keys():
 		# Firstly, we need to create the object and add it to the tree and set its position.
+		for j in node_data[i].keys():
+			if !(i in scenes.keys()):
+				scenes[i] = {}
+			scenes[i][j] = node_data[i][j]
+						
 		if i == "base":
 			for j in node_data[i].keys():
 				set(j, node_data[i][j])
+				#scenes[i][j] = node_data[i][j]
 				if j == "npc_dialogue":
 					update_npc_dialogue()
 				#if j == "berries":
@@ -125,14 +136,15 @@ func load_game():
 		for j in save_nodes:
 			if j.scene_id == i:
 				for k in node_data[i].keys():
-					if typeof(node_data[i][k]) == TYPE_ARRAY:
-						j.berries = [] + node_data[i][k]
-					else:
-						j.set(k, node_data[i][k])
+					#if typeof(node_data[i][k]) == TYPE_ARRAY:
+					j.set(k, node_data[i][k])
+					
 				break
+				
+
 
 	save_game.close()
-	print("loaded!")
+	print("loaded! " + str(scenes))
 
 
 
@@ -149,6 +161,7 @@ func berry_set(value):
 	berrylabel.text = str(value)
 	print("berry count changed from " + str(berries) + " to " + str(value))
 	berries = value
+	scenes['base']['berries'] = value
 	
 func dialogue_set(value):
 	dialogue.show_dialogue(value)

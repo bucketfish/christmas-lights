@@ -46,7 +46,9 @@ z_index = 1
 [node name="PinJoint2D" parent="rope" index="0"]
 node_a = NodePath("../../player")
 
-[node name="player" parent="." instance=ExtResource( 6 )]
+[node name="player" parent="." groups=[
+"save",
+] instance=ExtResource( 6 )]
 position = Vector2( -762.181, -432.843 )
 z_index = 1
 
