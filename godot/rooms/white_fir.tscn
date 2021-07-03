@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://rooms/room_template.tscn" type="PackedScene" id=1]
 [ext_resource path="res://other ingame elements/show_text.tscn" type="PackedScene" id=2]
 [ext_resource path="res://decorations-elements/fir_bauble.png" type="Texture" id=3]
 [ext_resource path="res://other ingame elements/spawn.tscn" type="PackedScene" id=4]
 [ext_resource path="res://small things/hollyberry.tscn" type="PackedScene" id=5]
+[ext_resource path="res://other ingame elements/movement button.tscn" type="PackedScene" id=6]
 
 [node name="scene" instance=ExtResource( 1 )]
 spawns = 2
@@ -49,31 +50,35 @@ margin_bottom = 100.0
 bbcode_text = "INTERACT_ENTER"
 text = "INTERACT_ENTER"
 
-[node name="hollyberry1" parent="." index="5" instance=ExtResource( 5 )]
+[node name="input_button" parent="." index="5" instance=ExtResource( 6 )]
+position = Vector2( -405.426, 516.567 )
+button_input = "slide"
+
+[node name="hollyberry1" parent="." index="6" instance=ExtResource( 5 )]
 position = Vector2( -3382.81, 543.137 )
 number = 1
 
-[node name="hollyberry2" parent="." index="6" instance=ExtResource( 5 )]
+[node name="hollyberry2" parent="." index="7" instance=ExtResource( 5 )]
 position = Vector2( 1175.13, 1371.9 )
 number = 2
 
-[node name="hollyberry3" parent="." index="7" instance=ExtResource( 5 )]
+[node name="hollyberry3" parent="." index="8" instance=ExtResource( 5 )]
 position = Vector2( 871.042, 804.019 )
 number = 3
 
-[node name="hollyberry4" parent="." index="8" instance=ExtResource( 5 )]
+[node name="hollyberry4" parent="." index="9" instance=ExtResource( 5 )]
 position = Vector2( -2170.9, 1372.62 )
 number = 4
 
-[node name="hollyberry5" parent="." index="9" instance=ExtResource( 5 )]
+[node name="hollyberry5" parent="." index="10" instance=ExtResource( 5 )]
 position = Vector2( -1667.96, 730.211 )
 number = 5
 
-[node name="hollyberry6" parent="." index="10" instance=ExtResource( 5 )]
+[node name="hollyberry6" parent="." index="11" instance=ExtResource( 5 )]
 position = Vector2( -3531.01, 542.472 )
 number = 6
 
-[node name="hollyberry7" parent="." index="11" instance=ExtResource( 5 )]
+[node name="hollyberry7" parent="." index="12" instance=ExtResource( 5 )]
 position = Vector2( 1077.17, 605.742 )
 number = 7
 

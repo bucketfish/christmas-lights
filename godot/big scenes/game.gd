@@ -132,7 +132,6 @@ func load_game():
 				#if j == "berries":
 					#berry_set(node_data[i][j])
 			continue
-			
 		for j in save_nodes:
 			if j.scene_id == i:
 				for k in node_data[i].keys():
@@ -141,7 +140,6 @@ func load_game():
 					
 				break
 				
-
 
 	save_game.close()
 	print("loaded! " + str(scenes))

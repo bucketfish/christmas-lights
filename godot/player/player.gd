@@ -66,14 +66,17 @@ func get_input(delta):
 		
 	
 
-	if Input.is_action_pressed("jump") && is_on_floor():
+	if (canstand == false && animationState.get_current_node() == "slide"):
+		animationState.travel("slide")
+		
+	elif Input.is_action_pressed("jump") && is_on_floor():
 		animationState.travel("jump")
 	elif animationState.get_current_node() == "fall" && is_on_floor():
 		animationState.travel("land")
 	elif velocity.y > 0 && !is_on_floor():
 		animationState.travel("fall")
 		
-	elif abilities["slide"] == true && ( (canstand == false && animationState.get_current_node() == "slide") || (is_on_floor() && Input.is_action_pressed("slide") && (Input.is_action_pressed("left")  || Input.is_action_pressed("right")))):
+	elif abilities["slide"] == true && (is_on_floor() && Input.is_action_pressed("slide") && (Input.is_action_pressed("left")  || Input.is_action_pressed("right"))):
 		animationState.travel("slide")
 	elif (Input.is_action_pressed("interact") && pickup):
 		animationState.travel("pickup")
