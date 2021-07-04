@@ -99,8 +99,10 @@ func get_input(delta):
 
 func _physics_process(delta):
 	get_input(delta)
+	#if !is_on_floor()  || velocity.x != 0:
 	velocity.y += gravity * delta
 	velocity = move_and_slide(velocity, Vector2.UP)
+	
 	
 	canstand = true
 	for i in $canstand.get_overlapping_bodies():

@@ -52,7 +52,7 @@ node_a = NodePath("../../player")
 position = Vector2( -762.181, -432.843 )
 z_index = 1
 
-[node name="AnimationTree" parent="player" index="5"]
+[node name="AnimationTree" parent="player" index="6"]
 parameters/playback = SubResource( 1 )
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="player"]
