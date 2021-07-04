@@ -52,9 +52,6 @@ node_a = NodePath("../../player")
 position = Vector2( -762.181, -432.843 )
 z_index = 1
 
-[node name="Sprite" parent="player" index="3"]
-frame = 3
-
 [node name="AnimationTree" parent="player" index="5"]
 parameters/playback = SubResource( 1 )
 

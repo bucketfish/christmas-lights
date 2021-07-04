@@ -26,6 +26,9 @@ var abilities = {
 onready var animationState = $AnimationTree.get("parameters/playback")
 onready var base = get_node("/root/game")
 
+func _ready():
+	$AnimationTree.active = true
+	
 func get_input(delta):
 	if base.speaking:
 		return
@@ -60,6 +63,7 @@ func get_input(delta):
 	if Input.is_action_pressed("right"):
 		$Sprite.set_flip_h(false)
 
+
 	elif Input.is_action_pressed("left"):
 		$Sprite.set_flip_h(true)
 		
@@ -84,6 +88,12 @@ func get_input(delta):
 		animationState.travel("walk") 
 	elif !Input.is_action_pressed("left") && !Input.is_action_pressed("right") && !Input.is_action_pressed("jump") && is_on_floor():
 		animationState.travel("idle")
+		
+		
+	if animationState.get_current_node()=="slide":
+		$Sprite/fir_sled.visible = true
+	else:
+		$Sprite/fir_sled.visible = false
 
 		
 
