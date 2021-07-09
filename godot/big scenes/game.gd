@@ -39,6 +39,8 @@ func _ready():
 	
 	if testscene && testspawn:
 		change_scene(testscene, testspawn)
+	elif not File.new().file_exists("user://saves.save"):
+		change_scene("res://rooms/white/white-1.tscn", "intro_start")
 	else:
 		load_game()
 		#yield(self, "finish_load")
@@ -99,7 +101,7 @@ func save_game():
 	
 	saves.close()
 	emit_signal("finish_save")
-	
+
 
 
 func load_game():

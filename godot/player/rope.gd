@@ -4,7 +4,7 @@ var link = preload("res://player/link.tscn")
 var light = preload("res://player/light.tscn")
 
 
-export (int) var pieces = 35
+export (int) var pieces = 40
 
 var count = 0
 

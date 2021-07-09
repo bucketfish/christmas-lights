@@ -28,7 +28,7 @@ onready var base = get_node("/root/game")
 
 func _ready():
 	$AnimationTree.active = true
-	
+
 func get_input(delta):
 	if base.speaking:
 		return
@@ -95,7 +95,7 @@ func get_input(delta):
 	else:
 		$Sprite/fir_sled.visible = false
 
-		
+
 
 func _physics_process(delta):
 	get_input(delta)
