@@ -1,0 +1,34 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://platforms/platform.png" type="Texture" id=1]
+[ext_resource path="res://platforms/moving.gd" type="Script" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 47.9011, 15.9854 )
+
+[node name="platform thing" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="Line2D" type="Line2D" parent="."]
+width = 5.0
+default_color = Color( 0.521569, 0.521569, 0.521569, 1 )
+
+[node name="platform" type="KinematicBody2D" parent="."]
+motion/sync_to_physics = true
+
+[node name="Sprite" type="Sprite" parent="platform"]
+modulate = Color( 0.690196, 0.690196, 0.690196, 1 )
+texture = ExtResource( 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="platform"]
+shape = SubResource( 1 )
+
+[node name="Tween" type="Tween" parent="."]
+repeat = true
+playback_process_mode = 0
+playback/repeat = true
+
+[node name="p1" type="Position2D" parent="."]
+
+[node name="p2" type="Position2D" parent="."]
+position = Vector2( 512, 0 )

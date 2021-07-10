@@ -41,6 +41,7 @@ export (float, 0, 1.0) var jgravity = 600
 
 var velocity = Vector2.ZERO
 var curforce = jumpheight
+var jumping = false
 var canstand = true
 var pickup = false
 var inwater = false
@@ -52,6 +53,7 @@ var abilities = {
 
 onready var animationState = $AnimationTree.get("parameters/playback")
 onready var base = get_node("/root/game")
+onready var onfloor = $RayCast2D
 
 func _ready():
 	$AnimationTree.active = true
@@ -78,8 +80,12 @@ func get_input(delta):
 	if Input.is_action_just_released("jump"):	
 		if velocity.y < 0:
 			velocity.y += jgravity
+		jumping = false
 			
 	if Input.is_action_pressed("jump"):
+		if inwater || is_on_floor():
+			jumping = true
+		
 		if inwater:
 			velocity.y -= downgravity
 		else:
@@ -91,7 +97,7 @@ func get_input(delta):
 		velocity.y += downgravity
 	
 #
-	if is_on_floor():
+	if onfloor.is_colliding():
 		curforce = jumpheight
 		
 		
@@ -108,20 +114,20 @@ func get_input(delta):
 		animationState.travel("slide")
 	
 		
-	elif !inwater && Input.is_action_pressed("jump") && is_on_floor():
+	elif !inwater && Input.is_action_pressed("jump") && onfloor.is_colliding():
 		animationState.travel("jump")
-	elif !inwater && animationState.get_current_node() == "fall" && is_on_floor():
+	elif !inwater && animationState.get_current_node() == "fall" && onfloor.is_colliding():
 		animationState.travel("land")
-	elif !inwater && velocity.y > 0 && !is_on_floor():
+	elif !inwater && velocity.y > 0 && !onfloor.is_colliding():
 		animationState.travel("fall")
 		
-	elif abilities["slide"] == true && (is_on_floor() && Input.is_action_pressed("slide") && (Input.is_action_pressed("left")  || Input.is_action_pressed("right"))):
+	elif abilities["slide"] == true && (onfloor.is_colliding() && Input.is_action_pressed("slide") && (Input.is_action_pressed("left")  || Input.is_action_pressed("right"))):
 		animationState.travel("slide")
 	elif (Input.is_action_pressed("interact") && pickup):
 		animationState.travel("pickup")
-	elif (Input.is_action_pressed("left") || Input.is_action_pressed("right")) && (is_on_floor() || inwater) && !Input.is_action_pressed("jump"):
+	elif (Input.is_action_pressed("left") || Input.is_action_pressed("right")) && (onfloor.is_colliding() || inwater) && !Input.is_action_pressed("jump"):
 		animationState.travel("walk") 
-	elif !Input.is_action_pressed("left") && !Input.is_action_pressed("right") && !Input.is_action_pressed("jump") && (is_on_floor() || inwater):
+	elif !Input.is_action_pressed("left") && !Input.is_action_pressed("right") && !Input.is_action_pressed("jump") && (onfloor.is_colliding() || inwater):
 		animationState.travel("idle")
 		
 		
@@ -136,7 +142,13 @@ func _physics_process(delta):
 	get_input(delta)
 	#if !is_on_floor()  || velocity.x != 0:
 	velocity.y += gravity * delta
-	velocity = move_and_slide(velocity, Vector2.UP)
+	
+	$Label.text = str(onfloor.is_colliding())
+	
+	var snap = Vector2.DOWN if jumping else Vector2.ZERO
+	#var snap = Vector2()
+	
+	velocity = move_and_slide_with_snap(velocity, Vector2.UP, snap)
 	
 	
 	canstand = true
