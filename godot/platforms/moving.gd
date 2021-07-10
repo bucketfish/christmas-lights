@@ -2,7 +2,7 @@ extends Node2D
 
 const idle_duration = 1.0
 
-export var speed = 5.0
+export var speed = 7.0
 
 onready var platform = $platform
 onready var tween = $Tween

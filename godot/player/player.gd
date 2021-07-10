@@ -8,7 +8,7 @@ var physics = {
 		"gravity": 3000,
 		"friction": 0.4,
 		"acceleration": 0.20,
-		"jumpheight": 250,
+		"jumpheight": 230,
 		"jumpinc": 0.79,
 		"jgravity": 600,
 		"downgravity": 0
@@ -57,6 +57,7 @@ onready var onfloor = $RayCast2D
 
 func _ready():
 	$AnimationTree.active = true
+	change_physics("air")
 
 func get_input(delta):
 	if base.speaking:
@@ -145,10 +146,10 @@ func _physics_process(delta):
 	
 	$Label.text = str(onfloor.is_colliding())
 	
-	var snap = Vector2.DOWN if jumping else Vector2.ZERO
+	var snap = Vector2.DOWN if !jumping else Vector2.ZERO
 	#var snap = Vector2()
 	
-	velocity = move_and_slide_with_snap(velocity, Vector2.UP, snap)
+	velocity = move_and_slide_with_snap(velocity, snap, Vector2.UP )
 	
 	
 	canstand = true
