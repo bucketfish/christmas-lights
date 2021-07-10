@@ -1,9 +1,35 @@
 extends KinematicBody2D
 
 export var scene_id = "player"
+
+var physics = {
+	"air": {
+		"speed": 800,
+		"gravity": 3000,
+		"friction": 0.4,
+		"acceleration": 0.20,
+		"jumpheight": 250,
+		"jumpinc": 0.79,
+		"jgravity": 600,
+		"downgravity": 0
+	},
+	"water":{
+		"speed": 300,
+		"gravity": 50,
+		"friction": 0.2,
+		"acceleration": 0.1,
+		"jumpheight": 10,
+		"jumpinc": 1,
+		"jgravity": 100,
+		"downgravity": 25
+	}
+}
+
+
 export (int) var speed = 800
 export (int) var slidespeed = 2000
 export (int) var gravity = 3000
+export (int) var downgravity = 0
 
 export (float, 0, 1.0) var friction = 0.4
 export (float, 0, 1.0) var acceleration = 0.20
@@ -17,6 +43,7 @@ var velocity = Vector2.ZERO
 var curforce = jumpheight
 var canstand = true
 var pickup = false
+var inwater = false
 
 var abilities = {
 	"slide": false,
@@ -53,8 +80,16 @@ func get_input(delta):
 			velocity.y += jgravity
 			
 	if Input.is_action_pressed("jump"):
-		velocity.y -= curforce
-		curforce *= jumpinc
+		if inwater:
+			velocity.y -= downgravity
+		else:
+			velocity.y -= curforce
+			curforce *= jumpinc
+		
+		
+	if Input.is_action_pressed("down") && inwater:
+		velocity.y += downgravity
+	
 #
 	if is_on_floor():
 		curforce = jumpheight
@@ -62,7 +97,6 @@ func get_input(delta):
 		
 	if Input.is_action_pressed("right"):
 		$Sprite.set_flip_h(false)
-
 
 	elif Input.is_action_pressed("left"):
 		$Sprite.set_flip_h(true)
@@ -72,21 +106,22 @@ func get_input(delta):
 
 	if (canstand == false && animationState.get_current_node() == "slide"):
 		animationState.travel("slide")
+	
 		
-	elif Input.is_action_pressed("jump") && is_on_floor():
+	elif !inwater && Input.is_action_pressed("jump") && is_on_floor():
 		animationState.travel("jump")
-	elif animationState.get_current_node() == "fall" && is_on_floor():
+	elif !inwater && animationState.get_current_node() == "fall" && is_on_floor():
 		animationState.travel("land")
-	elif velocity.y > 0 && !is_on_floor():
+	elif !inwater && velocity.y > 0 && !is_on_floor():
 		animationState.travel("fall")
 		
 	elif abilities["slide"] == true && (is_on_floor() && Input.is_action_pressed("slide") && (Input.is_action_pressed("left")  || Input.is_action_pressed("right"))):
 		animationState.travel("slide")
 	elif (Input.is_action_pressed("interact") && pickup):
 		animationState.travel("pickup")
-	elif (Input.is_action_pressed("left") || Input.is_action_pressed("right")) && is_on_floor() && !Input.is_action_pressed("jump"):
+	elif (Input.is_action_pressed("left") || Input.is_action_pressed("right")) && (is_on_floor() || inwater) && !Input.is_action_pressed("jump"):
 		animationState.travel("walk") 
-	elif !Input.is_action_pressed("left") && !Input.is_action_pressed("right") && !Input.is_action_pressed("jump") && is_on_floor():
+	elif !Input.is_action_pressed("left") && !Input.is_action_pressed("right") && !Input.is_action_pressed("jump") && (is_on_floor() || inwater):
 		animationState.travel("idle")
 		
 		
@@ -112,6 +147,9 @@ func _physics_process(delta):
 func gain_ability(ability):
 	abilities[ability] = true
 
+func change_physics(new):
+	for i in physics[new].keys():
+		set(i, physics[new][i])
 
 func _on_canstand_area_entered(area):
 	if area.is_in_group("pickup"):
@@ -122,8 +160,25 @@ func _on_canstand_area_exited(area):
 	if area.is_in_group("pickup"):
 		pickup = false
 
+
 func save():
 	var save_dict = {
 		"abilities": abilities
 	}
 	return save_dict
+
+
+func _on_canstand_body_entered(body):
+	if body.is_in_group("water"):
+		inwater = true
+		change_physics("water")
+		velocity.y /= 10
+		if velocity.y < 100:
+			velocity.y = 100
+		animationState.travel("idle") 
+
+
+func _on_canstand_body_exited(body):
+	if body.is_in_group("water"):
+		inwater = false
+		change_physics("air")
