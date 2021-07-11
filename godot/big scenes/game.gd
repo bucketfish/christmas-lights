@@ -7,11 +7,14 @@ onready var berrylabel = $gui/berry/berrylabel
 onready var dialogue = $gui/dialogue
 onready var camera = $camera
 onready var player = $player
+onready var debug = $gui/debug
+
 
 export var testscene: String
 export var testspawn: String
 
 export var scene_id = "base"
+
 
 var scenes = {"base":{}}
 
@@ -44,8 +47,6 @@ func _ready():
 	else:
 		load_game()
 		#yield(self, "finish_load")
-		print("a")
-		print("loading berries: " + str(berries))
 		berry_set(berries)
 		print(curscene + " " + lastspawn)
 		if curscene != "" && lastspawn != "":
@@ -137,14 +138,17 @@ func load_game():
 		for j in save_nodes:
 			if j.scene_id == i:
 				for k in node_data[i].keys():
-					#if typeof(node_data[i][k]) == TYPE_ARRAY:
-					j.set(k, node_data[i][k])
+					if typeof(node_data[i][k]) == TYPE_ARRAY:
+						j.set(k, node_data[i][k].duplicate())
+					else:
+						j.set(k, node_data[i][k])
 					
 				break
 				
 
 	save_game.close()
 	print("loaded! " + str(scenes))
+	emit_signal("finish_load")
 
 
 
@@ -183,5 +187,6 @@ func _on_dialogue_giveberry(count):
 func gain_ability(ability):
 	player.gain_ability(ability)
 	
-	
+func update_debug(item, value):
+	debug.update_debug(item, value)
 

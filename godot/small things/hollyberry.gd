@@ -1,7 +1,8 @@
 extends Node2D
 
 onready var text = $text
-export var number:int
+export var number:float
+onready var base = get_node("/root/game")
 
 signal remove_berry(id)
 # Declare member variables here. Examples:
@@ -12,6 +13,14 @@ signal remove_berry(id)
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$Sprite.position.y = 0
+	base.connect("finish_load", self, "_on_finish_load")
+	
+func _on_finish_load():
+	#print("A it works " + str(self))
+	#print(str(number) + " " + str(get_parent().berries))
+	if !(number in get_parent().berries):
+		queue_free()
+
 
 func _input(event):
 	if event.is_action_pressed("interact") && text.inside == true:
