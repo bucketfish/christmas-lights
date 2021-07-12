@@ -38,8 +38,6 @@ func _on_finish_load():
 		
 func remove_berry(id):
 	print("berry id " + str(id) + " picked up and gone! " + str(berries))
-	print(typeof(berries[0]))
-	print(berries.find(str(id)))
 	berries.erase(float(id))
 	print("berries left: " + str(berries))
 	base.update_debug("berries", berries)
