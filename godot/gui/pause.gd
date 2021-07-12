@@ -33,4 +33,4 @@ func _on_continue_pressed():
 func _on_quit_pressed():
 	get_tree().paused = false
 	base.save_game()
-	Scenechanger.change_scene("res://big scenes/mainmenu.tscn")
+	Scenechanger.change_scene("res://bigscenes/mainmenu.tscn")

@@ -11,7 +11,7 @@ func change_scene(path, delay = 0.5):
 
 	anim.play("fade")
 	yield(anim, "animation_finished")
-	assert(get_tree().change_scene(path) == OK)
+	get_tree().change_scene(path)
 	#emit_signal("scene_changed", spawn)
 	print("scene changeed")
 	print(get_tree().get_current_scene())

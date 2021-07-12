@@ -20,7 +20,7 @@ func _ready():
 #	pass
 
 func _on_button_pressed():
-	Scenechanger.change_scene("res://big scenes/game.tscn")
+	Scenechanger.change_scene("res://bigscenes/game.tscn")
 
 
 func _on_quit_pressed():

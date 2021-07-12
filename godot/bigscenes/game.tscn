@@ -1,14 +1,14 @@
 [gd_scene load_steps=13 format=2]
 
-[ext_resource path="res://big scenes/game.gd" type="Script" id=1]
-[ext_resource path="res://gui/pause.tscn" type="PackedScene" id=2]
-[ext_resource path="res://gui/berry.tscn" type="PackedScene" id=3]
-[ext_resource path="res://gui/gui.gd" type="Script" id=4]
-[ext_resource path="res://gui/dialogue.tscn" type="PackedScene" id=5]
-[ext_resource path="res://player/player.tscn" type="PackedScene" id=6]
-[ext_resource path="res://player/rope.tscn" type="PackedScene" id=7]
-[ext_resource path="res://camera (related)/camera.tscn" type="PackedScene" id=8]
-[ext_resource path="res://gui/debug.tscn" type="PackedScene" id=9]
+[ext_resource path="res://bigscenes/game.gd" type="Script" id=1]
+[ext_resource path="res://gui/gui.gd" type="Script" id=2]
+[ext_resource path="res://gui/dialogue.tscn" type="PackedScene" id=3]
+[ext_resource path="res://player/rope.tscn" type="PackedScene" id=4]
+[ext_resource path="res://camera (related)/camera.tscn" type="PackedScene" id=5]
+[ext_resource path="res://gui/berry.tscn" type="PackedScene" id=6]
+[ext_resource path="res://gui/debug.tscn" type="PackedScene" id=7]
+[ext_resource path="res://player/player.tscn" type="PackedScene" id=8]
+[ext_resource path="res://gui/pause.tscn" type="PackedScene" id=9]
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=1]
 
@@ -33,11 +33,11 @@ tracks/0/keys = {
 [node name="game" type="Node2D"]
 script = ExtResource( 1 )
 
-[node name="camera" parent="." instance=ExtResource( 8 )]
+[node name="camera" parent="." instance=ExtResource( 5 )]
 position = Vector2( -762.181, -432.843 )
 script = null
 
-[node name="rope" parent="." instance=ExtResource( 7 )]
+[node name="rope" parent="." instance=ExtResource( 4 )]
 position = Vector2( -767.396, -433.057 )
 z_index = 1
 
@@ -46,7 +46,7 @@ node_a = NodePath("../../player")
 
 [node name="player" parent="." groups=[
 "save",
-] instance=ExtResource( 6 )]
+] instance=ExtResource( 8 )]
 position = Vector2( -762.181, -432.843 )
 z_index = 1
 
@@ -64,15 +64,15 @@ shape = SubResource( 2 )
 
 [node name="gui" type="CanvasLayer" parent="."]
 pause_mode = 1
-script = ExtResource( 4 )
+script = ExtResource( 2 )
 
-[node name="berry" parent="gui" instance=ExtResource( 3 )]
+[node name="berry" parent="gui" instance=ExtResource( 6 )]
 
-[node name="dialogue" parent="gui" instance=ExtResource( 5 )]
+[node name="dialogue" parent="gui" instance=ExtResource( 3 )]
 
-[node name="debug" parent="gui" instance=ExtResource( 9 )]
+[node name="debug" parent="gui" instance=ExtResource( 7 )]
 
-[node name="pause" parent="gui" instance=ExtResource( 2 )]
+[node name="pause" parent="gui" instance=ExtResource( 9 )]
 pause_mode = 2
 
 [node name="scenechanger" type="CanvasLayer" parent="."]

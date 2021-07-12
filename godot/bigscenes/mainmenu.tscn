@@ -1,15 +1,15 @@
 [gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://christmas lights.ttf" type="DynamicFontData" id=1]
-[ext_resource path="res://big scenes/mainmenu.gd" type="Script" id=2]
+[ext_resource path="res://bigscenes/mainmenu.gd" type="Script" id=1]
+[ext_resource path="res://christmas lights.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://gui/button.tscn" type="PackedScene" id=3]
 
 [sub_resource type="DynamicFont" id=1]
 size = 100
-font_data = ExtResource( 1 )
+font_data = ExtResource( 2 )
 
 [node name="mainmenu" type="Node2D"]
-script = ExtResource( 2 )
+script = ExtResource( 1 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

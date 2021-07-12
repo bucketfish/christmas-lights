@@ -16,7 +16,7 @@ _global_script_class_icons={
 [application]
 
 config/name="christmas lights"
-run/main_scene="res://big scenes/mainmenu.tscn"
+run/main_scene="res://bigscenes/mainmenu.tscn"
 config/icon="res://icon.png"
 config/name_en_CA="linja suno"
 
