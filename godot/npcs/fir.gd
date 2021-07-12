@@ -32,7 +32,7 @@ func _on_nextline(line):
 func _input(event):
 	if inrange && event.is_action_pressed("interact") && base.speaking == false:
 		base.dialogue_set(dialogues[dialoguenum])
-		print(dialoguenum)
+		#print(dialoguenum)
 		if dialoguenum in [0]:
 			dialoguenum += 1
 			dialogue_setget(dialoguenum)

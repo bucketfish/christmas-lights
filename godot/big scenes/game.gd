@@ -46,7 +46,6 @@ func _ready():
 		change_scene("res://rooms/white/white-1.tscn", "intro_start")
 	else:
 		load_game()
-		#yield(self, "finish_load")
 		berry_set(berries)
 		print(curscene + " " + lastspawn)
 		if curscene != "" && lastspawn != "":
@@ -135,6 +134,7 @@ func load_game():
 				#if j == "berries":
 					#berry_set(node_data[i][j])
 			continue
+			
 		for j in save_nodes:
 			if j.scene_id == i:
 				for k in node_data[i].keys():
@@ -158,7 +158,6 @@ func update_npc_dialogue():
 	for i in get_tree().get_nodes_in_group("npc"):
 		if i.npcname in npc_dialogue.keys():
 			i.dialoguenum = npc_dialogue[i.npcname]
-	
 	
 
 func berry_set(value):
@@ -189,4 +188,5 @@ func gain_ability(ability):
 	
 func update_debug(item, value):
 	debug.update_debug(item, value)
+	
 

@@ -16,8 +16,6 @@ func _ready():
 	base.connect("finish_load", self, "_on_finish_load")
 	
 func _on_finish_load():
-	#print("A it works " + str(self))
-	#print(str(number) + " " + str(get_parent().berries))
 	if !(number in get_parent().berries):
 		queue_free()
 

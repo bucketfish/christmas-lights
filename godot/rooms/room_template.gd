@@ -23,9 +23,9 @@ var lastspawn = ""
 func _ready():
 	berries = []
 	for i in range(totalberries):
-		berries.append(i+1)
+		berries.append(float(i+1))
 		get_node("hollyberry" + str(i+1)).connect("remove_berry", self, "remove_berry")
-		get_node("hollyberry" + str(i+1)).number = i+1
+		get_node("hollyberry" + str(i+1)).number = float(i+1.0)
 		
 	print("scene load: berry list " + str(berries))
 	base.connect("ready", self, "_on_finish_load")
@@ -49,10 +49,6 @@ func set_berries(val):
 	berries = val.duplicate()
 	print("save/load new berry counts: " + str(berries) + " on scene " + scene_id)
 	base.update_debug("berries", berries)
-	
-func set_berries_test(val):
-
-	print("updated berries: " + str(berries))
 	
 	
 func on_scene_change(id):

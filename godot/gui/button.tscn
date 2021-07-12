@@ -4,6 +4,7 @@
 [ext_resource path="res://gui/button.gd" type="Script" id=2]
 
 [sub_resource type="DynamicFont" id=1]
+resource_name = "christmas_lights"
 size = 24
 font_data = ExtResource( 1 )
 

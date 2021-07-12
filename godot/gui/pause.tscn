@@ -1,0 +1,107 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://gui/button.tscn" type="PackedScene" id=1]
+[ext_resource path="res://gui/menulabel.tscn" type="PackedScene" id=2]
+[ext_resource path="res://gui/pause.gd" type="Script" id=3]
+
+[node name="pause" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 0.392157 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Control2" type="Control" parent="VBoxContainer"]
+margin_right = 1024.0
+margin_bottom = 69.0
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.2
+
+[node name="Control" type="Control" parent="VBoxContainer"]
+margin_top = 73.0
+margin_right = 1024.0
+margin_bottom = 247.0
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.5
+
+[node name="menulabel" parent="VBoxContainer/Control" instance=ExtResource( 2 )]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = 0.0
+margin_bottom = 0.0
+bbcode_enabled = true
+bbcode_text = "[center]paused"
+text = "paused"
+scroll_active = false
+key = "MENU_PAUSED"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer"]
+margin_top = 251.0
+margin_right = 1024.0
+margin_bottom = 600.0
+size_flags_vertical = 3
+custom_constants/separation = 30
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="button" parent="VBoxContainer/VBoxContainer" instance=ExtResource( 1 )]
+margin_left = 0.0
+margin_right = 1024.0
+margin_bottom = 32.0
+focus_neighbour_top = NodePath("../button3")
+focus_neighbour_bottom = NodePath("../button2")
+focus_next = NodePath("../button2")
+focus_previous = NodePath("../button3")
+size_flags_vertical = 3
+text = "MENU_CONTINUE"
+font_size = 100.0
+
+[node name="button2" parent="VBoxContainer/VBoxContainer" instance=ExtResource( 1 )]
+margin_left = 0.0
+margin_top = 62.0
+margin_right = 1024.0
+margin_bottom = 94.0
+focus_neighbour_top = NodePath("../button")
+focus_neighbour_bottom = NodePath("../button3")
+focus_next = NodePath("../button3")
+focus_previous = NodePath("../button")
+size_flags_vertical = 3
+text = "MENU_OPTIONS"
+
+[node name="button3" parent="VBoxContainer/VBoxContainer" instance=ExtResource( 1 )]
+margin_left = 0.0
+margin_top = 124.0
+margin_right = 1024.0
+margin_bottom = 156.0
+focus_neighbour_top = NodePath("../button2")
+focus_neighbour_bottom = NodePath("../button")
+focus_next = NodePath("../button")
+focus_previous = NodePath("../button2")
+size_flags_vertical = 3
+text = "MENU_QUITANDSAVE"
+
+[node name="Control2" type="Control" parent="VBoxContainer/VBoxContainer"]
+margin_top = 186.0
+margin_right = 1024.0
+margin_bottom = 349.0
+size_flags_vertical = 3
+size_flags_stretch_ratio = 5.0
+[connection signal="pressed" from="VBoxContainer/VBoxContainer/button" to="." method="_on_continue_pressed"]
+[connection signal="pressed" from="VBoxContainer/VBoxContainer/button3" to="." method="_on_quit_pressed"]
