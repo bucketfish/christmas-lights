@@ -26,7 +26,7 @@ id = "intro_start"
 disabled = true
 
 [node name="spawn2" parent="." index="3" instance=ExtResource( 2 )]
-position = Vector2( 1249.99, 142.35 )
+position = Vector2( 1421.58, 150.15 )
 towards = "white-2_white-1"
 id = "white-1_white-2"
 path = "res://rooms/white/white-2.tscn"
@@ -47,7 +47,7 @@ position = Vector2( 133.063, -13.6572 )
 position = Vector2( -346.666, 82.9818 )
 
 [node name="bottomright" parent="camera constraints" index="1"]
-position = Vector2( 2045.01, 2405.37 )
+position = Vector2( 2076.21, 2407.97 )
 
 [node name="text" parent="." index="6" instance=ExtResource( 3 )]
 position = Vector2( -356.057, 1744.29 )

@@ -54,6 +54,7 @@ var abilities = {
 onready var animationState = $AnimationTree.get("parameters/playback")
 onready var base = get_node("/root/game")
 onready var onfloor = $RayCast2D
+onready var canstandray = $RayCast2D2
 
 func _ready():
 	$AnimationTree.active = true
@@ -111,7 +112,7 @@ func get_input(delta):
 		
 	
 
-	if (canstand == false && animationState.get_current_node() == "slide"):
+	if (canstandray.is_colliding() == false && animationState.get_current_node() == "slide"):
 		animationState.travel("slide")
 	
 		
@@ -151,11 +152,9 @@ func _physics_process(delta):
 	
 	velocity = move_and_slide_with_snap(velocity, snap, Vector2.UP )
 	
-	
-	canstand = true
-	for i in $canstand.get_overlapping_bodies():
-		if !i.is_in_group("player"):
-			canstand = false
+#	for i in $canstand.get_overlapping_bodies():
+#		if !i.is_in_group("player"):
+#			canstand = false
 
 func gain_ability(ability):
 	abilities[ability] = true

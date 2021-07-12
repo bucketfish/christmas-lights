@@ -7,7 +7,7 @@ MENU_QUIT,quit,o pini
 MENU_VERSION,version,nanpa musi
 MENU_PAUSED,paused,pake
 MENU_CONTINUE,continue,o awen musi
-MENU_QUITANDSAVE,quit and save,o pini musi
+MENU_SAVENQUIT,save and quit,o pini musi
 ,,
 OPTIONS_VIDEO,video,sitelen
 OPTIONS_VIDEO_LIGHTS,lights,suno lili
