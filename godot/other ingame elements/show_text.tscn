@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://decorations-elements/fir_bauble.gd" type="Script" id=1]
 [ext_resource path="res://christmas lights.ttf" type="DynamicFontData" id=2]
@@ -35,6 +35,9 @@ tracks/1/keys = {
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
 
+[sub_resource type="CanvasItemMaterial" id=4]
+light_mode = 1
+
 [sub_resource type="DynamicFont" id=3]
 size = 48
 font_data = ExtResource( 2 )
@@ -54,9 +57,10 @@ shape = SubResource( 1 )
 anims/appear = SubResource( 2 )
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
-modulate = Color( 1, 1, 1, 0 )
+light_mask = 0
+material = SubResource( 4 )
 margin_left = 66.5618
-margin_top = 30.0
+margin_top = 0.808044
 margin_right = 96.5618
 margin_bottom = 61.1256
 grow_horizontal = 2

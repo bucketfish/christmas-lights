@@ -1,8 +1,11 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://player/rope.png" type="Texture" id=1]
 
-[sub_resource type="CapsuleShape2D" id=1]
+[sub_resource type="CanvasItemMaterial" id=1]
+light_mode = 1
+
+[sub_resource type="CapsuleShape2D" id=2]
 radius = 5.24396
 height = 21.9046
 
@@ -11,6 +14,8 @@ collision_layer = 0
 collision_mask = 0
 
 [node name="Sprite" type="Sprite" parent="."]
+light_mask = 0
+material = SubResource( 1 )
 position = Vector2( 18.0816, 0.0734692 )
 scale = Vector2( 1.5, 1 )
 texture = ExtResource( 1 )
@@ -19,7 +24,7 @@ texture = ExtResource( 1 )
 position = Vector2( 18.0082, 0.353062 )
 rotation = 1.5708
 scale = Vector2( 1, 1.5 )
-shape = SubResource( 1 )
+shape = SubResource( 2 )
 
 [node name="PinJoint2D" type="PinJoint2D" parent="."]
 softness = 0.1

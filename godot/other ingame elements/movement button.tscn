@@ -1,11 +1,13 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://other ingame elements/button spritesheet.png" type="Texture" id=1]
 [ext_resource path="res://other ingame elements/button.gd" type="Script" id=2]
 [ext_resource path="res://christmas lights.ttf" type="DynamicFontData" id=3]
 
-[sub_resource type="Animation" id=1]
-resource_name = "click"
+[sub_resource type="CanvasItemMaterial" id=1]
+light_mode = 1
+
+[sub_resource type="Animation" id=2]
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
@@ -31,8 +33,7 @@ tracks/1/keys = {
 "values": [ Color( 0.776471, 0.901961, 0.678431, 1 ) ]
 }
 
-[sub_resource type="Animation" id=2]
-resource_name = "release"
+[sub_resource type="Animation" id=3]
 tracks/0/type = "value"
 tracks/0/path = NodePath("z:custom_colors/default_color")
 tracks/0/interp = 1
@@ -58,7 +59,7 @@ tracks/1/keys = {
 "values": [ 0 ]
 }
 
-[sub_resource type="DynamicFont" id=3]
+[sub_resource type="DynamicFont" id=4]
 size = 64
 font_data = ExtResource( 3 )
 
@@ -66,20 +67,22 @@ font_data = ExtResource( 3 )
 script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
+light_mask = 0
+material = SubResource( 1 )
 scale = Vector2( 0.3, 0.3 )
 texture = ExtResource( 1 )
 hframes = 2
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/click = SubResource( 1 )
-anims/release = SubResource( 2 )
+anims/click = SubResource( 2 )
+anims/release = SubResource( 3 )
 
 [node name="z" type="RichTextLabel" parent="."]
 margin_left = -15.2416
 margin_top = -29.6502
 margin_right = 61.7584
 margin_bottom = 40.3498
-custom_fonts/normal_font = SubResource( 3 )
+custom_fonts/normal_font = SubResource( 4 )
 custom_colors/default_color = Color( 0.270588, 0.270588, 0.270588, 1 )
 text = "z"
 __meta__ = {

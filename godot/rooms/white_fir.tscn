@@ -56,31 +56,24 @@ button_input = "slide"
 
 [node name="hollyberry1" parent="." index="6" instance=ExtResource( 5 )]
 position = Vector2( -3382.81, 543.137 )
-number = 1
 
 [node name="hollyberry2" parent="." index="7" instance=ExtResource( 5 )]
 position = Vector2( 1175.13, 1371.9 )
-number = 2
 
 [node name="hollyberry3" parent="." index="8" instance=ExtResource( 5 )]
 position = Vector2( 871.042, 804.019 )
-number = 3
 
 [node name="hollyberry4" parent="." index="9" instance=ExtResource( 5 )]
 position = Vector2( -2170.9, 1372.62 )
-number = 4
 
 [node name="hollyberry5" parent="." index="10" instance=ExtResource( 5 )]
 position = Vector2( -1667.96, 730.211 )
-number = 5
 
 [node name="hollyberry6" parent="." index="11" instance=ExtResource( 5 )]
 position = Vector2( -3531.01, 542.472 )
-number = 6
 
 [node name="hollyberry7" parent="." index="12" instance=ExtResource( 5 )]
 position = Vector2( 1077.17, 605.742 )
-number = 7
 
 [node name="topleft" parent="camera constraints" index="0"]
 position = Vector2( -3257.05, -82.9406 )
