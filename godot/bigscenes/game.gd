@@ -56,6 +56,8 @@ func _ready():
 func change_scene(path, towards):
 	changeanim.play("fade")
 	yield(changeanim, "animation_finished")
+	player.playerpause = true
+	get_tree().paused = true
 	curscene = path
 	lastspawn = towards
 	scenes['base']['curscene'] = curscene
@@ -71,8 +73,13 @@ func change_scene(path, towards):
 	load_game()
 	#if !(newroom.scene_id in scenes):
 	#	scenes.append(newroom.scene_id)
+	get_tree().paused = false
 	yield(get_tree().create_timer(0.3), "timeout")
-	changeanim.play_backwards("fade")	
+	changeanim.play_backwards("fade")
+	yield(changeanim, "animation_finished")
+	yield(get_tree().create_timer(0.4), "timeout")
+	player.playerpause = false
+	print()
 	
 
 func save_game():

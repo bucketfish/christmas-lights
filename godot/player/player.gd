@@ -51,6 +51,8 @@ var canstand = true
 var pickup = false
 var inwater = false
 
+var playerpause = false
+
 var abilities = {
 	"slide": false,
 	"dash": false
@@ -64,10 +66,13 @@ func _ready():
 	change_physics("air")
 
 func get_input(delta):
+	
 	if base.speaking:
 		return
 	
 	var dir = 0
+	
+	
 	if Input.is_action_pressed("right"):
 		dir += 1
 	if Input.is_action_pressed("left"):
@@ -170,7 +175,6 @@ func change_physics(new):
 func raycast(area):
 	for i in raycasts[area]:
 		if i.is_colliding():
-			print(i.get_collider())
 			return true
 	return false
 	

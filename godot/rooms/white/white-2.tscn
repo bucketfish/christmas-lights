@@ -35,13 +35,13 @@ path = "res://rooms/white/white-1.tscn"
 position = Vector2( -110.608, -1.93457 )
 
 [node name="spawn3" parent="." index="4" instance=ExtResource( 2 )]
-position = Vector2( 1755.07, 123.975 )
+position = Vector2( 1753.37, 172.831 )
 towards = "white-3_white-2"
 id = "white-2_white-3"
 path = "res://rooms/white/white-3.tscn"
 
 [node name="Area2D" parent="spawn3" index="0"]
-position = Vector2( 6.49902, -189.108 )
+position = Vector2( 7.06713, -257.847 )
 
 [node name="topleft" parent="camera constraints" index="0"]
 position = Vector2( 294.205, 104.103 )

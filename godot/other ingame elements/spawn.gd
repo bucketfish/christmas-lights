@@ -6,8 +6,10 @@ export var towards: String
 export var id: String
 export var path: String
 var checking = false
+var collisiondisabled = false
 
 func _ready():
+	collisiondisabled = false
 	checking = false
 
 
@@ -18,7 +20,8 @@ func _input(event):
 
 func _on_Area2D_body_entered(body):
 	if body.is_in_group("player"):
-		if activate == false:
+		if activate == false && !collisiondisabled:
+			collisiondisabled = true
 			get_owner().get_parent().change_scene(path, towards)
 		else:
 			checking = true
