@@ -54,9 +54,6 @@ pause_mode = 1
 position = Vector2( -762.181, -432.843 )
 z_index = 1
 
-[node name="Sprite" parent="player" index="4"]
-frame = 3
-
 [node name="AnimationTree" parent="player" index="6"]
 parameters/playback = SubResource( 1 )
 

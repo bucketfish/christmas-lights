@@ -8,6 +8,7 @@
 "room",
 "save",
 ]]
+pause_mode = 1
 position = Vector2( 506.91, 263.051 )
 script = ExtResource( 1 )
 
