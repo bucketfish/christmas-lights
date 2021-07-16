@@ -26,6 +26,11 @@ var physics = {
 }
 
 
+onready var raycasts = {
+	"floor": [$floor_raycast/RayCast2D, $floor_raycast/RayCast2D2, $floor_raycast/RayCast2D3],
+	"stand": [$stand_raycast/RayCast2D, $stand_raycast/RayCast2D2, $stand_raycast/RayCast2D3]
+}
+
 export (int) var speed = 800
 export (int) var slidespeed = 2000
 export (int) var gravity = 3000
@@ -53,8 +58,6 @@ var abilities = {
 
 onready var animationState = $AnimationTree.get("parameters/playback")
 onready var base = get_node("/root/game")
-onready var onfloor = $RayCast2D
-onready var canstandray = $RayCast2D2
 
 func _ready():
 	$AnimationTree.active = true
@@ -99,7 +102,7 @@ func get_input(delta):
 		velocity.y += downgravity
 	
 #
-	if onfloor.is_colliding():
+	if raycast("floor"):
 		curforce = jumpheight
 		
 		
@@ -109,27 +112,27 @@ func get_input(delta):
 	elif Input.is_action_pressed("left"):
 		$Sprite.set_flip_h(true)
 		
-		
+	var onfloor = raycast("floor")
+	var canstand = raycast("stand")
 	
 
-	if (canstandray.is_colliding() == false && animationState.get_current_node() == "slide"):
+	if (canstand == false && animationState.get_current_node() == "slide"):
 		animationState.travel("slide")
-	
 		
-	elif !inwater && Input.is_action_pressed("jump") && onfloor.is_colliding():
+	elif !inwater && Input.is_action_pressed("jump") && onfloor:
 		animationState.travel("jump")
-	elif !inwater && animationState.get_current_node() == "fall" && onfloor.is_colliding():
+	elif !inwater && animationState.get_current_node() == "fall" && onfloor:
 		animationState.travel("land")
-	elif !inwater && velocity.y > 0 && !onfloor.is_colliding():
+	elif !inwater && velocity.y > 0 && !onfloor:
 		animationState.travel("fall")
 		
-	elif abilities["slide"] == true && (onfloor.is_colliding() && Input.is_action_pressed("slide") && (Input.is_action_pressed("left")  || Input.is_action_pressed("right"))):
+	elif abilities["slide"] == true && (onfloor && Input.is_action_pressed("slide") && (Input.is_action_pressed("left")  || Input.is_action_pressed("right"))):
 		animationState.travel("slide")
 	elif (Input.is_action_pressed("interact") && pickup):
 		animationState.travel("pickup")
-	elif (Input.is_action_pressed("left") || Input.is_action_pressed("right")) && (onfloor.is_colliding() || inwater) && !Input.is_action_pressed("jump"):
+	elif (Input.is_action_pressed("left") || Input.is_action_pressed("right")) && (onfloor || inwater) && !Input.is_action_pressed("jump"):
 		animationState.travel("walk") 
-	elif !Input.is_action_pressed("left") && !Input.is_action_pressed("right") && !Input.is_action_pressed("jump") && (onfloor.is_colliding() || inwater):
+	elif !Input.is_action_pressed("left") && !Input.is_action_pressed("right") && !Input.is_action_pressed("jump") && (onfloor || inwater):
 		animationState.travel("idle")
 		
 		
@@ -145,9 +148,9 @@ func _physics_process(delta):
 	#if !is_on_floor()  || velocity.x != 0:
 	velocity.y += gravity * delta
 	
-	$Label.text = str(onfloor.is_colliding())
-	
 	var snap = Vector2.DOWN if !jumping else Vector2.ZERO
+	
+	$Label.text = str(raycast("floor"))
 	#var snap = Vector2()
 	
 	velocity = move_and_slide_with_snap(velocity, snap, Vector2.UP )
@@ -163,6 +166,14 @@ func change_physics(new):
 	for i in physics[new].keys():
 		set(i, physics[new][i])
 
+
+func raycast(area):
+	for i in raycasts[area]:
+		if i.is_colliding():
+			print(i.get_collider())
+			return true
+	return false
+	
 func _on_canstand_area_entered(area):
 	if area.is_in_group("pickup"):
 		pickup = true
