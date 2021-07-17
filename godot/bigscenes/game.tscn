@@ -16,10 +16,10 @@
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 47.8552, 482.155 )
 
-[sub_resource type="CanvasItemMaterial" id=4]
+[sub_resource type="CanvasItemMaterial" id=3]
 light_mode = 1
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=4]
 length = 0.2
 tracks/0/type = "value"
 tracks/0/path = NodePath("Control/ColorRect:modulate")
@@ -58,9 +58,6 @@ pause_mode = 1
 position = Vector2( -762.181, -432.843 )
 z_index = 1
 
-[node name="Sprite" parent="player" index="4"]
-frame = 3
-
 [node name="AnimationTree" parent="player" index="6"]
 parameters/playback = SubResource( 1 )
 
@@ -86,7 +83,7 @@ script = ExtResource( 2 )
 
 [node name="notebook" parent="gui" instance=ExtResource( 10 )]
 light_mask = 0
-material = SubResource( 4 )
+material = SubResource( 3 )
 
 [node name="pause" parent="gui" instance=ExtResource( 9 )]
 pause_mode = 2
@@ -112,7 +109,9 @@ __meta__ = {
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="scenechanger"]
-anims/fade = SubResource( 3 )
+anims/fade = SubResource( 4 )
+[connection signal="change_state" from="." to="gui/dialogue" method="_on_game_change_state"]
+[connection signal="change_state" from="." to="gui/notebook" method="_on_game_change_state"]
 [connection signal="giveberry" from="gui/dialogue" to="." method="_on_dialogue_giveberry"]
 
 [editable path="rope"]

@@ -28,6 +28,7 @@ func _ready():
 	choice.visible = false
 
 func show_dialogue(name):
+	base.state = "dialogue"
 	visible = true
 	showing = true
 	current = name
@@ -46,6 +47,7 @@ func _input(event):
 			count += 1
 			state = 0
 		else:
+			base.state = "play"
 			end()
 			state = 0
 			
@@ -90,3 +92,8 @@ func _on_cancel_focus_entered():
 	state = 1
 
 
+
+
+func _on_game_change_state(state):
+	if state != "speaking":
+		end()

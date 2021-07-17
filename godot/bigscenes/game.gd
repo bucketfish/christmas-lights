@@ -12,14 +12,12 @@ onready var debug = $gui/debug
 
 export var testscene: String
 export var testspawn: String
-
 export var scene_id = "base"
 
-
 var scenes = {"base":{}}
-
 var npc_dialogue = {}
 
+var state = "play" setget change_state
 var berries = 0 setget berry_set
 var speaking = false setget speaking_set
 var curscene = ""
@@ -29,6 +27,7 @@ signal dialogue_start
 signal dialogue_end
 signal finish_save
 signal finish_load
+signal change_state(state)
 # Called when the node enters the scene tree for the first time.
 
 
@@ -158,7 +157,10 @@ func load_game():
 	emit_signal("finish_load")
 
 
-
+func change_state(new):
+	state = new
+	emit_signal("change_state", state)
+	
 
 func update_npc_dialogue():
 	print("update npc dialogue")

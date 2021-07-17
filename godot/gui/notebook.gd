@@ -10,6 +10,7 @@ onready var pages = {
 	"maps": [$maps/map1, $maps/map2]
 }
 
+onready var base = get_node("/root/game")
 
 signal getcurrent(page)
 onready var current = null
@@ -24,12 +25,20 @@ func _input(event):
 		get_tree().paused = visible
 		
 		if visible:
+			base.state = "notebook"
 			$map_tab.grab_focus()
 			#emit_signal("getcurrent", "doodle1")
-			#current = $doodles/doodle1
+		else:
+			base.state = "play"
+			end()
 			
 	if !visible:
 		return
+		
+	if event.is_action_pressed("pause"):
+		base.state = "play"
+		end()
+		
 		
 	if event.is_action_pressed("ui_left"):
 		if current.left:
@@ -44,3 +53,11 @@ func _input(event):
 
 func _on_node_selected(nodeS):
 	current = nodeS
+
+func end():
+	visible = false
+	get_tree().paused = false
+	
+func _on_game_change_state(state):
+	if state != "notebook":
+		end()

@@ -14,9 +14,14 @@ func _ready():
 
 
 func _input(event):
-	if event.is_action_pressed("pause"):
-		paused = !paused
+	if event.is_action_pressed("pause") && base.state in ["play", "dialogue"]:
+		base.state = "paused"
+		visible = !visible
 		openmenu()
+	elif event.is_action_pressed("pause") && visible == true:
+		base.state = "play"
+		visible = !visible
+		_on_continue_pressed()
 		
 func openmenu():
 	if paused:
@@ -24,15 +29,14 @@ func openmenu():
 	else:
 		get_parent().pause_mode = Node.PAUSE_MODE_PROCESS
 	get_parent().get_node("notebook").visible = false
-	visible = paused
-	get_tree().paused = paused
+	get_tree().paused = visible
 	bt_continue.grab_focus()
 
 
 func _on_continue_pressed():
 	visible = false
 	get_tree().paused = false
-	paused = false
+	base.state = "play"
 
 
 func _on_quit_pressed():
