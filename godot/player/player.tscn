@@ -303,7 +303,7 @@ scale = Vector2( 0.6, 0.6 )
 texture = ExtResource( 5 )
 energy = 1.2
 range_layer_min = -512
-range_layer_max = 512
+range_layer_max = 5
 shadow_enabled = true
 shadow_gradient_length = 3.0
 

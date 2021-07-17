@@ -19,6 +19,11 @@ func _input(event):
 		openmenu()
 		
 func openmenu():
+	if paused:
+		get_parent().pause_mode = Node.PAUSE_MODE_STOP
+	else:
+		get_parent().pause_mode = Node.PAUSE_MODE_PROCESS
+	get_parent().get_node("notebook").visible = false
 	visible = paused
 	get_tree().paused = paused
 	bt_continue.grab_focus()
