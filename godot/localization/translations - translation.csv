@@ -25,7 +25,7 @@ OPTIONS_AUDIO_MUSIC,music,kalama musi
 OPTIONS_AUDIO_PLAYER,player,jan
 OPTIONS_AUDIO_SOUNDEFFECTS,sound effects,ante
 ,,
-OPTIONS_CONTROLS,controls,nasin
+OPTIONS_CONTROLS,controls,nasin tawa
 OPTIONS_CONTROLS_MOVELEFT,move left,tawa soto
 OPTIONS_CONTROLS_MOVERIGHT,move right,tawa teje
 OPTIONS_CONTROLS_JUMP,jump,tawa sewi
@@ -43,13 +43,14 @@ INTERACT_PICKUP,pick up,o luka
 INTERACT_WATCH,watch,o lukin
 INTERACT_REST,rest,o lape
 ,,
+NOTEBOOK_INTRO,this notebook belongs to rain.,ni li lipu pi jan wen.
+,,
+NOTEBOOK_INTRONOTE,"welcome, rain. \n\n you have one goal. \n\n reach the top and string the lights. \n\n good luck.","o kama pona, jan wen o. \n alasa sina li wan: \n o tawa sewi, o pana e linja suno. \n o pali pona."
+,,
+,,
 NAME_RAIN,rain,wen
 NAME_FIR,fir,pe
 ,,
-INTRO_1,"welcome, [color=#add8ff]rain[/color].","o kama pona, jan [color=#add8ff]wen[/color] o."
-INTRO_2,you have one goal.,alasa sina li wan:
-INTRO_3,reach the top and string the lights.,"o tawa sewi, o pana e linja suno."
-INTRO_4,good luck.,o pali pona.
 ,,
 NPC_GIFT_ONE,gift a berry to [color=#add8ff]{person}[/color]?,o pana e kili tawa jan [color=#add8ff]{person}[/color]?
 NPC_GIFT_MANY,gift {number} berries to [color=#add8ff]{person}[/color]?,o pana e kili {number} tawa jan [color=#add8ff]{person}[/color]?

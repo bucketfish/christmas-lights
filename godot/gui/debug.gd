@@ -2,7 +2,7 @@ extends Control
 
 onready var labels = {
 	"room_name": $HBoxContainer/textsright/room_name,
-	"berries": $HBoxContainer/textsright/berries
+	"item": $HBoxContainer/textsright/berries
 }
 
 # Declare member variables here. Examples:

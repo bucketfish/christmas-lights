@@ -10,7 +10,10 @@ onready var pages = {
 	"maps": [$maps/map1, $maps/map2]
 }
 
+
 onready var base = get_node("/root/game")
+
+onready var collected = []
 
 signal getcurrent(page)
 onready var current = null
@@ -20,13 +23,14 @@ func _ready():
 	visible = false
 
 func _input(event):
+		
 	if event.is_action_pressed("notebook"):
 		visible = !visible
 		get_tree().paused = visible
 		
 		if visible:
 			base.state = "notebook"
-			$map_tab.grab_focus()
+			$doodles_tab.grab_focus()
 			#emit_signal("getcurrent", "doodle1")
 		else:
 			base.state = "play"
@@ -61,3 +65,9 @@ func end():
 func _on_game_change_state(state):
 	if state != "notebook":
 		end()
+
+func showitem(item):
+	for i in get_tree().get_nodes_in_group("pageitem"):
+		if i.itemid == item:
+			i.visible = true
+			return

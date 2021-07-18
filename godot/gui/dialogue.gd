@@ -35,6 +35,10 @@ func show_dialogue(name):
 	count = 0
 	
 func _input(event):
+	if event.is_action_pressed("pause") && base.state == "speaking":
+		base.state = "play"
+		end()
+		
 	if event.is_action_pressed("dialogue_next") && showing:
 		if count < dialogues[current].size() && state==0:
 			display(current, count)
@@ -91,9 +95,3 @@ func _on_cancel_focus_entered():
 	print('dialogue cancel')
 	state = 1
 
-
-
-
-func _on_game_change_state(state):
-	if state != "speaking":
-		end()

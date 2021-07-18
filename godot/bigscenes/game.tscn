@@ -110,7 +110,6 @@ __meta__ = {
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="scenechanger"]
 anims/fade = SubResource( 4 )
-[connection signal="change_state" from="." to="gui/dialogue" method="_on_game_change_state"]
 [connection signal="change_state" from="." to="gui/notebook" method="_on_game_change_state"]
 [connection signal="giveberry" from="gui/dialogue" to="." method="_on_dialogue_giveberry"]
 

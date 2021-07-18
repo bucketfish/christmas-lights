@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://gui/menulabel.tscn" type="PackedScene" id=1]
+[ext_resource path="res://christmas lights.ttf" type="DynamicFontData" id=2]
+
+[sub_resource type="DynamicFont" id=1]
+size = 40
+font_data = ExtResource( 2 )
+
+[node name="text" instance=ExtResource( 1 )]
+custom_fonts/normal_font = SubResource( 1 )
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+custom_constants/line_separation = -8
+scroll_active = false
+center = false

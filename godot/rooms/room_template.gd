@@ -8,8 +8,8 @@ onready var camera = get_node("/root/game/camera")
 onready var base = get_node("/root/game")
 onready var debug = get_node("/root/game/gui/debug")
 
-export var totalberries = 0
-var berries = [] setget set_berries
+export var totalitem = 0
+var item = [] setget set_item
 
 signal change_done
 
@@ -21,13 +21,13 @@ var lastspawn = ""
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	berries = []
-	for i in range(totalberries):
-		berries.append(float(i+1))
-		get_node("hollyberry" + str(i+1)).connect("remove_berry", self, "remove_berry")
-		get_node("hollyberry" + str(i+1)).number = float(i+1.0)
+	item = []
+	for i in range(totalitem):
+		item.append(float(i+1))
+		get_node("item" + str(i+1)).connect("remove_item", self, "remove_item")
+		get_node("item" + str(i+1)).number = float(i+1.0)
 		
-	print("scene load: berry list " + str(berries))
+	print("scene load: item list " + str(item))
 	base.connect("ready", self, "_on_finish_load")
 
 	
@@ -36,17 +36,17 @@ func _on_finish_load():
 	base.update_debug("room_name", scene_id)
 		
 		
-func remove_berry(id):
-	print("berry id " + str(id) + " picked up and gone! " + str(berries))
-	berries.erase(float(id))
-	print("berries left: " + str(berries))
-	base.update_debug("berries", berries)
+func remove_item(id):
+	print("item id " + str(id) + " picked up and gone! " + str(item))
+	item.erase(float(id))
+	print("item left: " + str(item))
+	base.update_debug("item", item)
 	
-func set_berries(val):
+func set_item(val):
 	#var new = []
-	berries = val.duplicate()
-	print("save/load new berry counts: " + str(berries) + " on scene " + scene_id)
-	base.update_debug("berries", berries)
+	item = val.duplicate()
+	print("save/load new item counts: " + str(item) + " on scene " + scene_id)
+	base.update_debug("item", item)
 	
 	
 func on_scene_change(id):
@@ -64,7 +64,7 @@ func on_scene_change(id):
 func save():
 	var save_dict = {
 		"lastspawn": lastspawn,
-		"berries": berries
+		"item": item
 	}
 	return save_dict
 

@@ -1,0 +1,44 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://other ingame elements/show_text.tscn" type="PackedScene" id=1]
+[ext_resource path="res://small things/paper.png" type="Texture" id=2]
+[ext_resource path="res://small things/item.gd" type="Script" id=3]
+
+[sub_resource type="Animation" id=1]
+resource_name = "pickup"
+length = 0.15
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.15 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 0, -20 ) ]
+}
+
+[node name="item" type="Node2D"]
+script = ExtResource( 3 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/pickup = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="."]
+scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 2 )
+
+[node name="text" parent="." groups=[
+"pickup",
+] instance=ExtResource( 1 )]
+position = Vector2( -78.4924, -136.014 )
+key = "INTERACT_PICKUP"
+
+[node name="RichTextLabel" parent="text" index="2"]
+modulate = Color( 1, 1, 1, 0 )
+margin_top = 30.0
+
+[editable path="text"]

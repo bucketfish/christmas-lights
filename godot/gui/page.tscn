@@ -2,6 +2,5 @@
 
 [ext_resource path="res://gui/page.gd" type="Script" id=2]
 
-[node name="page" type="Sprite"]
-centered = false
+[node name="page" type="Node2D"]
 script = ExtResource( 2 )

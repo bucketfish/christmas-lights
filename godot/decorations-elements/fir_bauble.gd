@@ -30,9 +30,11 @@ func _on_text_body_exited(body):
 		inside = false
 
 func _on_dialogue_start():
+	#test for if player is in the range!!!!!! aa
 	animate.play_backwards("appear")
 	using = false
 
 func _on_dialogue_end():
+	# SAME AS ABOVE!! IMPORTANT
 	animate.play("appear")
 	using = true

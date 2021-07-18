@@ -4,7 +4,9 @@
 [ext_resource path="res://other ingame elements/show_text.tscn" type="PackedScene" id=2]
 [ext_resource path="res://other ingame elements/movement button.tscn" type="PackedScene" id=3]
 [ext_resource path="res://other ingame elements/spawn.tscn" type="PackedScene" id=4]
-[ext_resource path="res://small things/hollyberry.tscn" type="PackedScene" id=5]
+[ext_resource path="res://small things/item.tscn" type="PackedScene" id=5]
+
+
 
 [node name="intro" instance=ExtResource( 1 )]
 position = Vector2( 505.904, 263.051 )

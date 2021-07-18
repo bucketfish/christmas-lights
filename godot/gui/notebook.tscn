@@ -1,16 +1,14 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://gui/notebook/notebook_backing.png" type="Texture" id=1]
 [ext_resource path="res://gui/notebook/notebook_paper.png" type="Texture" id=2]
 [ext_resource path="res://gui/notebook/notebook_doodle.png" type="Texture" id=3]
-[ext_resource path="res://gui/notebook/notebook_settings.png" type="Texture" id=4]
+[ext_resource path="res://gui/notebook/notebooktext.tscn" type="PackedScene" id=4]
 [ext_resource path="res://gui/notebook/tab.tscn" type="PackedScene" id=5]
 [ext_resource path="res://gui/notebook.gd" type="Script" id=6]
-[ext_resource path="res://gui/notebook/doodles/doodle2.png" type="Texture" id=7]
-[ext_resource path="res://gui/notebook/doodles/doodle1.png" type="Texture" id=8]
+[ext_resource path="res://gui/notebook/page item.tscn" type="PackedScene" id=7]
+[ext_resource path="res://gui/notebook/assets to use/stickynote.png" type="Texture" id=8]
 [ext_resource path="res://gui/page.tscn" type="PackedScene" id=9]
-[ext_resource path="res://gui/notebook/map/map1.png" type="Texture" id=10]
-[ext_resource path="res://gui/notebook/map/map2.png" type="Texture" id=11]
 
 [node name="notebook" type="Node2D"]
 script = ExtResource( 6 )
@@ -20,59 +18,86 @@ light_mask = 0
 texture = ExtResource( 1 )
 centered = false
 
-[node name="map_tab" parent="." instance=ExtResource( 5 )]
-focus_neighbour_bottom = NodePath("../doodles_tab")
-childgrab = NodePath("../maps")
-tabname = "maps"
-
 [node name="doodles_tab" parent="." instance=ExtResource( 5 )]
-focus_neighbour_top = NodePath("../map_tab")
+margin_top = -100.0
+margin_bottom = 0.0
+focus_neighbour_bottom = NodePath("../map_tab")
 childgrab = NodePath("../doodles")
 tabname = "doodles"
 
 [node name="sprite" parent="doodles_tab" index="0"]
 texture = ExtResource( 3 )
 
-[node name="settings_tab" parent="." instance=ExtResource( 5 )]
-visible = false
+[node name="map_tab" parent="." instance=ExtResource( 5 )]
+margin_top = 75.0
 focus_neighbour_top = NodePath("../doodles_tab")
-
-[node name="sprite" parent="settings_tab" index="0"]
-texture = ExtResource( 4 )
+childgrab = NodePath("../maps")
+tabname = "maps"
 
 [node name="notebook_paper" type="Sprite" parent="."]
 texture = ExtResource( 2 )
 centered = false
 
 [node name="maps" type="Node2D" parent="."]
+visible = false
 
 [node name="map1" parent="maps" instance=ExtResource( 9 )]
-texture = ExtResource( 10 )
 pageid = "map1"
 noderight = NodePath("../map2")
 
 [node name="map2" parent="maps" instance=ExtResource( 9 )]
-texture = ExtResource( 11 )
 pageid = "map2"
 nodeleft = NodePath("../map1")
-
-[node name="settings" type="Node2D" parent="."]
-visible = false
 
 [node name="doodles" type="Node2D" parent="."]
 
 [node name="doodle1" parent="doodles" instance=ExtResource( 9 )]
-texture = ExtResource( 8 )
 pageid = "doodle1"
 noderight = NodePath("../doodle2")
 
+[node name="page item" parent="doodles/doodle1" instance=ExtResource( 7 )]
+
+[node name="text" parent="doodles/doodle1/page item" instance=ExtResource( 4 )]
+margin_left = 545.0
+margin_top = 238.0
+margin_right = 854.0
+margin_bottom = 417.0
+text = "text label
+f
+d
+g
+f
+d"
+key = "NOTEBOOK_INTRO"
+center = true
+
 [node name="doodle2" parent="doodles" instance=ExtResource( 9 )]
-texture = ExtResource( 7 )
 pageid = "doodle2"
 nodeleft = NodePath("../doodle1")
 
-[editable path="map_tab"]
+[node name="page item" parent="doodles/doodle2" instance=ExtResource( 7 )]
+position = Vector2( 125.573, 91.6363 )
+scale = Vector2( 0.7, 0.7 )
+texture = ExtResource( 8 )
+itemid = "map1_1"
+
+[node name="text2" parent="doodles/doodle2/page item" instance=ExtResource( 4 )]
+margin_left = 98.7288
+margin_top = 160.221
+margin_right = 392.729
+margin_bottom = 548.221
+rect_rotation = -16.5329
+bbcode_enabled = true
+bbcode_text = "aaaaaaa"
+text = "aaaaaaa"
+key = "NOTEBOOK_INTRONOTE"
 
 [editable path="doodles_tab"]
 
-[editable path="settings_tab"]
+[editable path="map_tab"]
+
+[editable path="maps/map1"]
+
+[editable path="doodles/doodle1"]
+
+[editable path="doodles/doodle1/page item"]
