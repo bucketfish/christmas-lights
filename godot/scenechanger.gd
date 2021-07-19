@@ -7,7 +7,7 @@ onready var anim = $AnimationPlayer
 onready var color = $Control/ColorRect
 
 
-func change_scene(path, delay = 0.5):
+func change_scene(path, delay = .2):
 
 	anim.play("fade")
 	yield(anim, "animation_finished")

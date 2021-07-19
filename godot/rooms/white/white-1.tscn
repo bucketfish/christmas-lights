@@ -88,7 +88,7 @@ position = Vector2( 1054.87, 1840.47 )
 button_input = "jump"
 
 [node name="input_button4" parent="." index="13" instance=ExtResource( 4 )]
-position = Vector2( 233.508, 527.689 )
+position = Vector2( 458.196, 1871.57 )
 button_input = "interact"
 
 [node name="item1" parent="." index="14" instance=ExtResource( 6 )]
