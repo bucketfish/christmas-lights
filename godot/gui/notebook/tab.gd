@@ -5,12 +5,14 @@ export var tabname:String
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	modulate.a = 0
 	if childgrab:
 		get_node(childgrab).visible = false
 
 
 
 func _on_tab_focus_entered():
+	print("FOCUSD ON " + tabname)
 	$animate.play("show")
 	if childgrab:
 		get_node(childgrab).visible = true
@@ -19,6 +21,7 @@ func _on_tab_focus_entered():
 
 
 func _on_tab_focus_exited():
+	print("EXIT ON " + tabname)
 	$animate.play_backwards("show")
 	if childgrab:
 		get_node(childgrab).visible = false

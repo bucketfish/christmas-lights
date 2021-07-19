@@ -19,9 +19,13 @@ signal getcurrent(page)
 signal checkitem
 onready var current = null
 
+var showing = false
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	visible = false
+	showing = false
+	modulate.a = 0
 
 
 func update_book():
@@ -31,18 +35,23 @@ func update_book():
 func _input(event):
 		
 	if event.is_action_pressed("notebook"):
-		visible = !visible
-		get_tree().paused = visible
+		showing = !showing
+		get_tree().paused = showing
 		
-		if visible:
+		if showing:
 			base.state = "notebook"
+			$animate.play("show")
+			update_book()
+			yield($animate, "animation_finished")
 			$doodles_tab.grab_focus()
-			#emit_signal("getcurrent", "doodle1")
+			print("doodles focus")
+
 		else:
 			base.state = "play"
+			$animate.play("hide")
 			end()
 			
-	if !visible:
+	if !showing:
 		return
 		
 	if event.is_action_pressed("pause"):
@@ -64,7 +73,9 @@ func _on_node_selected(nodeS):
 	current = nodeS
 
 func end():
-	visible = false
+	$animate.play("hide")
+	#visible = false
+	showing = false
 	get_tree().paused = false
 	
 func _on_game_change_state(state):

@@ -67,7 +67,7 @@ func _ready():
 
 func get_input(delta):
 	
-	if base.speaking:
+	if base.state != "play":
 		return
 	
 	var dir = 0
