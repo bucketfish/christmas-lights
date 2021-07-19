@@ -64,6 +64,8 @@ onready var base = get_node("/root/game")
 func _ready():
 	$AnimationTree.active = true
 	change_physics("air")
+	$slide.disabled = true
+	$"collision box".disabled = false
 
 func get_input(delta):
 	

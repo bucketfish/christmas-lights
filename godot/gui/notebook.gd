@@ -44,7 +44,6 @@ func _input(event):
 			update_book()
 			yield($animate, "animation_finished")
 			$doodles_tab.grab_focus()
-			print("doodles focus")
 
 		else:
 			base.state = "play"

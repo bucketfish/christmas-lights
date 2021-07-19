@@ -290,13 +290,13 @@ shape = SubResource( 2 )
 ]]
 position = Vector2( 0, 10 )
 shape = SubResource( 3 )
-disabled = true
 
 [node name="slide" type="CollisionShape2D" parent="." groups=[
 "player",
 ]]
 position = Vector2( 3.27003, 44.1753 )
 shape = SubResource( 4 )
+disabled = true
 
 [node name="Light2D" type="Light2D" parent="."]
 scale = Vector2( 0.6, 0.6 )
@@ -315,7 +315,7 @@ texture = ExtResource( 1 )
 flip_h = true
 vframes = 5
 hframes = 4
-frame = 10
+frame = 2
 
 [node name="fir_sled" type="Sprite" parent="Sprite"]
 visible = false
@@ -338,6 +338,7 @@ anims/walk = SubResource( 12 )
 [node name="AnimationTree" type="AnimationTree" parent="."]
 tree_root = SubResource( 46 )
 anim_player = NodePath("../AnimationPlayer")
+active = true
 parameters/playback = SubResource( 47 )
 
 [node name="floor_raycast" type="Node2D" parent="."]

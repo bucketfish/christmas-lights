@@ -17,6 +17,5 @@ func _ready():
 
 func checkload():
 	visible = (itemid in notebook.collected)
-	print(itemid + ", " + str(notebook.collected))
 	#if !(number in get_parent().item):
 	#	queue_free()

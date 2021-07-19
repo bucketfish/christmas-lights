@@ -76,19 +76,19 @@ position = Vector2( 831.624, 1736.72 )
 key = "INTRO_4"
 
 [node name="input_button" parent="." index="10" instance=ExtResource( 4 )]
-position = Vector2( -438.181, 1836.04 )
+position = Vector2( -438.181, 1840 )
 button_input = "left"
 
 [node name="input_button2" parent="." index="11" instance=ExtResource( 4 )]
-position = Vector2( -126.179, 1839.21 )
+position = Vector2( -126.179, 1840 )
 button_input = "right"
 
 [node name="input_button3" parent="." index="12" instance=ExtResource( 4 )]
-position = Vector2( 1054.87, 1840.47 )
+position = Vector2( 1054.87, 1840 )
 button_input = "jump"
 
 [node name="input_button4" parent="." index="13" instance=ExtResource( 4 )]
-position = Vector2( 458.196, 1871.57 )
+position = Vector2( 458.196, 1840 )
 button_input = "interact"
 
 [node name="item1" parent="." index="14" instance=ExtResource( 6 )]

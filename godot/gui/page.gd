@@ -28,7 +28,6 @@ func _ready():
 	
 func getfocus(page):
 	if page == pageid:
-		print("notebook page " + str(page))
 		emit_signal("focused", self)
 		current = true
 		modulate.a = 1

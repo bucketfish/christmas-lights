@@ -12,7 +12,6 @@ func _ready():
 
 
 func _on_tab_focus_entered():
-	print("FOCUSD ON " + tabname)
 	$animate.play("show")
 	if childgrab:
 		get_node(childgrab).visible = true
@@ -21,7 +20,6 @@ func _on_tab_focus_entered():
 
 
 func _on_tab_focus_exited():
-	print("EXIT ON " + tabname)
 	$animate.play_backwards("show")
 	if childgrab:
 		get_node(childgrab).visible = false
