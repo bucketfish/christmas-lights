@@ -5,5 +5,6 @@
 
 [node name="item" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
 
 [editable path="text"]

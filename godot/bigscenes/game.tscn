@@ -58,6 +58,9 @@ pause_mode = 1
 position = Vector2( -762.181, -432.843 )
 z_index = 1
 
+[node name="Sprite" parent="player" index="4"]
+frame = 3
+
 [node name="AnimationTree" parent="player" index="6"]
 parameters/playback = SubResource( 1 )
 
@@ -81,7 +84,9 @@ script = ExtResource( 2 )
 
 [node name="debug" parent="gui" instance=ExtResource( 7 )]
 
-[node name="notebook" parent="gui" instance=ExtResource( 10 )]
+[node name="notebook" parent="gui" groups=[
+"save",
+] instance=ExtResource( 10 )]
 light_mask = 0
 material = SubResource( 3 )
 

@@ -56,6 +56,7 @@ pageid = "doodle1"
 noderight = NodePath("../doodle2")
 
 [node name="page item" parent="doodles/doodle1" instance=ExtResource( 7 )]
+itemid = "doodle1_1"
 
 [node name="text" parent="doodles/doodle1/page item" instance=ExtResource( 4 )]
 margin_left = 545.0
@@ -79,7 +80,7 @@ nodeleft = NodePath("../doodle1")
 position = Vector2( 125.573, 91.6363 )
 scale = Vector2( 0.7, 0.7 )
 texture = ExtResource( 8 )
-itemid = "map1_1"
+itemid = "doodle2_1"
 
 [node name="text2" parent="doodles/doodle2/page item" instance=ExtResource( 4 )]
 margin_left = 98.7288

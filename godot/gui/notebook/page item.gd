@@ -5,13 +5,18 @@ extends Sprite
 # var a = 2
 # var b = "text"
 export var itemid:String
+onready var base = get_node("/root/game")
+onready var notebook = get_node("/root/game/gui/notebook")
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	visible = true
+	base.connect("ready", self, "checkload")
+	notebook.connect("checkitem", self, "checkload")
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+func checkload():
+	visible = (itemid in notebook.collected)
+	print(itemid + ", " + str(notebook.collected))
+	#if !(number in get_parent().item):
+	#	queue_free()
