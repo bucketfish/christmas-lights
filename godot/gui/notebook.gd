@@ -48,13 +48,13 @@ func _input(event):
 
 		else:
 			base.state = "play"
-			$animate.play("hide")
 			end()
 			
-	if !showing:
+	if base.state != "notebook":
 		return
 		
-	if event.is_action_pressed("pause"):
+	if event.is_action_pressed("pause") && base.state == "notebook":
+		showing = false
 		base.state = "play"
 		end()
 		
@@ -76,11 +76,10 @@ func end():
 	$animate.play("hide")
 	#visible = false
 	showing = false
+	base.state = "play"
 	get_tree().paused = false
 	
-func _on_game_change_state(state):
-	if state != "notebook":
-		end()
+
 		
 
 
