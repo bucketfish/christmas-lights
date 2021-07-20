@@ -8,9 +8,9 @@ var physics = {
 		"gravity": 2800,
 		"friction": 0.4,
 		"acceleration": 0.20,
-		"jumpheight": 230,
-		"jumpinc": 0.75,
-		"jgravity": 580,
+		"jumpheight": 240,
+		"jumpinc": 0.74,
+		"jgravity": 550,
 		"downgravity": 0
 	},
 	"water":{
