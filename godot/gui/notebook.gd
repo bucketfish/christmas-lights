@@ -43,7 +43,7 @@ func _input(event):
 			$animate.play("show")
 			update_book()
 			yield($animate, "animation_finished")
-			$doodles_tab.grab_focus()
+			$map_tab.grab_focus()
 
 		else:
 			base.state = "play"

@@ -29,7 +29,7 @@ def main():
     width, height = images[0].size
 
     count = len(images)
-    startcount = floor(2 * sqrt(count) / 3)
+    startcount = ceil(2 * sqrt(count) / 3)
     endcount = ceil(sqrt(count) + startcount)
 
     bestwidth = floor(sqrt(count))

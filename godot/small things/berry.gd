@@ -8,3 +8,4 @@ extends "res://small things/item.gd"
 
 func _on_AnimationPlayer_animation_finished(anim_name):
 	get_node("/root/game").berries += 1
+	get_node("/root/game/gui/notif").show_notif("berry")

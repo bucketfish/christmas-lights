@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://gui/notebook/notebook_backing.png" type="Texture" id=1]
 [ext_resource path="res://gui/notebook/notebook_paper.png" type="Texture" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://gui/notebook/page item.tscn" type="PackedScene" id=7]
 [ext_resource path="res://gui/notebook/assets to use/stickynote.png" type="Texture" id=8]
 [ext_resource path="res://gui/page.tscn" type="PackedScene" id=9]
+[ext_resource path="res://gui/berry.tscn" type="PackedScene" id=10]
 
 [sub_resource type="Animation" id=1]
 resource_name = "hide"
@@ -141,9 +142,6 @@ tracks/4/keys = {
 }
 
 [node name="notebook" type="Node2D"]
-visible = false
-modulate = Color( 1, 1, 1, 0 )
-position = Vector2( 0, 100 )
 script = ExtResource( 6 )
 
 [node name="animate" type="AnimationPlayer" parent="."]
@@ -156,10 +154,8 @@ texture = ExtResource( 1 )
 centered = false
 
 [node name="doodles_tab" parent="." instance=ExtResource( 5 )]
-modulate = Color( 1, 1, 1, 0 )
-margin_top = -100.0
 margin_bottom = 0.0
-focus_neighbour_bottom = NodePath("../map_tab")
+focus_neighbour_top = NodePath("../map_tab")
 childgrab = NodePath("../doodles")
 tabname = "doodles"
 
@@ -167,9 +163,7 @@ tabname = "doodles"
 texture = ExtResource( 3 )
 
 [node name="map_tab" parent="." instance=ExtResource( 5 )]
-modulate = Color( 1, 1, 1, 0 )
-margin_top = 75.0
-focus_neighbour_top = NodePath("../doodles_tab")
+focus_neighbour_bottom = NodePath("../doodles_tab")
 childgrab = NodePath("../maps")
 tabname = "maps"
 
@@ -183,11 +177,18 @@ centered = false
 pageid = "map1"
 noderight = NodePath("../map2")
 
+[node name="berry" parent="maps/map1" instance=ExtResource( 10 )]
+margin_left = 122.384
+margin_top = 80.6819
+margin_right = 122.384
+margin_bottom = 80.6819
+
 [node name="map2" parent="maps" instance=ExtResource( 9 )]
 pageid = "map2"
 nodeleft = NodePath("../map1")
 
 [node name="doodles" type="Node2D" parent="."]
+visible = false
 
 [node name="doodle1" parent="doodles" instance=ExtResource( 9 )]
 pageid = "doodle1"

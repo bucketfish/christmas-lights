@@ -9,7 +9,8 @@ var keys = {
 	"right":"→",
 	"interact":"↑",
 	"down":"↓",
-	"slide": "x"
+	"slide": "x",
+	"notebook": "tab"
 }
 
 # Called when the node enters the scene tree for the first time.

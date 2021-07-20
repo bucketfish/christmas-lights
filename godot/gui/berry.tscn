@@ -20,6 +20,7 @@ margin_top = 54.0176
 margin_right = 275.02
 margin_bottom = 123.018
 custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "0"
 __meta__ = {
 "_edit_use_anchors_": false

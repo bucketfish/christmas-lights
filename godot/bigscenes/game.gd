@@ -3,11 +3,12 @@ extends Node2D
 #signal scene_changed(spawn)
 
 onready var changeanim = $scenechanger/AnimationPlayer
-onready var berrylabel = $gui/berry/berrylabel
+onready var berrylabel = $gui/notebook/maps/map1/berry/berrylabel
 onready var dialogue = $gui/dialogue
 onready var camera = $camera
 onready var player = $player
 onready var debug = $gui/debug
+onready var notif = $gui/notif
 
 
 export var testscene: String

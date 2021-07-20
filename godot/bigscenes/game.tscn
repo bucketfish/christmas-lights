@@ -5,7 +5,7 @@
 [ext_resource path="res://gui/dialogue.tscn" type="PackedScene" id=3]
 [ext_resource path="res://player/rope.tscn" type="PackedScene" id=4]
 [ext_resource path="res://camera (related)/camera.tscn" type="PackedScene" id=5]
-[ext_resource path="res://gui/berry.tscn" type="PackedScene" id=6]
+[ext_resource path="res://gui/notif.tscn" type="PackedScene" id=6]
 [ext_resource path="res://gui/debug.tscn" type="PackedScene" id=7]
 [ext_resource path="res://player/player.tscn" type="PackedScene" id=8]
 [ext_resource path="res://gui/pause.tscn" type="PackedScene" id=9]
@@ -78,11 +78,11 @@ pause_mode = 2
 layer = 10
 script = ExtResource( 2 )
 
-[node name="berry" parent="gui" instance=ExtResource( 6 )]
-
 [node name="dialogue" parent="gui" instance=ExtResource( 3 )]
 
 [node name="debug" parent="gui" instance=ExtResource( 7 )]
+
+[node name="notif" parent="gui" instance=ExtResource( 6 )]
 
 [node name="notebook" parent="gui" groups=[
 "save",
@@ -120,3 +120,5 @@ anims/fade = SubResource( 4 )
 [editable path="rope"]
 
 [editable path="player"]
+
+[editable path="gui/notebook"]
