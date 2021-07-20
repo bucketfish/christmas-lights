@@ -4,20 +4,20 @@ export var scene_id = "player"
 
 var physics = {
 	"air": {
-		"speed": 800,
-		"gravity": 3000,
+		"speed": 750,
+		"gravity": 2800,
 		"friction": 0.4,
 		"acceleration": 0.20,
 		"jumpheight": 230,
-		"jumpinc": 0.79,
-		"jgravity": 600,
+		"jumpinc": 0.75,
+		"jgravity": 580,
 		"downgravity": 0
 	},
 	"water":{
 		"speed": 300,
 		"gravity": 50,
 		"friction": 0.2,
-		"acceleration": 0.1,
+		"acceleration": 0.10,
 		"jumpheight": 10,
 		"jumpinc": 1,
 		"jgravity": 100,
