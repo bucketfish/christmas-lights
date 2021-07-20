@@ -211,3 +211,6 @@ func _on_canstand_body_exited(body):
 	if body.is_in_group("water"):
 		inwater = false
 		change_physics("air")
+		curforce = jumpheight
+		velocity.y = -curforce
+
