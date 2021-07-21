@@ -212,5 +212,6 @@ func _on_canstand_body_exited(body):
 		inwater = false
 		change_physics("air")
 		curforce = jumpheight
-		velocity.y = -curforce
+		if Input.is_action_pressed("jump"):
+			velocity.y = -curforce
 
