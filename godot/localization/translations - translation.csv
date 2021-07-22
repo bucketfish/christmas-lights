@@ -12,7 +12,7 @@ MENU_SAVENQUIT,save and quit,o pini musi
 OPTIONS_VIDEO,video,sitelen
 OPTIONS_VIDEO_LIGHTS,lights,suno lili
 OPTIONS_VIDEO_PARTICLES,particles,ijo lili
-OPTIONS_VIDEO_SATURATION,saturation,kule wawa
+OPTIONS_VIDEO_SATURATION,saturation,wawa kule
 OPTIONS_VIDEO_ALL,all,ale
 OPTIONS_VIDEO_DECREASED,decreased,lili
 OPTIONS_VIDEO_FANCY,fancy,namako
@@ -42,10 +42,11 @@ INTERACT_LISTEN,listen,o kute
 INTERACT_PICKUP,pick up,o luka
 INTERACT_WATCH,watch,o lukin
 INTERACT_REST,rest,o lape
+INTERACT_INSERT,insert,o pana
 ,,
 NOTEBOOK_INTRO,this notebook belongs to rain.,ni li lipu pi jan wen.
 ,,
-NOTEBOOK_INTRONOTE,"welcome, rain. \n\n you have one goal. \n\n reach the top and string the lights. \n\n good luck.","o kama pona, jan wen o. \n alasa sina li wan: \n o tawa sewi, o pana e linja suno. \n o pali pona."
+NOTEBOOK_INTRONOTE,"welcome, rain.\n\nyou have one goal.\n\nreach the top and string the lights.\n\ngood luck.","o kama pona, jan wen o.\n\nalasa sina li wan:\n\no tawa sewi, o pana e linja suno.\n\no pali pona."
 ,,
 ,,
 NAME_RAIN,rain,wen

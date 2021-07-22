@@ -4,10 +4,10 @@
 [ext_resource path="res://other ingame elements/button.gd" type="Script" id=2]
 [ext_resource path="res://christmas lights.ttf" type="DynamicFontData" id=3]
 
-[sub_resource type="CanvasItemMaterial" id=5]
+[sub_resource type="CanvasItemMaterial" id=1]
 light_mode = 1
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=2]
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
@@ -68,16 +68,17 @@ script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
 light_mask = 0
-material = SubResource( 5 )
+material = SubResource( 1 )
 scale = Vector2( 0.3, 0.3 )
 texture = ExtResource( 1 )
 vframes = 2
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/click = SubResource( 6 )
+anims/click = SubResource( 2 )
 anims/release = SubResource( 3 )
 
 [node name="z" type="RichTextLabel" parent="."]
+light_mask = 0
 margin_left = -15.2416
 margin_top = -29.6502
 margin_right = 61.7584

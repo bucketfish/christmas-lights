@@ -158,6 +158,10 @@ func load_game():
 	emit_signal("finish_load")
 
 
+func _notification(notif):
+	if notif == MainLoop.NOTIFICATION_WM_FOCUS_OUT:
+		$gui/pause.pause()
+		
 func change_state(new):
 	state = new
 	emit_signal("change_state", state)

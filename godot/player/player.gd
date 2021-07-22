@@ -152,12 +152,12 @@ func get_input(delta):
 
 func _physics_process(delta):
 	get_input(delta)
-	#if !is_on_floor()  || velocity.x != 0:
-	velocity.y += gravity * delta
+	#
+	velocity.y = clamp(velocity.y + gravity * delta, -1500, 1500)
 	
 	var snap = Vector2.DOWN if !jumping else Vector2.ZERO
 	
-	$Label.text = str(raycast("floor"))
+	#$Label.text = str(velocity.y)
 	#var snap = Vector2()
 	
 	velocity = move_and_slide_with_snap(velocity, snap, Vector2.UP )

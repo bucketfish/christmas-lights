@@ -15,13 +15,16 @@ func _ready():
 
 func _input(event):
 	if event.is_action_pressed("pause") && base.state in ["play", "dialogue"]:
-		base.state = "paused"
-		visible = !visible
-		openmenu()
+		pause()
 	elif event.is_action_pressed("pause") && visible == true:
 		base.state = "play"
 		visible = !visible
 		_on_continue_pressed()
+		
+func pause():
+	base.state = "paused"
+	visible = !visible
+	openmenu()
 		
 func openmenu():
 	if paused:

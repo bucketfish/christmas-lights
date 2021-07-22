@@ -315,7 +315,7 @@ texture = ExtResource( 1 )
 flip_h = true
 vframes = 5
 hframes = 4
-frame = 2
+frame = 3
 
 [node name="fir_sled" type="Sprite" parent="Sprite"]
 visible = false
