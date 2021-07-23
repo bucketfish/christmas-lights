@@ -123,7 +123,7 @@ size_flags_vertical = 3
 custom_fonts/normal_font = SubResource( 1 )
 bbcode_enabled = true
 bbcode_text = "v0.0.0"
-text = "v0.0.0"
+text = "v0.0.1"
 scroll_active = false
 __meta__ = {
 "_edit_use_anchors_": false
