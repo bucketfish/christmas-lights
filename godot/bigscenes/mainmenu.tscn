@@ -21,30 +21,6 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="version" type="Control" parent="CanvasLayer/Control"]
-margin_top = 550.0
-margin_right = 1024.0
-margin_bottom = 600.0
-size_flags_vertical = 3
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="version" type="RichTextLabel" parent="CanvasLayer/Control/version"]
-margin_left = 50.0
-margin_right = 1024.0
-margin_bottom = 60.0
-size_flags_horizontal = 11
-size_flags_vertical = 3
-custom_fonts/normal_font = SubResource( 1 )
-bbcode_enabled = true
-bbcode_text = "version 0.0.1"
-text = "version 0.0.1"
-scroll_active = false
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -128,5 +104,29 @@ margin_right = 1024.0
 margin_bottom = 349.0
 size_flags_vertical = 3
 size_flags_stretch_ratio = 3.0
+
+[node name="version" type="Control" parent="CanvasLayer/Control"]
+margin_top = 550.0
+margin_right = 1024.0
+margin_bottom = 600.0
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="version" type="RichTextLabel" parent="CanvasLayer/Control/version"]
+margin_left = 50.0
+margin_right = 1024.0
+margin_bottom = 60.0
+size_flags_horizontal = 11
+size_flags_vertical = 3
+custom_fonts/normal_font = SubResource( 1 )
+bbcode_enabled = true
+bbcode_text = "v0.0.0"
+text = "v0.0.0"
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
 [connection signal="pressed" from="CanvasLayer/Control/VBoxContainer/VBoxContainer/button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/Control/VBoxContainer/VBoxContainer/button3" to="." method="_on_quit_pressed"]

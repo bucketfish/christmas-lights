@@ -41,8 +41,10 @@ INTERACT_ENTER,enter,o tawa
 INTERACT_LISTEN,listen,o kute
 INTERACT_PICKUP,pick up,o luka
 INTERACT_WATCH,watch,o lukin
+INTERACT_INSPECT,inspect,o lukin
 INTERACT_REST,rest,o lape
 INTERACT_INSERT,insert,o pana
+,,
 ,,
 NOTEBOOK_INTRO,this notebook belongs to rain.,ni li lipu pi jan wen.
 ,,
@@ -53,11 +55,13 @@ NAME_RAIN,rain,wen
 NAME_FIR,fir,pe
 ,,
 ,,
-NPC_GIFT_ONE,gift a berry to [color=#add8ff]{person}[/color]?,o pana e kili tawa jan [color=#add8ff]{person}[/color]?
-NPC_GIFT_MANY,gift {number} berries to [color=#add8ff]{person}[/color]?,o pana e kili {number} tawa jan [color=#add8ff]{person}[/color]?
-NPC_GIFT,gift,o pana
-NPC_NOTENOUGH,not enough,jo sina li lili
-NPC_CANCEL,cancel,o weka
+DIALOGUE_GIFT_ONE,gift a berry to [color=#add8ff]{person}[/color]?,o pana e kili tawa jan [color=#add8ff]{person}[/color]?
+DIALOGUE_GIFT_MANY,gift {number} berries to [color=#add8ff]{person}[/color]?,o pana e kili {number} tawa jan [color=#add8ff]{person}[/color]?
+DIALOGUE_INSERT_MANY,insert {number} berries?,o pana e kili {number}?
+DIALOGUE_INSERT,insert,o pana
+DIALOGUE_GIFT,gift,o pana
+DIALOGUE_NOTENOUGH,not enough,jo sina li lili
+DIALOGUE_CANCEL,cancel,o weka
 ,,
 ,,
 FIR_INTRO_1,"ohoho! oolala! i'm [color=#add8ff]fir[/color] the shopkeeper, and it's the summer sale!","o o o! a a a! mi jan esun [color=#add8ff]pe[/color]. tenpo seli, tenpo seli! wile mani li lili!"
