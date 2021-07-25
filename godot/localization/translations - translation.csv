@@ -10,32 +10,29 @@ MENU_CONTINUE,continue,o awen musi
 MENU_SAVENQUIT,save and quit,o pini musi
 ,,
 OPTIONS_VIDEO,video,sitelen
-OPTIONS_VIDEO_LIGHTS,lights,suno lili
 OPTIONS_VIDEO_PARTICLES,particles,ijo lili
 OPTIONS_VIDEO_SATURATION,saturation,wawa kule
-OPTIONS_VIDEO_ALL,all,ale
-OPTIONS_VIDEO_DECREASED,decreased,lili
-OPTIONS_VIDEO_FANCY,fancy,namako
-OPTIONS_VIDEO_FAST,fast,tenpo lili
-OPTIONS_VIDEO_NONE,none,ala
+OPTIONS_VIDEO_BRIGHTNESS,brightness,wawa suno
+OPTIONS_VIDEO_CONTRAST,contrast,wawa ante
 ,,
 OPTIONS_AUDIO,audio,kalama
-OPTIONS_AUDIO_MASTER,master,ale
+OPTIONS_AUDIO_MASTER,master,kalama ale
 OPTIONS_AUDIO_MUSIC,music,kalama musi
-OPTIONS_AUDIO_PLAYER,player,jan
-OPTIONS_AUDIO_SOUNDEFFECTS,sound effects,ante
+OPTIONS_AUDIO_SOUNDEFFECTS,sound effects,kalama ijo
 ,,
 OPTIONS_CONTROLS,controls,nasin tawa
+OPTIONS_CONTROLS_SELECT,select,o anu
 OPTIONS_CONTROLS_MOVELEFT,move left,tawa soto
 OPTIONS_CONTROLS_MOVERIGHT,move right,tawa teje
+OPTIONS_CONTROLS_SWIMDOWN,swim down,tawa anpa telo
 OPTIONS_CONTROLS_JUMP,jump,tawa sewi
 OPTIONS_CONTROLS_INTERACT,interact,pali
-OPTIONS_CONTROLS_SLIDE,slide,tawa telo
-OPTIONS_CONTROLS_LATCH,latch,tawa wawa
+OPTIONS_CONTROLS_SLIDE,slide,tawa wawa supa
+OPTIONS_CONTROLS_DASH,dash,tawa wawa
 ,,
 OPTIONS_LANGUAGE,language,toki
-,,
 OPTIONS_BACK,back,pini
+,,
 ,,
 INTERACT_ENTER,enter,o tawa
 INTERACT_LISTEN,listen,o kute
@@ -57,7 +54,7 @@ NAME_FIR,fir,pe
 ,,
 DIALOGUE_GIFT_ONE,gift a berry to [color=#add8ff]{person}[/color]?,o pana e kili tawa jan [color=#add8ff]{person}[/color]?
 DIALOGUE_GIFT_MANY,gift {number} berries to [color=#add8ff]{person}[/color]?,o pana e kili {number} tawa jan [color=#add8ff]{person}[/color]?
-DIALOGUE_INSERT_MANY,insert {number} berries?,o pana e kili {number}?
+DIALOGUE_INSERT_MANY,there's a hole. insert {number} berries?,lupa li lon. o pana e kili {number}?
 DIALOGUE_INSERT,insert,o pana
 DIALOGUE_GIFT,gift,o pana
 DIALOGUE_NOTENOUGH,not enough,jo sina li lili

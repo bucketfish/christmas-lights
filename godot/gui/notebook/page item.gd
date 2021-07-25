@@ -6,7 +6,7 @@ extends Sprite
 # var b = "text"
 export var itemid:String
 onready var base = get_node("/root/game")
-onready var notebook = get_node("/root/game/gui/notebook")
+onready var notebook = get_node("/root/game/notebook/notebook")
 
 
 # Called when the node enters the scene tree for the first time.

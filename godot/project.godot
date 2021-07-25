@@ -23,6 +23,8 @@ config/name_en_CA="linja suno"
 [autoload]
 
 Scenechanger="*res://scenechanger.tscn"
+Options="*res://gui/options.tscn"
+env="*res://worldenv.tscn"
 
 [display]
 
@@ -140,4 +142,3 @@ translations=PoolStringArray( "res://localization/translations - translation.en.
 [rendering]
 
 environment/default_clear_color=Color( 0.0352941, 0.184314, 0.00784314, 1 )
-environment/default_environment="res://default_env.tres"

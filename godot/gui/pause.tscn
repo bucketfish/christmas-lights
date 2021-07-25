@@ -106,4 +106,5 @@ margin_bottom = 349.0
 size_flags_vertical = 3
 size_flags_stretch_ratio = 3.0
 [connection signal="pressed" from="VBoxContainer/VBoxContainer/button" to="." method="_on_continue_pressed"]
+[connection signal="pressed" from="VBoxContainer/VBoxContainer/button2" to="." method="_on_options_pressed"]
 [connection signal="pressed" from="VBoxContainer/VBoxContainer/button3" to="." method="_on_quit_pressed"]

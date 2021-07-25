@@ -7,6 +7,7 @@
 light_mode = 1
 
 [node name="rope" type="Node2D"]
+pause_mode = 1
 light_mask = 0
 material = SubResource( 1 )
 position = Vector2( -5.21471, -0.213703 )
@@ -20,4 +21,5 @@ node_b = NodePath("link")
 softness = 0.1
 
 [node name="link" parent="PinJoint2D" instance=ExtResource( 2 )]
+pause_mode = 1
 position = Vector2( -13.2223, -0.0526657 )

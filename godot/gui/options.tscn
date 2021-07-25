@@ -1,0 +1,594 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://gui/options.gd" type="Script" id=1]
+[ext_resource path="res://gui/menulabel.tscn" type="PackedScene" id=2]
+[ext_resource path="res://gui/button.tscn" type="PackedScene" id=3]
+[ext_resource path="res://gui/choice_button.tscn" type="PackedScene" id=4]
+[ext_resource path="res://gui/optionscreen.gd" type="Script" id=5]
+
+[node name="options" type="CanvasLayer"]
+pause_mode = 2
+layer = 21
+script = ExtResource( 1 )
+
+[node name="main" type="Control" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+screenname = "main"
+initial = NodePath("VBoxContainer/VBoxContainer/video")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="main"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Control" type="Control" parent="main/VBoxContainer"]
+margin_right = 1024.0
+margin_bottom = 74.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.2
+
+[node name="Control2" type="Control" parent="main/VBoxContainer"]
+margin_top = 78.0
+margin_right = 1024.0
+margin_bottom = 226.0
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.4
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="menulabel" parent="main/VBoxContainer/Control2" instance=ExtResource( 2 )]
+margin_right = 1024.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+bbcode_enabled = true
+bbcode_text = "[center]options"
+text = "options"
+key = "MENU_OPTIONS"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="main/VBoxContainer"]
+margin_top = 230.0
+margin_right = 1024.0
+margin_bottom = 600.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="video" parent="main/VBoxContainer/VBoxContainer" instance=ExtResource( 3 )]
+margin_left = 0.0
+margin_right = 1024.0
+margin_bottom = 49.0
+focus_neighbour_top = NodePath("../back")
+focus_neighbour_bottom = NodePath("../audio")
+size_flags_vertical = 3
+text = "OPTIONS_VIDEO"
+font_size = 40.0
+
+[node name="audio" parent="main/VBoxContainer/VBoxContainer" instance=ExtResource( 3 )]
+margin_left = 0.0
+margin_top = 53.0
+margin_right = 1024.0
+margin_bottom = 102.0
+focus_neighbour_top = NodePath("../video")
+focus_neighbour_bottom = NodePath("../controls")
+size_flags_vertical = 3
+text = "OPTIONS_AUDIO"
+font_size = 40.0
+
+[node name="controls" parent="main/VBoxContainer/VBoxContainer" instance=ExtResource( 3 )]
+margin_left = 0.0
+margin_top = 106.0
+margin_right = 1024.0
+margin_bottom = 155.0
+focus_neighbour_top = NodePath("../audio")
+focus_neighbour_bottom = NodePath("../language")
+size_flags_vertical = 3
+text = "OPTIONS_CONTROLS"
+font_size = 40.0
+
+[node name="language" parent="main/VBoxContainer/VBoxContainer" instance=ExtResource( 3 )]
+margin_left = 0.0
+margin_top = 159.0
+margin_right = 1024.0
+margin_bottom = 208.0
+focus_neighbour_top = NodePath("../controls")
+focus_neighbour_bottom = NodePath("../back")
+size_flags_vertical = 3
+text = "OPTIONS_LANGUAGE"
+font_size = 40.0
+
+[node name="gap" type="Control" parent="main/VBoxContainer/VBoxContainer"]
+margin_top = 212.0
+margin_right = 1024.0
+margin_bottom = 261.0
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="back" parent="main/VBoxContainer/VBoxContainer" instance=ExtResource( 3 )]
+margin_left = 0.0
+margin_top = 265.0
+margin_right = 1024.0
+margin_bottom = 314.0
+focus_neighbour_top = NodePath("../language")
+focus_neighbour_bottom = NodePath("../video")
+size_flags_vertical = 3
+text = "OPTIONS_BACK"
+font_size = 40.0
+
+[node name="tail_gap" type="Control" parent="main/VBoxContainer/VBoxContainer"]
+margin_top = 318.0
+margin_right = 1024.0
+margin_bottom = 370.0
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="video" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+screenname = "video"
+initial = NodePath("VBoxContainer/choices/VBoxContainer/particles")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="video"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Control" type="Control" parent="video/VBoxContainer"]
+margin_right = 1024.0
+margin_bottom = 74.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.2
+
+[node name="Control2" type="Control" parent="video/VBoxContainer"]
+margin_top = 78.0
+margin_right = 1024.0
+margin_bottom = 226.0
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.4
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="menulabel" parent="video/VBoxContainer/Control2" instance=ExtResource( 2 )]
+margin_right = 1024.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+bbcode_enabled = true
+bbcode_text = "[center]options"
+text = "options"
+key = "OPTIONS_VIDEO"
+
+[node name="choices" type="HBoxContainer" parent="video/VBoxContainer"]
+margin_top = 230.0
+margin_right = 1024.0
+margin_bottom = 600.0
+size_flags_vertical = 3
+
+[node name="Control" type="Control" parent="video/VBoxContainer/choices"]
+margin_right = 190.0
+margin_bottom = 370.0
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="video/VBoxContainer/choices"]
+margin_left = 194.0
+margin_right = 829.0
+margin_bottom = 370.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="particles" parent="video/VBoxContainer/choices/VBoxContainer" instance=ExtResource( 4 )]
+margin_bottom = 49.0
+focus_neighbour_top = NodePath("../back")
+focus_neighbour_bottom = NodePath("../saturation")
+size_flags_vertical = 3
+text = "OPTIONS_VIDEO_PARTICLES"
+parent = NodePath("../../../..")
+font_size = 40.0
+variable = "video_particles"
+
+[node name="label" parent="video/VBoxContainer/choices/VBoxContainer/particles/HBoxContainer" index="0"]
+margin_bottom = 49.0
+
+[node name="Control" parent="video/VBoxContainer/choices/VBoxContainer/particles/HBoxContainer" index="1"]
+margin_bottom = 49.0
+
+[node name="saturation" parent="video/VBoxContainer/choices/VBoxContainer" instance=ExtResource( 4 )]
+margin_top = 53.0
+margin_bottom = 102.0
+focus_neighbour_top = NodePath("../particles")
+focus_neighbour_bottom = NodePath("../brightness")
+size_flags_vertical = 3
+text = "OPTIONS_VIDEO_SATURATION"
+parent = NodePath("../../../..")
+id = 1
+font_size = 40.0
+variable = "video_saturation"
+
+[node name="label" parent="video/VBoxContainer/choices/VBoxContainer/saturation/HBoxContainer" index="0"]
+margin_bottom = 49.0
+
+[node name="Control" parent="video/VBoxContainer/choices/VBoxContainer/saturation/HBoxContainer" index="1"]
+margin_bottom = 49.0
+
+[node name="brightness" parent="video/VBoxContainer/choices/VBoxContainer" instance=ExtResource( 4 )]
+margin_top = 106.0
+margin_bottom = 155.0
+focus_neighbour_top = NodePath("../saturation")
+focus_neighbour_bottom = NodePath("../contrast")
+size_flags_vertical = 3
+text = "OPTIONS_VIDEO_BRIGHTNESS"
+parent = NodePath("../../../..")
+id = 2
+font_size = 40.0
+variable = "video_brightness"
+
+[node name="label" parent="video/VBoxContainer/choices/VBoxContainer/brightness/HBoxContainer" index="0"]
+margin_bottom = 49.0
+
+[node name="Control" parent="video/VBoxContainer/choices/VBoxContainer/brightness/HBoxContainer" index="1"]
+margin_bottom = 49.0
+
+[node name="contrast" parent="video/VBoxContainer/choices/VBoxContainer" instance=ExtResource( 4 )]
+margin_top = 159.0
+margin_bottom = 208.0
+focus_neighbour_top = NodePath("../brightness")
+focus_neighbour_bottom = NodePath("../back")
+size_flags_vertical = 3
+text = "OPTIONS_VIDEO_CONTRAST"
+parent = NodePath("../../../..")
+id = 3
+font_size = 40.0
+variable = "video_contrast"
+
+[node name="gap" type="Control" parent="video/VBoxContainer/choices/VBoxContainer"]
+margin_top = 212.0
+margin_right = 635.0
+margin_bottom = 261.0
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="back" parent="video/VBoxContainer/choices/VBoxContainer" instance=ExtResource( 3 )]
+margin_left = 0.0
+margin_top = 265.0
+margin_right = 635.0
+margin_bottom = 314.0
+focus_neighbour_top = NodePath("../contrast")
+focus_neighbour_bottom = NodePath("../particles")
+size_flags_vertical = 3
+text = "OPTIONS_BACK"
+font_size = 40.0
+
+[node name="tail_gap" type="Control" parent="video/VBoxContainer/choices/VBoxContainer"]
+margin_top = 318.0
+margin_right = 635.0
+margin_bottom = 370.0
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Control2" type="Control" parent="video/VBoxContainer/choices"]
+margin_left = 833.0
+margin_right = 1024.0
+margin_bottom = 370.0
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.3
+
+[node name="audio" type="Control" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+screenname = "audio"
+initial = NodePath("VBoxContainer/choices/VBoxContainer/master")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="audio"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Control" type="Control" parent="audio/VBoxContainer"]
+margin_right = 1024.0
+margin_bottom = 74.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.2
+
+[node name="Control2" type="Control" parent="audio/VBoxContainer"]
+margin_top = 78.0
+margin_right = 1024.0
+margin_bottom = 226.0
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.4
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="menulabel" parent="audio/VBoxContainer/Control2" instance=ExtResource( 2 )]
+margin_right = 1024.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+bbcode_enabled = true
+bbcode_text = "[center]options"
+text = "options"
+key = "OPTIONS_AUDIO"
+
+[node name="choices" type="HBoxContainer" parent="audio/VBoxContainer"]
+margin_top = 230.0
+margin_right = 1024.0
+margin_bottom = 600.0
+size_flags_vertical = 3
+
+[node name="Control" type="Control" parent="audio/VBoxContainer/choices"]
+margin_right = 190.0
+margin_bottom = 370.0
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="audio/VBoxContainer/choices"]
+margin_left = 194.0
+margin_right = 829.0
+margin_bottom = 370.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="master" parent="audio/VBoxContainer/choices/VBoxContainer" instance=ExtResource( 4 )]
+margin_bottom = 58.0
+focus_neighbour_top = NodePath("../back")
+focus_neighbour_bottom = NodePath("../music")
+size_flags_vertical = 3
+text = "OPTIONS_AUDIO_MASTER"
+parent = NodePath("../../../..")
+font_size = 40.0
+variable = "audio_master"
+
+[node name="music" parent="audio/VBoxContainer/choices/VBoxContainer" instance=ExtResource( 4 )]
+margin_top = 62.0
+margin_bottom = 120.0
+focus_neighbour_top = NodePath("../master")
+focus_neighbour_bottom = NodePath("../soundeffects")
+size_flags_vertical = 3
+text = "OPTIONS_AUDIO_MUSIC"
+parent = NodePath("../../../..")
+id = 1
+font_size = 40.0
+variable = "audio_music"
+
+[node name="soundeffects" parent="audio/VBoxContainer/choices/VBoxContainer" instance=ExtResource( 4 )]
+margin_top = 124.0
+margin_bottom = 182.0
+focus_neighbour_top = NodePath("../music")
+focus_neighbour_bottom = NodePath("../back")
+size_flags_vertical = 3
+text = "OPTIONS_AUDIO_SOUNDEFFECTS"
+parent = NodePath("../../../..")
+id = 2
+font_size = 40.0
+variable = "audio_soundeffects"
+
+[node name="gap" type="Control" parent="audio/VBoxContainer/choices/VBoxContainer"]
+margin_top = 186.0
+margin_right = 635.0
+margin_bottom = 244.0
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="back" parent="audio/VBoxContainer/choices/VBoxContainer" instance=ExtResource( 3 )]
+margin_left = 0.0
+margin_top = 248.0
+margin_right = 635.0
+margin_bottom = 306.0
+focus_neighbour_top = NodePath("../soundeffects")
+focus_neighbour_bottom = NodePath("../master")
+size_flags_vertical = 3
+text = "OPTIONS_BACK"
+font_size = 40.0
+
+[node name="tail_gap" type="Control" parent="audio/VBoxContainer/choices/VBoxContainer"]
+margin_top = 310.0
+margin_right = 635.0
+margin_bottom = 370.0
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Control2" type="Control" parent="audio/VBoxContainer/choices"]
+margin_left = 833.0
+margin_right = 1024.0
+margin_bottom = 370.0
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.3
+
+[node name="controls" type="Control" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+screenname = "audio"
+initial = NodePath("../controls/VBoxContainer/choices/VBoxContainer/master")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="controls"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Control" type="Control" parent="controls/VBoxContainer"]
+margin_right = 1024.0
+margin_bottom = 74.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.2
+
+[node name="Control2" type="Control" parent="controls/VBoxContainer"]
+margin_top = 78.0
+margin_right = 1024.0
+margin_bottom = 226.0
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.4
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="menulabel" parent="controls/VBoxContainer/Control2" instance=ExtResource( 2 )]
+margin_right = 1024.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+bbcode_enabled = true
+bbcode_text = "[center]options"
+text = "options"
+key = "OPTIONS_AUDIO"
+
+[node name="choices" type="HBoxContainer" parent="controls/VBoxContainer"]
+margin_top = 230.0
+margin_right = 1024.0
+margin_bottom = 600.0
+size_flags_vertical = 3
+
+[node name="Control" type="Control" parent="controls/VBoxContainer/choices"]
+margin_right = 190.0
+margin_bottom = 370.0
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="controls/VBoxContainer/choices"]
+margin_left = 194.0
+margin_right = 829.0
+margin_bottom = 370.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="master" parent="controls/VBoxContainer/choices/VBoxContainer" instance=ExtResource( 4 )]
+margin_bottom = 58.0
+focus_neighbour_top = NodePath("../back")
+focus_neighbour_bottom = NodePath("../music")
+size_flags_vertical = 3
+text = "OPTIONS_AUDIO_MASTER"
+parent = NodePath("../../../../../controls")
+font_size = 40.0
+variable = "audio_master"
+
+[node name="music" parent="controls/VBoxContainer/choices/VBoxContainer" instance=ExtResource( 4 )]
+margin_top = 62.0
+margin_bottom = 120.0
+focus_neighbour_top = NodePath("../master")
+focus_neighbour_bottom = NodePath("../soundeffects")
+size_flags_vertical = 3
+text = "OPTIONS_AUDIO_MUSIC"
+parent = NodePath("../../../../../controls")
+id = 1
+font_size = 40.0
+variable = "audio_music"
+
+[node name="soundeffects" parent="controls/VBoxContainer/choices/VBoxContainer" instance=ExtResource( 4 )]
+margin_top = 124.0
+margin_bottom = 182.0
+focus_neighbour_top = NodePath("../music")
+focus_neighbour_bottom = NodePath("../back")
+size_flags_vertical = 3
+text = "OPTIONS_AUDIO_SOUNDEFFECTS"
+parent = NodePath("../../../../../controls")
+id = 2
+font_size = 40.0
+variable = "audio_soundeffects"
+
+[node name="gap" type="Control" parent="controls/VBoxContainer/choices/VBoxContainer"]
+margin_top = 186.0
+margin_right = 635.0
+margin_bottom = 244.0
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="back" parent="controls/VBoxContainer/choices/VBoxContainer" instance=ExtResource( 3 )]
+margin_left = 0.0
+margin_top = 248.0
+margin_right = 635.0
+margin_bottom = 306.0
+focus_neighbour_top = NodePath("../soundeffects")
+focus_neighbour_bottom = NodePath("../master")
+size_flags_vertical = 3
+text = "OPTIONS_BACK"
+font_size = 40.0
+
+[node name="tail_gap" type="Control" parent="controls/VBoxContainer/choices/VBoxContainer"]
+margin_top = 310.0
+margin_right = 635.0
+margin_bottom = 370.0
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Control2" type="Control" parent="controls/VBoxContainer/choices"]
+margin_left = 833.0
+margin_right = 1024.0
+margin_bottom = 370.0
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.3
+[connection signal="pressed" from="main/VBoxContainer/VBoxContainer/video" to="." method="_on_video_pressed"]
+[connection signal="pressed" from="main/VBoxContainer/VBoxContainer/audio" to="." method="_on_audio_pressed"]
+[connection signal="pressed" from="main/VBoxContainer/VBoxContainer/back" to="." method="_on_backmain_pressed"]
+[connection signal="value_change" from="video/VBoxContainer/choices/VBoxContainer/particles" to="." method="_on_value_change"]
+[connection signal="value_change" from="video/VBoxContainer/choices/VBoxContainer/saturation" to="." method="_on_value_change"]
+[connection signal="value_change" from="video/VBoxContainer/choices/VBoxContainer/brightness" to="." method="_on_value_change"]
+[connection signal="value_change" from="video/VBoxContainer/choices/VBoxContainer/contrast" to="." method="_on_value_change"]
+[connection signal="pressed" from="video/VBoxContainer/choices/VBoxContainer/back" to="." method="_on_back_pressed"]
+[connection signal="value_change" from="audio/VBoxContainer/choices/VBoxContainer/master" to="." method="_on_value_change"]
+[connection signal="value_change" from="audio/VBoxContainer/choices/VBoxContainer/music" to="." method="_on_value_change"]
+[connection signal="value_change" from="audio/VBoxContainer/choices/VBoxContainer/soundeffects" to="." method="_on_value_change"]
+[connection signal="pressed" from="audio/VBoxContainer/choices/VBoxContainer/back" to="." method="_on_back_pressed"]
+[connection signal="value_change" from="controls/VBoxContainer/choices/VBoxContainer/master" to="." method="_on_value_change"]
+[connection signal="value_change" from="controls/VBoxContainer/choices/VBoxContainer/music" to="." method="_on_value_change"]
+[connection signal="value_change" from="controls/VBoxContainer/choices/VBoxContainer/soundeffects" to="." method="_on_value_change"]
+[connection signal="pressed" from="controls/VBoxContainer/choices/VBoxContainer/back" to="." method="_on_back_pressed"]
+
+[editable path="video/VBoxContainer/choices/VBoxContainer/particles"]
+
+[editable path="video/VBoxContainer/choices/VBoxContainer/saturation"]
+
+[editable path="video/VBoxContainer/choices/VBoxContainer/brightness"]

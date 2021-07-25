@@ -1,0 +1,8 @@
+[gd_resource type="DynamicFont" load_steps=2 format=2]
+
+[ext_resource path="res://christmas lights.ttf" type="DynamicFontData" id=1]
+
+[resource]
+resource_name = "christmas_lights"
+size = 40
+font_data = ExtResource( 1 )

@@ -34,7 +34,7 @@ func update_book():
 	
 func _input(event):
 		
-	if event.is_action_pressed("notebook"):
+	if event.is_action_pressed("notebook") && (base.state == "play" || base.state == "notebook"):
 		showing = !showing
 		get_tree().paused = showing
 		

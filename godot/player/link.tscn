@@ -9,7 +9,9 @@ light_mode = 1
 radius = 5.24396
 height = 21.9046
 
-[node name="link" type="RigidBody2D"]
+[node name="link" type="RigidBody2D" groups=[
+"game_physics",
+]]
 collision_layer = 0
 collision_mask = 0
 

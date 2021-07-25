@@ -13,8 +13,6 @@ func _ready():
 	dynamic_font.font_data = load("res://christmas lights.ttf")
 	dynamic_font.size = font_size
 	$label.set("custom_fonts/normal_font", dynamic_font)
-	#$label.set("custom_fonts/normal_font/size", size)
-	#$label.custom_fonts.normal_font.size = size
 	
 func _process(_delta):
 	#if Engine.editor_hint:

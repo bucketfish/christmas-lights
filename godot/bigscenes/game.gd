@@ -3,8 +3,8 @@ extends Node2D
 #signal scene_changed(spawn)
 
 onready var changeanim = $scenechanger/AnimationPlayer
-onready var berrylabel = $gui/notebook/maps/map1/berry/berrylabel
-onready var dialogue = $gui/dialogue
+onready var berrylabel = $notebook/notebook/maps/map1/berry/berrylabel
+onready var dialogue = $dialogue/dialogue
 onready var camera = $camera
 onready var player = $player
 onready var debug = $gui/debug
@@ -50,6 +50,8 @@ func _ready():
 		print(curscene + " " + lastspawn)
 		if curscene != "" && lastspawn != "":
 			change_scene(curscene, lastspawn)
+			
+	Options.main.visible = false
 		
 		#change_scene("res://rooms/intro.tscn", "intro_start")
 
@@ -160,7 +162,8 @@ func load_game():
 
 func _notification(notif):
 	if notif == MainLoop.NOTIFICATION_WM_FOCUS_OUT:
-		$gui/pause.pause()
+		if state == "play":
+			$gui/pause.pause()
 		
 func change_state(new):
 	state = new

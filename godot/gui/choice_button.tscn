@@ -1,0 +1,135 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://gui/button.tscn" type="PackedScene" id=1]
+[ext_resource path="res://gui/choice_button.gd" type="Script" id=2]
+[ext_resource path="res://christmas lights.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://player/lights spritesheet.png" type="Texture" id=4]
+[ext_resource path="res://player/light.png" type="Texture" id=5]
+[ext_resource path="res://gui/menulabel.tres" type="DynamicFont" id=6]
+
+[sub_resource type="DynamicFont" id=1]
+size = 40
+font_data = ExtResource( 3 )
+
+[sub_resource type="Curve2D" id=3]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 1.29623, -0.00434494, 0, 0, 0, 0, 198.246, -0.0464249 )
+}
+
+[sub_resource type="CircleShape2D" id=4]
+radius = 5.0
+
+[node name="choice_button" instance=ExtResource( 1 )]
+pause_mode = 2
+margin_left = 0.0
+margin_right = 635.0
+script = ExtResource( 2 )
+
+[node name="front" type="RichTextLabel" parent="." index="0"]
+margin_left = -20.0
+margin_bottom = 51.0
+size_flags_stretch_ratio = 0.1
+custom_fonts/normal_font = SubResource( 1 )
+custom_colors/default_color = Color( 1, 1, 1, 1 )
+bbcode_enabled = true
+bbcode_text = "[color=#add8ff]•"
+text = "•"
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." index="1"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="label" type="RichTextLabel" parent="HBoxContainer" index="0"]
+light_mask = 0
+margin_right = 315.0
+margin_bottom = 51.0
+size_flags_horizontal = 3
+custom_fonts/normal_font = ExtResource( 6 )
+bbcode_enabled = true
+bbcode_text = "menu button"
+text = "menu button"
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Control" type="Control" parent="HBoxContainer" index="1"]
+margin_left = 319.0
+margin_right = 635.0
+margin_bottom = 51.0
+size_flags_horizontal = 3
+
+[node name="Line2D" type="Line2D" parent="HBoxContainer/Control" index="0"]
+pause_mode = 2
+position = Vector2( 104, 18 )
+points = PoolVector2Array( 200, 0, 0, 0 )
+width = 3.0
+default_color = Color( 1, 1, 1, 1 )
+
+[node name="Path2D" type="Path2D" parent="HBoxContainer/Control" index="1"]
+pause_mode = 2
+position = Vector2( 104, 18 )
+curve = SubResource( 3 )
+
+[node name="PathFollow2D" type="PathFollow2D" parent="HBoxContainer/Control/Path2D" index="0"]
+pause_mode = 2
+position = Vector2( 198.246, -0.0464249 )
+offset = 197.007
+rotate = false
+loop = false
+
+[node name="KinematicBody2D" type="KinematicBody2D" parent="HBoxContainer/Control/Path2D/PathFollow2D" index="0"]
+pause_mode = 2
+position = Vector2( -0.278442, 1.20658 )
+collision_layer = 0
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HBoxContainer/Control/Path2D/PathFollow2D/KinematicBody2D" index="0"]
+pause_mode = 2
+position = Vector2( -0.185638, -1.71706 )
+shape = SubResource( 4 )
+
+[node name="light" type="Sprite" parent="HBoxContainer/Control/Path2D/PathFollow2D/KinematicBody2D" index="1"]
+modulate = Color( 1, 1, 1, 0.392157 )
+position = Vector2( -0.0609131, 8.79227 )
+scale = Vector2( 0.1, 0.1 )
+texture = ExtResource( 5 )
+
+[node name="bulb" type="Sprite" parent="HBoxContainer/Control/Path2D/PathFollow2D/KinematicBody2D" index="2"]
+position = Vector2( -0.0609131, 8.79227 )
+scale = Vector2( 0.35, 0.35 )
+texture = ExtResource( 4 )
+vframes = 2
+hframes = 3
+
+[node name="back" type="RichTextLabel" parent="." index="2"]
+anchor_top = 0.0150494
+anchor_bottom = 0.0150494
+margin_left = 635.0
+margin_right = 655.0
+margin_bottom = 51.0
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.1
+custom_fonts/normal_font = SubResource( 1 )
+custom_colors/default_color = Color( 1, 1, 1, 1 )
+bbcode_enabled = true
+bbcode_text = "[color=#add8ff]•"
+text = "•"
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Node2D" type="Node2D" parent="." index="3"]
+
+[node name="label" parent="." index="4"]
+visible = false
+
+[node name="Tween" type="Tween" parent="." index="5"]
