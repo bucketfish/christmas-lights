@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://gui/options.gd" type="Script" id=1]
 [ext_resource path="res://gui/menulabel.tscn" type="PackedScene" id=2]
 [ext_resource path="res://gui/button.tscn" type="PackedScene" id=3]
 [ext_resource path="res://gui/choice_button.tscn" type="PackedScene" id=4]
 [ext_resource path="res://gui/optionscreen.gd" type="Script" id=5]
+[ext_resource path="res://gui/keybind_button.tscn" type="PackedScene" id=6]
 
 [node name="options" type="CanvasLayer"]
 pause_mode = 2
@@ -135,6 +136,7 @@ __meta__ = {
 }
 
 [node name="video" type="Control" parent="."]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 5 )
@@ -436,15 +438,14 @@ size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.3
 
 [node name="controls" type="Control" parent="."]
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 5 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-screenname = "audio"
-initial = NodePath("../controls/VBoxContainer/choices/VBoxContainer/master")
+screenname = "controls"
+initial = NodePath("VBoxContainer/choices/VBoxContainer/HBoxContainer/VBoxContainer/right")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="controls"]
 anchor_right = 1.0
@@ -455,17 +456,17 @@ __meta__ = {
 
 [node name="Control" type="Control" parent="controls/VBoxContainer"]
 margin_right = 1024.0
-margin_bottom = 74.0
+margin_bottom = 78.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.2
 
 [node name="Control2" type="Control" parent="controls/VBoxContainer"]
-margin_top = 78.0
+margin_top = 82.0
 margin_right = 1024.0
-margin_bottom = 226.0
+margin_bottom = 200.0
 size_flags_vertical = 3
-size_flags_stretch_ratio = 0.4
+size_flags_stretch_ratio = 0.3
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -477,68 +478,130 @@ size_flags_vertical = 3
 bbcode_enabled = true
 bbcode_text = "[center]options"
 text = "options"
-key = "OPTIONS_AUDIO"
+key = "OPTIONS_CONTROLS"
 
 [node name="choices" type="HBoxContainer" parent="controls/VBoxContainer"]
-margin_top = 230.0
+margin_top = 204.0
 margin_right = 1024.0
 margin_bottom = 600.0
 size_flags_vertical = 3
 
 [node name="Control" type="Control" parent="controls/VBoxContainer/choices"]
 margin_right = 190.0
-margin_bottom = 370.0
+margin_bottom = 396.0
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.3
 
 [node name="VBoxContainer" type="VBoxContainer" parent="controls/VBoxContainer/choices"]
 margin_left = 194.0
 margin_right = 829.0
-margin_bottom = 370.0
+margin_bottom = 396.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="master" parent="controls/VBoxContainer/choices/VBoxContainer" instance=ExtResource( 4 )]
-margin_bottom = 58.0
-focus_neighbour_top = NodePath("../back")
-focus_neighbour_bottom = NodePath("../music")
+[node name="HBoxContainer" type="HBoxContainer" parent="controls/VBoxContainer/choices/VBoxContainer"]
+margin_right = 635.0
+margin_bottom = 256.0
 size_flags_vertical = 3
-text = "OPTIONS_AUDIO_MASTER"
-parent = NodePath("../../../../../controls")
-font_size = 40.0
-variable = "audio_master"
+size_flags_stretch_ratio = 6.0
+custom_constants/separation = 75
 
-[node name="music" parent="controls/VBoxContainer/choices/VBoxContainer" instance=ExtResource( 4 )]
-margin_top = 62.0
-margin_bottom = 120.0
-focus_neighbour_top = NodePath("../master")
-focus_neighbour_bottom = NodePath("../soundeffects")
-size_flags_vertical = 3
-text = "OPTIONS_AUDIO_MUSIC"
-parent = NodePath("../../../../../controls")
-id = 1
-font_size = 40.0
-variable = "audio_music"
+[node name="VBoxContainer" type="VBoxContainer" parent="controls/VBoxContainer/choices/VBoxContainer/HBoxContainer"]
+margin_right = 280.0
+margin_bottom = 256.0
+size_flags_horizontal = 3
 
-[node name="soundeffects" parent="controls/VBoxContainer/choices/VBoxContainer" instance=ExtResource( 4 )]
-margin_top = 124.0
-margin_bottom = 182.0
-focus_neighbour_top = NodePath("../music")
-focus_neighbour_bottom = NodePath("../back")
-size_flags_vertical = 3
-text = "OPTIONS_AUDIO_SOUNDEFFECTS"
-parent = NodePath("../../../../../controls")
-id = 2
-font_size = 40.0
-variable = "audio_soundeffects"
+[node name="left" parent="controls/VBoxContainer/choices/VBoxContainer/HBoxContainer/VBoxContainer" instance=ExtResource( 6 )]
+margin_right = 280.0
+margin_bottom = 61.0
+focus_neighbour_top = NodePath("../../../back")
+focus_neighbour_right = NodePath("../../VBoxContainer2/interact")
+focus_neighbour_bottom = NodePath("../right")
+text = "OPTIONS_CONTROLS_MOVELEFT"
+key = "left"
+
+[node name="right" parent="controls/VBoxContainer/choices/VBoxContainer/HBoxContainer/VBoxContainer" instance=ExtResource( 6 )]
+margin_top = 65.0
+margin_right = 280.0
+margin_bottom = 126.0
+focus_neighbour_top = NodePath("../left")
+focus_neighbour_right = NodePath("../../VBoxContainer2/slide")
+focus_neighbour_bottom = NodePath("../down")
+text = "OPTIONS_CONTROLS_MOVERIGHT"
+key = "right"
+
+[node name="down" parent="controls/VBoxContainer/choices/VBoxContainer/HBoxContainer/VBoxContainer" instance=ExtResource( 6 )]
+margin_top = 130.0
+margin_right = 280.0
+margin_bottom = 191.0
+focus_neighbour_top = NodePath("../right")
+focus_neighbour_right = NodePath("../../VBoxContainer2/dash")
+focus_neighbour_bottom = NodePath("../jump")
+text = "OPTIONS_CONTROLS_SWIMDOWN"
+key = "down"
+
+[node name="jump" parent="controls/VBoxContainer/choices/VBoxContainer/HBoxContainer/VBoxContainer" instance=ExtResource( 6 )]
+margin_top = 195.0
+margin_right = 280.0
+margin_bottom = 256.0
+focus_neighbour_top = NodePath("../down")
+focus_neighbour_right = NodePath("../../VBoxContainer2/notebook")
+focus_neighbour_bottom = NodePath("../../../back")
+text = "OPTIONS_CONTROLS_JUMP"
+key = "jump"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="controls/VBoxContainer/choices/VBoxContainer/HBoxContainer"]
+margin_left = 355.0
+margin_right = 635.0
+margin_bottom = 256.0
+size_flags_horizontal = 3
+
+[node name="interact" parent="controls/VBoxContainer/choices/VBoxContainer/HBoxContainer/VBoxContainer2" instance=ExtResource( 6 )]
+margin_right = 280.0
+margin_bottom = 61.0
+focus_neighbour_left = NodePath("../../VBoxContainer/left")
+focus_neighbour_top = NodePath("../../../back")
+focus_neighbour_bottom = NodePath("../slide")
+text = "OPTIONS_CONTROLS_INTERACT"
+key = "interact"
+
+[node name="slide" parent="controls/VBoxContainer/choices/VBoxContainer/HBoxContainer/VBoxContainer2" instance=ExtResource( 6 )]
+margin_top = 65.0
+margin_right = 280.0
+margin_bottom = 126.0
+focus_neighbour_left = NodePath("../../VBoxContainer/right")
+focus_neighbour_top = NodePath("../interact")
+focus_neighbour_bottom = NodePath("../dash")
+text = "OPTIONS_CONTROLS_SLIDE"
+key = "slide"
+
+[node name="dash" parent="controls/VBoxContainer/choices/VBoxContainer/HBoxContainer/VBoxContainer2" instance=ExtResource( 6 )]
+margin_top = 130.0
+margin_right = 280.0
+margin_bottom = 191.0
+focus_neighbour_left = NodePath("../../VBoxContainer/down")
+focus_neighbour_top = NodePath("../slide")
+focus_neighbour_bottom = NodePath("../notebook")
+text = "OPTIONS_CONTROLS_DASH"
+key = "dash"
+
+[node name="notebook" parent="controls/VBoxContainer/choices/VBoxContainer/HBoxContainer/VBoxContainer2" instance=ExtResource( 6 )]
+margin_top = 195.0
+margin_right = 280.0
+margin_bottom = 256.0
+focus_neighbour_left = NodePath("../../VBoxContainer/jump")
+focus_neighbour_top = NodePath("../dash")
+focus_neighbour_bottom = NodePath("../../../back")
+text = "OPTIONS_CONTROLS_NOTEBOOK"
+key = "notebook"
 
 [node name="gap" type="Control" parent="controls/VBoxContainer/choices/VBoxContainer"]
-margin_top = 186.0
+margin_top = 260.0
 margin_right = 635.0
-margin_bottom = 244.0
+margin_bottom = 302.0
 size_flags_vertical = 3
 __meta__ = {
 "_edit_use_anchors_": false
@@ -546,9 +609,9 @@ __meta__ = {
 
 [node name="back" parent="controls/VBoxContainer/choices/VBoxContainer" instance=ExtResource( 3 )]
 margin_left = 0.0
-margin_top = 248.0
+margin_top = 306.0
 margin_right = 635.0
-margin_bottom = 306.0
+margin_bottom = 348.0
 focus_neighbour_top = NodePath("../soundeffects")
 focus_neighbour_bottom = NodePath("../master")
 size_flags_vertical = 3
@@ -556,9 +619,9 @@ text = "OPTIONS_BACK"
 font_size = 40.0
 
 [node name="tail_gap" type="Control" parent="controls/VBoxContainer/choices/VBoxContainer"]
-margin_top = 310.0
+margin_top = 352.0
 margin_right = 635.0
-margin_bottom = 370.0
+margin_bottom = 396.0
 size_flags_vertical = 3
 __meta__ = {
 "_edit_use_anchors_": false
@@ -567,11 +630,12 @@ __meta__ = {
 [node name="Control2" type="Control" parent="controls/VBoxContainer/choices"]
 margin_left = 833.0
 margin_right = 1024.0
-margin_bottom = 370.0
+margin_bottom = 396.0
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.3
 [connection signal="pressed" from="main/VBoxContainer/VBoxContainer/video" to="." method="_on_video_pressed"]
 [connection signal="pressed" from="main/VBoxContainer/VBoxContainer/audio" to="." method="_on_audio_pressed"]
+[connection signal="pressed" from="main/VBoxContainer/VBoxContainer/controls" to="." method="_on_controls_pressed"]
 [connection signal="pressed" from="main/VBoxContainer/VBoxContainer/back" to="." method="_on_backmain_pressed"]
 [connection signal="value_change" from="video/VBoxContainer/choices/VBoxContainer/particles" to="." method="_on_value_change"]
 [connection signal="value_change" from="video/VBoxContainer/choices/VBoxContainer/saturation" to="." method="_on_value_change"]
@@ -582,9 +646,6 @@ size_flags_stretch_ratio = 0.3
 [connection signal="value_change" from="audio/VBoxContainer/choices/VBoxContainer/music" to="." method="_on_value_change"]
 [connection signal="value_change" from="audio/VBoxContainer/choices/VBoxContainer/soundeffects" to="." method="_on_value_change"]
 [connection signal="pressed" from="audio/VBoxContainer/choices/VBoxContainer/back" to="." method="_on_back_pressed"]
-[connection signal="value_change" from="controls/VBoxContainer/choices/VBoxContainer/master" to="." method="_on_value_change"]
-[connection signal="value_change" from="controls/VBoxContainer/choices/VBoxContainer/music" to="." method="_on_value_change"]
-[connection signal="value_change" from="controls/VBoxContainer/choices/VBoxContainer/soundeffects" to="." method="_on_value_change"]
 [connection signal="pressed" from="controls/VBoxContainer/choices/VBoxContainer/back" to="." method="_on_back_pressed"]
 
 [editable path="video/VBoxContainer/choices/VBoxContainer/particles"]

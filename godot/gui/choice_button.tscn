@@ -11,12 +11,12 @@
 size = 40
 font_data = ExtResource( 3 )
 
-[sub_resource type="Curve2D" id=3]
+[sub_resource type="Curve2D" id=2]
 _data = {
 "points": PoolVector2Array( 0, 0, 0, 0, 1.29623, -0.00434494, 0, 0, 0, 0, 198.246, -0.0464249 )
 }
 
-[sub_resource type="CircleShape2D" id=4]
+[sub_resource type="CircleShape2D" id=3]
 radius = 5.0
 
 [node name="choice_button" instance=ExtResource( 1 )]
@@ -76,7 +76,7 @@ default_color = Color( 1, 1, 1, 1 )
 [node name="Path2D" type="Path2D" parent="HBoxContainer/Control" index="1"]
 pause_mode = 2
 position = Vector2( 104, 18 )
-curve = SubResource( 3 )
+curve = SubResource( 2 )
 
 [node name="PathFollow2D" type="PathFollow2D" parent="HBoxContainer/Control/Path2D" index="0"]
 pause_mode = 2
@@ -94,7 +94,7 @@ collision_mask = 0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HBoxContainer/Control/Path2D/PathFollow2D/KinematicBody2D" index="0"]
 pause_mode = 2
 position = Vector2( -0.185638, -1.71706 )
-shape = SubResource( 4 )
+shape = SubResource( 3 )
 
 [node name="light" type="Sprite" parent="HBoxContainer/Control/Path2D/PathFollow2D/KinematicBody2D" index="1"]
 modulate = Color( 1, 1, 1, 0.392157 )

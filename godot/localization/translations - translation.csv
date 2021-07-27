@@ -24,11 +24,12 @@ OPTIONS_CONTROLS,controls,nasin tawa
 OPTIONS_CONTROLS_SELECT,select,o anu
 OPTIONS_CONTROLS_MOVELEFT,move left,tawa soto
 OPTIONS_CONTROLS_MOVERIGHT,move right,tawa teje
-OPTIONS_CONTROLS_SWIMDOWN,swim down,tawa anpa telo
+OPTIONS_CONTROLS_SWIMDOWN,swim down,tawa anpa\ntelo
 OPTIONS_CONTROLS_JUMP,jump,tawa sewi
 OPTIONS_CONTROLS_INTERACT,interact,pali
-OPTIONS_CONTROLS_SLIDE,slide,tawa wawa supa
+OPTIONS_CONTROLS_SLIDE,slide,tawa wawa\nsupa
 OPTIONS_CONTROLS_DASH,dash,tawa wawa
+OPTIONS_CONTROLS_NOTEBOOK,notebook,lipu
 ,,
 OPTIONS_LANGUAGE,language,toki
 OPTIONS_BACK,back,pini
@@ -59,6 +60,9 @@ DIALOGUE_INSERT,insert,o pana
 DIALOGUE_GIFT,gift,o pana
 DIALOGUE_NOTENOUGH,not enough,jo sina li lili
 DIALOGUE_CANCEL,cancel,o weka
+,,
+SILVER_INTRO_1,little one! halt your tracks.,
+SILVER_INTRO_2,,
 ,,
 ,,
 FIR_INTRO_1,"ohoho! oolala! i'm [color=#add8ff]fir[/color] the shopkeeper, and it's the summer sale!","o o o! a a a! mi jan esun [color=#add8ff]pe[/color]. tenpo seli, tenpo seli! wile mani li lili!"
