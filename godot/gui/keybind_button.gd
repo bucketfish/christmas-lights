@@ -3,11 +3,13 @@ extends TextureButton
 export(String) var text
 export(String) var key
 var font_size = 32
+var selecting = false
 
 onready var label = $HBoxContainer/Control2/label
 onready var input = $HBoxContainer/Control/key
 
 func _ready():
+	selecting = false
 	setup_text()
 	set_focus_mode(true)
 	var dynamic_font = DynamicFont.new()
@@ -34,8 +36,6 @@ func setup_text():
 		"Down":"↓",
 	}
 	var map = InputMap.get_action_list(key)[0].as_text()
-	print(map)
-	print(thing)
 	if map in thing.keys():
 		map = thing[map]
 		
@@ -71,6 +71,22 @@ func _on_button_focus_exited():
 func _on_button_mouse_entered():
 	grab_focus()
 
+func _input(event):
+	
+	if event is InputEventKey && selecting:
+		selecting = false
+		InputMap.action_erase_event(key, InputMap.get_action_list(key)[0])
+		InputMap.action_add_event(key, event)
+		select_text()
+		yield(get_tree().create_timer(0.01), "timeout")
+		grab_focus()
+
 
 func _on_button_pressed():
-	pass # Replace with function body.
+	release_focus()
+	selecting = true
+	
+	input.bbcode_text = "[color=#add8ff][right]%s" % ["?"]
+	label.bbcode_text = "[color=#add8ff]%s[/color]" % [tr(text)]
+	$front.visible = true
+	$back.visible = true
