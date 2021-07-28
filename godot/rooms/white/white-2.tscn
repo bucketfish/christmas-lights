@@ -44,7 +44,7 @@ path = "res://rooms/white/white-3.tscn"
 position = Vector2( 7.06713, -257.847 )
 
 [node name="topleft" parent="camera constraints" index="0"]
-position = Vector2( 294.205, 104.103 )
+position = Vector2( 334.797, 101.967 )
 
 [node name="bottomright" parent="camera constraints" index="1"]
 position = Vector2( 2635.06, 2957.35 )

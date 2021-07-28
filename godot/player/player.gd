@@ -47,7 +47,7 @@ export (float, 0, 1.0) var jgravity = 600
 var velocity = Vector2.ZERO
 var curforce = jumpheight
 var jumping = false
-var canstand = true
+#var canstand = true
 var pickup = false
 var dialogue = false
 var inwater = false
@@ -72,6 +72,7 @@ func get_input(delta):
 	
 	if base.state != "play":
 		velocity.x = 0
+		animationState.travel("idle")
 		return
 	
 	var dir = 0
@@ -125,6 +126,8 @@ func get_input(delta):
 	var canstand = raycast("stand")
 	
 
+
+		
 	if (canstand == false && animationState.get_current_node() == "slide"):
 		animationState.travel("slide")
 		

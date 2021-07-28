@@ -160,8 +160,8 @@ func load_game():
 	emit_signal("finish_load")
 
 
-func _notification(notif):
-	if notif == MainLoop.NOTIFICATION_WM_FOCUS_OUT:
+func _notification(notification):
+	if notification == MainLoop.NOTIFICATION_WM_FOCUS_OUT:
 		if state == "play":
 			$gui/pause.pause()
 		

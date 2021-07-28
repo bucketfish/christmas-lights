@@ -21,6 +21,7 @@ onready var line = preload("../npcs/lines.gd").new()
 func _ready():
 	visible = false
 	choice.visible = false
+	$rain/RichTextLabel.bbcode_text = "[color=#add8ff]%s[/color]" % [tr("NAME_RAIN")]
 
 func show_dialogue(num):
 	count = 0
@@ -58,6 +59,9 @@ func _input(event):
 					#give item x in amount y
 					give_item(line.line[current][count][2], line.line[current][count][3])
 				count += 1
+				
+				if count+1 >= line.line[current].size():
+					end()
 			
 
 		count += 1
@@ -65,12 +69,12 @@ func _input(event):
 func end():
 		showing = false
 		visible = false
-		yield(get_tree().create_timer(0.5), "timeout")
+		yield(get_tree().create_timer(0.3), "timeout")
 		base.state = "play"
 		base.speaking = false
 			
-func give_item(item, count):
-	emit_signal("give", item, count)
+func give_item(item, number):
+	emit_signal("give", item, number)
 	
 func display(name, num):
 #	if typeof(dialogues[name][num]) == TYPE_INT:

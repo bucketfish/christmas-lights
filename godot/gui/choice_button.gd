@@ -81,7 +81,6 @@ func _on_button_mouse_entered():
 func _input(event):
 	if !is_hovered():
 		return
-	var velocity = Vector2.ZERO
 	var dir = 0
 	
 	if event.is_action_pressed("right"):

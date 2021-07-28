@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://christmas lights.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://npcs/silver/silver_head.png" type="Texture" id=2]
+[ext_resource path="res://gui/dialogue_othername.gd" type="Script" id=3]
+
+[sub_resource type="DynamicFont" id=2]
+size = 48
+font_data = ExtResource( 1 )
+
+[node name="npc" type="Sprite" groups=[
+"npc_head",
+]]
+position = Vector2( 886.421, 159.185 )
+texture = ExtResource( 2 )
+script = ExtResource( 3 )
+npcname = "NAME_SILVER"
+
+[node name="name" type="RichTextLabel" parent="."]
+margin_left = -326.0
+margin_top = 13.0
+margin_right = -75.0
+margin_bottom = 64.0
+rect_pivot_offset = Vector2( -427.514, -217.618 )
+custom_fonts/normal_font = SubResource( 2 )
+bbcode_enabled = true
+bbcode_text = "[color=#add8ff]rain"
+text = "rain"
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
