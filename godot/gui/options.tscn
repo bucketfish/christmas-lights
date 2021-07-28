@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://gui/options.gd" type="Script" id=1]
 [ext_resource path="res://gui/menulabel.tscn" type="PackedScene" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://gui/choice_button.tscn" type="PackedScene" id=4]
 [ext_resource path="res://gui/optionscreen.gd" type="Script" id=5]
 [ext_resource path="res://gui/keybind_button.tscn" type="PackedScene" id=6]
+[ext_resource path="res://gui/language_button.tscn" type="PackedScene" id=7]
 
 [node name="options" type="CanvasLayer"]
 pause_mode = 2
@@ -438,6 +439,7 @@ size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.3
 
 [node name="controls" type="Control" parent="."]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 5 )
@@ -634,9 +636,108 @@ margin_right = 1024.0
 margin_bottom = 396.0
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.3
+
+[node name="language" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+screenname = "language"
+initial = NodePath("VBoxContainer/VBoxContainer/back")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="language"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Control" type="Control" parent="language/VBoxContainer"]
+margin_right = 1024.0
+margin_bottom = 74.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.2
+
+[node name="Control2" type="Control" parent="language/VBoxContainer"]
+margin_top = 78.0
+margin_right = 1024.0
+margin_bottom = 226.0
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.4
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="menulabel" parent="language/VBoxContainer/Control2" instance=ExtResource( 2 )]
+margin_right = 1024.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+bbcode_enabled = true
+bbcode_text = "[center]options"
+text = "options"
+key = "OPTIONS_LANGUAGE"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="language/VBoxContainer"]
+margin_top = 230.0
+margin_right = 1024.0
+margin_bottom = 600.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="en" parent="language/VBoxContainer/VBoxContainer" instance=ExtResource( 7 )]
+margin_left = 0.0
+margin_right = 1024.0
+margin_bottom = 70.0
+focus_neighbour_top = NodePath("../back")
+focus_neighbour_bottom = NodePath("../tp")
+text = "english"
+language = "en"
+
+[node name="tp" parent="language/VBoxContainer/VBoxContainer" instance=ExtResource( 7 )]
+margin_left = 0.0
+margin_top = 74.0
+margin_right = 1024.0
+margin_bottom = 144.0
+focus_neighbour_top = NodePath("../en")
+focus_neighbour_bottom = NodePath("../back")
+text = "toki pona"
+language = "en_CA"
+
+[node name="gap" type="Control" parent="language/VBoxContainer/VBoxContainer"]
+margin_top = 148.0
+margin_right = 1024.0
+margin_bottom = 218.0
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="back" parent="language/VBoxContainer/VBoxContainer" instance=ExtResource( 3 )]
+margin_left = 0.0
+margin_top = 222.0
+margin_right = 1024.0
+margin_bottom = 292.0
+focus_neighbour_top = NodePath("../tp")
+focus_neighbour_bottom = NodePath("../en")
+size_flags_vertical = 3
+text = "OPTIONS_BACK"
+font_size = 40.0
+
+[node name="tail_gap" type="Control" parent="language/VBoxContainer/VBoxContainer"]
+margin_top = 296.0
+margin_right = 1024.0
+margin_bottom = 370.0
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
 [connection signal="pressed" from="main/VBoxContainer/VBoxContainer/video" to="." method="_on_video_pressed"]
 [connection signal="pressed" from="main/VBoxContainer/VBoxContainer/audio" to="." method="_on_audio_pressed"]
 [connection signal="pressed" from="main/VBoxContainer/VBoxContainer/controls" to="." method="_on_controls_pressed"]
+[connection signal="pressed" from="main/VBoxContainer/VBoxContainer/language" to="." method="_on_language_pressed"]
 [connection signal="pressed" from="main/VBoxContainer/VBoxContainer/back" to="." method="_on_backmain_pressed"]
 [connection signal="value_change" from="video/VBoxContainer/choices/VBoxContainer/particles" to="." method="_on_value_change"]
 [connection signal="value_change" from="video/VBoxContainer/choices/VBoxContainer/saturation" to="." method="_on_value_change"]
@@ -648,6 +749,7 @@ size_flags_stretch_ratio = 0.3
 [connection signal="value_change" from="audio/VBoxContainer/choices/VBoxContainer/soundeffects" to="." method="_on_value_change"]
 [connection signal="pressed" from="audio/VBoxContainer/choices/VBoxContainer/back" to="." method="_on_back_pressed"]
 [connection signal="pressed" from="controls/VBoxContainer/choices/VBoxContainer/back" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="language/VBoxContainer/VBoxContainer/back" to="." method="_on_back_pressed"]
 
 [editable path="video/VBoxContainer/choices/VBoxContainer/particles"]
 

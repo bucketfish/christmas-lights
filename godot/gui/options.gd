@@ -58,7 +58,10 @@ func _on_audio_pressed():
 func _on_controls_pressed():
 	emit_signal("change_screen", "controls")
 	
-	
+
+func _on_language_pressed():
+	emit_signal("change_screen", "language")
+
 
 
 func _on_back_pressed():
@@ -111,4 +114,7 @@ func load_game():
 	#emit_signal("finish_load")
 
 
+func lang():
+	propagate_call("reload_lang")
+	
 

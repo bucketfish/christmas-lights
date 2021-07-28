@@ -40,3 +40,6 @@ func _on_options_pressed():
 func exit_options():
 	all.visible = true
 	bt_play.grab_focus()
+
+func lang():
+	propagate_call("reload_lang")

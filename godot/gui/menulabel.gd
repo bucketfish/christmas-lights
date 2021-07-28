@@ -15,7 +15,8 @@ func _ready():
 	else:
 		bbcode_text = tr(key)
 		
-
+func reload_lang():
+	_ready()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):

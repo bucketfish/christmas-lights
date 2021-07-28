@@ -57,3 +57,4 @@ func _on_quit_pressed():
 func _on_options_pressed():
 	$VBoxContainer.visible = false
 	Options.open_options()
+

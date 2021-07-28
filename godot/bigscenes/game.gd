@@ -206,4 +206,5 @@ func gain_ability(ability):
 func update_debug(item, value):
 	debug.update_debug(item, value)
 	
-
+func lang():
+	propagate_call("reload_lang")

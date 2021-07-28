@@ -93,3 +93,6 @@ func _input(event):
 		
 	slider.unit_offset += 0.1 * dir
 	emit_signal("value_change", variable, slider.unit_offset)
+
+func reload_lang():
+	setup_text()

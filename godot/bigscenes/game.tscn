@@ -16,13 +16,13 @@
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 47.8552, 482.155 )
 
-[sub_resource type="CanvasItemMaterial" id=5]
-light_mode = 1
-
 [sub_resource type="CanvasItemMaterial" id=3]
 light_mode = 1
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="CanvasItemMaterial" id=4]
+light_mode = 1
+
+[sub_resource type="Animation" id=5]
 length = 0.2
 tracks/0/type = "value"
 tracks/0/path = NodePath("Control/ColorRect:modulate")
@@ -63,9 +63,6 @@ pause_mode = 1
 position = Vector2( -762.181, -432.843 )
 z_index = 1
 
-[node name="Sprite" parent="player" index="4"]
-frame = 3
-
 [node name="AnimationTree" parent="player" index="6"]
 parameters/playback = SubResource( 1 )
 
@@ -83,7 +80,7 @@ layer = 5
 
 [node name="dialogue" parent="dialogue" instance=ExtResource( 3 )]
 light_mask = 0
-material = SubResource( 5 )
+material = SubResource( 3 )
 
 [node name="notebook" type="CanvasLayer" parent="."]
 layer = 5
@@ -92,7 +89,7 @@ layer = 5
 "save",
 ] instance=ExtResource( 10 )]
 light_mask = 0
-material = SubResource( 3 )
+material = SubResource( 4 )
 
 [node name="gui" type="CanvasLayer" parent="."]
 pause_mode = 2
@@ -126,9 +123,11 @@ __meta__ = {
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="scenechanger"]
-anims/fade = SubResource( 4 )
+anims/fade = SubResource( 5 )
 [connection signal="giveberry" from="dialogue/dialogue" to="." method="_on_dialogue_giveberry"]
 
 [editable path="rope"]
 
 [editable path="player"]
+
+[editable path="gui/pause"]

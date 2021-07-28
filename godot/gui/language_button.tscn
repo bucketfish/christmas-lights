@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://gui/button.tscn" type="PackedScene" id=1]
+[ext_resource path="res://gui/language_button.gd" type="Script" id=2]
+
+[node name="button" instance=ExtResource( 1 )]
+size_flags_vertical = 3
+script = ExtResource( 2 )
+font_size = 48.0
+[connection signal="pressed" from="." to="." method="_on_button_pressed"]
