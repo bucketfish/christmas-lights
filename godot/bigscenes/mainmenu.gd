@@ -5,6 +5,7 @@ onready var bt_play = $CanvasLayer/Control/VBoxContainer/VBoxContainer/button
 onready var bt_options = $CanvasLayer/Control/VBoxContainer/VBoxContainer/button2
 onready var bt_quit = $CanvasLayer/Control/VBoxContainer/VBoxContainer/button3
 onready var all = $CanvasLayer/Control
+onready var version = $CanvasLayer/Control/version/version
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
