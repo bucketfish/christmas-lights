@@ -38,3 +38,6 @@ func _on_dialogue_end():
 	# SAME AS ABOVE!! IMPORTANT
 	animate.play("appear")
 	using = true
+	
+func reload_lang():
+	text.bbcode_text = "[center]" + tr(key) + "[/center]"

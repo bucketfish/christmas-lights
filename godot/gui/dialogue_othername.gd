@@ -9,6 +9,8 @@ func _ready():
 	$name.bbcode_text = "[right][color=#add8ff]%s[/color]" % [tr(npcname)]
 
 
+func reload_lang():
+	$name.bbcode_text = "[right][color=#add8ff]%s[/color]" % [tr(npcname)]
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass

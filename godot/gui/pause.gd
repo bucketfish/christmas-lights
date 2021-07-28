@@ -8,6 +8,7 @@ onready var bt_quit = $VBoxContainer/VBoxContainer/button3
 
 onready var base = get_node("/root/game")
 onready var notebook = get_node("/root/game/notebook/notebook")
+onready var dialogue = get_node("/root/game/dialogue/dialogue")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -45,7 +46,10 @@ func openmenu():
 func _on_continue_pressed():
 	visible = false
 	get_tree().paused = false
-	base.state = "play"
+	if dialogue.visible == true:
+		base.state = "dialogue"
+	else:
+		base.state = "play"
 
 
 func _on_quit_pressed():

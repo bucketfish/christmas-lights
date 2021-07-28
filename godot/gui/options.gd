@@ -43,7 +43,7 @@ func _input(event):
 	if event.is_action_pressed("ui_cancel"):
 		if $main.visible:
 			_on_backmain_pressed()
-		elif $video.visible || $audio.visible || $controls.visible:
+		elif $video.visible || $audio.visible || $controls.visible || $language.visible:
 			save_game()
 			emit_signal("change_screen", "main")
 

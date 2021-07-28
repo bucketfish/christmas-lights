@@ -49,12 +49,12 @@ NOTEBOOK_INTRO,this notebook belongs to rain.,ni li lipu pi jan wen.
 NOTEBOOK_INTRONOTE,"welcome, rain.\n\nyou have one goal.\n\nreach the top and string the lights.\n\ngood luck.","o kama pona, jan wen o.\n\nalasa sina li wan:\n\no tawa sewi, o pana e linja suno.\n\no pali pona."
 ,,
 ,,
-NAME_RAIN,rain,wen
-NAME_FIR,fir,pe
-NAME_SILVER,silver,sowa
+NAME_RAIN,rain,jan wen
+NAME_FIR,fir,jan pe
+NAME_SILVER,silver,jan sowa
 ,,
-DIALOGUE_GIFT_ONE,gift a berry to [color=#add8ff]{person}[/color]?,o pana e kili tawa jan [color=#add8ff]{person}[/color]?
-DIALOGUE_GIFT_MANY,gift {number} berries to [color=#add8ff]{person}[/color]?,o pana e kili {number} tawa jan [color=#add8ff]{person}[/color]?
+DIALOGUE_GIFT_ONE,gift a berry to [color=#add8ff]{person}[/color]?,o pana e kili tawa [color=#add8ff]{person}[/color]?
+DIALOGUE_GIFT_MANY,gift {number} berries to [color=#add8ff]{person}[/color]?,o pana e kili {number} tawa [color=#add8ff]{person}[/color]?
 DIALOGUE_INSERT_MANY,there's a hole. insert {number} berries?,lupa li lon. o pana e kili {number}?
 DIALOGUE_INSERT,insert,o pana
 DIALOGUE_GIFT,gift,o pana

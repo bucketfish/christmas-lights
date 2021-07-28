@@ -694,6 +694,7 @@ margin_bottom = 70.0
 focus_neighbour_top = NodePath("../back")
 focus_neighbour_bottom = NodePath("../tp")
 text = "english"
+font_size = 40.0
 language = "en"
 
 [node name="tp" parent="language/VBoxContainer/VBoxContainer" instance=ExtResource( 7 )]
@@ -704,6 +705,7 @@ margin_bottom = 144.0
 focus_neighbour_top = NodePath("../en")
 focus_neighbour_bottom = NodePath("../back")
 text = "toki pona"
+font_size = 40.0
 language = "en_CA"
 
 [node name="gap" type="Control" parent="language/VBoxContainer/VBoxContainer"]

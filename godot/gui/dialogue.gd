@@ -104,3 +104,5 @@ func _on_accept_focus_entered():
 func _on_cancel_focus_entered():
 	print('dialogue cancel')
 
+func reload_lang():
+	$rain/RichTextLabel.bbcode_text = "[color=#add8ff]%s[/color]" % [tr("NAME_RAIN")]

@@ -76,6 +76,7 @@ position = Vector2( -1260.52, -13.3907 )
 shape = SubResource( 2 )
 
 [node name="dialogue" type="CanvasLayer" parent="."]
+pause_mode = 1
 layer = 5
 
 [node name="dialogue" parent="dialogue" instance=ExtResource( 3 )]
