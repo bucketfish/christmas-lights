@@ -35,10 +35,10 @@ tracks/1/keys = {
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
 
-[sub_resource type="CanvasItemMaterial" id=4]
+[sub_resource type="CanvasItemMaterial" id=3]
 light_mode = 1
 
-[sub_resource type="DynamicFont" id=3]
+[sub_resource type="DynamicFont" id=4]
 size = 48
 font_data = ExtResource( 2 )
 
@@ -58,7 +58,7 @@ anims/appear = SubResource( 2 )
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
 light_mask = 0
-material = SubResource( 4 )
+material = SubResource( 3 )
 margin_left = 66.5618
 margin_top = 0.808044
 margin_right = 96.5618
@@ -67,7 +67,7 @@ grow_horizontal = 2
 grow_vertical = 2
 rect_min_size = Vector2( 500, 50 )
 rect_clip_content = false
-custom_fonts/normal_font = SubResource( 3 )
+custom_fonts/normal_font = SubResource( 4 )
 custom_colors/default_color = Color( 1, 1, 1, 1 )
 bbcode_enabled = true
 bbcode_text = "[center]enter[/center]"

@@ -51,7 +51,7 @@ NOTEBOOK_INTRONOTE,"welcome, rain.\n\nyou have one goal.\n\nreach the top and st
 ,,
 NAME_RAIN,rain,wen
 NAME_FIR,fir,pe
-,,
+NAME_SILVER,silver,sowa
 ,,
 DIALOGUE_GIFT_ONE,gift a berry to [color=#add8ff]{person}[/color]?,o pana e kili tawa jan [color=#add8ff]{person}[/color]?
 DIALOGUE_GIFT_MANY,gift {number} berries to [color=#add8ff]{person}[/color]?,o pana e kili {number} tawa jan [color=#add8ff]{person}[/color]?
@@ -61,9 +61,17 @@ DIALOGUE_GIFT,gift,o pana
 DIALOGUE_NOTENOUGH,not enough,jo sina li lili
 DIALOGUE_CANCEL,cancel,o weka
 ,,
-SILVER_INTRO_1,little one! halt your tracks.,
-SILVER_INTRO_2,,
+SILVER_INTRO_1,another traveller! greetings.,jan tawa sin! toki a.
+SILVER_INTRO_2,where do you come from and who do you seek?,tan sina li seme? alasa sina li seme?
+SILVER_INTRO_2a,what's up! i'm rain. (:,"toki, seme li lon! mi jan wen. (:"
+SILVER_INTRO_3,"oh, rain! a lovely name. and you're holding lights, too.","a, jan wen! nimi sina li suwi. sina jo e linja suno kin."
+SILVER_INTRO_4,"that'll be a nice change. either way, welcome!","ni li pona a. ale la, o kama pona!"
+SILVER_INTRO_4a,gonna string them to the top!,mi o pana e linja tawa sewi!
+SILVER_INTRO_5,that's great! good luck on your journey.,pona mute! o pona lon tawa sina.
+SILVER_INTRO_6,take some berries - you'll need this for the door. all the best!,o jo e kili ni - sina wile e ni tawa open lupa. o pona!
 ,,
+SILVER_INTRO_REPEAT1_1,"oh, and tell river i said hi, if you meet them.",a - sina lukin e jan tewe la o toki e mi tawa ona.
+SILVER_INTRO_REPEAT2_1,"good luck, have fun!",o musi pona lon tawa sina!
 ,,
 FIR_INTRO_1,"ohoho! oolala! i'm [color=#add8ff]fir[/color] the shopkeeper, and it's the summer sale!","o o o! a a a! mi jan esun [color=#add8ff]pe[/color]. tenpo seli, tenpo seli! wile mani li lili!"
 FIR_INTRO_2,hm? what's you? christmas came around already?,a? seme li sina? tenpo pi suno lili li kama?

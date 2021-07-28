@@ -3,10 +3,11 @@
 [ext_resource path="res://rooms/fir_bauble1.png" type="Texture" id=1]
 [ext_resource path="res://rooms/room_template.tscn" type="PackedScene" id=2]
 [ext_resource path="res://other ingame elements/spawn.tscn" type="PackedScene" id=3]
-[ext_resource path="res://npcs/fir.tscn" type="PackedScene" id=4]
+[ext_resource path="res://npcs/npc.tscn" type="PackedScene" id=4]
 [ext_resource path="res://other ingame elements/show_text.tscn" type="PackedScene" id=5]
 [ext_resource path="res://rooms/fir_table.png" type="Texture" id=6]
 [ext_resource path="res://rooms/fir_sled.png" type="Texture" id=7]
+
 
 [node name="scene" instance=ExtResource( 2 )]
 spawns = 1

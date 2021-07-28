@@ -19,7 +19,7 @@ func _ready():
 	
 
 func _on_text_body_entered(body):
-	if body.is_in_group("player")  && using:
+	if body.is_in_group("player") && using:
 		animate.play("appear")
 		inside = true
 

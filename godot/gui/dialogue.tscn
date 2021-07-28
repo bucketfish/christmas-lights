@@ -1,9 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://gui/dialogue_box.png" type="Texture" id=1]
 [ext_resource path="res://gui/dialogue.gd" type="Script" id=2]
 [ext_resource path="res://christmas lights.ttf" type="DynamicFontData" id=3]
 [ext_resource path="res://gui/button.tscn" type="PackedScene" id=4]
+[ext_resource path="res://npcs/rain/rain_head.png" type="Texture" id=5]
+[ext_resource path="res://npcs/silver/silver_head.png" type="Texture" id=6]
 
 [sub_resource type="DynamicFont" id=1]
 size = 24
@@ -83,5 +85,19 @@ focus_neighbour_left = NodePath("../cancel")
 focus_previous = NodePath("../cancel")
 text = "NPC_GIFT"
 disabled_text = "NPC_NOTENOUGH"
+
+[node name="rain" type="Sprite" parent="." groups=[
+"npc_head",
+]]
+visible = false
+position = Vector2( 124.253, 159.578 )
+texture = ExtResource( 5 )
+
+[node name="silver" type="Sprite" parent="." groups=[
+"npc_head",
+]]
+visible = false
+position = Vector2( 886.421, 159.185 )
+texture = ExtResource( 6 )
 [connection signal="focus_entered" from="NinePatchRect/MarginContainer/VBoxContainer/HBoxContainer/cancel" to="." method="_on_cancel_focus_entered"]
 [connection signal="focus_entered" from="NinePatchRect/MarginContainer/VBoxContainer/HBoxContainer/accept" to="." method="_on_accept_focus_entered"]

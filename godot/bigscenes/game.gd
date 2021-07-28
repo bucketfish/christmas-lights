@@ -184,6 +184,7 @@ func berry_set(value):
 	scenes['base']['berries'] = value
 	
 func dialogue_set(value):
+	dialogue.count = 0
 	dialogue.show_dialogue(value)
 	speaking_set(true)
 
@@ -196,10 +197,6 @@ func speaking_set(value):
 		emit_signal("dialogue_end")
 		print('dialogue end')
 
-
-func _on_dialogue_giveberry(count):
-	berry_set(berries - count)
-
 func gain_ability(ability):
 	player.gain_ability(ability)
 	
@@ -208,3 +205,9 @@ func update_debug(item, value):
 	
 func lang():
 	propagate_call("reload_lang")
+
+
+func _on_dialogue_give(item, count):
+	if item == "berry":
+		berry_set(berries + count)
+		notif.show_notif("berry")

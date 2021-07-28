@@ -8,31 +8,27 @@ onready var accept = $NinePatchRect/MarginContainer/VBoxContainer/HBoxContainer/
 
 onready var base = get_node("/root/game")
 
-signal giveberry(count)
 signal purchased(nextline)
+signal give(item, count)
 
 var showing = false
 var current = ""
 var count = 0
-var state = 0  #0=none, 1=cancel, 2=gift
-var dialogues = {
-	"fir_intro": ["FIR_INTRO_1", "FIR_INTRO_2", "FIR_INTRO_3", 5, 'fir_aftersled'],
-	"fir_beforesled": ["FIR_BEFORESLED_1", 5, 'fir_aftersled'],
-	"fir_aftersled": ["FIR_AFTERSLED_1", "FIR_AFTERSLED_2", "FIR_AFTERSLED_3"],
-	"fir_nothing": ["FIR_NOTHING_1", "FIR_NOTHING_2"]
-}
+
+onready var line = preload("../npcs/lines.gd").new()
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	visible = false
 	choice.visible = false
 
-func show_dialogue(name):
+func show_dialogue(num):
+	count = 0
 	base.state = "dialogue"
 	visible = true
 	showing = true
-	current = name
-	count = 0
+	current = num
+
 	
 func _input(event):
 	if event.is_action_pressed("pause") && base.state == "speaking":
@@ -40,58 +36,67 @@ func _input(event):
 		end()
 		
 	if event.is_action_pressed("dialogue_next") && showing:
-		if count < dialogues[current].size() && state==0:
-			display(current, count)
-			count += 1
-		elif state == 2:
-			give_berry(dialogues[current][count-1], dialogues[current][count])
-			current = dialogues[current][count]
-			count = 0
-			display(current, count)
-			count += 1
-			state = 0
-		else:
-			base.state = "play"
+		
+		if count >= line.line[current].size():
 			end()
-			state = 0
+			return
+			
+		if count >= 1:
+			if line.line[current][count-1][0] == "s" && line.line[current][count-1][2] != line.line[current][count][2]:
+				get_node(line.line[current][count-1][2]).hide()
+				
+		
+		if count < line.line[current].size():
+			if line.line[current][count][0] == "s":
+				display(current, count)
+
+				get_node(line.line[current][count][2]).show()
+				
+				
+			elif line.line[current][count][0] == "a":
+				if line.line[current][count][1] == "get_item":
+					#give item x in amount y
+					give_item(line.line[current][count][2], line.line[current][count][3])
+				count += 1
+			
+
+		count += 1
 			
 func end():
 		showing = false
 		visible = false
-		yield(get_tree().create_timer(0.1), "timeout")
+		yield(get_tree().create_timer(0.5), "timeout")
+		base.state = "play"
 		base.speaking = false
 			
-func give_berry(berrynum, next):
-	emit_signal("giveberry", berrynum)
-	emit_signal("purchased", next)
+func give_item(item, count):
+	emit_signal("give", item, count)
 	
-
 func display(name, num):
-	if typeof(dialogues[name][num]) == TYPE_INT:
-		if dialogues[name][num] == 1:
-			label.bbcode_text = "[center]" + tr("NPC_GIFT_ONE").format({person = tr("NAME_FIR")}) + "[/center]"
-		else:
-			label.bbcode_text = "[center]" + tr("NPC_GIFT_MANY").format({number=dialogues[name][num], person=tr("NAME_FIR")}) + "[/center]"
-		choice.visible = true
-		if base.berries < dialogues[name][num]:
-			accept.set_disabled(true)
-			cancel.grab_focus()
-		else:
-			accept.set_disabled(false)
-			accept.grab_focus()
-		
-	else:
-		choice.visible = false
-		label.bbcode_text = tr(dialogues[name][count])
+#	if typeof(dialogues[name][num]) == TYPE_INT:
+#		if dialogues[name][num] == 1:
+#			label.bbcode_text = "[center]" + tr("NPC_GIFT_ONE").format({person = tr("NAME_FIR")}) + "[/center]"
+#		else:
+#			label.bbcode_text = "[center]" + tr("NPC_GIFT_MANY").format({number=dialogues[name][num], person=tr("NAME_FIR")}) + "[/center]"
+#		choice.visible = true
+#		if base.berries < dialogues[name][num]:
+#			accept.set_disabled(true)
+#			cancel.grab_focus()
+#		else:
+#			accept.set_disabled(false)
+#			accept.grab_focus()
+#
+#	else:
+	choice.visible = false
+	label.bbcode_text = tr(line.line[current][count][1])
+
 	
 func _on_accept_focus_entered():
 	if accept.disabled:
 		cancel.grab_focus()
 	else:
 		print('dialogue accept')
-		state = 2
 
 func _on_cancel_focus_entered():
 	print('dialogue cancel')
-	state = 1
 

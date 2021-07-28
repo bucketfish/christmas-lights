@@ -49,6 +49,7 @@ var curforce = jumpheight
 var jumping = false
 var canstand = true
 var pickup = false
+var dialogue = false
 var inwater = false
 
 var playerpause = false
@@ -70,6 +71,7 @@ func _ready():
 func get_input(delta):
 	
 	if base.state != "play":
+		velocity.x = 0
 		return
 	
 	var dir = 0
@@ -183,11 +185,15 @@ func raycast(area):
 func _on_canstand_area_entered(area):
 	if area.is_in_group("pickup"):
 		pickup = true
+	if area.is_in_group("dialogue"):
+		dialogue = true
 
 
 func _on_canstand_area_exited(area):
 	if area.is_in_group("pickup"):
 		pickup = false
+	if area.is_in_group("dialogue"):
+		dialogue = false
 
 
 func save():

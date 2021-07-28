@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://rooms/room_template.tscn" type="PackedScene" id=1]
 [ext_resource path="res://other ingame elements/spawn.tscn" type="PackedScene" id=2]
+[ext_resource path="res://npcs/silver/silver.tscn" type="PackedScene" id=3]
 
 [node name="scene" instance=ExtResource( 1 )]
 position = Vector2( 0, 0 )
@@ -26,6 +27,13 @@ path = "res://rooms/white/white-2.tscn"
 [node name="Area2D" parent="spawn1" index="0"]
 position = Vector2( -130.323, 238.925 )
 
+[node name="silver" parent="." index="3" instance=ExtResource( 3 )]
+position = Vector2( 1678.87, 1112.15 )
+
 [editable path="camera constraints"]
 
 [editable path="spawn1"]
+
+[editable path="silver"]
+
+[editable path="silver/text"]
