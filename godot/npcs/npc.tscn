@@ -1,31 +1,14 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://npcs/npc.gd" type="Script" id=1]
 [ext_resource path="res://other ingame elements/show_text.tscn" type="PackedScene" id=2]
 
-[sub_resource type="CanvasItemMaterial" id=3]
+[sub_resource type="CanvasItemMaterial" id=1]
 light_mode = 1
 
-[sub_resource type="Animation" id=1]
-resource_name = "idle"
-length = 1.2
-loop = true
-tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.3, 0.6, 0.9 ),
-"transitions": PoolRealArray( 1, 1, 1, 1 ),
-"update": 1,
-"values": [ 0, 1, 2, 3 ]
-}
-
-[sub_resource type="CapsuleShape2D" id=4]
+[sub_resource type="CapsuleShape2D" id=2]
 radius = 57.7094
-height = 295.262
+height = 220.551
 
 [node name="npc" type="Node2D" groups=[
 "npc",
@@ -34,12 +17,8 @@ script = ExtResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
 light_mask = 0
-material = SubResource( 3 )
+material = SubResource( 1 )
 hframes = 2
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-autoplay = "idle"
-anims/idle = SubResource( 1 )
 
 [node name="text" parent="." groups=[
 "dialogue",
@@ -49,7 +28,7 @@ key = "INTERACT_LISTEN"
 
 [node name="CollisionShape2D" parent="text" index="0"]
 position = Vector2( 76.382, 235.399 )
-shape = SubResource( 4 )
+shape = SubResource( 2 )
 
 [node name="RichTextLabel" parent="text" index="2"]
 modulate = Color( 1, 1, 1, 0 )

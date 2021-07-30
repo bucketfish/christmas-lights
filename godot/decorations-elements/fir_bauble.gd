@@ -5,9 +5,11 @@ onready var text = $RichTextLabel
 onready var base = get_node("/root/game")
 
 export var key = ""
+export var reshow = false
 
 var inside = false
 var using = true
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -30,14 +32,15 @@ func _on_text_body_exited(body):
 		inside = false
 
 func _on_dialogue_start():
-	#test for if player is in the range!!!!!! aa
-	animate.play_backwards("appear")
-	using = false
+	if inside:
+		animate.play_backwards("appear")
+		using = false
 
 func _on_dialogue_end():
-	# SAME AS ABOVE!! IMPORTANT
-	animate.play("appear")
-	using = true
+	if inside:
+		
+		animate.play("appear")
+		using = true
 	
 func reload_lang():
 	text.bbcode_text = "[center]" + tr(key) + "[/center]"
