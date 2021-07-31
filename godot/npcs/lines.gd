@@ -7,6 +7,9 @@ extends Node
 
 
 var line = {
+	'berrymover1':[
+		["c", "insert_berry", 10],
+	],
 	"silver_intro":[
 		["s", "SILVER_INTRO_1", "silver"],
 		["s", "SILVER_INTRO_2", "silver"],

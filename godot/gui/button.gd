@@ -41,3 +41,5 @@ func _on_button_mouse_entered():
 
 func reload_lang():
 	setup_text()
+
+

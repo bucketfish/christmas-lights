@@ -52,12 +52,16 @@ var pickup = false
 var dialogue = false
 var inwater = false
 
+var giving = false
+
 var playerpause = false
 
 var abilities = {
 	"slide": false,
 	"dash": false
 }
+
+signal berry_end
 
 onready var animationState = $AnimationTree.get("parameters/playback")
 onready var base = get_node("/root/game")
@@ -70,10 +74,14 @@ func _ready():
 
 func get_input(delta):
 	
-	if base.state != "play":
+	if giving:
+		return
+		
+	elif base.state != "play":
 		velocity.x = 0
 		animationState.travel("idle")
 		return
+	
 	
 	var dir = 0
 	
@@ -153,24 +161,20 @@ func get_input(delta):
 	else:
 		$Sprite/fir_sled.visible = false
 
+func give_berry():
+	giving = true
+	animationState.travel("give")
 
+func berry_end():
+	giving = false
+	emit_signal("berry_end")
 
 func _physics_process(delta):
 	get_input(delta)
-	#
 	velocity.y = clamp(velocity.y + gravity * delta, -1500, 1500)
-	
 	var snap = Vector2.DOWN if !jumping else Vector2.ZERO
-	
-	#$Label.text = str(velocity.y)
-	#var snap = Vector2()
-	
 	velocity = move_and_slide_with_snap(velocity, snap, Vector2.UP )
 	
-#	for i in $canstand.get_overlapping_bodies():
-#		if !i.is_in_group("player"):
-#			canstand = false
-
 func gain_ability(ability):
 	abilities[ability] = true
 

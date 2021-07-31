@@ -81,14 +81,16 @@ margin_right = 434.0
 margin_bottom = 43.0
 focus_neighbour_right = NodePath("../accept")
 focus_next = NodePath("../accept")
-text = "NPC_CANCEL"
+text = "DIALOGUE_CANCEL"
+font_size = 32.0
 
 [node name="accept" parent="NinePatchRect/MarginContainer/VBoxContainer/HBoxContainer" instance=ExtResource( 4 )]
 margin_bottom = 43.0
 focus_neighbour_left = NodePath("../cancel")
 focus_previous = NodePath("../cancel")
-text = "NPC_GIFT"
-disabled_text = "NPC_NOTENOUGH"
+text = "DIALOGUE_GIFT"
+disabled_text = "DIALOGUE_NOTENOUGH"
+font_size = 32.0
 
 [node name="rain" type="Sprite" parent="." groups=[
 "npc_head",
@@ -118,6 +120,8 @@ visible = false
 [node name="name" parent="silver" index="0"]
 margin_left = -361.0
 [connection signal="focus_entered" from="NinePatchRect/MarginContainer/VBoxContainer/HBoxContainer/cancel" to="." method="_on_cancel_focus_entered"]
+[connection signal="pressed" from="NinePatchRect/MarginContainer/VBoxContainer/HBoxContainer/cancel" to="." method="_on_pressed"]
 [connection signal="focus_entered" from="NinePatchRect/MarginContainer/VBoxContainer/HBoxContainer/accept" to="." method="_on_accept_focus_entered"]
+[connection signal="pressed" from="NinePatchRect/MarginContainer/VBoxContainer/HBoxContainer/accept" to="." method="_on_pressed"]
 
 [editable path="silver"]

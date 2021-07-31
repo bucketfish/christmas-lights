@@ -29,6 +29,7 @@ func show_dialogue(num):
 	visible = true
 	showing = true
 	current = num
+	choice.visible = false
 
 	
 func _input(event):
@@ -36,36 +37,42 @@ func _input(event):
 		base.state = "play"
 		end()
 		
-	if event.is_action_pressed("dialogue_next") && showing:
+	if event.is_action_pressed("dialogue_next") && showing && choice.visible == false:
 		
-		if count >= line.line[current].size():
-			end()
-			return
-			
-		if count >= 1:
-			if line.line[current][count-1][0] == "s" && line.line[current][count-1][2] != line.line[current][count][2]:
-				get_node(line.line[current][count-1][2]).hide()
-				
-		
-		if count < line.line[current].size():
-			if line.line[current][count][0] == "s":
-				display(current, count)
+		progress_dialogue()
+		count += 1
 
-				get_node(line.line[current][count][2]).show()
+func progress_dialogue():
+	if count >= 1 && count <= line.line[current].size():
+		if line.line[current][count-1][0] == "s":
+			get_node(line.line[current][count-1][2]).hide()
 				
-				
-			elif line.line[current][count][0] == "a":
-				if line.line[current][count][1] == "get_item":
-					#give item x in amount y
-					give_item(line.line[current][count][2], line.line[current][count][3])
+	if count >= line.line[current].size():
+		end()
+		return
+			
+			
+	if count < line.line[current].size():
+		if line.line[current][count][0] == "s":
+			display(current, count)
+
+			get_node(line.line[current][count][2]).show()
+			
+			
+		elif line.line[current][count][0] == "a":
+			if line.line[current][count][1] == "get_item":
+				#give item x in amount y
+				give_item(line.line[current][count][2], line.line[current][count][3])
 				count += 1
 				
-				if count+1 >= line.line[current].size():
-					end()
+			if count+1 >= line.line[current].size():
+				end()
+					
+		elif line.line[current][count][0] == "c":
+			if line.line[current][count][1] == "insert_berry":
+				insert_berry(line.line[current][count][2])
 			
-
-		count += 1
-			
+	
 func end():
 		showing = false
 		visible = false
@@ -74,23 +81,25 @@ func end():
 		base.speaking = false
 			
 func give_item(item, number):
+	#player gets item
 	emit_signal("give", item, number)
 	
-func display(name, num):
-#	if typeof(dialogues[name][num]) == TYPE_INT:
-#		if dialogues[name][num] == 1:
-#			label.bbcode_text = "[center]" + tr("NPC_GIFT_ONE").format({person = tr("NAME_FIR")}) + "[/center]"
-#		else:
-#			label.bbcode_text = "[center]" + tr("NPC_GIFT_MANY").format({number=dialogues[name][num], person=tr("NAME_FIR")}) + "[/center]"
-#		choice.visible = true
-#		if base.berries < dialogues[name][num]:
-#			accept.set_disabled(true)
-#			cancel.grab_focus()
-#		else:
-#			accept.set_disabled(false)
-#			accept.grab_focus()
+func insert_berry(amount):
+	#player gives item
+	label.bbcode_text = "[center]" + tr("DIALOGUE_INSERT_MANY").format({number = amount}) + "[/center]"
+	accept.text = tr("DIALOGUE_INSERT")
+	choice.visible = true
+	if base.berries < amount:
+		accept.set_disabled(true)
+		cancel.grab_focus()
+	else:
+		accept.set_disabled(false)
+		accept.grab_focus()
 #
-#	else:
+	
+	
+func display(name, num):
+
 	choice.visible = false
 	label.bbcode_text = tr(line.line[current][count][1])
 
@@ -106,3 +115,7 @@ func _on_cancel_focus_entered():
 
 func reload_lang():
 	$rain/RichTextLabel.bbcode_text = "[color=#add8ff]%s[/color]" % [tr("NAME_RAIN")]
+
+
+func _on_pressed():
+	progress_dialogue()

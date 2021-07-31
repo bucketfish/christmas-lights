@@ -9,11 +9,14 @@ export var reshow = false
 
 var inside = false
 var using = true
+var enabled = true
+export var reappear = true
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	text.modulate = 0
+	$CollisionShape2D.disabled = !enabled
 	text.bbcode_text = "[center]" + tr(key) + "[/center]"
 	base.connect("dialogue_start", self, "_on_dialogue_start")
 	base.connect("dialogue_end", self, "_on_dialogue_end")
@@ -37,10 +40,12 @@ func _on_dialogue_start():
 		using = false
 
 func _on_dialogue_end():
-	if inside:
-		
+	if inside && reappear:
 		animate.play("appear")
 		using = true
+	if !reappear:
+		$CollisionShape2D.disabled = true
+		
 	
 func reload_lang():
 	text.bbcode_text = "[center]" + tr(key) + "[/center]"

@@ -5,7 +5,7 @@
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 57.7094
-height = 12.5846
+height = 65.6733
 
 [sub_resource type="Animation" id=2]
 resource_name = "appear"
