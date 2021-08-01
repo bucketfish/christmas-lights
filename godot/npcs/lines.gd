@@ -18,7 +18,7 @@ var line = {
 		["s","SILVER_INTRO_4a", "rain"],
 		["s","SILVER_INTRO_5", "silver"],
 		["s","SILVER_INTRO_6", "silver"],
-		["a", "get_item", "berry", 3],
+		["a", "get_item", "berry", 5],
 	],
 	"silver_intro_repeat1":[
 		["s", "SILVER_INTRO_REPEAT1_1", "silver"],
@@ -29,7 +29,7 @@ var line = {
 	],
 	
 	'berrymover1':[
-		["c", "insert_berry", 10, "berrymover1_accept", ""]
+		["c", "insert_berry", 15, "berrymover1_accept", ""]
 	],
 	"berrymover1_accept":[
 		["a", "get_notebook", "doodle3_2"]

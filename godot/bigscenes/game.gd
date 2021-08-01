@@ -81,6 +81,7 @@ func change_scene(path, towards):
 	yield(changeanim, "animation_finished")
 	yield(get_tree().create_timer(0.4), "timeout")
 	player.playerpause = false
+	
 	print()
 	
 

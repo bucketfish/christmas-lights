@@ -34,6 +34,8 @@ func _ready():
 	
 	print(scene_id)
 	print(base.scenes.keys())
+	
+	yield(base, "finish_load")
 	if !(scene_id in base.scenes):
 		#if it's first time visiting
 		if notebookitem:
