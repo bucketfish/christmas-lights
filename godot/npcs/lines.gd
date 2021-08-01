@@ -21,7 +21,8 @@ var line = {
 		["a", "get_item", "berry", 3],
 	],
 	"silver_intro_repeat1":[
-		["s", "SILVER_INTRO_REPEAT1_1", "silver"]
+		["s", "SILVER_INTRO_REPEAT1_1", "silver"],
+		["a", "get_notebook", "doodle2_3"]
 	],
 	"silver_intro_repeat2":[
 		["s", "SILVER_INTRO_REPEAT2_1", "silver"]

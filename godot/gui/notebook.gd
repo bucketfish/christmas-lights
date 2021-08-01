@@ -7,7 +7,7 @@ extends Node2D
 export var scene_id = "notebook"
 
 onready var pages = {
-	"doodles": [$doodles/doodle1, $doodles/doodle2],
+	"doodles": [$doodles/doodle1, $doodles/doodle2, $doodles/doodle3],
 	"maps": [$maps/map1, $maps/map2]
 }
 

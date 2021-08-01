@@ -13,6 +13,9 @@ export var noderight:NodePath
 var left
 var right
 
+onready var arrowright = get_node("../../arrow_right")
+onready var arrowleft = get_node("../../arrow_left")
+
 signal focused(path)
 
 # Called when the node enters the scene tree for the first time.
@@ -32,6 +35,15 @@ func getfocus(page):
 		get_parent().get_tab().current = get_parent().get_tab().get_path_to(self)
 		current = true
 		modulate.a = 1
+		if left:
+			arrowleft.visible = true
+		else:
+			arrowleft.visible = false
+		
+		if right:
+			arrowright.visible = true
+		else:
+			arrowright.visible = false
 	else:
 		current = false
 		modulate.a = 0

@@ -10,6 +10,7 @@
 position = Vector2( 0, 0 )
 spawns = 2
 scene_id = "white-3"
+notebookitem = "doodle3_1"
 totalitem = 1
 
 [node name="tilemap" parent="." index="0"]

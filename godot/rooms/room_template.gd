@@ -2,6 +2,7 @@ extends Node2D
 
 export var spawns: int
 export var scene_id = ""
+export var notebookitem:String
 onready var player = get_node("/root/game/player")
 onready var rope = get_node("/root/game/rope")
 onready var camera = get_node("/root/game/camera")
@@ -29,12 +30,24 @@ func _ready():
 		
 	print("scene load: item list " + str(item))
 	base.connect("ready", self, "_on_finish_load")
-
 	
+	
+	print(scene_id)
+	print(base.scenes.keys())
+	if !(scene_id in base.scenes):
+		#if it's first time visiting
+		if notebookitem:
+			get_node("/root/game/notebook/notebook").collected.append(notebookitem)
+			get_node("/root/game/notebook/notebook").update_book()
+			get_node("/root/game/gui/notif").show_notif("notebook")
+
+
 
 func _on_finish_load():
 	base.update_debug("room_name", scene_id)
-		
+
+	
+	
 		
 func remove_item(id):
 	print("item id " + str(id) + " picked up and gone! " + str(item))

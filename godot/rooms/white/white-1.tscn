@@ -96,6 +96,7 @@ position = Vector2( 1350.26, 1902.17 )
 
 [node name="item2" parent="." index="15" instance=ExtResource( 6 )]
 position = Vector2( 1193.65, 1902.45 )
+itemid = "doodle2_2"
 
 [node name="item3" parent="." index="16" instance=ExtResource( 6 )]
 position = Vector2( 82.3432, 557.038 )
