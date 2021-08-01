@@ -117,5 +117,13 @@ func reload_lang():
 	$rain/RichTextLabel.bbcode_text = "[color=#add8ff]%s[/color]" % [tr("NAME_RAIN")]
 
 
-func _on_pressed():
+func _on_cancel_pressed():
+	progress_dialogue()
+
+
+func _on_accept_pressed():
+	if line.line[current][count-1][0] == "c":
+		if line.line[current][count-1][1] == "insert_berry":
+			emit_signal("give", "berry", -1 * line.line[current][count-1][2])
+			
 	progress_dialogue()

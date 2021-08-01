@@ -2,8 +2,10 @@ extends Node2D
 
 var inrange = false
 var canspeak = true
+var opened = false setget open_setget
 
 export var line:String
+export var scene_id:String
 
 onready var base = get_node("/root/game")
 onready var player = get_node("/root/game/player")
@@ -17,12 +19,24 @@ func _ready():
 	cancel.connect("pressed", self, "_on_deny")
 	pass#base.get_node("gui/dialogue").connect("purchased", self, "_on_nextline")
 
+func open_setget(value):
+	opened = value
+	if opened:
+		queue_free()
+		
+func save():
+	var save_dict = {
+		"opened": opened
+	}
+	return save_dict
+		
 func _on_accept():
 	player.give_berry()
 	$KinematicBody2D/text.reappear = false
 	yield(player, "berry_end")
 
 	$KinematicBody2D/AnimationPlayer.play("close")
+	opened = true
 	
 	
 func _on_deny():

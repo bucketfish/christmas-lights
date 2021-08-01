@@ -239,28 +239,26 @@ tracks/0/keys = {
 [sub_resource type="AnimationNodeAnimation" id=15]
 animation = "fall"
 
-[sub_resource type="AnimationNodeAnimation" id=51]
+[sub_resource type="AnimationNodeAnimation" id=16]
 animation = "give"
 
-[sub_resource type="AnimationNodeAnimation" id=16]
+[sub_resource type="AnimationNodeAnimation" id=17]
 animation = "idle"
 
-[sub_resource type="AnimationNodeAnimation" id=17]
+[sub_resource type="AnimationNodeAnimation" id=18]
 animation = "jump"
 
-[sub_resource type="AnimationNodeAnimation" id=18]
+[sub_resource type="AnimationNodeAnimation" id=19]
 animation = "land"
 
-[sub_resource type="AnimationNodeAnimation" id=19]
+[sub_resource type="AnimationNodeAnimation" id=20]
 animation = "pickup"
 
-[sub_resource type="AnimationNodeAnimation" id=20]
+[sub_resource type="AnimationNodeAnimation" id=21]
 animation = "slide"
 
-[sub_resource type="AnimationNodeAnimation" id=21]
+[sub_resource type="AnimationNodeAnimation" id=22]
 animation = "walk"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id=22]
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=23]
 
@@ -275,12 +273,12 @@ animation = "walk"
 [sub_resource type="AnimationNodeStateMachineTransition" id=28]
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=29]
-switch_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=30]
 switch_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=31]
+switch_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=32]
 
@@ -299,7 +297,6 @@ switch_mode = 2
 [sub_resource type="AnimationNodeStateMachineTransition" id=39]
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=40]
-switch_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=41]
 switch_mode = 2
@@ -311,6 +308,7 @@ switch_mode = 2
 switch_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=44]
+switch_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=45]
 
@@ -318,34 +316,36 @@ switch_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=47]
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=52]
+[sub_resource type="AnimationNodeStateMachineTransition" id=48]
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=53]
+[sub_resource type="AnimationNodeStateMachineTransition" id=49]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=50]
 switch_mode = 2
 
-[sub_resource type="AnimationNodeStateMachine" id=48]
+[sub_resource type="AnimationNodeStateMachine" id=51]
 states/fall/node = SubResource( 15 )
 states/fall/position = Vector2( 620.5, 57.5 )
-states/give/node = SubResource( 51 )
+states/give/node = SubResource( 16 )
 states/give/position = Vector2( 89, 243.5 )
-states/idle/node = SubResource( 16 )
+states/idle/node = SubResource( 17 )
 states/idle/position = Vector2( 152.5, 159 )
-states/jump/node = SubResource( 17 )
+states/jump/node = SubResource( 18 )
 states/jump/position = Vector2( 418.5, 32.5 )
-states/land/node = SubResource( 18 )
+states/land/node = SubResource( 19 )
 states/land/position = Vector2( 713.5, 171.938 )
-states/pickup/node = SubResource( 19 )
+states/pickup/node = SubResource( 20 )
 states/pickup/position = Vector2( 356.25, 226.25 )
-states/slide/node = SubResource( 20 )
+states/slide/node = SubResource( 21 )
 states/slide/position = Vector2( 193.5, 23.5 )
-states/walk/node = SubResource( 21 )
+states/walk/node = SubResource( 22 )
 states/walk/position = Vector2( 350.5, 107.5 )
-transitions = [ "idle", "walk", SubResource( 22 ), "walk", "jump", SubResource( 23 ), "idle", "jump", SubResource( 24 ), "jump", "fall", SubResource( 25 ), "fall", "land", SubResource( 26 ), "land", "jump", SubResource( 27 ), "land", "fall", SubResource( 28 ), "land", "walk", SubResource( 29 ), "land", "idle", SubResource( 30 ), "idle", "fall", SubResource( 31 ), "walk", "fall", SubResource( 32 ), "walk", "idle", SubResource( 33 ), "idle", "slide", SubResource( 34 ), "walk", "slide", SubResource( 35 ), "slide", "idle", SubResource( 36 ), "slide", "walk", SubResource( 37 ), "land", "slide", SubResource( 38 ), "slide", "jump", SubResource( 39 ), "pickup", "idle", SubResource( 40 ), "pickup", "walk", SubResource( 41 ), "pickup", "land", SubResource( 42 ), "pickup", "slide", SubResource( 43 ), "idle", "pickup", SubResource( 44 ), "slide", "pickup", SubResource( 45 ), "walk", "pickup", SubResource( 46 ), "land", "pickup", SubResource( 47 ), "idle", "give", SubResource( 52 ), "give", "idle", SubResource( 53 ) ]
+transitions = [ "idle", "walk", SubResource( 23 ), "walk", "jump", SubResource( 24 ), "idle", "jump", SubResource( 25 ), "jump", "fall", SubResource( 26 ), "fall", "land", SubResource( 27 ), "land", "jump", SubResource( 28 ), "land", "fall", SubResource( 29 ), "land", "walk", SubResource( 30 ), "land", "idle", SubResource( 31 ), "idle", "fall", SubResource( 32 ), "walk", "fall", SubResource( 33 ), "walk", "idle", SubResource( 34 ), "idle", "slide", SubResource( 35 ), "walk", "slide", SubResource( 36 ), "slide", "idle", SubResource( 37 ), "slide", "walk", SubResource( 38 ), "land", "slide", SubResource( 39 ), "slide", "jump", SubResource( 40 ), "pickup", "idle", SubResource( 41 ), "pickup", "walk", SubResource( 42 ), "pickup", "land", SubResource( 43 ), "pickup", "slide", SubResource( 44 ), "idle", "pickup", SubResource( 45 ), "slide", "pickup", SubResource( 46 ), "walk", "pickup", SubResource( 47 ), "land", "pickup", SubResource( 48 ), "idle", "give", SubResource( 49 ), "give", "idle", SubResource( 50 ) ]
 start_node = "idle"
 
-[sub_resource type="AnimationNodeStateMachinePlayback" id=49]
+[sub_resource type="AnimationNodeStateMachinePlayback" id=52]
 
-[sub_resource type="DynamicFont" id=50]
+[sub_resource type="DynamicFont" id=53]
 size = 48
 font_data = ExtResource( 4 )
 
@@ -424,9 +424,9 @@ anims/slide = SubResource( 13 )
 anims/walk = SubResource( 14 )
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
-tree_root = SubResource( 48 )
+tree_root = SubResource( 51 )
 anim_player = NodePath("../AnimationPlayer")
-parameters/playback = SubResource( 49 )
+parameters/playback = SubResource( 52 )
 
 [node name="floor_raycast" type="Node2D" parent="."]
 
@@ -468,7 +468,7 @@ collision_mask = 4
 visible = false
 margin_right = 89.0
 margin_bottom = 49.0
-custom_fonts/font = SubResource( 50 )
+custom_fonts/font = SubResource( 53 )
 text = "a"
 __meta__ = {
 "_edit_use_anchors_": false

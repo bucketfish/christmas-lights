@@ -20,7 +20,7 @@ tile_data = PoolIntArray( -851982, 0, 0, -851981, 0, 1, -851980, 0, 1, -851979, 
 position = Vector2( -73.9516, -78.2179 )
 
 [node name="bottomright" parent="camera constraints" index="1"]
-position = Vector2( 1385.7, 1341.69 )
+position = Vector2( 1474.44, 1412.15 )
 
 [node name="spawn1" parent="." index="3" instance=ExtResource( 2 )]
 position = Vector2( 929.86, 106.855 )
@@ -32,7 +32,7 @@ path = "res://rooms/white/white-3.tscn"
 position = Vector2( -1.33679, -196.512 )
 
 [node name="berrymover" parent="." index="4" instance=ExtResource( 3 )]
-position = Vector2( 1220.31, 1183.12 )
+position = Vector2( 1222.39, 1184.36 )
 
 [editable path="camera constraints"]
 
