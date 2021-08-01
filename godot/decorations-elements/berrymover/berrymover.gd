@@ -31,16 +31,18 @@ func save():
 	return save_dict
 		
 func _on_accept():
-	player.give_berry()
-	$KinematicBody2D/text.reappear = false
-	yield(player, "berry_end")
-
-	$KinematicBody2D/AnimationPlayer.play("close")
-	opened = true
+	if inrange:
+		player.give_berry()
+		$KinematicBody2D/text.reappear = false
+		yield(player, "berry_end")
+	
+		$KinematicBody2D/AnimationPlayer.play("close")
+		opened = true
 	
 	
 func _on_deny():
-	$KinematicBody2D/text.reappear = true
+	if inrange:
+		$KinematicBody2D/text.reappear = true
 
 func _on_text_body_entered(body):
 	if body.is_in_group("player"):

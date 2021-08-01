@@ -29,6 +29,7 @@ func _ready():
 func getfocus(page):
 	if page == pageid:
 		emit_signal("focused", self)
+		get_parent().get_tab().current = get_parent().get_tab().get_path_to(self)
 		current = true
 		modulate.a = 1
 	else:

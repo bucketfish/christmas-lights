@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://gui/notebook/notebook_backing.png" type="Texture" id=1]
 [ext_resource path="res://gui/notebook/notebook_paper.png" type="Texture" id=2]
@@ -10,6 +10,11 @@
 [ext_resource path="res://gui/notebook/assets to use/stickynote.png" type="Texture" id=8]
 [ext_resource path="res://gui/page.tscn" type="PackedScene" id=9]
 [ext_resource path="res://gui/berry.tscn" type="PackedScene" id=10]
+[ext_resource path="res://gui/notebook/doodles/doodle3_1.png" type="Texture" id=11]
+[ext_resource path="res://gui/notebook/doodles/doodle3_2.png" type="Texture" id=12]
+[ext_resource path="res://gui/notebook/doodles/doodle2_2.png" type="Texture" id=13]
+[ext_resource path="res://gui/notebook/doodles/doodle2_3.png" type="Texture" id=14]
+[ext_resource path="res://gui/notebooktab.gd" type="Script" id=15]
 
 [sub_resource type="Animation" id=1]
 resource_name = "hide"
@@ -158,6 +163,7 @@ margin_bottom = 0.0
 focus_neighbour_top = NodePath("../map_tab")
 childgrab = NodePath("../doodles")
 tabname = "doodles"
+current = NodePath("../doodles/doodle1")
 
 [node name="sprite" parent="doodles_tab" index="0"]
 texture = ExtResource( 3 )
@@ -166,12 +172,15 @@ texture = ExtResource( 3 )
 focus_neighbour_bottom = NodePath("../doodles_tab")
 childgrab = NodePath("../maps")
 tabname = "maps"
+current = NodePath("../maps/map1")
 
 [node name="notebook_paper" type="Sprite" parent="."]
 texture = ExtResource( 2 )
 centered = false
 
 [node name="maps" type="Node2D" parent="."]
+script = ExtResource( 15 )
+tab = NodePath("../map_tab")
 
 [node name="map1" parent="maps" instance=ExtResource( 9 )]
 pageid = "map1"
@@ -188,7 +197,8 @@ pageid = "map2"
 nodeleft = NodePath("../map1")
 
 [node name="doodles" type="Node2D" parent="."]
-visible = false
+script = ExtResource( 15 )
+tab = NodePath("../doodles_tab")
 
 [node name="doodle1" parent="doodles" instance=ExtResource( 9 )]
 pageid = "doodle1"
@@ -214,6 +224,15 @@ center = true
 [node name="doodle2" parent="doodles" instance=ExtResource( 9 )]
 pageid = "doodle2"
 nodeleft = NodePath("../doodle1")
+noderight = NodePath("../doodle3")
+
+[node name="page item3" parent="doodles/doodle2" instance=ExtResource( 7 )]
+texture = ExtResource( 14 )
+itemid = "doodle2_3"
+
+[node name="page item2" parent="doodles/doodle2" instance=ExtResource( 7 )]
+texture = ExtResource( 13 )
+itemid = "doodle2_2"
 
 [node name="page item" parent="doodles/doodle2" instance=ExtResource( 7 )]
 position = Vector2( 125.573, 91.6363 )
@@ -231,6 +250,18 @@ bbcode_enabled = true
 bbcode_text = "aaaaaaa"
 text = "aaaaaaa"
 key = "NOTEBOOK_INTRONOTE"
+
+[node name="doodle3" parent="doodles" instance=ExtResource( 9 )]
+pageid = "doodle3"
+nodeleft = NodePath("../doodle2")
+
+[node name="page item2" parent="doodles/doodle3" instance=ExtResource( 7 )]
+texture = ExtResource( 12 )
+itemid = "doodle3_2"
+
+[node name="page item" parent="doodles/doodle3" instance=ExtResource( 7 )]
+texture = ExtResource( 11 )
+itemid = "doodle3_1"
 
 [editable path="doodles_tab"]
 

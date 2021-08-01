@@ -35,7 +35,7 @@ func _on_text_body_exited(body):
 		inside = false
 
 func _on_dialogue_start():
-	if inside:
+	if inside && reappear:
 		animate.play_backwards("appear")
 		using = false
 

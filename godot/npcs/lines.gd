@@ -7,9 +7,8 @@ extends Node
 
 
 var line = {
-	'berrymover1':[
-		["c", "insert_berry", 10],
-	],
+	"":[],
+
 	"silver_intro":[
 		["s", "SILVER_INTRO_1", "silver"],
 		["s", "SILVER_INTRO_2", "silver"],
@@ -26,5 +25,12 @@ var line = {
 	],
 	"silver_intro_repeat2":[
 		["s", "SILVER_INTRO_REPEAT2_1", "silver"]
-	]
+	],
+	
+	'berrymover1':[
+		["c", "insert_berry", 10, "berrymover1_accept", ""]
+	],
+	"berrymover1_accept":[
+		["a", "get_notebook", "doodle3_2"]
+	],
 }

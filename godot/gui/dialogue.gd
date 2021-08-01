@@ -30,6 +30,7 @@ func show_dialogue(num):
 	showing = true
 	current = num
 	choice.visible = false
+	progress_dialogue()
 
 	
 func _input(event):
@@ -53,24 +54,37 @@ func progress_dialogue():
 			
 			
 	if count < line.line[current].size():
-		if line.line[current][count][0] == "s":
-			display(current, count)
+		dialogue_logic(line.line[current][count])
+		
+	
+func dialogue_logic(lines):
+	print(lines)
+	if lines[0] == "s":
+		display(current, count)
 
-			get_node(line.line[current][count][2]).show()
+		get_node(lines[2]).show()
 			
+		
+	elif lines[0] == "a":
+		count += 1
+		if lines[1] == "get_item":
+			#give item x in amount y
+			give_item(lines[2],lines[3])
 			
-		elif line.line[current][count][0] == "a":
-			if line.line[current][count][1] == "get_item":
-				#give item x in amount y
-				give_item(line.line[current][count][2], line.line[current][count][3])
-				count += 1
-				
-			if count+1 >= line.line[current].size():
-				end()
+		elif lines[1] == "get_notebook":
+			get_node("/root/game/notebook/notebook").collected.append(lines[2])
+			get_node("/root/game/notebook/notebook").update_book()
+			get_node("/root/game/gui/notif").show_notif("notebook")
+		
+		print(count)
+		if count+1 >= line.line[current].size():
+			end()
+
 					
-		elif line.line[current][count][0] == "c":
-			if line.line[current][count][1] == "insert_berry":
-				insert_berry(line.line[current][count][2])
+	elif lines[0] == "c":
+		if lines[1] == "insert_berry":
+			insert_berry(lines[2])
+			
 			
 	
 func end():
@@ -118,12 +132,16 @@ func reload_lang():
 
 
 func _on_cancel_pressed():
-	progress_dialogue()
+	show_dialogue(line.line[current][count-1][4])
 
 
 func _on_accept_pressed():
 	if line.line[current][count-1][0] == "c":
 		if line.line[current][count-1][1] == "insert_berry":
 			emit_signal("give", "berry", -1 * line.line[current][count-1][2])
-			
-	progress_dialogue()
+		
+	
+	show_dialogue(line.line[current][count-1][3])
+		
+		
+	#progress_dialogue()
