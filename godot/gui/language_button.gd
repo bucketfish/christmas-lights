@@ -7,6 +7,8 @@ export var language:String
 
 onready var label = $label
 
+signal value_change(variable, value)
+
 func _ready():
 	setup_text()
 	set_focus_mode(true)
@@ -40,6 +42,7 @@ func _on_button_pressed():
 	TranslationServer.set_locale(language)
 	$"/root/Options".lang()
 	$"/root/game".lang()
+	emit_signal("value_change", "language", language)
 	
 
 

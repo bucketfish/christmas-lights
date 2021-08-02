@@ -765,6 +765,8 @@ __meta__ = {
 [connection signal="value_change" from="controls/VBoxContainer/choices/VBoxContainer/HBoxContainer/VBoxContainer2/interact" to="." method="_on_value_change"]
 [connection signal="value_change" from="controls/VBoxContainer/choices/VBoxContainer/HBoxContainer/VBoxContainer2/dash" to="." method="_on_value_change"]
 [connection signal="pressed" from="controls/VBoxContainer/choices/VBoxContainer/back" to="." method="_on_back_pressed"]
+[connection signal="value_change" from="language/VBoxContainer/VBoxContainer/en" to="." method="_on_value_change"]
+[connection signal="value_change" from="language/VBoxContainer/VBoxContainer/tp" to="." method="_on_value_change"]
 [connection signal="pressed" from="language/VBoxContainer/VBoxContainer/back" to="." method="_on_back_pressed"]
 
 [editable path="video/VBoxContainer/choices/VBoxContainer/particles"]

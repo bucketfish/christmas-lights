@@ -29,6 +29,13 @@ func _ready():
 	env.environment.adjustment_saturation = 2 * config["video_saturation"]
 	env.environment.adjustment_contrast = 2 * config["video_contrast"]
 	
+	
+	if "language" in config.keys():
+		TranslationServer.set_locale(config["language"])
+		yield(get_tree().create_timer(0.01), "timeout")
+		$"/root/Options".lang()
+		$"/root/game".lang()
+	
 	propagate_call("setup_keys")
 
 	#$main/VBoxContainer/VBoxContainer/video.grab_focus()
