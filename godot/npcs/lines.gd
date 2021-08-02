@@ -19,6 +19,7 @@ var line = {
 		["s","SILVER_INTRO_5", "NAME_SILVER"],
 		["s","SILVER_INTRO_6", "NAME_SILVER"],
 		["a", "get_item", "berry", 5],
+		["e", "silver_give1"]
 	],
 	"silver_intro_repeat1":[
 		["s", "SILVER_INTRO_REPEAT1_1", "NAME_SILVER"],

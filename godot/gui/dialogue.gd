@@ -13,6 +13,8 @@ signal give(item, count)
 signal nextline
 signal choice_nextline(chosen)
 
+signal action(thing)
+
 var showing = false
 var current = ""
 var count = 0
@@ -74,6 +76,10 @@ func dialogue_loop(cur):
 			else:
 				dialogue_loop(line.line[i[4]])
 			return
+			
+		elif i[0] == "e":
+			emit_signal("action", i[1])
+			continue
 	showing = false
 	end()
 
