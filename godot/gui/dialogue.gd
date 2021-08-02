@@ -10,6 +10,8 @@ onready var base = get_node("/root/game")
 
 signal purchased(nextline)
 signal give(item, count)
+signal nextline
+signal choice_nextline(chosen)
 
 var showing = false
 var current = ""
@@ -21,83 +23,71 @@ onready var line = preload("../npcs/lines.gd").new()
 func _ready():
 	visible = false
 	choice.visible = false
-	$rain/RichTextLabel.bbcode_text = "[color=#add8ff]%s[/color]" % [tr("NAME_RAIN")]
+	$rain/name.bbcode_text = "[color=#add8ff]%s[/color]" % [tr("NAME_RAIN")]
 
 func show_dialogue(num):
-	count = 0
 	base.state = "dialogue"
 	visible = true
-	showing = true
 	current = num
 	choice.visible = false
-	progress_dialogue()
+	dialogue_loop(line.line[num])
 
-	
+
 func _input(event):
 	if event.is_action_pressed("pause") && base.state == "speaking":
 		base.state = "play"
 		end()
-		
+
 	if event.is_action_pressed("dialogue_next") && showing && choice.visible == false:
-		
-		progress_dialogue()
-		count += 1
+		emit_signal("nextline")
 
-func progress_dialogue():
-	if count >= 1 && count <= line.line[current].size():
-		if line.line[current][count-1][0] == "s":
-			get_node(line.line[current][count-1][2]).hide()
+
+
+func dialogue_loop(cur):
+	showing = true
+	for i in cur:
+		if i[0] == "s":
+			propagate_call("check", [i[2]])
+			display(i[1], i[2]) #show line i[1] with character i[2]
+			yield(self, "nextline")
+			#hide the head
+
+		elif i[0] == "a":
+			if i[1] == "get_item":
+				give_item(i[2], i[3])
 				
-	if count >= line.line[current].size():
-		end()
-		return
-			
-			
-	if count < line.line[current].size():
-		dialogue_logic(line.line[current][count])
-		
-	
-func dialogue_logic(lines):
-	print(lines)
-	if lines[0] == "s":
-		display(current, count)
+			elif i[1] == "get_notebook":
+				get_node("/root/game/notebook/notebook").collected.append(i[2])
+				get_node("/root/game/notebook/notebook").update_book()
+				get_node("/root/game/gui/notif").show_notif("notebook")
+			continue
 
-		get_node(lines[2]).show()
+		elif i[0] == "c":
+			 #do something
+			if i[1] == "insert_berry":
+				insert_berry(i[2])
 			
-		
-	elif lines[0] == "a":
-		count += 1
-		if lines[1] == "get_item":
-			#give item x in amount y
-			give_item(lines[2],lines[3])
-			
-		elif lines[1] == "get_notebook":
-			get_node("/root/game/notebook/notebook").collected.append(lines[2])
-			get_node("/root/game/notebook/notebook").update_book()
-			get_node("/root/game/gui/notif").show_notif("notebook")
-		
-		print(count)
-		if count+1 >= line.line[current].size():
-			end()
+			var chosen = yield(self, "choice_nextline")
 
-					
-	elif lines[0] == "c":
-		if lines[1] == "insert_berry":
-			insert_berry(lines[2])
-			
-			
-	
+			if chosen:
+				dialogue_loop(line.line[i[3]])
+			else:
+				dialogue_loop(line.line[i[4]])
+			return
+	showing = false
+	end()
+
 func end():
 		showing = false
 		visible = false
 		yield(get_tree().create_timer(0.3), "timeout")
 		base.state = "play"
 		base.speaking = false
-			
+
 func give_item(item, number):
 	#player gets item
 	emit_signal("give", item, number)
-	
+
 func insert_berry(amount):
 	#player gives item
 	label.bbcode_text = "[center]" + tr("DIALOGUE_INSERT_MANY").format({number = amount}) + "[/center]"
@@ -110,14 +100,14 @@ func insert_berry(amount):
 		accept.set_disabled(false)
 		accept.grab_focus()
 #
-	
-	
-func display(name, num):
 
+
+func display(linename, person):
+  #redo this too
 	choice.visible = false
-	label.bbcode_text = tr(line.line[current][count][1])
+	label.bbcode_text = tr(linename)
 
-	
+
 func _on_accept_focus_entered():
 	if accept.disabled:
 		cancel.grab_focus()
@@ -132,16 +122,11 @@ func reload_lang():
 
 
 func _on_cancel_pressed():
-	show_dialogue(line.line[current][count-1][4])
+	emit_signal("choice_nextline", false)
 
 
 func _on_accept_pressed():
-	if line.line[current][count-1][0] == "c":
-		if line.line[current][count-1][1] == "insert_berry":
-			emit_signal("give", "berry", -1 * line.line[current][count-1][2])
-		
-	
-	show_dialogue(line.line[current][count-1][3])
-		
-		
+	emit_signal("choice_nextline", true)
+
+
 	#progress_dialogue()
