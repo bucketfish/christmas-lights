@@ -103,7 +103,6 @@ func insert_berry(amount):
 
 
 func display(linename, person):
-  #redo this too
 	choice.visible = false
 	label.bbcode_text = tr(linename)
 
@@ -129,4 +128,3 @@ func _on_accept_pressed():
 	emit_signal("choice_nextline", true)
 
 
-	#progress_dialogue()

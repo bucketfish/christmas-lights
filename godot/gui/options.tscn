@@ -524,6 +524,7 @@ focus_neighbour_right = NodePath("../../VBoxContainer2/interact")
 focus_neighbour_bottom = NodePath("../right")
 text = "OPTIONS_CONTROLS_MOVELEFT"
 key = "left"
+parent = NodePath("../../../../../..")
 
 [node name="right" parent="controls/VBoxContainer/choices/VBoxContainer/HBoxContainer/VBoxContainer" instance=ExtResource( 6 )]
 margin_top = 65.0
@@ -534,6 +535,7 @@ focus_neighbour_right = NodePath("../../VBoxContainer2/slide")
 focus_neighbour_bottom = NodePath("../down")
 text = "OPTIONS_CONTROLS_MOVERIGHT"
 key = "right"
+parent = NodePath("../../../../../..")
 
 [node name="down" parent="controls/VBoxContainer/choices/VBoxContainer/HBoxContainer/VBoxContainer" instance=ExtResource( 6 )]
 margin_top = 130.0
@@ -544,6 +546,7 @@ focus_neighbour_right = NodePath("../../VBoxContainer2/dash")
 focus_neighbour_bottom = NodePath("../jump")
 text = "OPTIONS_CONTROLS_SWIMDOWN"
 key = "down"
+parent = NodePath("../../../../../..")
 
 [node name="jump" parent="controls/VBoxContainer/choices/VBoxContainer/HBoxContainer/VBoxContainer" instance=ExtResource( 6 )]
 margin_top = 195.0
@@ -554,6 +557,7 @@ focus_neighbour_right = NodePath("../../VBoxContainer2/notebook")
 focus_neighbour_bottom = NodePath("../../../back")
 text = "OPTIONS_CONTROLS_JUMP"
 key = "jump"
+parent = NodePath("../../../../../..")
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="controls/VBoxContainer/choices/VBoxContainer/HBoxContainer"]
 margin_left = 355.0
@@ -569,6 +573,7 @@ focus_neighbour_top = NodePath("../../../back")
 focus_neighbour_bottom = NodePath("../slide")
 text = "OPTIONS_CONTROLS_INTERACT"
 key = "interact"
+parent = NodePath("../../../../../..")
 
 [node name="slide" parent="controls/VBoxContainer/choices/VBoxContainer/HBoxContainer/VBoxContainer2" instance=ExtResource( 6 )]
 margin_top = 65.0
@@ -579,6 +584,7 @@ focus_neighbour_top = NodePath("../interact")
 focus_neighbour_bottom = NodePath("../dash")
 text = "OPTIONS_CONTROLS_SLIDE"
 key = "slide"
+parent = NodePath("../../../../../..")
 
 [node name="dash" parent="controls/VBoxContainer/choices/VBoxContainer/HBoxContainer/VBoxContainer2" instance=ExtResource( 6 )]
 margin_top = 130.0
@@ -589,6 +595,7 @@ focus_neighbour_top = NodePath("../slide")
 focus_neighbour_bottom = NodePath("../notebook")
 text = "OPTIONS_CONTROLS_DASH"
 key = "dash"
+parent = NodePath("../../../../../..")
 
 [node name="notebook" parent="controls/VBoxContainer/choices/VBoxContainer/HBoxContainer/VBoxContainer2" instance=ExtResource( 6 )]
 margin_top = 195.0
@@ -599,6 +606,7 @@ focus_neighbour_top = NodePath("../dash")
 focus_neighbour_bottom = NodePath("../../../back")
 text = "OPTIONS_CONTROLS_NOTEBOOK"
 key = "notebook"
+parent = NodePath("../../../../../..")
 
 [node name="gap" type="Control" parent="controls/VBoxContainer/choices/VBoxContainer"]
 margin_top = 260.0
@@ -750,6 +758,12 @@ __meta__ = {
 [connection signal="value_change" from="audio/VBoxContainer/choices/VBoxContainer/music" to="." method="_on_value_change"]
 [connection signal="value_change" from="audio/VBoxContainer/choices/VBoxContainer/soundeffects" to="." method="_on_value_change"]
 [connection signal="pressed" from="audio/VBoxContainer/choices/VBoxContainer/back" to="." method="_on_back_pressed"]
+[connection signal="value_change" from="controls/VBoxContainer/choices/VBoxContainer/HBoxContainer/VBoxContainer/left" to="." method="_on_value_change"]
+[connection signal="value_change" from="controls/VBoxContainer/choices/VBoxContainer/HBoxContainer/VBoxContainer/right" to="." method="_on_value_change"]
+[connection signal="value_change" from="controls/VBoxContainer/choices/VBoxContainer/HBoxContainer/VBoxContainer/down" to="." method="_on_value_change"]
+[connection signal="value_change" from="controls/VBoxContainer/choices/VBoxContainer/HBoxContainer/VBoxContainer/jump" to="." method="_on_value_change"]
+[connection signal="value_change" from="controls/VBoxContainer/choices/VBoxContainer/HBoxContainer/VBoxContainer2/interact" to="." method="_on_value_change"]
+[connection signal="value_change" from="controls/VBoxContainer/choices/VBoxContainer/HBoxContainer/VBoxContainer2/dash" to="." method="_on_value_change"]
 [connection signal="pressed" from="controls/VBoxContainer/choices/VBoxContainer/back" to="." method="_on_back_pressed"]
 [connection signal="pressed" from="language/VBoxContainer/VBoxContainer/back" to="." method="_on_back_pressed"]
 

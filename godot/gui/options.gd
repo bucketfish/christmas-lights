@@ -7,12 +7,12 @@ var config = {
 	"video_contrast": 0.5,
 	"audio_master": 0.5,
 	"audio_music": 0.5,
-	"audio_soundeffects": 0.5
+	"audio_soundeffects": 0.5,
 }
 
 
 onready var pages = [
-	$main, $video
+	$main, $video, $audio, $language
 ]
 
 onready var main = $main
@@ -28,6 +28,8 @@ func _ready():
 	env.environment.adjustment_brightness = 2 * config["video_brightness"]
 	env.environment.adjustment_saturation = 2 * config["video_saturation"]
 	env.environment.adjustment_contrast = 2 * config["video_contrast"]
+	
+	propagate_call("setup_keys")
 
 	#$main/VBoxContainer/VBoxContainer/video.grab_focus()
 
@@ -92,7 +94,6 @@ func save_game():
 	
 	saves.close()
 	#emit_signal("finish_save")
-
 
 
 func load_game():

@@ -15,7 +15,7 @@ signal setup_slider(colors)
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	get_parent().connect("change_screen", self, "change_screen")
-
+	
 
 func change_screen(name):
 	if name == screenname:
@@ -24,6 +24,7 @@ func change_screen(name):
 		]
 		nums.shuffle()
 		emit_signal("setup_slider", nums)
+		propagate_call("setup_keys")
 		visible = true
 		get_node(initial).grab_focus()
 		
