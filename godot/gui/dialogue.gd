@@ -8,6 +8,7 @@ onready var accept = $NinePatchRect/MarginContainer/VBoxContainer/HBoxContainer/
 
 onready var base = get_node("/root/game")
 
+
 signal purchased(nextline)
 signal give(item, count)
 signal nextline
@@ -26,6 +27,7 @@ func _ready():
 	visible = false
 	choice.visible = false
 	$rain/name.bbcode_text = "[color=#add8ff]%s[/color]" % [tr("NAME_RAIN")]
+	base.connect("change_state", self, "resume")
 
 func show_dialogue(num):
 	base.state = "dialogue"
@@ -36,9 +38,6 @@ func show_dialogue(num):
 
 
 func _input(event):
-	if event.is_action_pressed("pause") && base.state == "speaking":
-		base.state = "play"
-		end()
 
 	if event.is_action_pressed("dialogue_next") && showing && choice.visible == false:
 		emit_signal("nextline")
@@ -83,6 +82,10 @@ func dialogue_loop(cur):
 	showing = false
 	end()
 
+func resume(thing):
+	if thing == "dialogue" && choice.visible == true:
+		cancel.grab_focus()
+		
 func end():
 		showing = false
 		visible = false
