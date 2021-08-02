@@ -17,11 +17,6 @@ func _ready():
 	dynamic_font.size = font_size
 	$label.set("custom_fonts/normal_font", dynamic_font)
 	
-func _process(_delta):
-	#if Engine.editor_hint:
-	#	select_text()
-	pass
-	
 func setup_text():
 	label.bbcode_text = "[center] %s [/center]" % [text]
 	

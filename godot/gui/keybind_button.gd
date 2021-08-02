@@ -39,11 +39,6 @@ func setup_keys():
 	#$front.set("custom_fonts/normal_font", dynamic_font)
 	#$back.set("custom_fonts/normal_font", dynamic_font)
 	
-func _process(_delta):
-	#if Engine.editor_hint:
-	#	select_text()
-	pass
-	
 func setup_text(value):
 	var thing = {
 		"Left": "←",

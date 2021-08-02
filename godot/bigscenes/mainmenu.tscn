@@ -129,6 +129,7 @@ scroll_active = false
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
 [connection signal="pressed" from="CanvasLayer/Control/VBoxContainer/VBoxContainer/button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/Control/VBoxContainer/VBoxContainer/button2" to="." method="_on_options_pressed"]
 [connection signal="pressed" from="CanvasLayer/Control/VBoxContainer/VBoxContainer/button3" to="." method="_on_quit_pressed"]
