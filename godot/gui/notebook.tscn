@@ -188,6 +188,14 @@ tab = NodePath("../map_tab")
 pageid = "map1"
 noderight = NodePath("../map2")
 
+[node name="RichTextLabel" parent="maps/map1" index="0"]
+margin_left = 399.836
+margin_top = 498.126
+margin_right = 626.836
+margin_bottom = 538.126
+bbcode_text = ""
+text = ""
+
 [node name="berry" parent="maps/map1" instance=ExtResource( 10 )]
 margin_left = 122.384
 margin_top = 80.6819

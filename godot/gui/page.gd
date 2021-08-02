@@ -15,6 +15,7 @@ var right
 
 onready var arrowright = get_node("../../arrow_right")
 onready var arrowleft = get_node("../../arrow_left")
+onready var pageno = $RichTextLabel
 
 signal focused(path)
 
@@ -28,6 +29,12 @@ func _ready():
 	modulate.a = 0
 	get_parent().get_parent().connect("getcurrent", self, "getfocus")
 	connect("focused", get_parent().get_parent(), "_on_node_selected")
+	if pageid[0] == "d":
+		var num = int(pageid.split("le")[1])
+		pageno.bbcode_text = "[center][color=#454545]" + str(num*2 -1) + "   " + str(num*2)
+	
+	
+	
 	
 func getfocus(page):
 	if page == pageid:
