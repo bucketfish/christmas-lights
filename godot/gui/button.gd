@@ -6,6 +6,8 @@ export var font_size:float = 48
 
 onready var label = $label
 
+var selected = false
+
 func _ready():
 	setup_text()
 	set_focus_mode(true)
@@ -30,9 +32,11 @@ func disable_text():
 	label.bbcode_text = "[center][color=#6d6d6d] %s [/color][/center]" % [tr(disabled_text)]
 
 func _on_button_focus_entered():
+	selected = true
 	select_text()
 
 func _on_button_focus_exited():
+	selected = false
 	setup_text()
 
 func _on_button_mouse_entered():
@@ -40,6 +44,9 @@ func _on_button_mouse_entered():
 
 
 func reload_lang():
-	setup_text()
+	if selected:
+		select_text()
+	else:
+		setup_text()
 
 

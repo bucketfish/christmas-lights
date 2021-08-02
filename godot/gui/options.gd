@@ -24,11 +24,10 @@ signal exit_options()
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	load_game()
-	emit_signal("change_screen","")
+
 	env.environment.adjustment_brightness = 2 * config["video_brightness"]
 	env.environment.adjustment_saturation = 2 * config["video_saturation"]
 	env.environment.adjustment_contrast = 2 * config["video_contrast"]
-	
 	
 	if "language" in config.keys():
 		TranslationServer.set_locale(config["language"])
@@ -37,6 +36,8 @@ func _ready():
 		$"/root/game".lang()
 	
 	propagate_call("setup_keys")
+	
+	emit_signal("change_screen","")
 
 	#$main/VBoxContainer/VBoxContainer/video.grab_focus()
 
