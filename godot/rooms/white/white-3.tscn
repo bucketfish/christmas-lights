@@ -53,11 +53,7 @@ frame = 0
 position = Vector2( 745.418, 1265.2 )
 
 [editable path="camera constraints"]
-
 [editable path="spawn1"]
-
 [editable path="spawn2"]
-
 [editable path="silver"]
-
 [editable path="silver/text"]

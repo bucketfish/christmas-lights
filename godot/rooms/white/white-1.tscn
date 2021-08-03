@@ -106,13 +106,9 @@ position = Vector2( 358.748, 1908.79 )
 itemid = "doodle2_1"
 
 [editable path="spawn1"]
-
 [editable path="spawn2"]
-
 [editable path="spawn3"]
-
 [editable path="camera constraints"]
-
 [editable path="text"]
-
 [editable path="item4"]
+[editable path="item4/text"]

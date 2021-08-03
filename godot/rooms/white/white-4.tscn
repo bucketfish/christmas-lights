@@ -43,7 +43,6 @@ position = Vector2( 1119.62, 401.383 )
 position = Vector2( 54.0053, 944.808 )
 
 [editable path="berrymover"]
-
+[editable path="berrymover/KinematicBody2D/text"]
 [editable path="camera constraints"]
-
 [editable path="spawn1"]
