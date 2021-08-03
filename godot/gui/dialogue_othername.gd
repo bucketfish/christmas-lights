@@ -10,7 +10,6 @@ func _ready():
 	$name.bbcode_text = "[right][color=#add8ff]%s[/color]" % [tr(npcname)]
 
 func check(name):
-	print(name + " " + npcname)
 	if name == npcname:
 		visible = true
 	else:
