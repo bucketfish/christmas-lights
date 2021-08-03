@@ -392,8 +392,8 @@ light_mask = 0
 material = SubResource( 5 )
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 1 )
-vframes = 5
 hframes = 4
+vframes = 5
 frame = 2
 
 [node name="berry" type="Sprite" parent="Sprite"]
@@ -473,6 +473,7 @@ text = "a"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
 [connection signal="area_entered" from="canstand" to="." method="_on_canstand_area_entered"]
 [connection signal="area_exited" from="canstand" to="." method="_on_canstand_area_exited"]
 [connection signal="body_entered" from="canstand" to="." method="_on_canstand_body_entered"]
