@@ -47,38 +47,39 @@ func _input(event):
 func dialogue_loop(cur):
 	showing = true
 	for i in cur:
-		if i[0] == "s":
-			propagate_call("check", [i[2]])
-			display(i[1], i[2]) #show line i[1] with character i[2]
-			yield(self, "nextline")
-			#hide the head
+		match i[0]:
+			"s":
+				propagate_call("check", [i[2]])
+				display(i[1], i[2]) #show line i[1] with character i[2]
+				yield(self, "nextline")
+				#hide the head
 
-		elif i[0] == "a":
-			if i[1] == "get_item":
-				give_item(i[2], i[3])
+			"a":
+				if i[1] == "get_item":
+					give_item(i[2], i[3])
+					
+				elif i[1] == "get_notebook":
+					get_node("/root/game/notebook/notebook").collected.append(i[2])
+					get_node("/root/game/notebook/notebook").update_book()
+					get_node("/root/game/gui/notif").show_notif("notebook")
+
+			"c":
+				propagate_call("check", [""])
+				 #do something
+				if i[1] == "insert_berry":
+					insert_berry(i[2])
 				
-			elif i[1] == "get_notebook":
-				get_node("/root/game/notebook/notebook").collected.append(i[2])
-				get_node("/root/game/notebook/notebook").update_book()
-				get_node("/root/game/gui/notif").show_notif("notebook")
-			continue
+				var chosen = yield(self, "choice_nextline")
 
-		elif i[0] == "c":
-			 #do something
-			if i[1] == "insert_berry":
-				insert_berry(i[2])
-			
-			var chosen = yield(self, "choice_nextline")
+				if chosen:
+					dialogue_loop(line.line[i[3]])
+				else:
+					dialogue_loop(line.line[i[4]])
+				return
 
-			if chosen:
-				dialogue_loop(line.line[i[3]])
-			else:
-				dialogue_loop(line.line[i[4]])
-			return
-			
-		elif i[0] == "e":
-			emit_signal("action", i[1])
-			continue
+			"e":
+				emit_signal("action", i[1])
+				
 	showing = false
 	end()
 
