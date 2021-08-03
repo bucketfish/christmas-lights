@@ -16,14 +16,19 @@ func _ready():
 	dynamic_font.size = font_size
 	$label.set("custom_fonts/normal_font", dynamic_font)
 	
-func _process(_delta):
-	#if Engine.editor_hint:
-	#	select_text()
-	if disabled:
+func make_disabled(value):
+	disabled = value
+	if value == true:
+		set_focus_mode(false)
 		disable_text()
+	else:
+		set_focus_mode(true)
+		setup_text()
+	
 	
 func setup_text():
 	label.bbcode_text = "[center] %s [/center]" % [tr(text)]
+
 	
 func select_text():
 	label.bbcode_text = "[center][color=#add8ff] • %s • [/color][/center]" % [tr(text)]

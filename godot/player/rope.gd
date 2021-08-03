@@ -4,7 +4,7 @@ var link = preload("res://player/link.tscn")
 var light = preload("res://player/light.tscn")
 
 
-export (int) var pieces = 40
+export (int) var pieces = 20
 
 var count = 0
 
@@ -28,19 +28,18 @@ func addPiece(parent):
 	var joint = parent.get_node("PinJoint2D")
 	var piece = link.instance()
 	piece.friction = 0
-	piece.position = Vector2(-70, 0)
+	piece.position = Vector2(-140, 0)
 	
 	joint.add_child(piece)
 	joint.node_a = parent.get_path()
 	joint.node_b = piece.get_path()
 	
-	if count%2==0:
-		var add = light.instance()
-		add.get_node("Sprite").frame = (count%12)/2
-		add.get_node("Light2D").color = '#' + colors[(count%12)/2]
-		add.get_node("Sprite2").modulate = '#40' + colors[(count%12)/2]
-		add.get_node("PinJoint2D").node_b = piece.get_path()
-		piece.add_child(add)
+	var add = light.instance()
+	add.get_node("Sprite").frame = count%6
+	add.get_node("Light2D").color = '#' + colors[count%6]
+	add.get_node("Sprite2").modulate = '#40' + colors[count%6]
+	add.get_node("PinJoint2D").node_b = piece.get_path()
+	piece.add_child(add)
 
 	count += 1
 	

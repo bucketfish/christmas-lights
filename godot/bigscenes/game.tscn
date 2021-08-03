@@ -125,10 +125,10 @@ __meta__ = {
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="scenechanger"]
 anims/fade = SubResource( 5 )
+
 [connection signal="give" from="dialogue/dialogue" to="." method="_on_dialogue_give"]
 
 [editable path="rope"]
-
+[editable path="rope/PinJoint2D/link"]
 [editable path="player"]
-
 [editable path="gui/pause"]

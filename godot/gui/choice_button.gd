@@ -47,16 +47,14 @@ func setup_slider(nums):
 	$HBoxContainer/Control/Path2D/PathFollow2D/KinematicBody2D/light.modulate = '#40' + colors[nums[id]]
 	$HBoxContainer/Control/Path2D/PathFollow2D/KinematicBody2D/bulb.frame = nums[id]
 	
-func _process(_delta):
-	#if Engine.editor_hint:
-	#	select_text()
-	if disabled:
-		disable_text()
-	
 func setup_text():
 	label.bbcode_text = "%s" % [tr(text)]
 	$front.visible = false
 	$back.visible = false
+	
+	if disabled:
+		disable_text()
+	
 	#label2.bbcode_text = ""
 	
 func select_text():

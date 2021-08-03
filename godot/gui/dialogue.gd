@@ -103,10 +103,10 @@ func insert_berry(amount):
 	accept.text = tr("DIALOGUE_INSERT")
 	choice.visible = true
 	if base.berries < amount:
-		accept.set_disabled(true)
+		accept.make_disabled(true)
 		cancel.grab_focus()
 	else:
-		accept.set_disabled(false)
+		accept.make_disabled(false)
 		accept.grab_focus()
 #
 
