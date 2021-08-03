@@ -20,7 +20,7 @@ func _ready():
 	_init_tween()
 	
 func _init_tween():
-	var duration = p2.length() / float(speed * 32)
+	var duration = abs(p2.length() / float(speed * 32))
 	#var duration = 5.0
 	tween.interpolate_property(self, "follow", p1, p2, duration, Tween.TRANS_LINEAR, Tween.EASE_IN, idle_duration)
 	tween.interpolate_property(self, "follow", p2, p1, duration, Tween.TRANS_LINEAR, Tween.EASE_IN, duration + idle_duration * 2.0)
