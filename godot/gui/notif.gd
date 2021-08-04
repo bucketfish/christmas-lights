@@ -14,5 +14,9 @@ func _ready():
 	$hollyberry.visible = false
 
 func show_notif(thing):
+	$input_button.visible = false
+	$notebook.visible = false
+	$hollyberry.visible = false
+	
 	$AnimationPlayer.play(thing)
 	yield($AnimationPlayer, "animation_finished")
