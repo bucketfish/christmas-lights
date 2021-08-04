@@ -5,6 +5,7 @@
 
 [node name="scene" instance=ExtResource( 1 )]
 spawns = 1
+scene_id = "red-1"
 color = 1
 
 [node name="tilemap" parent="." index="0"]

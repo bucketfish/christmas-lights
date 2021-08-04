@@ -127,7 +127,7 @@ func _on_cancel_focus_entered():
 	print('dialogue cancel')
 
 func reload_lang():
-	$rain/RichTextLabel.bbcode_text = "[color=#add8ff]%s[/color]" % [tr("NAME_RAIN")]
+	$rain/name.bbcode_text = "[color=#add8ff]%s[/color]" % [tr("NAME_RAIN")]
 
 
 func _on_cancel_pressed():

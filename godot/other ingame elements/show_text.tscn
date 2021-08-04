@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://decorations-elements/fir_bauble.gd" type="Script" id=1]
+[ext_resource path="res://other ingame elements/show_text.gd" type="Script" id=1]
 [ext_resource path="res://christmas lights.ttf" type="DynamicFontData" id=2]
 
 [sub_resource type="CapsuleShape2D" id=1]

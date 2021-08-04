@@ -15,11 +15,11 @@ light_mode = 1
 [sub_resource type="CanvasItemMaterial" id=3]
 light_mode = 1
 
-[sub_resource type="CapsuleShape2D" id=7]
+[sub_resource type="CapsuleShape2D" id=4]
 radius = 57.7094
 height = 68.7958
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=5]
 length = 2.0
 step = 0.05
 tracks/0/type = "value"
@@ -107,10 +107,10 @@ tracks/6/keys = {
 "values": [ Vector2( 0, 0 ), Vector2( 0, -2000 ) ]
 }
 
-[sub_resource type="RectangleShape2D" id=5]
+[sub_resource type="RectangleShape2D" id=6]
 extents = Vector2( 42.1768, 62.8156 )
 
-[sub_resource type="RectangleShape2D" id=6]
+[sub_resource type="RectangleShape2D" id=7]
 extents = Vector2( 27.1395, 1000.3 )
 
 [node name="berrymover" type="Node2D" groups=[
@@ -169,21 +169,20 @@ texture = ExtResource( 2 )
 [node name="text" parent="KinematicBody2D" instance=ExtResource( 3 )]
 position = Vector2( -76.7258, -122.101 )
 key = "INTERACT_INSPECT"
-reappear = false
 
 [node name="CollisionShape2D" parent="KinematicBody2D/text" index="0"]
-shape = SubResource( 7 )
+shape = SubResource( 4 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="KinematicBody2D"]
-anims/close = SubResource( 4 )
+anims/close = SubResource( 5 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="KinematicBody2D"]
 position = Vector2( 1.58735, 0 )
-shape = SubResource( 5 )
+shape = SubResource( 6 )
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="KinematicBody2D"]
 position = Vector2( 0, -1000 )
-shape = SubResource( 6 )
+shape = SubResource( 7 )
 
 [connection signal="body_entered" from="KinematicBody2D/text" to="." method="_on_text_body_entered"]
 [connection signal="body_exited" from="KinematicBody2D/text" to="." method="_on_text_body_exited"]

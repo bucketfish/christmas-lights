@@ -14,7 +14,6 @@ onready var cancel = get_node("/root/game/dialogue/dialogue/NinePatchRect/Margin
 # Called when the node enters the scene tree for the first time.
 
 func _ready():
-	base.connect("dialogue_end", self, "_on_dialogue_end")
 	accept.connect("pressed", self, "_on_accept")
 	cancel.connect("pressed", self, "_on_deny")
 	pass#base.get_node("gui/dialogue").connect("purchased", self, "_on_nextline")
@@ -58,13 +57,3 @@ func _input(event):
 	if inrange && event.is_action_pressed("interact") && base.speaking == false:
 		base.dialogue_set(line)
 		#print(dialoguenum)
-
-func _on_dialogue_end():
-	if inrange:
-		pass
-
-func dialogue_setget(val):
-	pass
-	#base.npc_dialogue[npcname] = val
-	#dialoguenum = val
-
