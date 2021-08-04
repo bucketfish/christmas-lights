@@ -41,8 +41,11 @@ path = "res://rooms/white/white-4.tscn"
 [node name="Area2D" parent="spawn1" index="0"]
 position = Vector2( -0.661163, -202.32 )
 
-[node name="gate" parent="." index="6" instance=ExtResource( 5 )]
+[node name="gate" parent="." index="6" groups=[
+"save",
+] instance=ExtResource( 5 )]
 position = Vector2( 272, 1184 )
+scene_id = "white-5_gate"
 
 [node name="button" parent="." index="7" instance=ExtResource( 6 )]
 position = Vector2( 727.694, 1264.15 )

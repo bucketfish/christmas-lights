@@ -25,3 +25,4 @@ func _on_Area2D_body_entered(body):
 		emit_signal("button_press")
 		$AnimationPlayer.play("press")
 		pressed = true
+
