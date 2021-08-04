@@ -7,7 +7,6 @@
 [ext_resource path="res://small things/berry.tscn" type="PackedScene" id=5]
 
 [node name="scene" instance=ExtResource( 1 )]
-position = Vector2( 0, 0 )
 spawns = 2
 scene_id = "white-3"
 notebookitem = "doodle3_1"

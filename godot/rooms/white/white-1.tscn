@@ -45,10 +45,10 @@ path = "res://rooms/white/white-2.tscn"
 position = Vector2( 133.063, -13.6572 )
 
 [node name="topleft" parent="camera constraints" index="0"]
-position = Vector2( -346.666, 82.9818 )
+position = Vector2( -750.403, -98.9214 )
 
 [node name="bottomright" parent="camera constraints" index="1"]
-position = Vector2( 2076.21, 2407.97 )
+position = Vector2( 1557.12, 2088.53 )
 
 [node name="text" parent="." index="6" instance=ExtResource( 3 )]
 visible = false
