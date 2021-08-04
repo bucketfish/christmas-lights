@@ -8,12 +8,15 @@ export var scene_id:String
 
 var open = false
 
+onready var base = get_node("/root/game")
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	yield(base, "finish_load")
 	if open:
-		$gate/AnimationPlayer.play("idle")
-	else:
 		$gate/AnimationPlayer.play("open")
+	else:
+		$gate/AnimationPlayer.play("idle")
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
