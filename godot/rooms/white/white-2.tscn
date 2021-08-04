@@ -58,7 +58,7 @@ position = Vector2( 127.342, -2.85083 )
 position = Vector2( 334.797, 101.967 )
 
 [node name="bottomright" parent="camera constraints" index="1"]
-position = Vector2( 2687.17, 2956.26 )
+position = Vector2( 2261.09, 2728.16 )
 
 [node name="item1" parent="." index="7" instance=ExtResource( 4 )]
 position = Vector2( 717.607, 272.802 )

@@ -10,9 +10,12 @@ onready var base = get_node("/root/game")
 onready var debug = get_node("/root/game/gui/debug")
 
 export var totalitem = 0
+export var color = 0
+
 var item = [] setget set_item
 
 signal change_done
+
 
 var lastspawn = ""
 # Declare member variables here. Examples:
@@ -20,8 +23,20 @@ var lastspawn = ""
 # var b = "text"
 
 
+var colors = [
+	"#b0b0b0",
+	"#f37b81",
+	"#ffca95",
+	"#f8f296",
+	"#93fa9f",
+	"#85bfff",
+	"#dd9aff"
+]
+
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	$tilemap.modulate = colors[color]
 	item = []
 	for i in range(totalitem):
 		item.append(float(i+1))
