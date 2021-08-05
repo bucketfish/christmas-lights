@@ -4,7 +4,7 @@ export var scene_id = "player"
 
 var physics = {
 	"air": {
-		"speed": 750,
+		"speed": 700,
 		"gravity": 2800,
 		"friction": 0.4,
 		"acceleration": 0.20,

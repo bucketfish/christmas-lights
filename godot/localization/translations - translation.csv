@@ -50,8 +50,9 @@ NOTEBOOK_INTRONOTE,"welcome, rain.\n\nyou have one goal.\n\nreach the top and st
 ,,
 ,,
 NAME_RAIN,rain,jan wen
-NAME_FIR,fir,jan pe
 NAME_SILVER,silver,jan sowa
+NAME_SAGE,sage,jan sake
+NAME_FIR,fir,jan pe
 ,,
 DIALOGUE_GIFT_ONE,gift a berry to [color=#add8ff]{person}[/color]?,o pana e kili tawa [color=#add8ff]{person}[/color]?
 DIALOGUE_GIFT_MANY,gift {number} berries to [color=#add8ff]{person}[/color]?,o pana e kili {number} tawa [color=#add8ff]{person}[/color]?
@@ -72,6 +73,20 @@ SILVER_INTRO_6,take some berries - you'll need this for the door. all the best!,
 ,,
 SILVER_INTRO_REPEAT1_1,"oh, and tell river i said hi, if you meet them.",a - sina lukin e jan tewe la o toki e mi tawa ona.
 SILVER_INTRO_REPEAT2_1,"good luck, have fun!",o musi pona lon tawa sina!
+,,
+SAGE_INTRO_1,ah hi! didn't see you there.,a toki! mi lukin ala e sina.
+SAGE_INTRO_1a,hello!,toki!
+SAGE_INTRO_2,how are you doing? i'm hungry. a pity i can't eat these plants.,sina pilin seme? mi wile moku. ike la mi ken ala moku e kasi ni.
+SAGE_INTROREPEAT_1,hello! how you doing?,toki! sina pilin seme?
+,,
+SAGE_INTROGIFT_1,"oh, berries! how did you find these? i love them.","a, kili! sina lukin e ni kepeken seme? ona li pona mute."
+SAGE_INTROGIFT_2,and you can have this!,o jo e ni!
+SAGE_INTROGIFT_3,"cute, hehe.","suwi, a a."
+SAGE_INTROGIFT_3a,"oh, thank you!","a, sina pona!"
+SAGE_INTROGIFT_4,have fun! drop by my place if you ever visit the gardens :),tawa pona! sina kama lon ma kasi la o kama lon tomo mi :)
+,,
+SAGE_INTROGIFTCANCEL_1a,i'm doing good!,mi pona!
+SAGE_INTROGIFTREPEAT_1,see you around!,o tawa pona!
 ,,
 FIR_INTRO_1,"ohoho! oolala! i'm [color=#add8ff]fir[/color] the shopkeeper, and it's the summer sale!","o o o! a a a! mi jan esun [color=#add8ff]pe[/color]. tenpo seli, tenpo seli! wile mani li lili!"
 FIR_INTRO_2,hm? what's you? christmas came around already?,a? seme li sina? tenpo pi suno lili li kama?

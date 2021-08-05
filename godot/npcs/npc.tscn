@@ -10,7 +10,7 @@ light_mode = 1
 radius = 57.7094
 height = 220.551
 
-[node name="npc" type="Node2D" groups=[
+[node name="sage" type="Node2D" groups=[
 "npc",
 ]]
 script = ExtResource( 1 )
@@ -33,6 +33,7 @@ shape = SubResource( 2 )
 [node name="RichTextLabel" parent="text" index="2"]
 modulate = Color( 1, 1, 1, 0 )
 margin_top = 30.0
+
 [connection signal="body_entered" from="text" to="." method="_on_text_body_entered"]
 [connection signal="body_exited" from="text" to="." method="_on_text_body_exited"]
 

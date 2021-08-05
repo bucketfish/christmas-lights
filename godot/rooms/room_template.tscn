@@ -2,7 +2,7 @@
 
 [ext_resource path="res://rooms/room_template.gd" type="Script" id=1]
 [ext_resource path="res://camera (related)/constraints.tscn" type="PackedScene" id=2]
-[ext_resource path="res://other ingame elements/tilemap.tscn" type="PackedScene" id=7]
+[ext_resource path="res://platforms/tilemap.tscn" type="PackedScene" id=7]
 
 [node name="scene" type="Node2D" groups=[
 "room",

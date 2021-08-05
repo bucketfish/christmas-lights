@@ -4,7 +4,7 @@
 [ext_resource path="res://npcs/silver/silver_head.png" type="Texture" id=2]
 [ext_resource path="res://gui/dialogue_othername.gd" type="Script" id=3]
 
-[sub_resource type="DynamicFont" id=2]
+[sub_resource type="DynamicFont" id=1]
 size = 48
 font_data = ExtResource( 1 )
 
@@ -22,7 +22,7 @@ margin_top = 13.0
 margin_right = -75.0
 margin_bottom = 64.0
 rect_pivot_offset = Vector2( -427.514, -217.618 )
-custom_fonts/normal_font = SubResource( 2 )
+custom_fonts/normal_font = SubResource( 1 )
 bbcode_enabled = true
 bbcode_text = "[color=#add8ff]rain"
 text = "rain"

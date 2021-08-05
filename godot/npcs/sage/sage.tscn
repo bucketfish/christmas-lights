@@ -1,0 +1,40 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://npcs/npc.tscn" type="PackedScene" id=1]
+[ext_resource path="res://npcs/sage/spritesheet.png" type="Texture" id=2]
+[ext_resource path="res://npcs/sage/sage.gd" type="Script" id=3]
+
+[sub_resource type="Animation" id=1]
+resource_name = "idle"
+length = 0.6
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 0, 1 ]
+}
+
+[node name="sage" instance=ExtResource( 1 )]
+script = ExtResource( 3 )
+npcname = "sage"
+
+[node name="Sprite" parent="." index="0"]
+position = Vector2( 20, 50 )
+scale = Vector2( 0.7, 0.7 )
+texture = ExtResource( 2 )
+hframes = 1
+vframes = 2
+frame = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="1"]
+autoplay = "idle"
+anims/idle = SubResource( 1 )
+
+[editable path="text"]

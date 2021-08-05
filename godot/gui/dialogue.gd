@@ -57,6 +57,7 @@ func dialogue_loop(cur):
 			"a":
 				if i[1] == "get_item":
 					give_item(i[2], i[3])
+				
 					
 				elif i[1] == "get_notebook":
 					get_node("/root/game/notebook/notebook").collected.append(i[2])
@@ -67,7 +68,13 @@ func dialogue_loop(cur):
 				propagate_call("check", [""])
 				 #do something
 				if i[1] == "insert_berry":
-					insert_berry(i[2])
+					choice("DIALOGUE_INSERT_MANY", "DIALOGUE_INSERT", "DIALOGUE_CANCEL", i[2])
+				elif i[1] == "give_berry" && i[2] == 1:
+					choice("DIALOGUE_GIFT_ONE", "DIALOGUE_GIFT", "DIALOGUE_CANCEL", 1)
+				elif i[1] == "give_berry":
+					choice("DIALOGUE_GIFT_MANY", "DIALOGUE_GIFT", "DIALOGUE_CANCEL", i[2])
+				
+				yield(get_tree().create_timer(0.5), "timeout")
 				
 				var chosen = yield(self, "choice_nextline")
 
@@ -98,10 +105,11 @@ func give_item(item, number):
 	#player gets item
 	emit_signal("give", item, number)
 
-func insert_berry(amount):
+func choice(text, accept_text, cancel_text, amount):
 	#player gives item
-	label.bbcode_text = "[center]" + tr("DIALOGUE_INSERT_MANY").format({number = amount}) + "[/center]"
-	accept.text = tr("DIALOGUE_INSERT")
+	label.bbcode_text = "[center]" + tr(text).format({number = amount}) + "[/center]"
+	accept.text = tr(accept_text)
+	cancel.text = tr(cancel_text)
 	choice.visible = true
 	if base.berries < amount:
 		accept.make_disabled(true)
