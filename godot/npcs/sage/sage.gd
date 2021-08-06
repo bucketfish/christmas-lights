@@ -6,6 +6,7 @@ extends "res://npcs/npc.gd"
 # var b = "text"
 
 func _ready():
+	dialogue.connect("action", self, "dialogue_event")
 	dialogues = ["sage_intro", "sage_introrepeat", "sage_introgiftrepeat"]
 	dialogue_inc = [0]
 	

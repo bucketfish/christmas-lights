@@ -130,7 +130,7 @@ dash={
 
 [locale]
 
-test="en"
+test="en_CA"
 locale_filter=[ 0, [  ] ]
 translations=PoolStringArray( "res://localization/translations - translation.en.translation", "res://localization/translations - translation.en_CA.translation" )
 

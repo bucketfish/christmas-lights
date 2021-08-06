@@ -15,6 +15,7 @@ var dialoguenum = 0 setget dialogue_setget
 
 func _ready():
 	dialogue.connect("action", self, "dialogue_event")
+	dialogue.connect("action", self, "dialogue_event_base")
 	#base.get_node("gui/dialogue").connect("purchased", self, "_on_nextline")
 
 
@@ -36,7 +37,7 @@ func _input(event):
 			dialoguenum += 1
 			dialogue_setget(dialoguenum)
 
-func dialogue_event(thing):
+func dialogue_event_base(thing):
 	if thing == "dialogue_nextline":
 		dialoguenum += 1
 		dialogue_setget(dialoguenum)

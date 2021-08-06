@@ -85,6 +85,7 @@ func dialogue_loop(cur):
 				return
 
 			"e":
+				print(i[1] + " a")
 				emit_signal("action", i[1])
 				
 	showing = false

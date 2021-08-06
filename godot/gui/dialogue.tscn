@@ -117,6 +117,10 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="sage" parent="." instance=ExtResource( 6 )]
+texture = null
+npcname = "NAME_SAGE"
+
 [node name="silver" parent="." instance=ExtResource( 6 )]
 visible = false
 
@@ -128,4 +132,5 @@ margin_left = -361.0
 [connection signal="focus_entered" from="NinePatchRect/MarginContainer/VBoxContainer/HBoxContainer/accept" to="." method="_on_accept_focus_entered"]
 [connection signal="pressed" from="NinePatchRect/MarginContainer/VBoxContainer/HBoxContainer/accept" to="." method="_on_accept_pressed"]
 
+[editable path="sage"]
 [editable path="silver"]
