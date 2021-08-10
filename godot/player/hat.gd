@@ -10,11 +10,12 @@ extends Node2D
 func _ready():
 	self.visible = false
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
-
 
 
 func _on_player_anim(anim_name):
 	$AnimationPlayer.play(anim_name)
+
+func _set(prop, val):
+	if prop == "visible":
+		visible = val
+		$Area2D/CollisionShape2D.disabled = !val

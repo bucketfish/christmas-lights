@@ -43,8 +43,8 @@ size = 48
 font_data = ExtResource( 2 )
 
 [node name="text" type="Area2D"]
-collision_layer = 5
-collision_mask = 5
+collision_layer = 13
+collision_mask = 13
 script = ExtResource( 1 )
 key = "INTRO_1"
 
@@ -76,5 +76,8 @@ scroll_active = false
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[connection signal="area_entered" from="." to="." method="_on_text_area_entered"]
+[connection signal="area_exited" from="." to="." method="_on_text_area_exited"]
 [connection signal="body_entered" from="." to="." method="_on_text_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_text_body_exited"]
