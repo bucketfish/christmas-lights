@@ -63,16 +63,19 @@ func dialogue_loop(cur):
 					get_node("/root/game/notebook/notebook").collected.append(i[2])
 					get_node("/root/game/notebook/notebook").update_book()
 					get_node("/root/game/gui/notif").show_notif("notebook")
+					
+				elif i[1] == "get_acc":
+					get_node("/root/game/player").gain_acc(i[2])
 
 			"c":
 				propagate_call("check", [""])
 				 #do something
 				if i[1] == "insert_berry":
-					choice("DIALOGUE_INSERT_MANY", "DIALOGUE_INSERT", "DIALOGUE_CANCEL", i[2])
+					choice("DIALOGUE_INSERT_MANY", "DIALOGUE_INSERT", "DIALOGUE_CANCEL", i[2], "")
 				elif i[1] == "give_berry" && i[2] == 1:
-					choice("DIALOGUE_GIFT_ONE", "DIALOGUE_GIFT", "DIALOGUE_CANCEL", 1)
+					choice("DIALOGUE_GIFT_ONE", "DIALOGUE_GIFT", "DIALOGUE_CANCEL", 1, i[5])
 				elif i[1] == "give_berry":
-					choice("DIALOGUE_GIFT_MANY", "DIALOGUE_GIFT", "DIALOGUE_CANCEL", i[2])
+					choice("DIALOGUE_GIFT_MANY", "DIALOGUE_GIFT", "DIALOGUE_CANCEL", i[2], i[5])
 				
 				yield(get_tree().create_timer(0.5), "timeout")
 				
@@ -106,9 +109,9 @@ func give_item(item, number):
 	#player gets item
 	emit_signal("give", item, number)
 
-func choice(text, accept_text, cancel_text, amount):
+func choice(text, accept_text, cancel_text, amount, name):
 	#player gives item
-	label.bbcode_text = "[center]" + tr(text).format({number = amount}) + "[/center]"
+	label.bbcode_text = "[center]" + tr(text).format({number = amount, person = tr(name)}) + "[/center]"
 	accept.text = tr(accept_text)
 	cancel.text = tr(cancel_text)
 	choice.visible = true

@@ -1,6 +1,7 @@
 extends KinematicBody2D
 
 export var scene_id = "player"
+signal anim(anim_name)
 
 var physics = {
 	"air": {
@@ -61,6 +62,8 @@ var abilities = {
 	"dash": false
 }
 
+var acc = []
+
 signal berry_end
 
 onready var animationState = $AnimationTree.get("parameters/playback")
@@ -71,6 +74,11 @@ func _ready():
 	change_physics("air")
 	$slide.disabled = true
 	$"collision box".disabled = false
+	base.connect("finish_load", self, "on_load")
+	
+func on_load():
+	for i in acc:
+		get_node(i).visible = true
 
 func get_input(delta):
 	
@@ -126,9 +134,11 @@ func get_input(delta):
 		
 	if Input.is_action_pressed("right"):
 		$Sprite.set_flip_h(false)
+		$plant.scale.x = 1
 
 	elif Input.is_action_pressed("left"):
 		$Sprite.set_flip_h(true)
+		$plant.scale.x = -1
 		
 	var onfloor = raycast("floor")
 	var canstand = raycast("stand")
@@ -178,6 +188,10 @@ func _physics_process(delta):
 func gain_ability(ability):
 	abilities[ability] = true
 
+func gain_acc(thing):
+	acc.append(thing)
+	get_node(thing).visible = true
+	
 func change_physics(new):
 	for i in physics[new].keys():
 		set(i, physics[new][i])

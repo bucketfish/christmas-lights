@@ -33,7 +33,7 @@ var line = {
 		["s", "SAGE_INTRO_1", "NAME_SAGE"],
 		["s", "SAGE_INTRO_1a", "NAME_RAIN"],
 		["s", "SAGE_INTRO_2", "NAME_SAGE"],
-		["c", "give_berry", 1, "sage_introgift", "sage_introgiftcancel"]
+		["c", "give_berry", 1, "sage_introgift", "sage_introgiftcancel", "NAME_SAGE"]
 	],
 	
 	"sage_introrepeat":[
@@ -44,8 +44,8 @@ var line = {
 	"sage_introgift":[
 		["a", "get_item", "berry", -1],
 		["s", "SAGE_INTROGIFT_1", "NAME_SAGE"],
+		["a", "get_acc", "plant"],
 		["s", "SAGE_INTROGIFT_2", "NAME_SAGE"],
-		#ADD THE THING THE THINGEY THE PLANT RAIN THING
 		["s", "SAGE_INTROGIFT_3", "NAME_SAGE"],
 		["s", "SAGE_INTROGIFT_3a", "NAME_RAIN"],
 		["e", "dialogue_nextline"]
