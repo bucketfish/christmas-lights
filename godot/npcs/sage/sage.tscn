@@ -37,4 +37,14 @@ frame = 1
 autoplay = "idle"
 anims/idle = SubResource( 1 )
 
+[node name="text" parent="." index="2"]
+position = Vector2( -7.5647, -73.9018 )
+
+[node name="CollisionShape2D" parent="text" index="0"]
+position = Vector2( 80.1644, 198.71 )
+
+[node name="RichTextLabel" parent="text" index="2"]
+modulate = Color( 1, 1, 1, 1 )
+margin_top = 0.808044
+
 [editable path="text"]
