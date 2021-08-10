@@ -44,10 +44,13 @@ var line = {
 	"sage_introgift":[
 		["a", "get_item", "berry", -1],
 		["s", "SAGE_INTROGIFT_1", "NAME_SAGE"],
+		["s", "SAGE_INTROGIFT_1a", "NAME_RAIN"],
 		["a", "get_acc", "plant"],
 		["s", "SAGE_INTROGIFT_2", "NAME_SAGE"],
 		["s", "SAGE_INTROGIFT_3", "NAME_SAGE"],
 		["s", "SAGE_INTROGIFT_3a", "NAME_RAIN"],
+		["s", "SAGE_INTROGIFT_4", "NAME_SAGE"],
+		["s", "SAGE_INTROGIFT_5", "NAME_SAGE"],
 		["e", "dialogue_nextline"]
 	],
 	

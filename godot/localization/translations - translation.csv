@@ -80,10 +80,13 @@ SAGE_INTRO_2,how are you doing? i'm hungry. a pity i can't eat these plants.,sin
 SAGE_INTROREPEAT_1,hello! how you doing?,toki! sina pilin seme?
 ,,
 SAGE_INTROGIFT_1,"oh, berries! how did you find these? i love them.","a, kili! sina lukin e ni kepeken seme? ona li pona mute."
+SAGE_INTROGIFT_1a,yee! been collecting them.,lon! mi alasa e ona.
 SAGE_INTROGIFT_2,and you can have this!,o jo e ni!
 SAGE_INTROGIFT_3,"cute, hehe.","suwi, a a."
 SAGE_INTROGIFT_3a,"oh, thank you!","a, sina pona!"
-SAGE_INTROGIFT_4,have fun! drop by my place if you ever visit the gardens :),tawa pona! sina kama lon ma kasi la o kama lon tomo mi :)
+SAGE_INTROGIFT_4,the plants all have some kind of magneticism - hopefully that'll help you.,kasi li taki lili - ken la ni li pona tawa sina.
+SAGE_INTROGIFT_5,have fun! drop by my place if you ever visit the gardens :),tawa pona! sina kama lon ma kasi la o kama lon tomo mi :)
+,,
 ,,
 SAGE_INTROGIFTCANCEL_1a,i'm doing good!,mi pona!
 SAGE_INTROGIFTREPEAT_1,see you around!,o tawa pona!
