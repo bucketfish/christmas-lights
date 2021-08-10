@@ -219,7 +219,8 @@ func _on_canstand_area_exited(area):
 
 func save():
 	var save_dict = {
-		"abilities": abilities
+		"abilities": abilities,
+		"acc": acc
 	}
 	return save_dict
 
