@@ -19,8 +19,7 @@ func _ready():
 	var dynamic_font = DynamicFont.new()
 	dynamic_font.font_data = load("res://christmas lights.ttf")
 	dynamic_font.size = font_size
-	if label.get_line_count() == 1:
-		label.margin_top = 15
+
 
 
 func setup_keys():
@@ -32,14 +31,10 @@ func setup_keys():
 		event.scancode = get_node(parent).get_parent().config[key]
 		InputMap.action_add_event(key, event)
 		
-		setup_text(key)
-	
-	#label.set("custom_fonts/normal_font", dynamic_font)
-	#input.set("custom_fonts/normal_font", dynamic_font)
-	#$front.set("custom_fonts/normal_font", dynamic_font)
-	#$back.set("custom_fonts/normal_font", dynamic_font)
+	setup_text(key)
 	
 func setup_text(value):
+
 	var thing = {
 		"Left": "←",
 		"Right":"→",
@@ -51,7 +46,15 @@ func setup_text(value):
 		map = thing[map]
 		
 	label.bbcode_text = "%s" % [tr(text)]
+	print(text + " " + key)
+	print("RELOADED LANG! " + label.bbcode_text)
+	
 	input.bbcode_text = "[right]%s" % [map]
+	
+	if label.get_line_count() == 1:
+		label.margin_top = 15
+	else:
+		label.margin_top = 0
 	$front.visible = false
 	$back.visible = false
 
@@ -106,3 +109,6 @@ func _on_button_pressed():
 	label.bbcode_text = "[color=#add8ff]%s[/color]" % [tr(text)]
 	$front.visible = true
 	$back.visible = true
+
+func reload_lang():
+	setup_keys()

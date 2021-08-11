@@ -20,10 +20,13 @@ onready var main = $main
 var open = false
 
 signal change_screen(thing)
-signal exit_options()
+signal exit_options
+signal finish_load
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	load_game()
+
 
 	env.environment.adjustment_brightness = 2 * config["video_brightness"]
 	env.environment.adjustment_saturation = 2 * config["video_saturation"]
@@ -32,10 +35,13 @@ func _ready():
 	if "language" in config.keys():
 		TranslationServer.set_locale(config["language"])
 		yield(get_tree().create_timer(0.01), "timeout")
-		$"/root/Options".lang()
-		$"/root/game".lang()
+
 	
+	lang()
+	$"/root/game".lang()
 	propagate_call("setup_keys")
+	print("setup")
+
 	
 	emit_signal("change_screen","")
 
@@ -120,10 +126,13 @@ func load_game():
 
 	save_game.close()
 	print("loaded! " + str(config))
-	#emit_signal("finish_load")
+	emit_signal("finish_load")
+	
+	
 
 
 func lang():
 	propagate_call("reload_lang")
 	
+
 

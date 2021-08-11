@@ -122,4 +122,5 @@ __meta__ = {
 
 [node name="label" parent="." index="3"]
 visible = false
+
 [connection signal="pressed" from="." to="." method="_on_button_pressed"]
