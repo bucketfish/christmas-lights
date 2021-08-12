@@ -15,7 +15,7 @@ func _on_finish_load():
 		queue_free()
 
 func _input(event):
-	if event.is_action_pressed("interact") && text.inside == true:
+	if event.is_action_pressed("interact") && (text.inside == true || text.inside_plant == true):
 		$AnimationPlayer.play("pickup")
 		yield($AnimationPlayer, "animation_finished")
 		emit_signal("remove_item", number)

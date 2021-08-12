@@ -37,8 +37,4 @@ texture = ExtResource( 2 )
 position = Vector2( -78.4924, -136.014 )
 key = "INTERACT_PICKUP"
 
-[node name="RichTextLabel" parent="text" index="2"]
-modulate = Color( 1, 1, 1, 0 )
-margin_top = 30.0
-
 [editable path="text"]

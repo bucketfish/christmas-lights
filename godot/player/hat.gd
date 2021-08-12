@@ -18,4 +18,5 @@ func _on_player_anim(anim_name):
 func _set(prop, val):
 	if prop == "visible":
 		visible = val
-		$Area2D/CollisionShape2D.disabled = !val
+		$plant/CollisionShape2D.disabled = !val
+		$plant_area/CollisionShape2D.disabled = !val

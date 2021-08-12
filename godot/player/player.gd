@@ -50,6 +50,7 @@ var curforce = jumpheight
 var jumping = false
 #var canstand = true
 var pickup = false
+var plant_pickup = false
 var dialogue = false
 var inwater = false
 
@@ -160,6 +161,8 @@ func get_input(delta):
 		animationState.travel("slide")
 	elif (Input.is_action_pressed("interact") && pickup):
 		animationState.travel("pickup")
+	elif (Input.is_action_pressed("interact") && plant_pickup):
+		animationState.travel("plant_take")
 	elif (Input.is_action_pressed("left") || Input.is_action_pressed("right")) && (onfloor || inwater) && !Input.is_action_pressed("jump"):
 		animationState.travel("walk") 
 	elif !Input.is_action_pressed("left") && !Input.is_action_pressed("right") && !Input.is_action_pressed("jump") && (onfloor || inwater):
@@ -216,6 +219,19 @@ func _on_canstand_area_exited(area):
 	if area.is_in_group("dialogue"):
 		dialogue = false
 
+func _on_plant_area_area_entered(area):
+	if area.is_in_group("pickup"):
+		plant_pickup = true
+	if area.is_in_group("dialogue"):
+		dialogue = true
+
+
+func _on_plant_area_area_exited(area):
+	if area.is_in_group("pickup"):
+		plant_pickup = false
+	if area.is_in_group("dialogue"):
+		dialogue = false
+		
 
 func save():
 	var save_dict = {
@@ -242,4 +258,3 @@ func _on_canstand_body_exited(body):
 		curforce = jumpheight
 		if Input.is_action_pressed("jump"):
 			velocity.y = -curforce
-

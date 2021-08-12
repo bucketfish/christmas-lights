@@ -8,6 +8,7 @@ export var key = ""
 export var reshow = false
 
 var inside = false
+var inside_plant = false
 var using = true
 var enabled = true
 export var reappear = true
@@ -25,27 +26,31 @@ func _ready():
 
 func _on_text_body_entered(body):
 	if body.is_in_group("range") && using:
-		animate.play("appear")
 		inside = true
+		if inside_plant:
+			$color.play_backwards("mod_green")
+		else:
+			animate.play("appear")
+		
+	if body.is_in_group("plant_range") && using:
+		modulate = "#9ae6b3"
+		animate.play("appear")
+		inside_plant = true
+
 
 
 func _on_text_body_exited(body):
 	if body.is_in_group("range") && using:
-		animate.play_backwards("appear")
 		inside = false
-
-
-
-func _on_text_area_entered(area):
-	if area.is_in_group("range") && using:
-		animate.play("appear")
-		inside = true
-
-
-func _on_text_area_exited(area):
-	if area.is_in_group("range") && using:
+		if inside_plant:
+			$color.play("mod_green")
+		else:
+			animate.play_backwards("appear")
+		
+	if body.is_in_group("plant_range") && using:
 		animate.play_backwards("appear")
-		inside = false
+		inside_plant = false
+
 
 
 func _on_dialogue_start():
