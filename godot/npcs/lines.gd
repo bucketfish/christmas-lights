@@ -38,7 +38,7 @@ var line = {
 	
 	"sage_introrepeat":[
 		["s", "SAGE_INTROREPEAT_1", "NAME_SAGE"],
-		["c", "give_berry", 1, "sage_introgift", "sage_introgiftcancel"]
+		["c", "give_berry", 1, "sage_introgift", "sage_introgiftcancel", "NAME_SAGE"]
 	],
 	
 	"sage_introgift":[
