@@ -2,8 +2,8 @@
 
 [ext_resource path="res://other ingame elements/spawn.gd" type="Script" id=1]
 
-[sub_resource type="CircleShape2D" id=1]
-radius = 73.1686
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 73, 73 )
 
 [node name="spawn" type="Position2D"]
 script = ExtResource( 1 )

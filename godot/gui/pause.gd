@@ -13,6 +13,7 @@ onready var dialogue = get_node("/root/game/dialogue/dialogue")
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	visible = false
+	#pause()
 	Options.connect("exit_options", self, "exit_options")
 
 

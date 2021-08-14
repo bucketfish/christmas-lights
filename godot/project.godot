@@ -16,6 +16,9 @@ _global_script_class_icons={
 
 config/name="christmas lights"
 run/main_scene="res://bigscenes/mainmenu.tscn"
+boot_splash/image="res://icon.png"
+boot_splash/fullsize=false
+boot_splash/bg_color=Color( 0.0352941, 0.184314, 0.00784314, 1 )
 config/icon="res://icon.png"
 config/name_en_CA="linja suno"
 

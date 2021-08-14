@@ -1,10 +1,13 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://player/rope.gd" type="Script" id=1]
 [ext_resource path="res://player/link.tscn" type="PackedScene" id=2]
 
 [sub_resource type="CanvasItemMaterial" id=1]
 light_mode = 1
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 5.19823, 30.0362 )
 
 [node name="rope" type="Node2D"]
 pause_mode = 1
@@ -26,5 +29,8 @@ position = Vector2( -13.2223, -0.0526657 )
 
 [node name="Sprite" parent="PinJoint2D/link" index="0"]
 visible = false
+
+[node name="CollisionShape2D" parent="PinJoint2D/link" index="1"]
+shape = SubResource( 2 )
 
 [editable path="PinJoint2D/link"]

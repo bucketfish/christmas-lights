@@ -24,11 +24,15 @@ var speaking = false setget speaking_set
 var curscene = ""
 var lastspawn = "" 
 
+onready var pause = $gui/pause
+
 signal dialogue_start
 signal dialogue_end
 signal finish_save
 signal finish_load
 signal change_state(state)
+
+
 # Called when the node enters the scene tree for the first time.
 
 
