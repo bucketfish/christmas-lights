@@ -57,6 +57,11 @@ var inwater = false
 var giving = false
 
 var playerpause = false
+var curphy:String
+
+var doublejump = false
+var doubledash = false
+var speedboost = false
 
 var abilities = {
 	"slide": false,
@@ -128,9 +133,14 @@ func get_input(delta):
 	if Input.is_action_pressed("down") && inwater:
 		velocity.y += downgravity
 	
-#
+	
 	if raycast("floor"):
 		curforce = jumpheight
+		if speedboost:
+			speed = physics[curphy]["speed"]
+		doublejump = false
+		doubledash = false
+		speedboost = false
 		
 		
 	if Input.is_action_pressed("right"):
@@ -196,6 +206,7 @@ func gain_acc(thing):
 	get_node(thing).visible = true
 	
 func change_physics(new):
+	curphy = new
 	for i in physics[new].keys():
 		set(i, physics[new][i])
 
@@ -211,6 +222,10 @@ func _on_canstand_area_entered(area):
 		pickup = true
 	if area.is_in_group("dialogue"):
 		dialogue = true
+	if area.is_in_group("speed_powerup"):
+		speedboost = true
+		$Label.text = "A"
+		speed = 1400
 
 
 func _on_canstand_area_exited(area):
