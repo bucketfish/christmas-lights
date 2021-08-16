@@ -1,8 +1,10 @@
 extends KinematicBody2D
 
-export var scene_id = "player"
-signal anim(anim_name)
 
+#establish scene name for saving
+export var scene_id = "player"
+
+#physics modes with numbers
 var physics = {
 	"air": {
 		"speed": 700,
@@ -27,11 +29,13 @@ var physics = {
 }
 
 
+#keep the raycasts in a group - to fall for later
 onready var raycasts = {
 	"floor": [$floor_raycast/RayCast2D, $floor_raycast/RayCast2D2, $floor_raycast/RayCast2D3],
 	"stand": [$stand_raycast/RayCast2D, $stand_raycast/RayCast2D2, $stand_raycast/RayCast2D3]
 }
 
+#player's current physics numbers
 export (int) var speed = 800
 export (int) var slidespeed = 2000
 export (int) var gravity = 3000
@@ -45,6 +49,7 @@ export (float, 0, 1.0) var jumpheight = 250
 export (float, 0, 1.0) var jumpinc = 0.79
 export (float, 0, 1.0) var jgravity = 600
 
+#setting up ground variables
 var velocity = Vector2.ZERO
 var curforce = jumpheight
 var jumping = false
@@ -63,11 +68,13 @@ var doublejump = false
 var doubledash = false
 var speedboost = false
 
+#abilities that the player has
 var abilities = {
 	"slide": false,
 	"dash": false
 }
 
+#accessories
 var acc = []
 
 signal berry_end
@@ -76,6 +83,7 @@ onready var animationState = $AnimationTree.get("parameters/playback")
 onready var base = get_node("/root/game")
 
 func _ready():
+	#turn on things, set the base
 	$AnimationTree.active = true
 	change_physics("air")
 	$slide.disabled = true
@@ -83,11 +91,13 @@ func _ready():
 	base.connect("finish_load", self, "on_load")
 	
 func on_load():
+	#sync screen items to saved items
 	for i in acc:
 		get_node(i).visible = true
 
 func get_input(delta):
 	
+	#if we don't want to take input, don't take input
 	if giving:
 		return
 		
@@ -95,17 +105,21 @@ func get_input(delta):
 		velocity.x = 0
 		animationState.travel("idle")
 		return
+		
+		
+	#settle these variables first
+	var onfloor = raycast("floor")
+	var canstand = raycast("stand")
 	
 	
+	#direction of player
 	var dir = 0
-	
-	
 	if Input.is_action_pressed("right"):
 		dir += 1
 	if Input.is_action_pressed("left"):
 		dir -= 1
 	
-		
+	#sideways speed, and/or friction
 	if dir != 0 && animationState.get_current_node() == "slide":
 		velocity.x = lerp(velocity.x, dir * slidespeed, slideacceleration * delta * 70)
 	elif dir != 0:
@@ -120,7 +134,7 @@ func get_input(delta):
 		jumping = false
 			
 	if Input.is_action_pressed("jump"):
-		if inwater || raycast("floor"):
+		if inwater || onfloor:
 			jumping = true
 		
 		if inwater:
@@ -134,10 +148,11 @@ func get_input(delta):
 		velocity.y += downgravity
 	
 	
-	if raycast("floor"):
+	if onfloor:
 		curforce = jumpheight
 		if speedboost:
 			speed = physics[curphy]["speed"]
+			$speedboost.visible = false
 		doublejump = false
 		doubledash = false
 		speedboost = false
@@ -146,14 +161,14 @@ func get_input(delta):
 	if Input.is_action_pressed("right"):
 		$Sprite.set_flip_h(false)
 		$plant.scale.x = 1
+		$speedboost.set_flip_h(false)
 
 	elif Input.is_action_pressed("left"):
 		$Sprite.set_flip_h(true)
 		$plant.scale.x = -1
+		$speedboost.set_flip_h(true)
 		
-	var onfloor = raycast("floor")
-	var canstand = raycast("stand")
-	
+
 
 
 		
@@ -224,6 +239,7 @@ func _on_canstand_area_entered(area):
 		dialogue = true
 	if area.is_in_group("speed_powerup"):
 		speedboost = true
+		$speedboost.visible = true
 		$Label.text = "A"
 		speed = 1400
 

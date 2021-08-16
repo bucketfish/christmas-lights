@@ -1,4 +1,4 @@
-[gd_scene load_steps=75 format=2]
+[gd_scene load_steps=81 format=2]
 
 [ext_resource path="res://player/spritesheet.png" type="Texture" id=1]
 [ext_resource path="res://player/player.gd" type="Script" id=2]
@@ -8,6 +8,11 @@
 [ext_resource path="res://small things/hollyberry.png" type="Texture" id=6]
 [ext_resource path="res://player/hats/leaf.png" type="Texture" id=7]
 [ext_resource path="res://player/hat.gd" type="Script" id=8]
+[ext_resource path="res://player/effects/speedboost/speed_0001.png" type="Texture" id=9]
+[ext_resource path="res://player/effects/speedboost/speed_0004.png" type="Texture" id=10]
+[ext_resource path="res://player/effects/speedboost/speed_0003.png" type="Texture" id=11]
+[ext_resource path="res://player/effects/speedboost/speed_0000.png" type="Texture" id=12]
+[ext_resource path="res://player/effects/speedboost/speed_0002.png" type="Texture" id=13]
 
 [sub_resource type="CanvasItemMaterial" id=67]
 light_mode = 1
@@ -509,6 +514,19 @@ blend_mode = 1
 radius = 70.7058
 height = 37.4508
 
+[sub_resource type="AnimatedTexture" id=141]
+flags = 4
+frames = 5
+frame_0/texture = ExtResource( 12 )
+frame_1/texture = ExtResource( 9 )
+frame_1/delay_sec = 0.0
+frame_2/texture = ExtResource( 13 )
+frame_2/delay_sec = 0.0
+frame_3/texture = ExtResource( 11 )
+frame_3/delay_sec = 0.0
+frame_4/texture = ExtResource( 10 )
+frame_4/delay_sec = 0.0
+
 [node name="player" type="KinematicBody2D" groups=[
 "player",
 ]]
@@ -686,7 +704,13 @@ collision_mask = 8
 light_mask = 0
 shape = SubResource( 140 )
 
-[connection signal="anim" from="." to="plant" method="_on_player_anim"]
+[node name="speedboost" type="Sprite" parent="."]
+visible = false
+modulate = Color( 1, 1, 1, 0.270588 )
+show_behind_parent = true
+position = Vector2( 0, -15 )
+texture = SubResource( 141 )
+
 [connection signal="area_entered" from="canstand" to="." method="_on_canstand_area_entered"]
 [connection signal="area_exited" from="canstand" to="." method="_on_canstand_area_exited"]
 [connection signal="body_entered" from="canstand" to="." method="_on_canstand_body_entered"]
