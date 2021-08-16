@@ -8,7 +8,7 @@ light_mode = 1
 
 [sub_resource type="CapsuleShape2D" id=2]
 radius = 57.7094
-height = 220.551
+height = 167.485
 
 [node name="sage" type="Node2D" groups=[
 "npc",
