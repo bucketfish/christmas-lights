@@ -123,8 +123,8 @@ size_flags_horizontal = 11
 size_flags_vertical = 3
 custom_fonts/normal_font = SubResource( 1 )
 bbcode_enabled = true
-bbcode_text = "21w34a"
-text = "21w34a"
+bbcode_text = "21w34b"
+text = "21w34b"
 scroll_active = false
 __meta__ = {
 "_edit_use_anchors_": false
