@@ -481,7 +481,7 @@ switch_mode = 2
 
 [sub_resource type="AnimationNodeStateMachine" id=61]
 states/fall/node = SubResource( 16 )
-states/fall/position = Vector2( 620.5, 57.5 )
+states/fall/position = Vector2( 620, 57.5 )
 states/give/node = SubResource( 17 )
 states/give/position = Vector2( 89, 243.5 )
 states/idle/node = SubResource( 18 )
@@ -500,7 +500,7 @@ states/walk/node = SubResource( 24 )
 states/walk/position = Vector2( 350.5, 107.5 )
 transitions = [ "idle", "walk", SubResource( 25 ), "walk", "jump", SubResource( 26 ), "idle", "jump", SubResource( 27 ), "jump", "fall", SubResource( 28 ), "fall", "land", SubResource( 29 ), "land", "jump", SubResource( 30 ), "land", "fall", SubResource( 31 ), "land", "walk", SubResource( 32 ), "land", "idle", SubResource( 33 ), "idle", "fall", SubResource( 34 ), "walk", "fall", SubResource( 35 ), "walk", "idle", SubResource( 36 ), "idle", "slide", SubResource( 37 ), "walk", "slide", SubResource( 38 ), "slide", "idle", SubResource( 39 ), "slide", "walk", SubResource( 40 ), "land", "slide", SubResource( 41 ), "slide", "jump", SubResource( 42 ), "pickup", "idle", SubResource( 43 ), "pickup", "walk", SubResource( 44 ), "pickup", "land", SubResource( 45 ), "pickup", "slide", SubResource( 46 ), "idle", "pickup", SubResource( 47 ), "slide", "pickup", SubResource( 48 ), "walk", "pickup", SubResource( 49 ), "land", "pickup", SubResource( 50 ), "idle", "give", SubResource( 51 ), "give", "idle", SubResource( 52 ), "plant_take", "idle", SubResource( 53 ), "plant_take", "slide", SubResource( 54 ), "plant_take", "walk", SubResource( 55 ), "plant_take", "land", SubResource( 56 ), "idle", "plant_take", SubResource( 57 ), "slide", "plant_take", SubResource( 58 ), "walk", "plant_take", SubResource( 59 ), "land", "plant_take", SubResource( 60 ) ]
 start_node = "idle"
-graph_offset = Vector2( -48.6, -22.515 )
+graph_offset = Vector2( 82.4925, -92.7152 )
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=62]
 
@@ -809,7 +809,7 @@ scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 1 )
 hframes = 5
 vframes = 5
-frame = 9
+frame = 8
 
 [node name="berry" type="Sprite" parent="Sprite"]
 visible = false

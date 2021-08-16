@@ -61,7 +61,7 @@ position = Vector2( 676.666, 1703.8 )
 position = Vector2( 586.725, 952.058 )
 
 [node name="powerup6" parent="." index="10" instance=ExtResource( 4 )]
-position = Vector2( 960.837, 816.708 )
+position = Vector2( 1021.02, 838.981 )
 
 [node name="powerup7" parent="." index="11" instance=ExtResource( 4 )]
 position = Vector2( 341.06, 692.662 )
