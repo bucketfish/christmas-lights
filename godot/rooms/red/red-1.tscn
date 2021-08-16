@@ -74,10 +74,10 @@ position = Vector2( 1040, 2528 )
 scene_id = "red-1_gate"
 
 [node name="platform thing" parent="." index="14" instance=ExtResource( 5 )]
-position = Vector2( 867.889, 2565.91 )
+position = Vector2( 867.889, 2515.91 )
 
 [node name="p2" parent="platform thing" index="4"]
-position = Vector2( 0, -600 )
+position = Vector2( 0, -550 )
 
 [node name="item1" parent="." index="15" instance=ExtResource( 7 )]
 position = Vector2( 1123.82, 3281.69 )
