@@ -30,10 +30,6 @@ key = "INTERACT_LISTEN"
 position = Vector2( 76.382, 235.399 )
 shape = SubResource( 2 )
 
-[node name="RichTextLabel" parent="text" index="2"]
-modulate = Color( 1, 1, 1, 0 )
-margin_top = 30.0
-
 [connection signal="body_entered" from="text" to="." method="_on_text_body_entered"]
 [connection signal="body_exited" from="text" to="." method="_on_text_body_exited"]
 

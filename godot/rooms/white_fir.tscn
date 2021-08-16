@@ -7,12 +7,9 @@
 [ext_resource path="res://small things/item.tscn" type="PackedScene" id=5]
 [ext_resource path="res://other ingame elements/movement button.tscn" type="PackedScene" id=6]
 
-
-
 [node name="scene" instance=ExtResource( 1 )]
 spawns = 2
 scene_id = "white_fir"
-totalberries = 7
 
 [node name="fir_bauble_sprite" type="Sprite" parent="." index="0"]
 position = Vector2( -261.617, 564.352 )
@@ -84,7 +81,5 @@ position = Vector2( -3257.05, -82.9406 )
 position = Vector2( 2201.58, 1827.05 )
 
 [editable path="spawn1"]
-
 [editable path="fir_bauble"]
-
 [editable path="camera constraints"]

@@ -1,13 +1,12 @@
 [gd_scene load_steps=8 format=2]
 
-[ext_resource path="res://rooms/fir_bauble1.png" type="Texture" id=1]
+[ext_resource path="res://rooms/other/fir_bauble1.png" type="Texture" id=1]
 [ext_resource path="res://rooms/room_template.tscn" type="PackedScene" id=2]
 [ext_resource path="res://other ingame elements/spawn.tscn" type="PackedScene" id=3]
 [ext_resource path="res://npcs/npc.tscn" type="PackedScene" id=4]
 [ext_resource path="res://other ingame elements/show_text.tscn" type="PackedScene" id=5]
-[ext_resource path="res://rooms/fir_table.png" type="Texture" id=6]
-[ext_resource path="res://rooms/fir_sled.png" type="Texture" id=7]
-
+[ext_resource path="res://rooms/other/fir_table.png" type="Texture" id=6]
+[ext_resource path="res://rooms/other/fir_sled.png" type="Texture" id=7]
 
 [node name="scene" instance=ExtResource( 2 )]
 spawns = 1
@@ -22,10 +21,9 @@ texture = ExtResource( 1 )
 visible = false
 position = Vector2( 747.369, 465.235 )
 tile_data = PoolIntArray( -917523, 0, 3, -917522, 0, 327684, -917521, 0, 327684, -917520, 0, 327684, -917519, 0, 327684, -917518, 0, 327684, -917517, 0, 5, -851989, 0, 3, -851988, 0, 327684, -851987, 0, 131077, -851981, 0, 131075, -851980, 0, 327684, -851979, 0, 5, -786454, 0, 3, -786453, 0, 131077, -786443, 0, 131075, -786442, 0, 196614, -786441, 0, 2, -720919, 0, 3, -720918, 0, 131077, -720906, 0, 65536, -720905, 0, 65538, -655383, 0, 262151, -655370, 0, 65536, -655369, 0, 65538, -589848, 0, 0, -589847, 0, 262148, -589834, 0, 65536, -589833, 0, 327680, -589832, 0, 2, -524312, 0, 65536, -524311, 0, 65538, -524298, 0, 65536, -524297, 0, 65537, -524296, 0, 65538, -458777, 0, 3, -458776, 0, 262150, -458775, 0, 131074, -458762, 0, 65536, -458761, 0, 65537, -458760, 0, 65538, -393241, 0, 262151, -393226, 0, 65536, -393225, 0, 65537, -393224, 0, 65538, -327705, 0, 262151, -327690, 0, 65536, -327689, 0, 196608, -327688, 0, 131074, -262169, 0, 262151, -262154, 0, 65536, -262153, 0, 65538, -196633, 0, 262151, -196618, 0, 65536, -196617, 0, 65538, -131097, 0, 131075, -131096, 0, 327684, -131095, 0, 327684, -131094, 0, 327684, -131093, 0, 327684, -131092, 0, 327684, -131091, 0, 327684, -131090, 0, 327684, -131089, 0, 327684, -131088, 0, 327684, -131087, 0, 327684, -131086, 0, 327684, -131085, 0, 327684, -131084, 0, 327684, -131083, 0, 327684, -131082, 0, 262150, -131081, 0, 131074 )
+shadow = false
 
-[node name="fir" parent="." index="2" groups=[
-"npc",
-] instance=ExtResource( 4 )]
+[node name="fir" parent="." index="2" instance=ExtResource( 4 )]
 npcname = "fir1"
 
 [node name="fir_sled" type="Sprite" parent="." index="3"]
@@ -51,17 +49,21 @@ margin_bottom = 69.6517
 
 [node name="spawn1" parent="." index="6" instance=ExtResource( 3 )]
 position = Vector2( 82.4596, 314.821 )
-towards = "whitefir_firbauble"
-id = "firbauble1"
-path = "res://rooms/white_fir.tscn"
+towards = "red-2_firbauble"
+id = "firbauble_red-2"
+path = "res://rooms/red/red-2.tscn"
 
 [node name="Area2D" parent="spawn1" index="0"]
 position = Vector2( -114.282, 23.057 )
 
+[node name="topleft" parent="camera constraints" index="0"]
+position = Vector2( -460.395, -217.003 )
+
+[node name="bottomright" parent="camera constraints" index="1"]
+position = Vector2( 1026.46, 653.459 )
+
 [editable path="fir"]
-
+[editable path="fir/text"]
 [editable path="text"]
-
 [editable path="spawn1"]
-
 [editable path="camera constraints"]

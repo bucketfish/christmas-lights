@@ -126,7 +126,7 @@ func get_input(delta):
 		if inwater:
 			velocity.y -= downgravity
 		elif jumping:
-			velocity.y -= curforce
+			velocity.y = clamp(velocity.y - curforce, -1000, 10000000)
 			curforce *= jumpinc
 		
 		
@@ -193,7 +193,6 @@ func berry_end():
 	emit_signal("berry_end")
 
 func _physics_process(delta):
-	#$Label.text = str(jumping)
 	get_input(delta)
 	velocity.y = clamp(velocity.y + gravity * delta, -1500, 1500)
 	var snap = Vector2.DOWN if !jumping else Vector2.ZERO

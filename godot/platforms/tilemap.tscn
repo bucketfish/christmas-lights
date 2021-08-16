@@ -1,6 +1,7 @@
-[gd_scene load_steps=101 format=2]
+[gd_scene load_steps=102 format=2]
 
 [ext_resource path="res://platforms/passthrough.png" type="Texture" id=1]
+[ext_resource path="res://platforms/tilemap.gd" type="Script" id=2]
 [ext_resource path="res://platforms/tileset.png" type="Texture" id=3]
 
 [sub_resource type="OccluderPolygon2D" id=1]
@@ -644,5 +645,7 @@ tile_set = SubResource( 98 )
 cell_size = Vector2( 32, 32 )
 collision_layer = 5
 collision_mask = 5
+occluder_light_mask = 0
 format = 1
 tile_data = PoolIntArray( -3538999, 0, 327686 )
+script = ExtResource( 2 )

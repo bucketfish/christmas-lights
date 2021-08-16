@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/fir_sled.png-8ab9e9dc64345512423234d794591818.stex"
+path="res://.import/fir_bauble1.png-49f03aa5495e9e3b2c5ca95ae6394c80.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://rooms/fir_sled.png"
-dest_files=[ "res://.import/fir_sled.png-8ab9e9dc64345512423234d794591818.stex" ]
+source_file="res://rooms/other/fir_bauble1.png"
+dest_files=[ "res://.import/fir_bauble1.png-49f03aa5495e9e3b2c5ca95ae6394c80.stex" ]
 
 [params]
 

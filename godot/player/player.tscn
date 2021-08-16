@@ -809,7 +809,7 @@ scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 1 )
 hframes = 5
 vframes = 5
-frame = 19
+frame = 9
 
 [node name="berry" type="Sprite" parent="Sprite"]
 visible = false

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/fir_table.png-0b2ae551d829e50d73e455c8e0cd8b84.stex"
+path="res://.import/fir_sled.png-d75f27c6bddb1617dd965192fbf14fbf.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://rooms/fir_table.png"
-dest_files=[ "res://.import/fir_table.png-0b2ae551d829e50d73e455c8e0cd8b84.stex" ]
+source_file="res://rooms/other/fir_sled.png"
+dest_files=[ "res://.import/fir_sled.png-d75f27c6bddb1617dd965192fbf14fbf.stex" ]
 
 [params]
 

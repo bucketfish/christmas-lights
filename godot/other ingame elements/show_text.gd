@@ -6,6 +6,7 @@ onready var base = get_node("/root/game")
 
 export var key = ""
 export var reshow = false
+export var green = false
 
 var inside = false
 var inside_plant = false
@@ -32,7 +33,7 @@ func _on_text_body_entered(body):
 		else:
 			animate.play("appear")
 		
-	if body.is_in_group("plant_range") && using:
+	if body.is_in_group("plant_range") && using && green:
 		modulate = "#9ae6b3"
 		animate.play("appear")
 		inside_plant = true
@@ -47,7 +48,7 @@ func _on_text_body_exited(body):
 		else:
 			animate.play_backwards("appear")
 		
-	if body.is_in_group("plant_range") && using:
+	if body.is_in_group("plant_range") && using && green:
 		animate.play_backwards("appear")
 		inside_plant = false
 
