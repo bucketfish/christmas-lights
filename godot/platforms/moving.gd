@@ -10,14 +10,17 @@ onready var p1 = $p1.position
 onready var p2 = $p2.position
 
 var follow = Vector2.ZERO
+var base:Node
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	base = get_parent()
 	platform.position = p1
 	$Line2D.add_point(p1)
 	$Line2D.add_point(p2)
 	_init_tween()
+	$platform/Sprite.modulate = base.colors[base.color]
 	
 func _init_tween():
 	var duration = abs(p2.length() / float(speed * 32))
