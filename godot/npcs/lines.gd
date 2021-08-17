@@ -69,4 +69,27 @@ var line = {
 		["a", "get_item", "berry", -15],
 		["a", "get_notebook", "doodle3_2"]
 	],
+	
+	"fir_intro":[
+		["s", "FIR_INTRO_1", "NAME_FIR"],
+		["s", "FIR_INTRO_2", "NAME_FIR"],
+		["s", "FIR_INTRO_3", "NAME_FIR"],
+		["c", "give_berry", 5, "fir_aftersled", "", "NAME_SAGE"]
+	],
+	
+	"fir_beforesled":[
+		["s", "FIR_BEFORESLED_1", "NAME_FIR"],
+		["c", "give_berry", 5, "fir_aftersled", "", "NAME_SAGE"]
+	],
+	
+	"fir_aftersled":[
+		["s", "FIR_AFTERSLED_1", "NAME_FIR"],
+		["s", "FIR_AFTERSLED_2", "NAME_FIR"],
+		["s", "FIR_AFTERSLED_3", "NAME_FIR"],
+	],
+	
+	"fir_nothing":[
+		["s", "FIR_NOTHING_1", "NAME_FIR"],
+		["s", "FIR_NOTHING_1", "NAME_FIR"],
+	]
 }

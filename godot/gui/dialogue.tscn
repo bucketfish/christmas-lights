@@ -128,6 +128,13 @@ visible = false
 [node name="name" parent="silver" index="0"]
 margin_left = -361.0
 
+[node name="fir" parent="." instance=ExtResource( 6 )]
+visible = false
+npcname = "NAME_FIR"
+
+[node name="name" parent="fir" index="0"]
+margin_left = -361.0
+
 [connection signal="focus_entered" from="NinePatchRect/MarginContainer/VBoxContainer/HBoxContainer/cancel" to="." method="_on_cancel_focus_entered"]
 [connection signal="pressed" from="NinePatchRect/MarginContainer/VBoxContainer/HBoxContainer/cancel" to="." method="_on_cancel_pressed"]
 [connection signal="focus_entered" from="NinePatchRect/MarginContainer/VBoxContainer/HBoxContainer/accept" to="." method="_on_accept_focus_entered"]
@@ -135,3 +142,4 @@ margin_left = -361.0
 
 [editable path="sage"]
 [editable path="silver"]
+[editable path="fir"]
