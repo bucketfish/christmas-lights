@@ -128,27 +128,29 @@ func get_input(delta):
 	else:
 		velocity.x = lerp(velocity.x, 0, friction * delta * 70)
 
-	#JUMP!!!!!
+	#apply gravity when finished jumping
 	if Input.is_action_just_released("jump"):	
 		if velocity.y < 0:
 			velocity.y += jgravity
 		jumping = false
 			
+	#normal jumping
 	if Input.is_action_pressed("jump"):
 		if inwater || onfloor:
 			jumping = true
 		
+		#move upwards in water instead of jump
 		if inwater:
 			velocity.y -= downgravity
 		elif jumping:
 			velocity.y = clamp(velocity.y - curforce, -1000, 10000000)
 			curforce *= jumpinc
 		
-		
+	#moving down in water
 	if Input.is_action_pressed("down") && inwater:
 		velocity.y += downgravity
 	
-	
+	#reseting values when hitting floor
 	if onfloor:
 		curforce = jumpheight
 		if speedboost:
@@ -158,7 +160,7 @@ func get_input(delta):
 		doubledash = false
 		speedboost = false
 		
-		
+	#left + right movement
 	if Input.is_action_pressed("right"):
 		$Sprite.set_flip_h(false)
 		$plant.scale.x = 1
@@ -169,13 +171,14 @@ func get_input(delta):
 		$plant.scale.x = -1
 		$speedboost.set_flip_h(true)
 		
-	
+	#sliding gravity
 	if sliding && inwater:
 		velocity.y = lerp(velocity.y, 0, 5*delta)
 	else:
 		velocity.y = clamp(velocity.y + gravity * delta, -1500, 1500)
 	
 		
+	#animation
 	if (canstand == true && animationState.get_current_node() == "slide"):
 		animationState.travel("slide")
 		
@@ -198,11 +201,18 @@ func get_input(delta):
 		animationState.travel("idle")
 		
 		
+	#finally, set states
 	if animationState.get_current_node()=="slide":
 		sliding = true
 	else:
 		sliding = false
 
+func _physics_process(delta):
+	get_input(delta)
+	var snap = Vector2.DOWN if !jumping else Vector2.ZERO
+	velocity = move_and_slide_with_snap(velocity, snap, Vector2.UP )
+	
+	
 func give_berry():
 	giving = true
 	animationState.travel("give")
@@ -211,11 +221,6 @@ func berry_end():
 	giving = false
 	emit_signal("berry_end")
 
-func _physics_process(delta):
-	get_input(delta)
-	var snap = Vector2.DOWN if !jumping else Vector2.ZERO
-	velocity = move_and_slide_with_snap(velocity, snap, Vector2.UP )
-	
 func gain_ability(ability):
 	abilities[ability] = true
 

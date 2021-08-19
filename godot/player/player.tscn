@@ -348,6 +348,18 @@ tracks/5/keys = {
 "update": 0,
 "values": [ Vector2( -66.763, 22.651 ) ]
 }
+tracks/6/type = "value"
+tracks/6/path = NodePath("Light2D:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 45 ) ]
+}
 
 [sub_resource type="Animation" id=15]
 resource_name = "stop_slide"
@@ -399,6 +411,18 @@ tracks/3/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 0,
 "values": [ Vector2( 5.16804, -77.9005 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Light2D:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ) ]
 }
 
 [sub_resource type="Animation" id=16]
@@ -630,15 +654,16 @@ shape = SubResource( 3 )
 ]]
 position = Vector2( 0, 10 )
 shape = SubResource( 3 )
+disabled = true
 
 [node name="slide" type="CollisionShape2D" parent="." groups=[
 "player",
 ]]
 position = Vector2( 3.27003, 44.1753 )
 shape = SubResource( 4 )
-disabled = true
 
 [node name="Light2D" type="Light2D" parent="."]
+position = Vector2( 0, 45 )
 scale = Vector2( 0.6, 0.6 )
 texture = ExtResource( 5 )
 energy = 1.2
@@ -665,7 +690,6 @@ scale = Vector2( 0.3, 0.3 )
 texture = ExtResource( 6 )
 
 [node name="fir_sled" type="Sprite" parent="Sprite"]
-visible = false
 show_behind_parent = true
 light_mask = 0
 position = Vector2( 24.9562, 129.789 )
@@ -757,7 +781,7 @@ modulate = Color( 0.454902, 0.686275, 0.533333, 0.607843 )
 show_behind_parent = true
 light_mask = 0
 material = SubResource( 68 )
-position = Vector2( 5.16804, -77.9005 )
+position = Vector2( -66.763, 22.651 )
 scale = Vector2( 0.3, 0.3 )
 z_index = -1
 texture = ExtResource( 5 )
