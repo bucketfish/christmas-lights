@@ -53,7 +53,8 @@ export (float, 0, 1.0) var jgravity = 600
 var velocity = Vector2.ZERO
 var curforce = jumpheight
 var jumping = false
-#var canstand = true
+var sliding = false
+
 var pickup = false
 var plant_pickup = false
 var dialogue = false
@@ -111,7 +112,6 @@ func get_input(delta):
 	var onfloor = raycast("floor")
 	var canstand = raycast("stand")
 	
-	$Label.text = str(canstand)
 	
 	#direction of player
 	var dir = 0
@@ -169,9 +169,12 @@ func get_input(delta):
 		$plant.scale.x = -1
 		$speedboost.set_flip_h(true)
 		
-
-
-
+	
+	if sliding && inwater:
+		velocity.y = lerp(velocity.y, 0, 5*delta)
+	else:
+		velocity.y = clamp(velocity.y + gravity * delta, -1500, 1500)
+	
 		
 	if (canstand == true && animationState.get_current_node() == "slide"):
 		animationState.travel("slide")
@@ -196,9 +199,9 @@ func get_input(delta):
 		
 		
 	if animationState.get_current_node()=="slide":
-		$Sprite/fir_sled.visible = true
+		sliding = true
 	else:
-		$Sprite/fir_sled.visible = false
+		sliding = false
 
 func give_berry():
 	giving = true
@@ -210,7 +213,6 @@ func berry_end():
 
 func _physics_process(delta):
 	get_input(delta)
-	velocity.y = clamp(velocity.y + gravity * delta, -1500, 1500)
 	var snap = Vector2.DOWN if !jumping else Vector2.ZERO
 	velocity = move_and_slide_with_snap(velocity, snap, Vector2.UP )
 	
@@ -241,7 +243,6 @@ func _on_canstand_area_entered(area):
 	if area.is_in_group("speed_powerup"):
 		speedboost = true
 		$speedboost.visible = true
-		$Label.text = "A"
 		speed = 1400
 
 
