@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://gui/dialogue_box.png" type="Texture" id=1]
 [ext_resource path="res://gui/dialogue.gd" type="Script" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://gui/dialogue_head.tscn" type="PackedScene" id=6]
 [ext_resource path="res://gui/dialogue_othername.gd" type="Script" id=7]
 [ext_resource path="res://npcs/sage/sage_head.png" type="Texture" id=8]
+[ext_resource path="res://npcs/fir/fir_head.png" type="Texture" id=9]
 
 [sub_resource type="DynamicFont" id=1]
 size = 24
@@ -119,8 +120,11 @@ __meta__ = {
 }
 
 [node name="sage" parent="." instance=ExtResource( 6 )]
-texture = ExtResource( 8 )
+visible = false
 npcname = "NAME_SAGE"
+
+[node name="Sprite" parent="sage" index="1"]
+texture = ExtResource( 8 )
 
 [node name="silver" parent="." instance=ExtResource( 6 )]
 visible = false
@@ -134,6 +138,10 @@ npcname = "NAME_FIR"
 
 [node name="name" parent="fir" index="0"]
 margin_left = -361.0
+
+[node name="Sprite" parent="fir" index="1"]
+scale = Vector2( 0.7, 0.7 )
+texture = ExtResource( 9 )
 
 [connection signal="focus_entered" from="NinePatchRect/MarginContainer/VBoxContainer/HBoxContainer/cancel" to="." method="_on_cancel_focus_entered"]
 [connection signal="pressed" from="NinePatchRect/MarginContainer/VBoxContainer/HBoxContainer/cancel" to="." method="_on_cancel_pressed"]

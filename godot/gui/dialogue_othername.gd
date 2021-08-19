@@ -1,4 +1,4 @@
-extends Sprite
+extends Node2D
 
 
 export var npcname:String

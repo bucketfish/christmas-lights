@@ -8,11 +8,10 @@
 size = 48
 font_data = ExtResource( 1 )
 
-[node name="npc" type="Sprite" groups=[
+[node name="npc" type="Node2D" groups=[
 "npc_head",
 ]]
 position = Vector2( 886.421, 159.185 )
-texture = ExtResource( 2 )
 script = ExtResource( 3 )
 npcname = "NAME_SILVER"
 
@@ -30,3 +29,6 @@ scroll_active = false
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 2 )
