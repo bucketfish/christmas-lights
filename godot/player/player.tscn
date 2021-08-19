@@ -1,4 +1,4 @@
-[gd_scene load_steps=81 format=2]
+[gd_scene load_steps=84 format=2]
 
 [ext_resource path="res://player/spritesheet.png" type="Texture" id=1]
 [ext_resource path="res://player/player.gd" type="Script" id=2]
@@ -14,26 +14,26 @@
 [ext_resource path="res://player/effects/speedboost/speed_0000.png" type="Texture" id=12]
 [ext_resource path="res://player/effects/speedboost/speed_0002.png" type="Texture" id=13]
 
-[sub_resource type="CanvasItemMaterial" id=67]
+[sub_resource type="CanvasItemMaterial" id=1]
 light_mode = 1
 
-[sub_resource type="CapsuleShape2D" id=68]
+[sub_resource type="CapsuleShape2D" id=2]
 radius = 15.197
 height = 54.63
 
-[sub_resource type="RectangleShape2D" id=69]
+[sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 13.7161, 41.6864 )
 
-[sub_resource type="RectangleShape2D" id=70]
+[sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 31.5738, 10 )
 
-[sub_resource type="CanvasItemMaterial" id=71]
+[sub_resource type="CanvasItemMaterial" id=5]
 light_mode = 1
 
-[sub_resource type="CanvasItemMaterial" id=72]
+[sub_resource type="CanvasItemMaterial" id=6]
 light_mode = 1
 
-[sub_resource type="Animation" id=73]
+[sub_resource type="Animation" id=7]
 length = 0.4
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -60,7 +60,7 @@ tracks/1/keys = {
 "values": [ 9, 10 ]
 }
 
-[sub_resource type="Animation" id=74]
+[sub_resource type="Animation" id=8]
 resource_name = "give"
 length = 1.5
 tracks/0/type = "value"
@@ -136,7 +136,7 @@ tracks/5/keys = {
 "values": [ false ]
 }
 
-[sub_resource type="Animation" id=75]
+[sub_resource type="Animation" id=9]
 length = 0.6
 loop = true
 tracks/0/type = "value"
@@ -164,7 +164,7 @@ tracks/1/keys = {
 "values": [ 2, 3 ]
 }
 
-[sub_resource type="Animation" id=76]
+[sub_resource type="Animation" id=10]
 length = 0.4
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -191,7 +191,7 @@ tracks/1/keys = {
 "values": [ 5, 6, 7, 8 ]
 }
 
-[sub_resource type="Animation" id=77]
+[sub_resource type="Animation" id=11]
 length = 0.2
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -218,7 +218,7 @@ tracks/1/keys = {
 "values": [ 11 ]
 }
 
-[sub_resource type="Animation" id=78]
+[sub_resource type="Animation" id=12]
 length = 0.4
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -245,7 +245,7 @@ tracks/1/keys = {
 "values": [ 0, 1, 0 ]
 }
 
-[sub_resource type="Animation" id=79]
+[sub_resource type="Animation" id=13]
 resource_name = "plant_take"
 length = 0.4
 tracks/0/type = "value"
@@ -273,7 +273,7 @@ tracks/1/keys = {
 "values": [ 19, 20, 19 ]
 }
 
-[sub_resource type="Animation" id=80]
+[sub_resource type="Animation" id=14]
 length = 0.4
 loop = true
 tracks/0/type = "value"
@@ -295,10 +295,10 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 0.4 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ false, true ]
+"values": [ false ]
 }
 tracks/2/type = "value"
 tracks/2/path = NodePath("Sprite/fir_sled:visible")
@@ -307,10 +307,10 @@ tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0, 0.4 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ true, false ]
+"values": [ true ]
 }
 tracks/3/type = "value"
 tracks/3/path = NodePath("collision box:disabled")
@@ -319,10 +319,10 @@ tracks/3/loop_wrap = true
 tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/keys = {
-"times": PoolRealArray( 0, 0.4 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ true, false ]
+"values": [ true ]
 }
 tracks/4/type = "value"
 tracks/4/path = NodePath("plant/Sprite:frame")
@@ -337,7 +337,47 @@ tracks/4/keys = {
 "values": [ 15, 16 ]
 }
 
-[sub_resource type="Animation" id=81]
+[sub_resource type="Animation" id=68]
+resource_name = "stop_slide"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("collision box:disabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite/fir_sled:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("slide:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=15]
 length = 0.8
 loop = true
 tracks/0/type = "value"
@@ -365,156 +405,163 @@ tracks/1/keys = {
 "values": [ 12, 13, 12, 14 ]
 }
 
-[sub_resource type="AnimationNodeAnimation" id=82]
+[sub_resource type="AnimationNodeAnimation" id=16]
 animation = "fall"
 
-[sub_resource type="AnimationNodeAnimation" id=83]
+[sub_resource type="AnimationNodeAnimation" id=17]
 animation = "give"
 
-[sub_resource type="AnimationNodeAnimation" id=84]
+[sub_resource type="AnimationNodeAnimation" id=18]
 animation = "idle"
 
-[sub_resource type="AnimationNodeAnimation" id=85]
+[sub_resource type="AnimationNodeAnimation" id=19]
 animation = "jump"
 
-[sub_resource type="AnimationNodeAnimation" id=86]
+[sub_resource type="AnimationNodeAnimation" id=20]
 animation = "land"
 
-[sub_resource type="AnimationNodeAnimation" id=87]
+[sub_resource type="AnimationNodeAnimation" id=21]
 animation = "pickup"
 
-[sub_resource type="AnimationNodeAnimation" id=88]
+[sub_resource type="AnimationNodeAnimation" id=22]
 animation = "plant_take"
 
-[sub_resource type="AnimationNodeAnimation" id=89]
+[sub_resource type="AnimationNodeAnimation" id=23]
 animation = "slide"
 
-[sub_resource type="AnimationNodeAnimation" id=90]
+[sub_resource type="AnimationNodeAnimation" id=69]
+animation = "stop_slide"
+
+[sub_resource type="AnimationNodeAnimation" id=24]
 animation = "walk"
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=91]
+[sub_resource type="AnimationNodeStateMachineTransition" id=25]
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=92]
+[sub_resource type="AnimationNodeStateMachineTransition" id=26]
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=93]
+[sub_resource type="AnimationNodeStateMachineTransition" id=27]
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=94]
+[sub_resource type="AnimationNodeStateMachineTransition" id=28]
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=95]
+[sub_resource type="AnimationNodeStateMachineTransition" id=29]
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=96]
+[sub_resource type="AnimationNodeStateMachineTransition" id=30]
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=97]
+[sub_resource type="AnimationNodeStateMachineTransition" id=31]
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=98]
+[sub_resource type="AnimationNodeStateMachineTransition" id=32]
 switch_mode = 2
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=99]
+[sub_resource type="AnimationNodeStateMachineTransition" id=33]
 switch_mode = 2
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=100]
+[sub_resource type="AnimationNodeStateMachineTransition" id=34]
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=101]
+[sub_resource type="AnimationNodeStateMachineTransition" id=35]
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=102]
+[sub_resource type="AnimationNodeStateMachineTransition" id=36]
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=103]
+[sub_resource type="AnimationNodeStateMachineTransition" id=37]
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=104]
+[sub_resource type="AnimationNodeStateMachineTransition" id=38]
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=105]
+[sub_resource type="AnimationNodeStateMachineTransition" id=41]
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=106]
-
-[sub_resource type="AnimationNodeStateMachineTransition" id=107]
-
-[sub_resource type="AnimationNodeStateMachineTransition" id=108]
-
-[sub_resource type="AnimationNodeStateMachineTransition" id=109]
+[sub_resource type="AnimationNodeStateMachineTransition" id=43]
 switch_mode = 2
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=110]
+[sub_resource type="AnimationNodeStateMachineTransition" id=44]
 switch_mode = 2
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=111]
+[sub_resource type="AnimationNodeStateMachineTransition" id=45]
 switch_mode = 2
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=112]
+[sub_resource type="AnimationNodeStateMachineTransition" id=46]
 switch_mode = 2
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=113]
+[sub_resource type="AnimationNodeStateMachineTransition" id=47]
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=114]
+[sub_resource type="AnimationNodeStateMachineTransition" id=49]
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=115]
+[sub_resource type="AnimationNodeStateMachineTransition" id=50]
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=116]
+[sub_resource type="AnimationNodeStateMachineTransition" id=51]
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=117]
-
-[sub_resource type="AnimationNodeStateMachineTransition" id=118]
+[sub_resource type="AnimationNodeStateMachineTransition" id=52]
 switch_mode = 2
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=119]
+[sub_resource type="AnimationNodeStateMachineTransition" id=53]
 switch_mode = 2
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=120]
+[sub_resource type="AnimationNodeStateMachineTransition" id=54]
 switch_mode = 2
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=121]
+[sub_resource type="AnimationNodeStateMachineTransition" id=55]
 switch_mode = 2
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=122]
+[sub_resource type="AnimationNodeStateMachineTransition" id=56]
 switch_mode = 2
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=123]
+[sub_resource type="AnimationNodeStateMachineTransition" id=57]
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=124]
+[sub_resource type="AnimationNodeStateMachineTransition" id=59]
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=125]
+[sub_resource type="AnimationNodeStateMachineTransition" id=60]
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=126]
+[sub_resource type="AnimationNodeStateMachineTransition" id=70]
 
-[sub_resource type="AnimationNodeStateMachine" id=127]
-states/fall/node = SubResource( 82 )
+[sub_resource type="AnimationNodeStateMachineTransition" id=71]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=72]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=73]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=74]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=75]
+
+[sub_resource type="AnimationNodeStateMachine" id=61]
+states/fall/node = SubResource( 16 )
 states/fall/position = Vector2( 620, 57.5 )
-states/give/node = SubResource( 83 )
+states/give/node = SubResource( 17 )
 states/give/position = Vector2( 89, 243.5 )
-states/idle/node = SubResource( 84 )
+states/idle/node = SubResource( 18 )
 states/idle/position = Vector2( 152.5, 159 )
-states/jump/node = SubResource( 85 )
+states/jump/node = SubResource( 19 )
 states/jump/position = Vector2( 418.5, 32.5 )
-states/land/node = SubResource( 86 )
+states/land/node = SubResource( 20 )
 states/land/position = Vector2( 713.5, 171.938 )
-states/pickup/node = SubResource( 87 )
+states/pickup/node = SubResource( 21 )
 states/pickup/position = Vector2( 195.562, 319.671 )
-states/plant_take/node = SubResource( 88 )
+states/plant_take/node = SubResource( 22 )
 states/plant_take/position = Vector2( 454.763, 317.652 )
-states/slide/node = SubResource( 89 )
-states/slide/position = Vector2( 193.5, 23.5 )
-states/walk/node = SubResource( 90 )
+states/slide/node = SubResource( 23 )
+states/slide/position = Vector2( 74, -41.5 )
+states/stop_slide/node = SubResource( 69 )
+states/stop_slide/position = Vector2( 410.945, 214.18 )
+states/walk/node = SubResource( 24 )
 states/walk/position = Vector2( 350.5, 107.5 )
-transitions = [ "idle", "walk", SubResource( 91 ), "walk", "jump", SubResource( 92 ), "idle", "jump", SubResource( 93 ), "jump", "fall", SubResource( 94 ), "fall", "land", SubResource( 95 ), "land", "jump", SubResource( 96 ), "land", "fall", SubResource( 97 ), "land", "walk", SubResource( 98 ), "land", "idle", SubResource( 99 ), "idle", "fall", SubResource( 100 ), "walk", "fall", SubResource( 101 ), "walk", "idle", SubResource( 102 ), "idle", "slide", SubResource( 103 ), "walk", "slide", SubResource( 104 ), "slide", "idle", SubResource( 105 ), "slide", "walk", SubResource( 106 ), "land", "slide", SubResource( 107 ), "slide", "jump", SubResource( 108 ), "pickup", "idle", SubResource( 109 ), "pickup", "walk", SubResource( 110 ), "pickup", "land", SubResource( 111 ), "pickup", "slide", SubResource( 112 ), "idle", "pickup", SubResource( 113 ), "slide", "pickup", SubResource( 114 ), "walk", "pickup", SubResource( 115 ), "land", "pickup", SubResource( 116 ), "idle", "give", SubResource( 117 ), "give", "idle", SubResource( 118 ), "plant_take", "idle", SubResource( 119 ), "plant_take", "slide", SubResource( 120 ), "plant_take", "walk", SubResource( 121 ), "plant_take", "land", SubResource( 122 ), "idle", "plant_take", SubResource( 123 ), "slide", "plant_take", SubResource( 124 ), "walk", "plant_take", SubResource( 125 ), "land", "plant_take", SubResource( 126 ) ]
+transitions = [ "idle", "walk", SubResource( 25 ), "walk", "jump", SubResource( 26 ), "idle", "jump", SubResource( 27 ), "jump", "fall", SubResource( 28 ), "fall", "land", SubResource( 29 ), "land", "jump", SubResource( 30 ), "land", "fall", SubResource( 31 ), "land", "walk", SubResource( 32 ), "land", "idle", SubResource( 33 ), "idle", "fall", SubResource( 34 ), "walk", "fall", SubResource( 35 ), "walk", "idle", SubResource( 36 ), "idle", "slide", SubResource( 37 ), "walk", "slide", SubResource( 38 ), "land", "slide", SubResource( 41 ), "pickup", "idle", SubResource( 43 ), "pickup", "walk", SubResource( 44 ), "pickup", "land", SubResource( 45 ), "pickup", "slide", SubResource( 46 ), "idle", "pickup", SubResource( 47 ), "walk", "pickup", SubResource( 49 ), "land", "pickup", SubResource( 50 ), "idle", "give", SubResource( 51 ), "give", "idle", SubResource( 52 ), "plant_take", "idle", SubResource( 53 ), "plant_take", "slide", SubResource( 54 ), "plant_take", "walk", SubResource( 55 ), "plant_take", "land", SubResource( 56 ), "idle", "plant_take", SubResource( 57 ), "walk", "plant_take", SubResource( 59 ), "land", "plant_take", SubResource( 60 ), "stop_slide", "idle", SubResource( 70 ), "stop_slide", "pickup", SubResource( 71 ), "stop_slide", "plant_take", SubResource( 72 ), "stop_slide", "walk", SubResource( 73 ), "stop_slide", "jump", SubResource( 74 ), "slide", "stop_slide", SubResource( 75 ) ]
 start_node = "idle"
-graph_offset = Vector2( 82.4925, -92.7152 )
+graph_offset = Vector2( 58.6576, -77.2999 )
 
-[sub_resource type="AnimationNodeStateMachinePlayback" id=128]
+[sub_resource type="AnimationNodeStateMachinePlayback" id=62]
 
-[sub_resource type="DynamicFont" id=129]
+[sub_resource type="DynamicFont" id=63]
 size = 48
 font_data = ExtResource( 4 )
 
-[sub_resource type="CanvasItemMaterial" id=138]
+[sub_resource type="CanvasItemMaterial" id=64]
 light_mode = 1
 
-[sub_resource type="CanvasItemMaterial" id=139]
+[sub_resource type="CanvasItemMaterial" id=65]
 blend_mode = 1
 
-[sub_resource type="CapsuleShape2D" id=140]
+[sub_resource type="CapsuleShape2D" id=66]
 radius = 70.7058
 height = 37.4508
 
-[sub_resource type="AnimatedTexture" id=141]
+[sub_resource type="AnimatedTexture" id=67]
 flags = 4
 frames = 5
 frame_0/texture = ExtResource( 12 )
@@ -530,7 +577,7 @@ frame_4/delay_sec = 0.0
 [node name="player" type="KinematicBody2D" groups=[
 "player",
 ]]
-material = SubResource( 67 )
+material = SubResource( 1 )
 collision_mask = 0
 script = ExtResource( 2 )
 
@@ -540,7 +587,7 @@ collision_mask = 4
 
 [node name="standsize" type="CollisionShape2D" parent="canstand"]
 position = Vector2( 0, 11.598 )
-shape = SubResource( 68 )
+shape = SubResource( 2 )
 
 [node name="range" type="KinematicBody2D" parent="." groups=[
 "range",
@@ -552,20 +599,20 @@ collision_mask = 8
 "player",
 ]]
 position = Vector2( 0, 10 )
-shape = SubResource( 69 )
+shape = SubResource( 3 )
 
 [node name="collision box" type="CollisionShape2D" parent="." groups=[
 "player",
 ]]
 position = Vector2( 0, 10 )
-shape = SubResource( 69 )
-disabled = true
+shape = SubResource( 3 )
 
 [node name="slide" type="CollisionShape2D" parent="." groups=[
 "player",
 ]]
 position = Vector2( 3.27003, 44.1753 )
-shape = SubResource( 70 )
+shape = SubResource( 4 )
+disabled = true
 
 [node name="Light2D" type="Light2D" parent="."]
 scale = Vector2( 0.6, 0.6 )
@@ -578,22 +625,23 @@ shadow_gradient_length = 3.0
 
 [node name="Sprite" type="Sprite" parent="."]
 light_mask = 0
-material = SubResource( 71 )
+material = SubResource( 5 )
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 1 )
 hframes = 5
 vframes = 5
-frame = 13
+frame = 15
 
 [node name="berry" type="Sprite" parent="Sprite"]
 visible = false
 light_mask = 0
-material = SubResource( 72 )
+material = SubResource( 6 )
 position = Vector2( 64, 7 )
 scale = Vector2( 0.3, 0.3 )
 texture = ExtResource( 6 )
 
 [node name="fir_sled" type="Sprite" parent="Sprite"]
+visible = false
 show_behind_parent = true
 light_mask = 0
 position = Vector2( 24.9562, 129.789 )
@@ -602,62 +650,65 @@ texture = ExtResource( 3 )
 offset = Vector2( -171.609, -125.012 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/fall = SubResource( 73 )
-anims/give = SubResource( 74 )
-anims/idle = SubResource( 75 )
-anims/jump = SubResource( 76 )
-anims/land = SubResource( 77 )
-anims/pickup = SubResource( 78 )
-anims/plant_take = SubResource( 79 )
-anims/slide = SubResource( 80 )
-anims/walk = SubResource( 81 )
+anims/fall = SubResource( 7 )
+anims/give = SubResource( 8 )
+anims/idle = SubResource( 9 )
+anims/jump = SubResource( 10 )
+anims/land = SubResource( 11 )
+anims/pickup = SubResource( 12 )
+anims/plant_take = SubResource( 13 )
+anims/slide = SubResource( 14 )
+anims/stop_slide = SubResource( 68 )
+anims/walk = SubResource( 15 )
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
-tree_root = SubResource( 127 )
+tree_root = SubResource( 61 )
 anim_player = NodePath("../AnimationPlayer")
-parameters/playback = SubResource( 128 )
+parameters/playback = SubResource( 62 )
 
 [node name="floor_raycast" type="Node2D" parent="."]
 
 [node name="RayCast2D" type="RayCast2D" parent="floor_raycast"]
 enabled = true
 cast_to = Vector2( 0, 60 )
-collision_mask = 4
+collision_mask = 20
 
 [node name="RayCast2D2" type="RayCast2D" parent="floor_raycast"]
 position = Vector2( -12, 0 )
 enabled = true
 cast_to = Vector2( 0, 60 )
-collision_mask = 4
+collision_mask = 20
 
 [node name="RayCast2D3" type="RayCast2D" parent="floor_raycast"]
 position = Vector2( 12, 0 )
 enabled = true
 cast_to = Vector2( 0, 60 )
-collision_mask = 4
+collision_mask = 20
 
 [node name="stand_raycast" type="Node2D" parent="."]
 
 [node name="RayCast2D" type="RayCast2D" parent="stand_raycast"]
 position = Vector2( 12, 40 )
+enabled = true
 cast_to = Vector2( 0, -65 )
-collision_mask = 4
+collision_mask = 16
 
 [node name="RayCast2D2" type="RayCast2D" parent="stand_raycast"]
 position = Vector2( 0, 40 )
+enabled = true
 cast_to = Vector2( 0, -65 )
-collision_mask = 4
+collision_mask = 16
 
 [node name="RayCast2D3" type="RayCast2D" parent="stand_raycast"]
 position = Vector2( -12, 40 )
+enabled = true
 cast_to = Vector2( 0, -65 )
-collision_mask = 4
+collision_mask = 16
 
 [node name="Label" type="Label" parent="."]
-visible = false
 margin_right = 89.0
 margin_bottom = 49.0
-custom_fonts/font = SubResource( 129 )
+custom_fonts/font = SubResource( 63 )
 text = "a"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -669,18 +720,18 @@ script = ExtResource( 8 )
 
 [node name="Sprite" type="Sprite" parent="plant"]
 light_mask = 0
-material = SubResource( 138 )
+material = SubResource( 64 )
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 7 )
 hframes = 5
 vframes = 5
-frame = 17
+frame = 15
 
 [node name="Sprite2" type="Sprite" parent="plant/Sprite"]
 modulate = Color( 0.454902, 0.686275, 0.533333, 0.607843 )
 show_behind_parent = true
 light_mask = 0
-material = SubResource( 139 )
+material = SubResource( 65 )
 position = Vector2( 5.16804, -77.9005 )
 scale = Vector2( 0.3, 0.3 )
 z_index = -1
@@ -694,7 +745,7 @@ collision_mask = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="plant/plant"]
 light_mask = 0
-shape = SubResource( 140 )
+shape = SubResource( 66 )
 
 [node name="plant_area" type="Area2D" parent="plant"]
 collision_layer = 8
@@ -702,14 +753,14 @@ collision_mask = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="plant/plant_area"]
 light_mask = 0
-shape = SubResource( 140 )
+shape = SubResource( 66 )
 
 [node name="speedboost" type="Sprite" parent="."]
 visible = false
 modulate = Color( 1, 1, 1, 0.270588 )
 show_behind_parent = true
 position = Vector2( 0, -15 )
-texture = SubResource( 141 )
+texture = SubResource( 67 )
 
 [connection signal="area_entered" from="canstand" to="." method="_on_canstand_area_entered"]
 [connection signal="area_exited" from="canstand" to="." method="_on_canstand_area_exited"]

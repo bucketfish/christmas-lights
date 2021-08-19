@@ -36,6 +36,7 @@ var colors = [
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	
 	$tilemap.modulate = colors[color]
 	item = []
 	for i in range(totalitem):
@@ -58,7 +59,7 @@ func _ready():
 			get_node("/root/game/notebook/notebook").collected.append(notebookitem)
 			get_node("/root/game/notebook/notebook").update_book()
 			get_node("/root/game/gui/notif").show_notif("notebook")
-
+	
 
 
 func _on_finish_load():

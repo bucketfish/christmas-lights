@@ -7,6 +7,7 @@ onready var accept = $NinePatchRect/MarginContainer/VBoxContainer/HBoxContainer/
 #onready var margin = $NinePatchRect/MarginContainer/VBoxContainer/MarginContainer
 
 onready var base = get_node("/root/game")
+onready var player = get_node("/root/game/player")
 
 
 signal purchased(nextline)
@@ -66,6 +67,9 @@ func dialogue_loop(cur):
 					
 				elif i[1] == "get_acc":
 					get_node("/root/game/player").gain_acc(i[2])
+					
+				elif i[1] == "get_ability":
+					player.gain_ability(i[2])
 
 			"c":
 				propagate_call("check", [""])

@@ -74,15 +74,17 @@ var line = {
 		["s", "FIR_INTRO_1", "NAME_FIR"],
 		["s", "FIR_INTRO_2", "NAME_FIR"],
 		["s", "FIR_INTRO_3", "NAME_FIR"],
-		["c", "give_berry", 5, "fir_aftersled", "", "NAME_SAGE"]
+		["c", "give_berry", 5, "fir_aftersled", "", "NAME_FIR"]
 	],
 	
 	"fir_beforesled":[
 		["s", "FIR_BEFORESLED_1", "NAME_FIR"],
-		["c", "give_berry", 5, "fir_aftersled", "", "NAME_SAGE"]
+		["c", "give_berry", 5, "fir_aftersled", "", "NAME_FIR"]
 	],
 	
 	"fir_aftersled":[
+		["a", "get_ability", "slide"],
+		["e", "sled_disappear"],
 		["s", "FIR_AFTERSLED_1", "NAME_FIR"],
 		["s", "FIR_AFTERSLED_2", "NAME_FIR"],
 		["s", "FIR_AFTERSLED_3", "NAME_FIR"],
@@ -90,6 +92,6 @@ var line = {
 	
 	"fir_nothing":[
 		["s", "FIR_NOTHING_1", "NAME_FIR"],
-		["s", "FIR_NOTHING_1", "NAME_FIR"],
+		["s", "FIR_NOTHING_2", "NAME_FIR"],
 	]
 }

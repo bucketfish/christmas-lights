@@ -24,6 +24,7 @@ shadow = false
 
 [node name="fir" parent="." index="2" instance=ExtResource( 4 )]
 position = Vector2( 166.526, 192.694 )
+npcname = "fir"
 
 [node name="fir_sled" type="Sprite" parent="." index="3"]
 position = Vector2( 233.374, 211.312 )

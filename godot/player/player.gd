@@ -111,6 +111,7 @@ func get_input(delta):
 	var onfloor = raycast("floor")
 	var canstand = raycast("stand")
 	
+	$Label.text = str(canstand)
 	
 	#direction of player
 	var dir = 0
@@ -172,7 +173,7 @@ func get_input(delta):
 
 
 		
-	if (canstand == false && animationState.get_current_node() == "slide"):
+	if (canstand == true && animationState.get_current_node() == "slide"):
 		animationState.travel("slide")
 		
 	elif !inwater && Input.is_action_pressed("jump") && onfloor:
