@@ -30,6 +30,7 @@ func save():
 	return save_dict
 		
 func _on_accept():
+	print("AAA")
 	if inrange:
 		player.give_berry()
 		$KinematicBody2D/text.reappear = false

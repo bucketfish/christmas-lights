@@ -113,6 +113,7 @@ func give_item(item, number):
 	#player gets item
 	emit_signal("give", item, number)
 
+	
 func choice(text, accept_text, cancel_text, amount, name):
 	#player gives item
 	label.bbcode_text = "[center]" + tr(text).format({number = amount, person = tr(name)}) + "[/center]"

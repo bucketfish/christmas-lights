@@ -90,6 +90,7 @@ func _ready():
 	$slide.disabled = true
 	$"collision box".disabled = false
 	base.connect("finish_load", self, "on_load")
+	animationState.travel("idle")
 	
 func on_load():
 	#sync screen items to saved items

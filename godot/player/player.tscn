@@ -135,6 +135,20 @@ tracks/5/keys = {
 "update": 1,
 "values": [ false ]
 }
+tracks/6/type = "method"
+tracks/6/path = NodePath(".")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 1.5 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "berry_end"
+} ]
+}
 
 [sub_resource type="Animation" id=9]
 length = 0.6
@@ -591,7 +605,7 @@ states/walk/node = SubResource( 26 )
 states/walk/position = Vector2( 350.5, 107.5 )
 transitions = [ "idle", "walk", SubResource( 27 ), "walk", "jump", SubResource( 28 ), "idle", "jump", SubResource( 29 ), "jump", "fall", SubResource( 30 ), "fall", "land", SubResource( 31 ), "land", "jump", SubResource( 32 ), "land", "fall", SubResource( 33 ), "land", "walk", SubResource( 34 ), "land", "idle", SubResource( 35 ), "idle", "fall", SubResource( 36 ), "walk", "fall", SubResource( 37 ), "walk", "idle", SubResource( 38 ), "idle", "slide", SubResource( 39 ), "walk", "slide", SubResource( 40 ), "land", "slide", SubResource( 41 ), "pickup", "idle", SubResource( 42 ), "pickup", "walk", SubResource( 43 ), "pickup", "land", SubResource( 44 ), "pickup", "slide", SubResource( 45 ), "idle", "pickup", SubResource( 46 ), "walk", "pickup", SubResource( 47 ), "land", "pickup", SubResource( 48 ), "idle", "give", SubResource( 49 ), "give", "idle", SubResource( 50 ), "plant_take", "idle", SubResource( 51 ), "plant_take", "slide", SubResource( 52 ), "plant_take", "walk", SubResource( 53 ), "plant_take", "land", SubResource( 54 ), "idle", "plant_take", SubResource( 55 ), "walk", "plant_take", SubResource( 56 ), "land", "plant_take", SubResource( 57 ), "stop_slide", "idle", SubResource( 58 ), "stop_slide", "pickup", SubResource( 59 ), "stop_slide", "plant_take", SubResource( 60 ), "stop_slide", "walk", SubResource( 61 ), "stop_slide", "jump", SubResource( 62 ), "slide", "stop_slide", SubResource( 63 ) ]
 start_node = "idle"
-graph_offset = Vector2( 58.6576, -77.2999 )
+graph_offset = Vector2( -72.4349, 112.885 )
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=65]
 
@@ -654,16 +668,15 @@ shape = SubResource( 3 )
 ]]
 position = Vector2( 0, 10 )
 shape = SubResource( 3 )
-disabled = true
 
 [node name="slide" type="CollisionShape2D" parent="." groups=[
 "player",
 ]]
 position = Vector2( 3.27003, 44.1753 )
 shape = SubResource( 4 )
+disabled = true
 
 [node name="Light2D" type="Light2D" parent="."]
-position = Vector2( 0, 45 )
 scale = Vector2( 0.6, 0.6 )
 texture = ExtResource( 5 )
 energy = 1.2
@@ -679,17 +692,18 @@ scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 1 )
 hframes = 5
 vframes = 5
-frame = 15
+frame = 2
 
 [node name="berry" type="Sprite" parent="Sprite"]
 visible = false
 light_mask = 0
 material = SubResource( 6 )
-position = Vector2( 64, 7 )
+position = Vector2( 66, -12 )
 scale = Vector2( 0.3, 0.3 )
 texture = ExtResource( 6 )
 
 [node name="fir_sled" type="Sprite" parent="Sprite"]
+visible = false
 show_behind_parent = true
 light_mask = 0
 position = Vector2( 24.9562, 129.789 )
@@ -774,14 +788,14 @@ scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 7 )
 hframes = 5
 vframes = 5
-frame = 15
+frame = 2
 
 [node name="Sprite2" type="Sprite" parent="plant/Sprite"]
 modulate = Color( 0.454902, 0.686275, 0.533333, 0.607843 )
 show_behind_parent = true
 light_mask = 0
 material = SubResource( 68 )
-position = Vector2( -66.763, 22.651 )
+position = Vector2( 5.16804, -77.9005 )
 scale = Vector2( 0.3, 0.3 )
 z_index = -1
 texture = ExtResource( 5 )
